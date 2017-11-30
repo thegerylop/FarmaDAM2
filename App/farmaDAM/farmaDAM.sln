@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.27004.2008
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "farmaDAM", "farmaDAM\farmaDAM.csproj", "{5FDE5218-5E0E-45E1-8EE3-CDF86959821F}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaginaPrincipal", "PaginaPrincipal\PaginaPrincipal.csproj", "{53042222-0403-4BC6-B942-FD126C1AB117}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Splash", "Splash\Splash.csproj", "{D403BACF-9DDC-4815-894E-AFA64A170FE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testing", "testing\testing.csproj", "{CECA346F-3045-4B58-99C8-B179BC25AF56}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{D403BACF-9DDC-4815-894E-AFA64A170FE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D403BACF-9DDC-4815-894E-AFA64A170FE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D403BACF-9DDC-4815-894E-AFA64A170FE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CECA346F-3045-4B58-99C8-B179BC25AF56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CECA346F-3045-4B58-99C8-B179BC25AF56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CECA346F-3045-4B58-99C8-B179BC25AF56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CECA346F-3045-4B58-99C8-B179BC25AF56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
