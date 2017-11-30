@@ -31,6 +31,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -41,8 +43,6 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.LinkAcercDe = new System.Windows.Forms.LinkLabel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -79,6 +79,26 @@
             this.panel2.Size = new System.Drawing.Size(160, 89);
             this.panel2.TabIndex = 11;
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(52, 64);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(75, 13);
+            this.linkLabel1.TabIndex = 21;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Tancar Sessió";
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Location = new System.Drawing.Point(45, 37);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(82, 13);
+            this.linkLabel2.TabIndex = 22;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "Modificar dades";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -105,7 +125,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(96, 38);
             this.button1.TabIndex = 13;
-            this.button1.Text = "Laboratoris farmaceutics";
+            this.button1.Text = "Laboratoris Farmaceutics";
             this.button1.UseMnemonic = false;
             this.button1.UseVisualStyleBackColor = true;
             // 
@@ -173,26 +193,6 @@
             this.LinkAcercDe.TabStop = true;
             this.LinkAcercDe.Text = "Acerca de...";
             this.LinkAcercDe.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(52, 64);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(75, 13);
-            this.linkLabel1.TabIndex = 21;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Tancar Sessió";
-            // 
-            // linkLabel2
-            // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(45, 37);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(82, 13);
-            this.linkLabel2.TabIndex = 22;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Modificar dades";
             // 
             // PaginaPrincipal
             // 
