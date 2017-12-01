@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaginaPrincipal", "PaginaPr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Splash", "Splash\Splash.csproj", "{D403BACF-9DDC-4815-894E-AFA64A170FE2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConexioBBDD", "ConexioBBDD\ConexioBBDD.csproj", "{384145E7-5B9B-43CB-92B0-D8BE9B92FDE8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{D403BACF-9DDC-4815-894E-AFA64A170FE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D403BACF-9DDC-4815-894E-AFA64A170FE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D403BACF-9DDC-4815-894E-AFA64A170FE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{384145E7-5B9B-43CB-92B0-D8BE9B92FDE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{384145E7-5B9B-43CB-92B0-D8BE9B92FDE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{384145E7-5B9B-43CB-92B0-D8BE9B92FDE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{384145E7-5B9B-43CB-92B0-D8BE9B92FDE8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
