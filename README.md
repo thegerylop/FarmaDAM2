@@ -2,6 +2,6 @@
 
 # Base de dades
 
- https://g3s2am.sdslab.cat:2083
+Creada amb Mysql
 
-[I'm an inline-style link]https://g3s2am.sdslab.cat:2083
+https://g3s2am.sdslab.cat:2083
