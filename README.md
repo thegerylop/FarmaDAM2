@@ -1,6 +1,10 @@
 # FarmaDAM2
 
-# Base de dades
+## Base de dades
+
+FarmaDAM2/APP
+
+## Base de dades
 
 Creada amb Mysql
 
