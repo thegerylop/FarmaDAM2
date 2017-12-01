@@ -212,6 +212,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "PaginaPrincipal";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.PaginaPrincipal_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

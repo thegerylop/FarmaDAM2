@@ -10,24 +10,34 @@ using System.Windows.Forms;
 
 namespace Splash
 {
-    public partial class splash : Form
+    public partial class Splash : Form
     {
-        public splash()
+        public Splash()
         {
             InitializeComponent();
             timer1.Start();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void timer_Tick(object sender, EventArgs e)
         {
-            progressBar1.Increment(2);
-            if (progressBar1.Value == 100)
+            progressBar.Increment(5);
+            if (progressBar.Value == 100)
             {
                 timer1.Stop();
-                this.Hide();
                 Form frm = new Login.Login();
                 frm.Show();
+                this.Hide();
             }
+        }
+
+        private void progressBar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void farmadamImg_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

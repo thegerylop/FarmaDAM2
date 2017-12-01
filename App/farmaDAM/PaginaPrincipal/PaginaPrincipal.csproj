@@ -79,9 +79,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\farmaDAM\farmaDAM.csproj">
+    <ProjectReference Include="..\farmaDAM\AcercaDe.csproj">
       <Project>{5fde5218-5e0e-45e1-8ee3-cdf86959821f}</Project>
-      <Name>farmaDAM</Name>
+      <Name>AcercaDe</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

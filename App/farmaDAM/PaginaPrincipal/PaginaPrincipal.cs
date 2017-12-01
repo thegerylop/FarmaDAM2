@@ -23,5 +23,10 @@ namespace PaginaPrincipal
             Form frm = new farmaDAM.AcercaDe();
             frm.Show();
         }
+
+        private void PaginaPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

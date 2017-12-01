@@ -79,9 +79,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\farmaDAM\farmaDAM.csproj">
+    <ProjectReference Include="..\farmaDAM\AcercaDe.csproj">
       <Project>{5fde5218-5e0e-45e1-8ee3-cdf86959821f}</Project>
-      <Name>farmaDAM</Name>
+      <Name>AcercaDe</Name>
     </ProjectReference>
     <ProjectReference Include="..\PaginaPrincipal\PaginaPrincipal.csproj">
       <Project>{53042222-0403-4bc6-b942-fd126c1ab117}</Project>

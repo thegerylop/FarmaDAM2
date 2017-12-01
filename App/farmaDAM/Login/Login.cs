@@ -17,7 +17,7 @@ namespace Login
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void iniciarBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
             Form frm = new PaginaPrincipal.PaginaPrincipal();

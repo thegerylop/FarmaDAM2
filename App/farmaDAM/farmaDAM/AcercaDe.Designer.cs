@@ -29,65 +29,65 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AcercaDe));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.farmacioImg = new System.Windows.Forms.PictureBox();
+            this.descripcionLbl = new System.Windows.Forms.Label();
+            this.versionLbl = new System.Windows.Forms.Label();
+            this.tituloLbl = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.farmacioImg)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // farmacioImg
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(21, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(133, 312);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.farmacioImg.Image = ((System.Drawing.Image)(resources.GetObject("farmacioImg.Image")));
+            this.farmacioImg.Location = new System.Drawing.Point(21, 12);
+            this.farmacioImg.Name = "farmacioImg";
+            this.farmacioImg.Size = new System.Drawing.Size(133, 312);
+            this.farmacioImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.farmacioImg.TabIndex = 0;
+            this.farmacioImg.TabStop = false;
             // 
-            // label1
+            // descripcionLbl
             // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(191, 102);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(295, 123);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "FarmaDAM és una empresa farmaceutica especialitzada en analitzar les noves oportu" +
+            this.descripcionLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.descripcionLbl.Location = new System.Drawing.Point(191, 102);
+            this.descripcionLbl.Name = "descripcionLbl";
+            this.descripcionLbl.Size = new System.Drawing.Size(295, 123);
+            this.descripcionLbl.TabIndex = 1;
+            this.descripcionLbl.Text = "FarmaDAM és una empresa farmaceutica especialitzada en analitzar les noves oportu" +
     "nitats en la salud proporcionant els ultims medicaments proporcionats";
             // 
-            // label2
+            // versionLbl
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(389, 304);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 20);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Versió: 1.0.1";
+            this.versionLbl.AutoSize = true;
+            this.versionLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.versionLbl.Location = new System.Drawing.Point(389, 304);
+            this.versionLbl.Name = "versionLbl";
+            this.versionLbl.Size = new System.Drawing.Size(97, 20);
+            this.versionLbl.TabIndex = 2;
+            this.versionLbl.Text = "Versió: 1.0.1";
             // 
-            // label3
+            // tituloLbl
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(225, 27);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(210, 46);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "farmaDAM";
+            this.tituloLbl.AutoSize = true;
+            this.tituloLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tituloLbl.Location = new System.Drawing.Point(187, 29);
+            this.tituloLbl.Name = "tituloLbl";
+            this.tituloLbl.Size = new System.Drawing.Size(210, 46);
+            this.tituloLbl.TabIndex = 3;
+            this.tituloLbl.Text = "farmaDAM";
             // 
             // AcercaDe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(510, 347);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.tituloLbl);
+            this.Controls.Add(this.versionLbl);
+            this.Controls.Add(this.descripcionLbl);
+            this.Controls.Add(this.farmacioImg);
             this.Name = "AcercaDe";
             this.Text = "Acerca de";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.farmacioImg)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -95,10 +95,10 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox farmacioImg;
+        private System.Windows.Forms.Label descripcionLbl;
+        private System.Windows.Forms.Label versionLbl;
+        private System.Windows.Forms.Label tituloLbl;
     }
 }
 
