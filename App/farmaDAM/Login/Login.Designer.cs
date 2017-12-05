@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.subtituloLbl = new System.Windows.Forms.Label();
-            this.userTxb = new System.Windows.Forms.TextBox();
-            this.passwordTxb = new System.Windows.Forms.TextBox();
             this.iniciarBtn = new System.Windows.Forms.Button();
             this.panelPnl = new System.Windows.Forms.Panel();
             this.tituloLbl = new System.Windows.Forms.Label();
+            this.customControlTB1 = new CustomControlTB.CustomControlTB();
+            this.customControlTB2 = new CustomControlTB.CustomControlTB();
             this.panelPnl.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,23 +46,6 @@
             this.subtituloLbl.Size = new System.Drawing.Size(80, 31);
             this.subtituloLbl.TabIndex = 4;
             this.subtituloLbl.Text = "Login";
-            // 
-            // userTxb
-            // 
-            this.userTxb.Location = new System.Drawing.Point(206, 175);
-            this.userTxb.Name = "userTxb";
-            this.userTxb.Size = new System.Drawing.Size(202, 20);
-            this.userTxb.TabIndex = 5;
-            this.userTxb.Text = "Usuario";
-            // 
-            // passwordTxb
-            // 
-            this.passwordTxb.Location = new System.Drawing.Point(206, 223);
-            this.passwordTxb.Name = "passwordTxb";
-            this.passwordTxb.PasswordChar = '*';
-            this.passwordTxb.Size = new System.Drawing.Size(202, 20);
-            this.passwordTxb.TabIndex = 6;
-            this.passwordTxb.Text = "Password";
             // 
             // iniciarBtn
             // 
@@ -94,15 +77,31 @@
             this.tituloLbl.TabIndex = 7;
             this.tituloLbl.Text = "FarmaDAM";
             // 
+            // customControlTB1
+            // 
+            this.customControlTB1.Location = new System.Drawing.Point(206, 165);
+            this.customControlTB1.Name = "customControlTB1";
+            this.customControlTB1.Placeholder = "Login";
+            this.customControlTB1.Size = new System.Drawing.Size(197, 27);
+            this.customControlTB1.TabIndex = 10;
+            // 
+            // customControlTB2
+            // 
+            this.customControlTB2.Location = new System.Drawing.Point(206, 214);
+            this.customControlTB2.Name = "customControlTB2";
+            this.customControlTB2.Placeholder = "Password";
+            this.customControlTB2.Size = new System.Drawing.Size(197, 27);
+            this.customControlTB2.TabIndex = 11;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(603, 335);
+            this.Controls.Add(this.customControlTB2);
+            this.Controls.Add(this.customControlTB1);
             this.Controls.Add(this.panelPnl);
             this.Controls.Add(this.iniciarBtn);
-            this.Controls.Add(this.passwordTxb);
-            this.Controls.Add(this.userTxb);
             this.Controls.Add(this.subtituloLbl);
             this.Name = "Login";
             this.Text = "Form1";
@@ -116,11 +115,11 @@
         #endregion
 
         private System.Windows.Forms.Label subtituloLbl;
-        private System.Windows.Forms.TextBox userTxb;
-        private System.Windows.Forms.TextBox passwordTxb;
         private System.Windows.Forms.Button iniciarBtn;
         private System.Windows.Forms.Panel panelPnl;
         private System.Windows.Forms.Label tituloLbl;
+        private CustomControlTB.CustomControlTB customControlTB1;
+        private CustomControlTB.CustomControlTB customControlTB2;
     }
 }
 

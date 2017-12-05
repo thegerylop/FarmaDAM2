@@ -79,6 +79,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CustomControlTB\CustomControlTB.csproj">
+      <Project>{5a96e7f7-6941-4e6b-8379-e8c51eae3768}</Project>
+      <Name>CustomControlTB</Name>
+    </ProjectReference>
     <ProjectReference Include="..\farmaDAM\AcercaDe.csproj">
       <Project>{5fde5218-5e0e-45e1-8ee3-cdf86959821f}</Project>
       <Name>AcercaDe</Name>
