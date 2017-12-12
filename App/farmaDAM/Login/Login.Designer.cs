@@ -32,8 +32,8 @@
             this.iniciarBtn = new System.Windows.Forms.Button();
             this.panelPnl = new System.Windows.Forms.Panel();
             this.tituloLbl = new System.Windows.Forms.Label();
-            this.customControlTB1 = new CustomControlTB.CustomControlTB();
             this.customControlTB2 = new CustomControlTB.CustomControlTB();
+            this.customControlTB1 = new CustomControlTB.CustomControlTB();
             this.panelPnl.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,21 +77,24 @@
             this.tituloLbl.TabIndex = 7;
             this.tituloLbl.Text = "FarmaDAM";
             // 
-            // customControlTB1
-            // 
-            this.customControlTB1.Location = new System.Drawing.Point(206, 165);
-            this.customControlTB1.Name = "customControlTB1";
-            this.customControlTB1.Placeholder = "Login";
-            this.customControlTB1.Size = new System.Drawing.Size(197, 27);
-            this.customControlTB1.TabIndex = 10;
-            // 
             // customControlTB2
             // 
             this.customControlTB2.Location = new System.Drawing.Point(206, 214);
             this.customControlTB2.Name = "customControlTB2";
+            this.customControlTB2.Options = CustomControlTB.CustomControlTB.Items.Password;
             this.customControlTB2.Placeholder = "Password";
             this.customControlTB2.Size = new System.Drawing.Size(197, 27);
             this.customControlTB2.TabIndex = 11;
+            // 
+            // customControlTB1
+            // 
+            this.customControlTB1.Location = new System.Drawing.Point(206, 165);
+            this.customControlTB1.Name = "customControlTB1";
+            this.customControlTB1.Options = CustomControlTB.CustomControlTB.Items.Password;
+            this.customControlTB1.Placeholder = "Login";
+            this.customControlTB1.Size = new System.Drawing.Size(197, 27);
+            this.customControlTB1.TabIndex = 10;
+            this.customControlTB1.Leave += new System.EventHandler(this.customControlTB1_Leave);
             // 
             // Login
             // 

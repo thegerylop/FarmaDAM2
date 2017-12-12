@@ -23,5 +23,10 @@ namespace Login
             Form frm = new PaginaPrincipal.PaginaPrincipal();
             frm.Show();
         }
+
+        private void customControlTB1_Leave(object sender, EventArgs e)
+        {
+
+        }
     }
 }
