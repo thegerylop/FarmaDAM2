@@ -94,7 +94,6 @@
             this.customControlTB1.Placeholder = "Login";
             this.customControlTB1.Size = new System.Drawing.Size(197, 27);
             this.customControlTB1.TabIndex = 10;
-            this.customControlTB1.Leave += new System.EventHandler(this.customControlTB1_Leave);
             // 
             // Login
             // 
