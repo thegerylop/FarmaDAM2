@@ -30,83 +30,93 @@
         {
             this.subtituloLbl = new System.Windows.Forms.Label();
             this.iniciarBtn = new System.Windows.Forms.Button();
-            this.panelPnl = new System.Windows.Forms.Panel();
-            this.tituloLbl = new System.Windows.Forms.Label();
             this.customControlTB1 = new CustomControlTB.CustomControlTB();
             this.customControlTB2 = new CustomControlTB.CustomControlTB();
-            this.panelPnl.SuspendLayout();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // subtituloLbl
             // 
             this.subtituloLbl.AutoSize = true;
-            this.subtituloLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subtituloLbl.Location = new System.Drawing.Point(266, 118);
+            this.subtituloLbl.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.subtituloLbl.Location = new System.Drawing.Point(199, 198);
             this.subtituloLbl.Name = "subtituloLbl";
-            this.subtituloLbl.Size = new System.Drawing.Size(80, 31);
+            this.subtituloLbl.Size = new System.Drawing.Size(85, 33);
             this.subtituloLbl.TabIndex = 4;
             this.subtituloLbl.Text = "Login";
             // 
             // iniciarBtn
             // 
-            this.iniciarBtn.Location = new System.Drawing.Point(333, 267);
+            this.iniciarBtn.BackColor = System.Drawing.Color.Transparent;
+            this.iniciarBtn.Location = new System.Drawing.Point(193, 315);
             this.iniciarBtn.Name = "iniciarBtn";
-            this.iniciarBtn.Size = new System.Drawing.Size(75, 23);
+            this.iniciarBtn.Size = new System.Drawing.Size(107, 32);
             this.iniciarBtn.TabIndex = 8;
             this.iniciarBtn.Text = "Iniciar Sessió";
-            this.iniciarBtn.UseVisualStyleBackColor = true;
+            this.iniciarBtn.UseVisualStyleBackColor = false;
             this.iniciarBtn.Click += new System.EventHandler(this.iniciarBtn_Click);
-            // 
-            // panelPnl
-            // 
-            this.panelPnl.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panelPnl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelPnl.Controls.Add(this.tituloLbl);
-            this.panelPnl.Location = new System.Drawing.Point(0, 0);
-            this.panelPnl.Name = "panelPnl";
-            this.panelPnl.Size = new System.Drawing.Size(603, 89);
-            this.panelPnl.TabIndex = 9;
-            // 
-            // tituloLbl
-            // 
-            this.tituloLbl.AutoSize = true;
-            this.tituloLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tituloLbl.Location = new System.Drawing.Point(197, 22);
-            this.tituloLbl.Name = "tituloLbl";
-            this.tituloLbl.Size = new System.Drawing.Size(223, 46);
-            this.tituloLbl.TabIndex = 7;
-            this.tituloLbl.Text = "FarmaDAM";
             // 
             // customControlTB1
             // 
-            this.customControlTB1.Location = new System.Drawing.Point(206, 165);
+            this.customControlTB1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customControlTB1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.customControlTB1.Location = new System.Drawing.Point(134, 248);
+            this.customControlTB1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.customControlTB1.Name = "customControlTB1";
             this.customControlTB1.Placeholder = "Login";
-            this.customControlTB1.Size = new System.Drawing.Size(197, 27);
+            this.customControlTB1.Size = new System.Drawing.Size(234, 34);
             this.customControlTB1.TabIndex = 10;
             // 
             // customControlTB2
             // 
-            this.customControlTB2.Location = new System.Drawing.Point(206, 214);
+            this.customControlTB2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customControlTB2.Location = new System.Drawing.Point(134, 279);
+            this.customControlTB2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.customControlTB2.Name = "customControlTB2";
             this.customControlTB2.Placeholder = "Password";
-            this.customControlTB2.Size = new System.Drawing.Size(197, 27);
+            this.customControlTB2.Size = new System.Drawing.Size(234, 31);
             this.customControlTB2.TabIndex = 11;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Gray;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(510, 19);
+            this.panel1.TabIndex = 8;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox1.Image = global::Login.Properties.Resources.logofarma;
+            this.pictureBox1.Location = new System.Drawing.Point(160, 28);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(165, 161);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(603, 335);
+            this.BackColor = System.Drawing.Color.White;
+            this.CausesValidation = false;
+            this.ClientSize = new System.Drawing.Size(510, 374);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.customControlTB2);
             this.Controls.Add(this.customControlTB1);
-            this.Controls.Add(this.panelPnl);
             this.Controls.Add(this.iniciarBtn);
             this.Controls.Add(this.subtituloLbl);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            this.panelPnl.ResumeLayout(false);
-            this.panelPnl.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -116,10 +126,10 @@
 
         private System.Windows.Forms.Label subtituloLbl;
         private System.Windows.Forms.Button iniciarBtn;
-        private System.Windows.Forms.Panel panelPnl;
-        private System.Windows.Forms.Label tituloLbl;
         private CustomControlTB.CustomControlTB customControlTB1;
         private CustomControlTB.CustomControlTB customControlTB2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
