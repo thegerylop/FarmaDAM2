@@ -43,6 +43,8 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.LinkAcercDe = new System.Windows.Forms.LinkLabel();
+            this.button8 = new System.Windows.Forms.Button();
+            this.buttonCreateTest = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -194,11 +196,30 @@
             this.LinkAcercDe.Text = "Acerca de...";
             this.LinkAcercDe.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(0, 0);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(75, 23);
+            this.button8.TabIndex = 0;
+            // 
+            // buttonCreateTest
+            // 
+            this.buttonCreateTest.Location = new System.Drawing.Point(451, 243);
+            this.buttonCreateTest.Name = "buttonCreateTest";
+            this.buttonCreateTest.Size = new System.Drawing.Size(96, 38);
+            this.buttonCreateTest.TabIndex = 21;
+            this.buttonCreateTest.Text = "BOTON CREATE TEST";
+            this.buttonCreateTest.UseVisualStyleBackColor = true;
+            this.buttonCreateTest.Click += new System.EventHandler(this.buttonCreateTest_Click);
+            // 
             // PaginaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(603, 335);
+            this.Controls.Add(this.buttonCreateTest);
+            this.Controls.Add(this.button8);
             this.Controls.Add(this.LinkAcercDe);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
@@ -239,6 +260,8 @@
         private System.Windows.Forms.LinkLabel LinkAcercDe;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button buttonCreateTest;
     }
 }
 
