@@ -166,6 +166,7 @@
             this.button5.TabIndex = 17;
             this.button5.Text = "Venda de medicaments";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -175,6 +176,7 @@
             this.button6.TabIndex = 18;
             this.button6.Text = "Manteniment de principis actius";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button7
             // 
