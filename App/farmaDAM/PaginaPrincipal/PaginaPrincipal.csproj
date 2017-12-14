@@ -116,6 +116,10 @@
     <None Include="Resources\logofarma.PNG" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ConexioBBDD\ConexioBBDD.csproj">
+      <Project>{384145e7-5b9b-43cb-92b0-d8be9b92fde8}</Project>
+      <Name>ConexioBBDD</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CustomControlTB\CustomControlTB.csproj">
       <Project>{5a96e7f7-6941-4e6b-8379-e8c51eae3768}</Project>
       <Name>CustomControlTB</Name>
