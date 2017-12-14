@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Splash
+namespace PaginaPrincipal
 {
     public partial class Splash : Form
     {
@@ -18,21 +18,16 @@ namespace Splash
             timer1.Start();
         }
 
-        private void timer_Tick(object sender, EventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
             progressBar.Increment(5);
             if (progressBar.Value == 100)
             {
                 timer1.Stop();
-                Form frm = new Login.paco();
+                Form frm = new Login();
                 frm.Show();
                 this.Hide();
             }
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -16,7 +16,7 @@ namespace PaginaPrincipal
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PaginaPrincipal());
+            Application.Run(new Splash());
         }
     }
 }

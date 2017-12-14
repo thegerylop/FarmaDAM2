@@ -8,20 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Login
+namespace PaginaPrincipal
 {
-    public partial class Login : Form
+    public partial class AcercaDe : Form
     {
-        public Login()
+        public AcercaDe()
         {
             InitializeComponent();
-        }
-
-        private void iniciarBtn_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Form frm = new PaginaPrincipal.PaginaPrincipal();
-            frm.Show();
         }
     }
 }

@@ -19,12 +19,19 @@ namespace PaginaPrincipal
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
-            Form frm = new farmaDAM.AcercaDe();
-            frm.Show();
         }
 
         private void PaginaPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
         {
 
         }

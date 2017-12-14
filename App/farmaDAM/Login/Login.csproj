@@ -50,16 +50,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Login.cs">
+    <Compile Include="paco.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
+    <Compile Include="paco.Designer.cs">
+      <DependentUpon>paco.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
+    <EmbeddedResource Include="paco.resx">
+      <DependentUpon>paco.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -88,10 +88,6 @@
     <ProjectReference Include="..\CustomControlTB\CustomControlTB.csproj">
       <Project>{5a96e7f7-6941-4e6b-8379-e8c51eae3768}</Project>
       <Name>CustomControlTB</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\farmaDAM\AcercaDe.csproj">
-      <Project>{5fde5218-5e0e-45e1-8ee3-cdf86959821f}</Project>
-      <Name>AcercaDe</Name>
     </ProjectReference>
     <ProjectReference Include="..\PaginaPrincipal\PaginaPrincipal.csproj">
       <Project>{53042222-0403-4bc6-b942-fd126c1ab117}</Project>
