@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace PaginaPrincipal
 {
     public partial class Login : Form
     {
+        ConexioBBDD.Conexio conn = new ConexioBBDD.Conexio();
         public Login()
         {
             InitializeComponent();
@@ -19,9 +19,19 @@ namespace PaginaPrincipal
 
         private void iniciarBtn_Click(object sender, EventArgs e)
         {
+            string login = "glopez";
+            string password = "12345aA";
+            bool select = conn.connexioBD("SELECT usuari, contrasenya FROM personal WHERE usuari = '" + login + "' and contrasenya = '" + password +"'");
+            if (select)
+            {
             this.Hide();
             Form frm = new PaginaPrincipal();
             frm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Login or password invalid");
+            }
         }
 
         bool drag = false;
