@@ -32,7 +32,6 @@ namespace CustomControlTB
         {
             Password,
             Text,
-            eMail,
         }
         Items _options;
         
@@ -71,15 +70,11 @@ namespace CustomControlTB
 
             if(_selectedValue == "Password")
             {
-                
-            }
-            else if(_selectedValue == "eMail")
-            {
-
+                //TODO
             }
             else
             {
-
+                //TODO
             }
         }
 
@@ -87,5 +82,6 @@ namespace CustomControlTB
         {
             textBox1.Text = _placeholder;
         }
+
     }
 }

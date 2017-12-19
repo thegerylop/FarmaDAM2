@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
-            this.customControlTBContrasenya = new CustomControlTB.CustomControlTB();
-            this.customControlTBLogin = new CustomControlTB.CustomControlTB();
             this.actionBar = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -41,31 +39,11 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.iniciarBtn = new System.Windows.Forms.Button();
+            this.customControlTBLogin = new CustomControlTB.CustomControlTB();
+            this.customControlTBContrasenya = new CustomControlTB.CustomControlTB();
             this.actionBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // customControlTBContrasenya
-            // 
-            this.customControlTBContrasenya.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customControlTBContrasenya.Location = new System.Drawing.Point(122, 265);
-            this.customControlTBContrasenya.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.customControlTBContrasenya.Name = "customControlTBContrasenya";
-            this.customControlTBContrasenya.Options = CustomControlTB.CustomControlTB.Items.Password;
-            this.customControlTBContrasenya.Placeholder = "Contrasenya";
-            this.customControlTBContrasenya.Size = new System.Drawing.Size(263, 27);
-            this.customControlTBContrasenya.TabIndex = 16;
-            // 
-            // customControlTBLogin
-            // 
-            this.customControlTBLogin.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customControlTBLogin.Location = new System.Drawing.Point(122, 232);
-            this.customControlTBLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.customControlTBLogin.Name = "customControlTBLogin";
-            this.customControlTBLogin.Options = CustomControlTB.CustomControlTB.Items.Password;
-            this.customControlTBLogin.Placeholder = "Login";
-            this.customControlTBLogin.Size = new System.Drawing.Size(263, 27);
-            this.customControlTBLogin.TabIndex = 17;
             // 
             // actionBar
             // 
@@ -77,7 +55,7 @@
             this.actionBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.actionBar.Location = new System.Drawing.Point(0, 0);
             this.actionBar.Name = "actionBar";
-            this.actionBar.Size = new System.Drawing.Size(509, 31);
+            this.actionBar.Size = new System.Drawing.Size(509, 30);
             this.actionBar.TabIndex = 18;
             this.actionBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.actionBar_MouseDown);
             this.actionBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.actionBar_MouseMove);
@@ -98,7 +76,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel5.Location = new System.Drawing.Point(508, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1, 31);
+            this.panel5.Size = new System.Drawing.Size(1, 30);
             this.panel5.TabIndex = 2;
             // 
             // panel4
@@ -107,7 +85,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1, 31);
+            this.panel4.Size = new System.Drawing.Size(1, 30);
             this.panel4.TabIndex = 1;
             // 
             // labelExitLog
@@ -146,18 +124,18 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.Black;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(508, 31);
+            this.panel2.Location = new System.Drawing.Point(508, 30);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1, 310);
+            this.panel2.Size = new System.Drawing.Size(1, 311);
             this.panel2.TabIndex = 20;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Black;
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(0, 31);
+            this.panel3.Location = new System.Drawing.Point(0, 30);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1, 310);
+            this.panel3.Size = new System.Drawing.Size(1, 311);
             this.panel3.TabIndex = 21;
             // 
             // iniciarBtn
@@ -173,6 +151,28 @@
             this.iniciarBtn.Text = "Iniciar Sessió";
             this.iniciarBtn.UseVisualStyleBackColor = false;
             this.iniciarBtn.Click += new System.EventHandler(this.iniciarBtn_Click);
+            // 
+            // customControlTBLogin
+            // 
+            this.customControlTBLogin.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customControlTBLogin.Location = new System.Drawing.Point(122, 232);
+            this.customControlTBLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.customControlTBLogin.Name = "customControlTBLogin";
+            this.customControlTBLogin.Options = CustomControlTB.CustomControlTB.Items.Password;
+            this.customControlTBLogin.Placeholder = "Login";
+            this.customControlTBLogin.Size = new System.Drawing.Size(263, 27);
+            this.customControlTBLogin.TabIndex = 17;
+            // 
+            // customControlTBContrasenya
+            // 
+            this.customControlTBContrasenya.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customControlTBContrasenya.Location = new System.Drawing.Point(122, 265);
+            this.customControlTBContrasenya.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.customControlTBContrasenya.Name = "customControlTBContrasenya";
+            this.customControlTBContrasenya.Options = CustomControlTB.CustomControlTB.Items.Password;
+            this.customControlTBContrasenya.Placeholder = "Contrasenya";
+            this.customControlTBContrasenya.Size = new System.Drawing.Size(263, 27);
+            this.customControlTBContrasenya.TabIndex = 16;
             // 
             // Login
             // 

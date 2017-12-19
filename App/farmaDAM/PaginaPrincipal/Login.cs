@@ -22,10 +22,11 @@ namespace PaginaPrincipal
             string login = customControlTBLogin.textBox1.Text;
             string password = customControlTBContrasenya.textBox1.Text;
             string select = conn.connexioLogin(login, password);
+
             if (select != null)
             {
                 this.Hide();
-                Form frm = new PaginaPrincipal();
+                Form frm = new Template();
                 frm.Show();
             }
             else
@@ -60,11 +61,6 @@ namespace PaginaPrincipal
         private void labelExitLog_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void buttonLogin_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }
