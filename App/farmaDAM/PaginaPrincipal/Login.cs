@@ -19,8 +19,8 @@ namespace PaginaPrincipal
 
         private void iniciarBtn_Click(object sender, EventArgs e)
         {
-            string login = "glopez";
-            string password = "12345aA";
+            string login = customControlTBLogin.textBox1.Text;
+            string password = customControlTBContrasenya.textBox1.Text;
             bool select = conn.connexioBD("SELECT usuari, contrasenya FROM personal WHERE usuari = '" + login + "' and contrasenya = '" + password +"'");
             if (select)
             {

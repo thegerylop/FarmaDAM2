@@ -50,7 +50,7 @@ namespace CustomControlTB
         }
         string _selectedValue;
 
-        private void textBox1_Leave(object sender, EventArgs e)
+        public void textBox1_Leave(object sender, EventArgs e)
         {
             if(textBox1.Text == "")
             {
@@ -59,7 +59,7 @@ namespace CustomControlTB
             textBox1.BackColor = Color.White;
         }
 
-        private void textBox1_Enter(object sender, EventArgs e)
+        public void textBox1_Enter(object sender, EventArgs e)
         {
             if(textBox1.Text == _placeholder)
             {
@@ -83,7 +83,7 @@ namespace CustomControlTB
             }
         }
 
-        private void CustomControlTB_Load(object sender, EventArgs e)
+        public void CustomControlTB_Load(object sender, EventArgs e)
         {
             textBox1.Text = _placeholder;
         }
