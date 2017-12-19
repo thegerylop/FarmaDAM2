@@ -21,7 +21,7 @@ namespace PaginaPrincipal
         {
             string login = customControlTBLogin.textBox1.Text;
             string password = customControlTBContrasenya.textBox1.Text;
-            string select = conn.connexioBD("SELECT usuari, contrasenya FROM personal WHERE usuari = '" + login + "' and contrasenya = '" + password +"'");
+            string select = conn.connexioLogin(login, password);
             if (select != null)
             {
                 this.Hide();
@@ -30,7 +30,7 @@ namespace PaginaPrincipal
             }
             else
             {
-                MessageBox.Show("Login or password invalid");
+                MessageBox.Show("El login o la contrasenya son invàlids");
             }
         }
 

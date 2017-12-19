@@ -51,6 +51,7 @@
             this.customControlTBContrasenya.Location = new System.Drawing.Point(122, 265);
             this.customControlTBContrasenya.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.customControlTBContrasenya.Name = "customControlTBContrasenya";
+            this.customControlTBContrasenya.Options = CustomControlTB.CustomControlTB.Items.Password;
             this.customControlTBContrasenya.Placeholder = "Contrasenya";
             this.customControlTBContrasenya.Size = new System.Drawing.Size(263, 27);
             this.customControlTBContrasenya.TabIndex = 16;
@@ -61,6 +62,7 @@
             this.customControlTBLogin.Location = new System.Drawing.Point(122, 232);
             this.customControlTBLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.customControlTBLogin.Name = "customControlTBLogin";
+            this.customControlTBLogin.Options = CustomControlTB.CustomControlTB.Items.Password;
             this.customControlTBLogin.Placeholder = "Login";
             this.customControlTBLogin.Size = new System.Drawing.Size(263, 27);
             this.customControlTBLogin.TabIndex = 17;
@@ -198,8 +200,6 @@
         }
 
         #endregion
-        private CustomControlTB.CustomControlTB customControlTBContrasenya;
-        private CustomControlTB.CustomControlTB customControlTBLogin;
         private System.Windows.Forms.Panel actionBar;
         private System.Windows.Forms.Label labelExitLog;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -210,5 +210,7 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button iniciarBtn;
+        public CustomControlTB.CustomControlTB customControlTBContrasenya;
+        public CustomControlTB.CustomControlTB customControlTBLogin;
     }
 }
