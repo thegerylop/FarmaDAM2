@@ -21,12 +21,12 @@ namespace PaginaPrincipal
         {
             string login = customControlTBLogin.textBox1.Text;
             string password = customControlTBContrasenya.textBox1.Text;
-            bool select = conn.connexioBD("SELECT usuari, contrasenya FROM personal WHERE usuari = '" + login + "' and contrasenya = '" + password +"'");
-            if (select)
+            string select = conn.connexioBD("SELECT usuari, contrasenya FROM personal WHERE usuari = '" + login + "' and contrasenya = '" + password +"'");
+            if (select != null)
             {
-            this.Hide();
-            Form frm = new PaginaPrincipal();
-            frm.Show();
+                this.Hide();
+                Form frm = new PaginaPrincipal();
+                frm.Show();
             }
             else
             {

@@ -13,12 +13,12 @@ namespace ConexioBBDD
         string connString;
         MySqlConnection conn;
 
-        public bool connexioBD(string comanda)
+        public string connexioBD(string comanda)
         {
             connString = "SERVER= 51.255.58.1;PORT=3306;DATABASE=g2s2am_FarmaDAM;UID=g2s2am;PASSWORD=12345aA;";
             try
             {
-                bool select = false;
+                string select = null;
                 conn = new MySqlConnection();
                 conn.ConnectionString = connString;
                 conn.Open();
@@ -30,7 +30,7 @@ namespace ConexioBBDD
 
                 if (dataReader[0].ToString().Length > 1 && dataReader[1].ToString().Length > 1)
                 {
-                    select = true;
+                    select = dataReader[0].ToString() +" - "+ dataReader[1].ToString();
                 }
                    
                 dataReader.Close();
@@ -42,7 +42,7 @@ namespace ConexioBBDD
 
                 MessageBox.Show(ex.Message);
                 conn.Close();
-                return false;
+                return null;
             }
             conn.Close();
         }
