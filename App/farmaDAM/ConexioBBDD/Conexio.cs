@@ -14,36 +14,29 @@ namespace ConexioBBDD
         MySqlConnection conn = new MySqlConnection();
         public string connexioLogin(String login, String password)
         {
-            string comanda = "SELECT usuari, contrasenya FROM personal WHERE usuari = '" + login + "' and contrasenya = '" + password + "'"
+            string comanda = "SELECT usuari, contrasenya FROM personal WHERE usuari = '" + login + "' and contrasenya = '" + password + "'";
             try
             {
+                string loginCredentials = null;
                 conn.ConnectionString = connString;
                 conn.Open();
                 MySqlCommand command = new MySqlCommand(comanda, conn);
                 MySqlDataReader dataReader = command.ExecuteReader();
 
-                string select = null;
-
-                //code to get select
                 dataReader.Read();
-
                 if (dataReader[0].ToString().Length > 1 && dataReader[1].ToString().Length > 1)
                 {
-                    select = dataReader[0].ToString() + " - " + dataReader[1].ToString();
+                    loginCredentials = dataReader[0].ToString() + " - " + dataReader[1].ToString();
                 }
-
                 dataReader.Close();
                 conn.Close();
-                return select;
+                return loginCredentials;
             }
             catch (MySqlException ex)
             {
-
                 MessageBox.Show(ex.Message);
-                conn.Close();
                 return null;
             }
-            conn.Close();
         }
         //public string connexioBD(string comanda)
         //{
