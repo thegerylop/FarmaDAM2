@@ -21,8 +21,8 @@ namespace PaginaPrincipal
         {
             string login = customControlTBLogin.textBox1.Text;
             string password = customControlTBContrasenya.textBox1.Text;
-            string select = conn.connexioLogin(login, password);
-            if (select != null)
+            string loginCredentials = conn.connexioLogin(login, password);
+            if (loginCredentials != null)
             {
                 this.Hide();
                 Form frm = new PaginaPrincipal();
