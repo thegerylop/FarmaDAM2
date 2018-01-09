@@ -28,7 +28,6 @@ namespace PaginaPrincipal
 
         private void buttonCreateTest_Click(object sender, EventArgs e)
         {
-            conn.connexioBD("CREATE TABLE TEST(test varchar(25))");
         }
 
         private void button6_Click(object sender, EventArgs e)

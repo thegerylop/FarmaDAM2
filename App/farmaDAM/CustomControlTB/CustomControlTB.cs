@@ -71,7 +71,7 @@ namespace CustomControlTB
 
             if(_selectedValue == "Password")
             {
-                
+                textBox1.PasswordChar = '*';
             }
             else if(_selectedValue == "eMail")
             {
@@ -86,6 +86,11 @@ namespace CustomControlTB
         public void CustomControlTB_Load(object sender, EventArgs e)
         {
             textBox1.Text = _placeholder;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
