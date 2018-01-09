@@ -16,5 +16,9 @@ namespace PaginaPrincipal
         {
             InitializeComponent();
         }
+        private void labelExitLog_MouseHover(object sender, EventArgs e)
+        {
+            labelExitLog.Font = new Font(labelExitLog.Font.Name, labelExitLog.Font.SizeInPoints, FontStyle.Underline);
+        }
     }
 }
