@@ -83,6 +83,12 @@
     <Compile Include="Template.Designer.cs">
       <DependentUpon>Template.cs</DependentUpon>
     </Compile>
+    <Compile Include="VendaMedicaments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VendaMedicaments.Designer.cs">
+      <DependentUpon>VendaMedicaments.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AcercaDe.resx">
       <DependentUpon>AcercaDe.cs</DependentUpon>
     </EmbeddedResource>
@@ -107,6 +113,9 @@
     </Compile>
     <EmbeddedResource Include="Template.resx">
       <DependentUpon>Template.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VendaMedicaments.resx">
+      <DependentUpon>VendaMedicaments.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

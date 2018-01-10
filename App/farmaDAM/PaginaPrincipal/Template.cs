@@ -49,5 +49,21 @@ namespace PaginaPrincipal
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            Form frm = new VendaMedicaments();
+            frm.Show();
+        }
     }
 }
