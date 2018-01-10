@@ -62,5 +62,10 @@ namespace PaginaPrincipal
         {
             Application.Exit();
         }
+
+        private void customControlTBLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

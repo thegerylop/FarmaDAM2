@@ -70,7 +70,7 @@ namespace CustomControlTB
 
             if(_selectedValue == "Password")
             {
-                //TODO
+                textBox1.PasswordChar = '*';
             }
             else
             {
