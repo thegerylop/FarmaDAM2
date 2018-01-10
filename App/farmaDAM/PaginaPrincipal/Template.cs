@@ -16,9 +16,38 @@ namespace PaginaPrincipal
         {
             InitializeComponent();
         }
-        private void labelExitLog_MouseHover(object sender, EventArgs e)
+
+        bool drag = false;
+        Point start_point = new Point(0, 0);
+
+        private void panel4_MouseDown(object sender, MouseEventArgs e)
         {
-            labelExitLog.Font = new Font(labelExitLog.Font.Name, labelExitLog.Font.SizeInPoints, FontStyle.Underline);
+            drag = true;
+            start_point = new Point(e.X, e.Y);
+        }
+
+        private void panel4_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (drag)
+            {
+                Point p = PointToScreen(e.Location);
+                this.Location = new Point(p.X - start_point.X, p.Y - start_point.Y);
+            }
+        }
+
+        private void panel4_MouseUp(object sender, MouseEventArgs e)
+        {
+            drag = false;
+        }
+
+        private void labelExitLog_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void minimizeLabel_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

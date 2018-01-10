@@ -200,10 +200,12 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(0, 0);
+            this.button8.Location = new System.Drawing.Point(456, 117);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
+            this.button8.Size = new System.Drawing.Size(91, 42);
             this.button8.TabIndex = 0;
+            this.button8.Text = "Probando template";
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // buttonCreateTest
             // 
