@@ -62,7 +62,7 @@
             this.customControlTBLogin.Location = new System.Drawing.Point(122, 232);
             this.customControlTBLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.customControlTBLogin.Name = "customControlTBLogin";
-            this.customControlTBLogin.Options = CustomControlTB.CustomControlTB.Items.Password;
+            this.customControlTBLogin.Options = CustomControlTB.CustomControlTB.Items.Text;
             this.customControlTBLogin.Placeholder = "Login";
             this.customControlTBLogin.Size = new System.Drawing.Size(263, 27);
             this.customControlTBLogin.TabIndex = 17;

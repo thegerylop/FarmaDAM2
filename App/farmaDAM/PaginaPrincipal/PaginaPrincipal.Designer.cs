@@ -211,7 +211,7 @@
             this.buttonCreateTest.Name = "buttonCreateTest";
             this.buttonCreateTest.Size = new System.Drawing.Size(96, 38);
             this.buttonCreateTest.TabIndex = 21;
-            this.buttonCreateTest.Text = "BOTON CREATE TEST";
+            this.buttonCreateTest.Text = "BOTO TESTING";
             this.buttonCreateTest.UseVisualStyleBackColor = true;
             this.buttonCreateTest.Click += new System.EventHandler(this.buttonCreateTest_Click);
             // 

@@ -12,6 +12,7 @@ namespace ConexioBBDD
     {
         string connString = "SERVER= 51.255.58.1;PORT=3306;DATABASE=g2s2am_FarmaDAM;UID=g2s2am;PASSWORD=12345aA;";
         MySqlConnection conn = new MySqlConnection();
+
         
         public string connexioLogin(String login, String password)
         {
@@ -42,6 +43,85 @@ namespace ConexioBBDD
                 MessageBox.Show(ex.Message);
                 return null;
             }
+
+           
         }
+
+        public bool executar_comanda(string comanda)
+        {
+          try
+            {
+                conn.ConnectionString = connString;
+                conn.Open();
+                MySqlCommand command = new MySqlCommand(comanda, conn);
+                MySqlDataReader dataReader = command.ExecuteReader();
+                bool select;
+                if (dataReader.HasRows)
+                {
+
+                    select = true;
+                }  else
+                {
+                    select = false;
+                }    
+                conn.Close();
+                return select;
+            }
+            catch (MySqlException ex)
+            {
+
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+
+        }
+
+        public List<string> consulta_BD(string comanda)
+        {
+            List<string> valors = new List<string>();
+            int i = 0;
+            try
+            {
+                conn.ConnectionString = connString;
+                conn.Open();
+                MySqlCommand command = new MySqlCommand(comanda, conn);
+                MySqlDataReader dataReader = command.ExecuteReader();
+
+                if (dataReader.HasRows)
+                {
+
+                    int columnes = dataReader.FieldCount;
+                    columnes -= 1;
+
+                    while (dataReader.Read())
+                    {
+
+                        if(i <= columnes) { 
+
+                        valors.Add(dataReader[i].ToString());
+
+                        MessageBox.Show(valors[i]);
+
+                        i += 1;
+                        }
+                    }
+                }
+                else
+                {
+
+                    Console.WriteLine("No hi han linies que mostrar");
+                }
+            }
+            catch (MySqlException ex)
+            {
+                return null;
+            }
+
+
+
+            return valors;
+        }
+
+        
     }
 }

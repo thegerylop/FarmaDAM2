@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
+
 namespace PaginaPrincipal
 {
     public partial class Login : Form
     {
         ConexioBBDD.Conexio conn = new ConexioBBDD.Conexio();
+
         public Login()
         {
             InitializeComponent();
@@ -22,6 +25,7 @@ namespace PaginaPrincipal
             string login = customControlTBLogin.textBox1.Text;
             string password = customControlTBContrasenya.textBox1.Text;
             string loginCredentials = conn.connexioLogin(login, password);
+            
             if (loginCredentials != null)
             {
                 this.Hide();

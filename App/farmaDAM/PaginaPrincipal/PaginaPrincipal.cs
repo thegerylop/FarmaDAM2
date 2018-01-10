@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ConexioBBDD;
 
 namespace PaginaPrincipal
 {
@@ -28,6 +29,9 @@ namespace PaginaPrincipal
 
         private void buttonCreateTest_Click(object sender, EventArgs e)
         {
+           string comanda = "SELECT * from personal";
+           
+           MessageBox.Show(conn.consulta_BD(comanda).ToString());
         }
 
         private void button6_Click(object sender, EventArgs e)
