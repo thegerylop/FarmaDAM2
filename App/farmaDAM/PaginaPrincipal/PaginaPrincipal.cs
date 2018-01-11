@@ -39,5 +39,11 @@ namespace PaginaPrincipal
         {
 
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Form frm = new Template();
+            frm.Show();
+        }
     }
 }
