@@ -64,7 +64,7 @@ namespace CustomControlTB
             {
                 textBox1.Text = "";
             }
-            textBox1.BackColor = Color.FromArgb(153, 180, 209);
+            textBox1.BackColor = Color.FromArgb(169, 169, 169);
             textBox1.SelectionStart = 0;
             textBox1.SelectionLength = textBox1.Text.Length;
 
@@ -82,6 +82,5 @@ namespace CustomControlTB
         {
             textBox1.Text = _placeholder;
         }
-
     }
 }

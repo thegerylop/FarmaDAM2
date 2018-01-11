@@ -16,6 +16,7 @@ namespace TemplateForm
         {
             InitializeComponent();
         }
+
         bool drag = false;
         Point start_point = new Point(0, 0);
 
@@ -54,12 +55,22 @@ namespace TemplateForm
 
         private void TemplateForm_Load(object sender, EventArgs e)
         {
-            
+            date.Text = DateTime.Now.ToString();
         }
 
         private void labelExitLog_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void minimizeLabel_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            date.Text = DateTime.Now.ToString();
         }
     }
 }

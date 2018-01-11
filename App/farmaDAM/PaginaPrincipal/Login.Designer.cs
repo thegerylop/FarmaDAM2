@@ -147,7 +147,7 @@
             this.iniciarBtn.Location = new System.Drawing.Point(199, 298);
             this.iniciarBtn.Name = "iniciarBtn";
             this.iniciarBtn.Size = new System.Drawing.Size(117, 32);
-            this.iniciarBtn.TabIndex = 14;
+            this.iniciarBtn.TabIndex = 3;
             this.iniciarBtn.Text = "Iniciar Sessió";
             this.iniciarBtn.UseVisualStyleBackColor = false;
             this.iniciarBtn.Click += new System.EventHandler(this.iniciarBtn_Click);
@@ -161,7 +161,7 @@
             this.customControlTBLogin.Options = CustomControlTB.CustomControlTB.Items.Text;
             this.customControlTBLogin.Placeholder = "Login";
             this.customControlTBLogin.Size = new System.Drawing.Size(263, 27);
-            this.customControlTBLogin.TabIndex = 17;
+            this.customControlTBLogin.TabIndex = 1;
             this.customControlTBLogin.Load += new System.EventHandler(this.customControlTBLogin_Load);
             // 
             // customControlTBContrasenya
@@ -173,7 +173,7 @@
             this.customControlTBContrasenya.Options = CustomControlTB.CustomControlTB.Items.Password;
             this.customControlTBContrasenya.Placeholder = "Contrasenya";
             this.customControlTBContrasenya.Size = new System.Drawing.Size(263, 27);
-            this.customControlTBContrasenya.TabIndex = 16;
+            this.customControlTBContrasenya.TabIndex = 2;
             // 
             // Login
             // 
