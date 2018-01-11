@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace PaginaPrincipal
 {
-    public partial class VendaMedicaments : Form
+    public partial class PaginaPrin : TemplateForm.TemplateForm
     {
-        public VendaMedicaments()
+        public PaginaPrin()
         {
             InitializeComponent();
-        }
-
-        private void VendaMedicaments_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

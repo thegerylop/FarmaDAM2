@@ -8,16 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PaginaPrincipal
+namespace LaboratorisFarm
 {
-    public partial class VendaMedicaments : Form
+    public partial class Laboratoris : Template.
     {
-        public VendaMedicaments()
+        public Laboratoris()
         {
             InitializeComponent();
         }
 
-        private void VendaMedicaments_Load(object sender, EventArgs e)
+        private void customControlTB1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }

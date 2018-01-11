@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PaginaPrincipal
+namespace Template
 {
-    public partial class VendaMedicaments : Form
+    public partial class Template : Form
     {
-        public VendaMedicaments()
+        public Template()
         {
             InitializeComponent();
-        }
-
-        private void VendaMedicaments_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

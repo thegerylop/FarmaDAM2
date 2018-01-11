@@ -65,5 +65,10 @@ namespace PaginaPrincipal
             Form frm = new VendaMedicaments();
             frm.Show();
         }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

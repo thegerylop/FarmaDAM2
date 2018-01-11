@@ -3,23 +3,21 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PaginaPrincipal
+namespace LabFarm
 {
-    public partial class VendaMedicaments : Form
+    public partial class Laboratoris : Form
     {
-        public VendaMedicaments()
+        public Laboratoris()
         {
             InitializeComponent();
         }
 
-        private void VendaMedicaments_Load(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
+            
         }
     }
 }
