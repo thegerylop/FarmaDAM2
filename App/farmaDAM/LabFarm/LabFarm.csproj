@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.9.10.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 6.9.10\Assemblies\v4.5\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -52,6 +56,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ConexioBBDD\ConexioBBDD.csproj">
+      <Project>{384145e7-5b9b-43cb-92b0-d8be9b92fde8}</Project>
+      <Name>ConexioBBDD</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CustomControlTB\CustomControlTB.csproj">
       <Project>{5a96e7f7-6941-4e6b-8379-e8c51eae3768}</Project>
       <Name>CustomControlTB</Name>
@@ -61,6 +69,9 @@
     <EmbeddedResource Include="Laboratoris.resx">
       <DependentUpon>Laboratoris.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
