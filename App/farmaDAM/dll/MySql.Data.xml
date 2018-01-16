@@ -1158,6 +1158,13 @@
             <param name="query">Query to validate</param>
             <returns>If it is necessary to add call statement</returns>
         </member>
+        <member name="M:MySql.Data.MySqlClient.MySqlCommand.Clone">
+            <summary>
+            Creates a clone of this MySqlCommand object.  CommandText, Connection, and Transaction properties
+            are included as well as the entire parameter list.
+            </summary>
+            <returns>The cloned MySqlCommand object</returns>
+        </member>
         <member name="T:MySql.Data.MySqlClient.Common.NamedPipeStream">
             <summary>
             Summary description for API.
@@ -2330,7 +2337,7 @@
         </member>
         <member name="M:MySql.Data.MySqlClient.MySqlConnection.BeginTransactionAsync">
             <summary>
-            Async version of BeginTransaction
+            Initiates the asynchronous execution of a transaction.
             </summary>
             <returns>An object representing the new transaction.</returns>
         </member>
@@ -3148,6 +3155,26 @@
             <summary>
             Summary description for Field.
             </summary>
+        </member>
+        <member name="T:MySql.Data.MySqlClient.CustomInstaller">
+            <summary>
+            We are adding a custom installer class to our assembly so our installer
+            can make proper changes to the machine.config file.
+            </summary>
+        </member>
+        <member name="M:MySql.Data.MySqlClient.CustomInstaller.Install(System.Collections.IDictionary)">
+            <summary>
+            We override Install so we can add our assembly to the proper
+            machine.config files.
+            </summary>
+            <param name="stateSaver"></param>
+        </member>
+        <member name="M:MySql.Data.MySqlClient.CustomInstaller.Uninstall(System.Collections.IDictionary)">
+            <summary>
+            We override Uninstall so we can remove out assembly from the
+            machine.config files.
+            </summary>
+            <param name="savedState"></param>
         </member>
         <member name="T:MySql.Data.MySqlClient.MySqlCommandBuilder">
             <summary>
@@ -4402,26 +4429,6 @@
             Gets or sets the MySqlCommand executed when Update is called.
             </summary>
         </member>
-        <member name="T:MySql.Data.MySqlClient.CustomInstaller">
-            <summary>
-            We are adding a custom installer class to our assembly so our installer
-            can make proper changes to the machine.config file.
-            </summary>
-        </member>
-        <member name="M:MySql.Data.MySqlClient.CustomInstaller.Install(System.Collections.IDictionary)">
-            <summary>
-            We override Install so we can add our assembly to the proper
-            machine.config files.
-            </summary>
-            <param name="stateSaver"></param>
-        </member>
-        <member name="M:MySql.Data.MySqlClient.CustomInstaller.Uninstall(System.Collections.IDictionary)">
-            <summary>
-            We override Uninstall so we can remove out assembly from the
-            machine.config files.
-            </summary>
-            <param name="savedState"></param>
-        </member>
         <member name="M:MySql.Data.MySqlClient.MySqlClientPermission.Add(System.String,System.String,System.Data.KeyRestrictionBehavior)">
              <summary>
              Adds a new connection string with set of restricted keywords to the MySqlClientPermission object 
@@ -4841,7 +4848,7 @@
         </member>
         <member name="P:MySql.Data.MySqlClient.MySqlParameter.MySqlDbType">
             <summary>
-            Gets or sets the MySqlDbType of the parameter.
+            Gets or sets the <see cref="P:MySql.Data.MySqlClient.MySqlParameter.MySqlDbType"/> of the parameter.
             </summary>
         </member>
         <member name="P:MySql.Data.MySqlClient.MySqlParameter.Precision">
@@ -5463,7 +5470,7 @@
         </member>
         <member name="T:MySql.Data.MySqlClient.MySqlClientFactory">
             <summary>
-            DBProviderFactory implementation for MysqlClient.
+            Represents a set of methods for creating instances of the MySQL client implementation of the data source classes.
             </summary>
         </member>
         <member name="F:MySql.Data.MySqlClient.MySqlClientFactory.Instance">
@@ -5571,7 +5578,7 @@
         </member>
         <member name="P:MySql.Data.MySqlClient.MySqlConnectionStringBuilder.Password">
             <summary>
-            Gets or sets the password that should be used to connect with.
+            Gets or sets the password that should be used to make a connection.
             </summary>
         </member>
         <member name="P:MySql.Data.MySqlClient.MySqlConnectionStringBuilder.PersistSecurityInfo">
@@ -8733,7 +8740,7 @@
         </member>
         <member name="M:MySql.Data.MySqlClient.MySqlScript.ExecuteAsync">
             <summary>
-            Async version of Execute
+            Initiates the asynchronous execution of SQL statements.
             </summary>
             <returns>The number of statements executed as part of the script inside.</returns>
         </member>
@@ -10478,11 +10485,12 @@
         </member>
         <member name="T:MySql.Data.Types.MySqlConversionException">
             <summary>
-            Summary description for MySqlConversionException.
+            An exception thrown by MySQL when a type conversion does not succeed.
             </summary>
         </member>
         <member name="M:MySql.Data.Types.MySqlConversionException.#ctor(System.String)">
-            <summary>Ctor</summary>
+            <summary>Initializes a new instance of the <see cref="T:MySql.Data.Types.MySqlConversionException"/> class with a specified error message. </summary>
+            <param name="msg">Message describing the error.</param>
         </member>
         <member name="T:MySql.Data.Types.MySqlDateTime">
             <summary>
