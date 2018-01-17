@@ -211,6 +211,7 @@
             this.BtnEliminar.TabIndex = 31;
             this.BtnEliminar.Text = "Eliminar";
             this.BtnEliminar.UseVisualStyleBackColor = false;
+            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // BtnInserir
             // 
@@ -225,6 +226,7 @@
             this.BtnInserir.Text = "Inserir";
             this.BtnInserir.UseVisualStyleBackColor = false;
             this.BtnInserir.Visible = false;
+            this.BtnInserir.Click += new System.EventHandler(this.BtnInserir_Click);
             // 
             // Laboratoris
             // 

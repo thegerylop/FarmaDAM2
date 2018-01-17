@@ -12,7 +12,9 @@ namespace LabFarm
     public partial class Laboratoris : Form
     {
         string config = "SERVER= 51.255.58.1;PORT=3306;DATABASE=g2s2am_FarmaDAM;UID=g2s2am;PASSWORD=12345aA;";
+        string table = "laboratoris_farmaceutics";
         MySqlConnection connexio = new MySqlConnection();
+
         public Laboratoris()
         {
             InitializeComponent();
@@ -21,7 +23,6 @@ namespace LabFarm
         {
             string select = " * ";
             string table = " laboratoris_farmaceutics";
-            string config = "SERVER= 51.255.58.1;PORT=3306;DATABASE=g2s2am_FarmaDAM;UID=g2s2am;PASSWORD=12345aA;";
             string query = "SELECT"+ select +"FROM" + table;
 
             connexio.ConnectionString = config;
@@ -57,13 +58,10 @@ namespace LabFarm
 
         private void SubmitLab(object sender, EventArgs e)
         {
-            string Codi = CustomCodi.textBox1.Text;
-            string Den = CustomDen.textBox1.Text;
-            string Soc = CustomSocial.textBox1.Text;
-            string CIF = CustomCIF.textBox1.Text;
-
-            string table = "laboratoris_farmaceutics";
-            string query = "UPDATE " + table + " SET codi_lab = " + Den + " ,rao_social = " + Soc + " ,cif = " + CIF + " WHERE id_lab = " + Codi;
+            string[] Data = new string[4];
+            Data = TextBoxData(Data);
+            
+            string query = "UPDATE " + table + " SET codi_lab = " + Data[1] + " ,rao_social = " + Data[2] + " ,cif = " + Data[3] + " WHERE id_lab = " + Data[0];
             connexio.ConnectionString = config;
             try
             {
@@ -71,7 +69,7 @@ namespace LabFarm
                 MySqlDataReader MyReader2;
                 connexio.Open();
                 MyReader2 = command.ExecuteReader();
-                MessageBox.Show("Data Updated");
+                MessageBox.Show("Dades actualitzades");
             }
             catch (Exception ex)
             {
@@ -96,6 +94,60 @@ namespace LabFarm
             dataGridView1.Visible = false;
             BtnAct.Visible = false;
             BtnEliminar.Visible = false;
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            string[] Data = new string[4];
+            Data = TextBoxData(Data);
+
+            
+            string query = "DELETE FROM " + table + " WHERE id_lab = " + Data[0];
+            connexio.ConnectionString = config;
+            try
+            {
+                MySqlCommand command = new MySqlCommand(query, connexio);
+                MySqlDataReader MyReader2;
+                connexio.Open();
+                MyReader2 = command.ExecuteReader();
+                MessageBox.Show("Dades esborrades");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            connexio.Close();
+            Laboratoris_Load(sender, e);
+        }
+            private string[] TextBoxData(string[] Data)
+            {
+                Data[0] = CustomCodi.textBox1.Text;
+                Data[1] = CustomDen.textBox1.Text;
+                Data[2] = CustomSocial.textBox1.Text;
+                Data[3] = CustomCIF.textBox1.Text;
+                return Data;
+            }
+
+        private void BtnInserir_Click(object sender, EventArgs e)
+        {
+            string[] Data = new string[4];
+            Data = TextBoxData(Data);
+
+            string query = "INSERT INTO " + table + "(id_lab,codi_lab,rao_social,cif) VALUES(" + Data[0] + "," + Data[1] + "," + Data[2] + "," + Data[3]+")";
+            connexio.ConnectionString = config;
+            try
+            {
+                MySqlCommand command = new MySqlCommand(query, connexio);
+                MySqlDataReader MyReader2;
+                connexio.Open();
+                MyReader2 = command.ExecuteReader();
+                MessageBox.Show("Dades afegides");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            connexio.Close();
         }
     }
 }
