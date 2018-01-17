@@ -24,7 +24,8 @@ namespace LabFarm
             string select = " * ";
             string table = " laboratoris_farmaceutics";
             string query = "SELECT"+ select +"FROM" + table;
-
+        
+            CustomCodi.Enabled = false;
             connexio.ConnectionString = config;
             connexio.Open();
 
@@ -94,7 +95,19 @@ namespace LabFarm
             dataGridView1.Visible = false;
             BtnAct.Visible = false;
             BtnEliminar.Visible = false;
+            
+            foreach(Control c in this.Controls ){
+                CustomControlTB.CustomControlTB ctb = c as CustomControlTB.CustomControlTB;
+                    ctb.textBox1.Text = "";
+
+
+            
+              
+            }
+
+        
         }
+
 
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
@@ -133,7 +146,7 @@ namespace LabFarm
             string[] Data = new string[4];
             Data = TextBoxData(Data);
 
-            string query = "INSERT INTO " + table + "(id_lab,codi_lab,rao_social,cif) VALUES(" + Data[0] + "," + Data[1] + "," + Data[2] + "," + Data[3]+")";
+            string query = "INSERT INTO " + table + "(codi_lab,rao_social,cif) VALUES(" + Data[1] + "," + Data[2] + "," + Data[3]+")";
             connexio.ConnectionString = config;
             try
             {
