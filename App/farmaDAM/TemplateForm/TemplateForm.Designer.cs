@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.date = new System.Windows.Forms.Label();
@@ -47,7 +48,7 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.actualizacionLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.timer1 = new System.Windows.Forms.Timer();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel4.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -98,11 +99,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(3, 5);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 21);
+            this.label1.Size = new System.Drawing.Size(134, 20);
             this.label1.TabIndex = 7;
             this.label1.Text = "F A R M A D A M ";
             // 
@@ -111,11 +112,11 @@
             this.minimizeLabel.AutoSize = true;
             this.minimizeLabel.BackColor = System.Drawing.Color.Transparent;
             this.minimizeLabel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.minimizeLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.minimizeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minimizeLabel.ForeColor = System.Drawing.Color.White;
-            this.minimizeLabel.Location = new System.Drawing.Point(1077, 1);
+            this.minimizeLabel.Location = new System.Drawing.Point(1075, 1);
             this.minimizeLabel.Name = "minimizeLabel";
-            this.minimizeLabel.Size = new System.Drawing.Size(20, 22);
+            this.minimizeLabel.Size = new System.Drawing.Size(20, 24);
             this.minimizeLabel.TabIndex = 6;
             this.minimizeLabel.Text = "_";
             this.minimizeLabel.Click += new System.EventHandler(this.minimizeLabel_Click);
@@ -124,11 +125,11 @@
             // 
             this.labelExitLog.AutoSize = true;
             this.labelExitLog.Dock = System.Windows.Forms.DockStyle.Right;
-            this.labelExitLog.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelExitLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelExitLog.ForeColor = System.Drawing.Color.White;
-            this.labelExitLog.Location = new System.Drawing.Point(1097, 1);
+            this.labelExitLog.Location = new System.Drawing.Point(1095, 1);
             this.labelExitLog.Name = "labelExitLog";
-            this.labelExitLog.Size = new System.Drawing.Size(23, 23);
+            this.labelExitLog.Size = new System.Drawing.Size(25, 24);
             this.labelExitLog.TabIndex = 5;
             this.labelExitLog.Text = "X";
             this.labelExitLog.Click += new System.EventHandler(this.labelExitLog_Click);
@@ -281,16 +282,18 @@
             // 
             this.actualizacionLabel.AutoSize = true;
             this.actualizacionLabel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.actualizacionLabel.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.actualizacionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.actualizacionLabel.ForeColor = System.Drawing.Color.White;
-            this.actualizacionLabel.Location = new System.Drawing.Point(824, 0);
+            this.actualizacionLabel.Location = new System.Drawing.Point(836, 0);
             this.actualizacionLabel.Name = "actualizacionLabel";
-            this.actualizacionLabel.Size = new System.Drawing.Size(89, 16);
+            this.actualizacionLabel.Size = new System.Drawing.Size(77, 13);
             this.actualizacionLabel.TabIndex = 0;
             this.actualizacionLabel.Text = "Actualizando...";
             // 
             // panel1
             // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel1.Location = new System.Drawing.Point(207, 30);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(913, 476);

@@ -48,13 +48,14 @@ namespace TemplateForm
         {
             Form frm = new LabFarm.Laboratoris();
             frm.TopLevel = false;
-            frm.Dock = DockStyle.Fill;
             panel1.Controls.Add(frm);
+            frm.Dock = DockStyle.Fill;
             frm.Show();
         }
 
         private void TemplateForm_Load(object sender, EventArgs e)
         {
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             date.Text = DateTime.Now.ToString();
         }
 
