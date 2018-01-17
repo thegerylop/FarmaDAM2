@@ -44,7 +44,7 @@ namespace ConexioBBDD
             try{
                 MySqlCommand command = new MySqlCommand(comanda, conn);
                 var resultSet = command.ExecuteNonQuery();
-                if (resultSet.Equals(0)) { return true; }
+                if (resultSet.Equals(1)) { return true; }
                 else { return false; }
             }catch (MySql.Data.MySqlClient.MySqlException mysqlex){
                 MessageBox.Show(mysqlex.Message);
@@ -58,8 +58,9 @@ namespace ConexioBBDD
             conn.Open();
             MySqlCommand command = new MySqlCommand(comanda, conn);
             var resultSet = command.ExecuteNonQuery();
-            if (resultSet.Equals(1)) { return true; }
-            else { return false; }
+            if (resultSet.Equals(1)) { conn.Close(); return true;}
+            else { conn.Close(); return false;}
+             
         }
 
         public DataTable filltable(string comanda){
@@ -86,7 +87,6 @@ namespace ConexioBBDD
             try{
                 MySqlCommand command = new MySqlCommand(comanda, conn);               
                 MyReader2 = command.ExecuteReader();
-                MessageBox.Show("Data Updated");
                 return true;
             }catch (MySql.Data.MySqlClient.MySqlException mysqlex){
                 MessageBox.Show(mysqlex.Message);

@@ -29,9 +29,9 @@ namespace PaginaPrincipal
 
         private void buttonCreateTest_Click(object sender, EventArgs e)
         {
-           string comanda = "SELECT * from personal";
+           //string comanda = "SELECT * from personal";
            
-           MessageBox.Show(conn.consulta_BD(comanda).ToString());
+           //MessageBox.Show(conn.consulta_BD(comanda).ToString());
         }
 
         private void button6_Click(object sender, EventArgs e)
