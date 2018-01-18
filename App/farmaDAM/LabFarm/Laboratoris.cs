@@ -34,8 +34,9 @@ namespace LabFarm
                 //gets a collection that contains all the rows
                 DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
                 //populate the textbox from specific value of the coordinates of column and row.
-                CustomCodi.textBox1.Text = row.Cells[0].Value.ToString();
-                CustomDen.textBox1.Text = row.Cells[1].Value.ToString();
+                CustomId.textBox1.Text = row.Cells[0].Value.ToString();
+                CustomCodi.textBox1.Text = row.Cells[1].Value.ToString();
+                CustomDen.textBox1.Text = row.Cells[4].Value.ToString();
                 CustomSocial.textBox1.Text = row.Cells[2].Value.ToString();
                 CustomCIF.textBox1.Text = row.Cells[3].Value.ToString();
             }
@@ -43,11 +44,11 @@ namespace LabFarm
 
         private void SubmitLab(object sender, EventArgs e)
         {
-            string[] Data = new string[4];
+            string[] Data = new string[5];
             Data = TextBoxData(Data);
-            
-            string query = "UPDATE " + table + " SET codi_lab = " + Data[1] + " ,rao_social = " + Data[2] + " ,cif = " + Data[3] + " WHERE id_lab = " + Data[0];
 
+            string query = "UPDATE " + table + " SET codi_lab = " + Data[1] + " ,rao_social = '" + Data[3] + "' ,cif = " + Data[4] + " ,denominacio = '" + Data[2] + "' WHERE id_lab = " + Data[0];
+            MessageBox.Show(query);
             try
             {
                 if (conn.update_field(query))
@@ -59,7 +60,7 @@ namespace LabFarm
                     MessageBox.Show("Error a la consulta");
                 }
 
-        }
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -85,51 +86,59 @@ namespace LabFarm
             BtnAct.Visible = false;
             BtnEliminar.Visible = false;
 
-            foreach(Control c in this.Controls)
+            foreach (Control c in this.Controls)
             {
-                if(c is UserControl) {
+                if (c is UserControl)
+                {
                     if (c is CustomControlTB.CustomControlTB)
-                        if (c is TextBox) {
-                            c.Text = "";
-                        }
+                    {
+
+                    }
+
                 }
 
             }
-                    
+
         }
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
-            string[] Data = new string[4];
+            string[] Data = new string[5];
             Data = TextBoxData(Data);
 
             string query = "DELETE FROM " + table + " WHERE id_lab = " + Data[0];
 
-            if (conn.delete(query)) {
+            if (conn.delete(query))
+            {
                 MessageBox.Show("Dades esborrades");
-            } else {
+            }
+            else
+            {
                 MessageBox.Show("Error al esborrar dades");
-            }           
+            }
             Laboratoris_Load(sender, e);
         }
 
         private string[] TextBoxData(string[] Data)
         {
-            
-            Data[0] = CustomCodi.textBox1.Text;
-            Data[1] = CustomDen.textBox1.Text;
-            Data[2] = CustomSocial.textBox1.Text;
-            Data[3] = CustomCIF.textBox1.Text;
+            Data[0] = CustomId.textBox1.Text;
+            Data[1] = CustomCodi.textBox1.Text;
+            Data[2] = CustomDen.textBox1.Text;
+            Data[3] = CustomSocial.textBox1.Text;
+            Data[4] = CustomCIF.textBox1.Text;
             return Data;
         }
 
         private void BtnInserir_Click(object sender, EventArgs e)
         {
-            string[] Data = new string[4];
+            string[] Data = new string[5];
             Data = TextBoxData(Data);
+            string query = "INSERT INTO " + table + "(codi_lab,denominacio,rao_social,cif) VALUES(" + Data[1] + ",'" + Data[2] + "','" + Data[3] + "'," + Data[4] + ")";
 
-            string query = "INSERT INTO " + table + "(codi_lab,rao_social,cif) VALUES(" + Data[1] + "," + Data[2] + "," + Data[3]+")";
-            if (conn.inserir(query)) {
-                MessageBox.Show("Dades afegides"); }
+            MessageBox.Show(query);
+            if (conn.inserir(query))
+            {
+                MessageBox.Show("Dades afegides");
+            }
             else
             {
                 MessageBox.Show("Error al afegir dades");
@@ -140,5 +149,6 @@ namespace LabFarm
         {
             Laboratoris_Load(sender, e);
         }
+
     }
 }

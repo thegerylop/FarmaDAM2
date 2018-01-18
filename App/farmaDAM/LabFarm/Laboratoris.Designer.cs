@@ -36,17 +36,15 @@
             this.BtnAceptar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.BtnAct = new System.Windows.Forms.Button();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.inserirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.BtnInserir = new System.Windows.Forms.Button();
             this.CustomCIF = new CustomControlTB.CustomControlTB();
             this.CustomSocial = new CustomControlTB.CustomControlTB();
             this.CustomDen = new CustomControlTB.CustomControlTB();
             this.CustomCodi = new CustomControlTB.CustomControlTB();
+            this.label1 = new System.Windows.Forms.Label();
+            this.CustomId = new CustomControlTB.CustomControlTB();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label3
@@ -56,7 +54,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label3.Location = new System.Drawing.Point(166, 128);
+            this.label3.Location = new System.Drawing.Point(169, 182);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 18);
             this.label3.TabIndex = 14;
@@ -69,7 +67,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label4.Location = new System.Drawing.Point(105, 180);
+            this.label4.Location = new System.Drawing.Point(108, 234);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(104, 18);
             this.label4.TabIndex = 15;
@@ -138,10 +136,14 @@
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(158, 295);
+            this.dataGridView1.Location = new System.Drawing.Point(82, 295);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(443, 128);
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(571, 128);
             this.dataGridView1.TabIndex = 28;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -154,38 +156,13 @@
             this.BtnAct.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnAct.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.BtnAct.ForeColor = System.Drawing.Color.White;
-            this.BtnAct.Location = new System.Drawing.Point(621, 352);
+            this.BtnAct.Location = new System.Drawing.Point(671, 352);
             this.BtnAct.Name = "BtnAct";
             this.BtnAct.Size = new System.Drawing.Size(91, 26);
             this.BtnAct.TabIndex = 29;
             this.BtnAct.Text = "Actualitzar";
             this.BtnAct.UseVisualStyleBackColor = false;
             this.BtnAct.Click += new System.EventHandler(this.Actualitzar_Click);
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.inserirToolStripMenuItem,
-            this.modificarToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(913, 24);
-            this.menuStrip1.TabIndex = 30;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // inserirToolStripMenuItem
-            // 
-            this.inserirToolStripMenuItem.Name = "inserirToolStripMenuItem";
-            this.inserirToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
-            this.inserirToolStripMenuItem.Text = "Inserir";
-            this.inserirToolStripMenuItem.Click += new System.EventHandler(this.inserirToolStripMenuItem_Click);
-            // 
-            // modificarToolStripMenuItem
-            // 
-            this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
-            this.modificarToolStripMenuItem.Text = "Modificar";
-            this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
             // 
             // BtnEliminar
             // 
@@ -196,7 +173,7 @@
             this.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.BtnEliminar.ForeColor = System.Drawing.Color.White;
-            this.BtnEliminar.Location = new System.Drawing.Point(621, 397);
+            this.BtnEliminar.Location = new System.Drawing.Point(671, 397);
             this.BtnEliminar.Name = "BtnEliminar";
             this.BtnEliminar.Size = new System.Drawing.Size(91, 26);
             this.BtnEliminar.TabIndex = 31;
@@ -213,13 +190,12 @@
             this.BtnInserir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnInserir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.BtnInserir.ForeColor = System.Drawing.Color.White;
-            this.BtnInserir.Location = new System.Drawing.Point(685, 233);
+            this.BtnInserir.Location = new System.Drawing.Point(576, 233);
             this.BtnInserir.Name = "BtnInserir";
             this.BtnInserir.Size = new System.Drawing.Size(77, 26);
             this.BtnInserir.TabIndex = 32;
             this.BtnInserir.Text = "Inserir";
             this.BtnInserir.UseVisualStyleBackColor = false;
-            this.BtnInserir.Visible = false;
             this.BtnInserir.Click += new System.EventHandler(this.BtnInserir_Click);
             // 
             // CustomCIF
@@ -251,7 +227,7 @@
             this.CustomDen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.CustomDen.Location = new System.Drawing.Point(230, 178);
+            this.CustomDen.Location = new System.Drawing.Point(233, 232);
             this.CustomDen.Name = "CustomDen";
             this.CustomDen.Options = CustomControlTB.CustomControlTB.Items.Text;
             this.CustomDen.Placeholder = null;
@@ -263,17 +239,45 @@
             this.CustomCodi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.CustomCodi.Location = new System.Drawing.Point(230, 126);
+            this.CustomCodi.Location = new System.Drawing.Point(233, 180);
             this.CustomCodi.Name = "CustomCodi";
             this.CustomCodi.Options = CustomControlTB.CustomControlTB.Items.Text;
             this.CustomCodi.Placeholder = null;
             this.CustomCodi.Size = new System.Drawing.Size(197, 27);
             this.CustomCodi.TabIndex = 10;
             // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label1.Location = new System.Drawing.Point(193, 130);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(23, 18);
+            this.label1.TabIndex = 34;
+            this.label1.Text = "Id:";
+            // 
+            // CustomId
+            // 
+            this.CustomId.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.CustomId.Enabled = false;
+            this.CustomId.Location = new System.Drawing.Point(233, 128);
+            this.CustomId.Name = "CustomId";
+            this.CustomId.Options = CustomControlTB.CustomControlTB.Items.Text;
+            this.CustomId.Placeholder = null;
+            this.CustomId.Size = new System.Drawing.Size(197, 27);
+            this.CustomId.TabIndex = 33;
+            // 
             // Laboratoris
             // 
             this.BackColor = System.Drawing.SystemColors.HighlightText;
             this.ClientSize = new System.Drawing.Size(913, 476);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.CustomId);
             this.Controls.Add(this.BtnInserir);
             this.Controls.Add(this.BtnEliminar);
             this.Controls.Add(this.BtnAct);
@@ -288,15 +292,12 @@
             this.Controls.Add(this.CustomSocial);
             this.Controls.Add(this.CustomDen);
             this.Controls.Add(this.CustomCodi);
-            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Laboratoris";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Laboratoris_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -316,10 +317,9 @@
         private System.Windows.Forms.Button BtnAceptar;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button BtnAct;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem inserirToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem modificarToolStripMenuItem;
         private System.Windows.Forms.Button BtnEliminar;
         private System.Windows.Forms.Button BtnInserir;
+        private System.Windows.Forms.Label label1;
+        private CustomControlTB.CustomControlTB CustomId;
     }
 }
