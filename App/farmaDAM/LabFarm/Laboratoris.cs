@@ -6,12 +6,13 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using ConexioBBDD;
 
 namespace LabFarm
 {
     public partial class Laboratoris : Form
     {
-        string config = "SERVER= 51.255.58.1;PORT=3306;DATABASE=g2s2am_FarmaDAM;UID=g2s2am;PASSWORD=12345aA;";
+        ConexioBBDD.Conexio conn = new ConexioBBDD.Conexio();
         string table = "laboratoris_farmaceutics";
         MySqlConnection connexio = new MySqlConnection();
 
@@ -21,27 +22,11 @@ namespace LabFarm
         }
         private void Laboratoris_Load(object sender, EventArgs e)
         {
-            string select = " * ";
-            string table = " laboratoris_farmaceutics";
-            string query = "SELECT"+ select +"FROM" + table;
-
-            connexio.ConnectionString = config;
-            connexio.Open();
-
-            MySqlCommand command = new MySqlCommand(query, connexio);
-            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-
+            string query = "SELECT * FROM laboratoris_farmaceutics";
             DataTable data = new DataTable();
-            adapter.Fill(data);
+            data = conn.filltable(query);
             dataGridView1.DataSource = data;
-            connexio.Close();
         }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Laboratoris_Load(sender, e);
-        }
-
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -62,20 +47,25 @@ namespace LabFarm
             Data = TextBoxData(Data);
             
             string query = "UPDATE " + table + " SET codi_lab = " + Data[1] + " ,rao_social = " + Data[2] + " ,cif = " + Data[3] + " WHERE id_lab = " + Data[0];
-            connexio.ConnectionString = config;
+
             try
             {
-                MySqlCommand command = new MySqlCommand(query, connexio);
-                MySqlDataReader MyReader2;
-                connexio.Open();
-                MyReader2 = command.ExecuteReader();
-                MessageBox.Show("Dades actualitzades");
-            }
+                if (conn.update_field(query))
+                {
+                    MessageBox.Show("Dades actualitzades");
+                }
+                else
+                {
+                    MessageBox.Show("Error a la consulta");
+                }
+
+        }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
             connexio.Close();
+            Laboratoris_Load(sender, e);
         }
 
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -94,60 +84,61 @@ namespace LabFarm
             dataGridView1.Visible = false;
             BtnAct.Visible = false;
             BtnEliminar.Visible = false;
-        }
 
+            foreach(Control c in this.Controls)
+            {
+                if(c is UserControl) {
+                    if (c is CustomControlTB.CustomControlTB)
+                        if (c is TextBox) {
+                            c.Text = "";
+                        }
+                }
+
+            }
+                    
+        }
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
             string[] Data = new string[4];
             Data = TextBoxData(Data);
 
-            
             string query = "DELETE FROM " + table + " WHERE id_lab = " + Data[0];
-            connexio.ConnectionString = config;
-            try
-            {
-                MySqlCommand command = new MySqlCommand(query, connexio);
-                MySqlDataReader MyReader2;
-                connexio.Open();
-                MyReader2 = command.ExecuteReader();
+
+            if (conn.delete(query)) {
                 MessageBox.Show("Dades esborrades");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            connexio.Close();
+            } else {
+                MessageBox.Show("Error al esborrar dades");
+            }           
             Laboratoris_Load(sender, e);
         }
-            private string[] TextBoxData(string[] Data)
-            {
-                Data[0] = CustomCodi.textBox1.Text;
-                Data[1] = CustomDen.textBox1.Text;
-                Data[2] = CustomSocial.textBox1.Text;
-                Data[3] = CustomCIF.textBox1.Text;
-                return Data;
-            }
+
+        private string[] TextBoxData(string[] Data)
+        {
+            
+            Data[0] = CustomCodi.textBox1.Text;
+            Data[1] = CustomDen.textBox1.Text;
+            Data[2] = CustomSocial.textBox1.Text;
+            Data[3] = CustomCIF.textBox1.Text;
+            return Data;
+        }
 
         private void BtnInserir_Click(object sender, EventArgs e)
         {
             string[] Data = new string[4];
             Data = TextBoxData(Data);
 
-            string query = "INSERT INTO " + table + "(id_lab,codi_lab,rao_social,cif) VALUES(" + Data[0] + "," + Data[1] + "," + Data[2] + "," + Data[3]+")";
-            connexio.ConnectionString = config;
-            try
+            string query = "INSERT INTO " + table + "(codi_lab,rao_social,cif) VALUES(" + Data[1] + "," + Data[2] + "," + Data[3]+")";
+            if (conn.inserir(query)) {
+                MessageBox.Show("Dades afegides"); }
+            else
             {
-                MySqlCommand command = new MySqlCommand(query, connexio);
-                MySqlDataReader MyReader2;
-                connexio.Open();
-                MyReader2 = command.ExecuteReader();
-                MessageBox.Show("Dades afegides");
+                MessageBox.Show("Error al afegir dades");
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            connexio.Close();
+        }
+
+        private void Actualitzar_Click(object sender, EventArgs e)
+        {
+            Laboratoris_Load(sender, e);
         }
     }
 }

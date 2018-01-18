@@ -36,15 +36,15 @@
             this.BtnAceptar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.BtnAct = new System.Windows.Forms.Button();
-            this.CustomCIF = new CustomControlTB.CustomControlTB();
-            this.CustomSocial = new CustomControlTB.CustomControlTB();
-            this.CustomDen = new CustomControlTB.CustomControlTB();
-            this.CustomCodi = new CustomControlTB.CustomControlTB();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.inserirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.BtnInserir = new System.Windows.Forms.Button();
+            this.CustomCIF = new CustomControlTB.CustomControlTB();
+            this.CustomSocial = new CustomControlTB.CustomControlTB();
+            this.CustomDen = new CustomControlTB.CustomControlTB();
+            this.CustomCodi = new CustomControlTB.CustomControlTB();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -160,55 +160,7 @@
             this.BtnAct.TabIndex = 29;
             this.BtnAct.Text = "Actualitzar";
             this.BtnAct.UseVisualStyleBackColor = false;
-            this.BtnAct.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // CustomCIF
-            // 
-            this.CustomCIF.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.CustomCIF.Location = new System.Drawing.Point(565, 178);
-            this.CustomCIF.Name = "CustomCIF";
-            this.CustomCIF.Options = CustomControlTB.CustomControlTB.Items.Text;
-            this.CustomCIF.Placeholder = null;
-            this.CustomCIF.Size = new System.Drawing.Size(197, 27);
-            this.CustomCIF.TabIndex = 13;
-            // 
-            // CustomSocial
-            // 
-            this.CustomSocial.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.CustomSocial.Location = new System.Drawing.Point(565, 126);
-            this.CustomSocial.Name = "CustomSocial";
-            this.CustomSocial.Options = CustomControlTB.CustomControlTB.Items.Text;
-            this.CustomSocial.Placeholder = null;
-            this.CustomSocial.Size = new System.Drawing.Size(197, 27);
-            this.CustomSocial.TabIndex = 12;
-            // 
-            // CustomDen
-            // 
-            this.CustomDen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.CustomDen.Location = new System.Drawing.Point(230, 178);
-            this.CustomDen.Name = "CustomDen";
-            this.CustomDen.Options = CustomControlTB.CustomControlTB.Items.Text;
-            this.CustomDen.Placeholder = null;
-            this.CustomDen.Size = new System.Drawing.Size(197, 27);
-            this.CustomDen.TabIndex = 11;
-            // 
-            // CustomCodi
-            // 
-            this.CustomCodi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.CustomCodi.Location = new System.Drawing.Point(230, 126);
-            this.CustomCodi.Name = "CustomCodi";
-            this.CustomCodi.Options = CustomControlTB.CustomControlTB.Items.Text;
-            this.CustomCodi.Placeholder = null;
-            this.CustomCodi.Size = new System.Drawing.Size(197, 27);
-            this.CustomCodi.TabIndex = 10;
+            this.BtnAct.Click += new System.EventHandler(this.Actualitzar_Click);
             // 
             // menuStrip1
             // 
@@ -269,6 +221,54 @@
             this.BtnInserir.UseVisualStyleBackColor = false;
             this.BtnInserir.Visible = false;
             this.BtnInserir.Click += new System.EventHandler(this.BtnInserir_Click);
+            // 
+            // CustomCIF
+            // 
+            this.CustomCIF.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.CustomCIF.Location = new System.Drawing.Point(565, 178);
+            this.CustomCIF.Name = "CustomCIF";
+            this.CustomCIF.Options = CustomControlTB.CustomControlTB.Items.Text;
+            this.CustomCIF.Placeholder = null;
+            this.CustomCIF.Size = new System.Drawing.Size(197, 27);
+            this.CustomCIF.TabIndex = 13;
+            // 
+            // CustomSocial
+            // 
+            this.CustomSocial.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.CustomSocial.Location = new System.Drawing.Point(565, 126);
+            this.CustomSocial.Name = "CustomSocial";
+            this.CustomSocial.Options = CustomControlTB.CustomControlTB.Items.Text;
+            this.CustomSocial.Placeholder = null;
+            this.CustomSocial.Size = new System.Drawing.Size(197, 27);
+            this.CustomSocial.TabIndex = 12;
+            // 
+            // CustomDen
+            // 
+            this.CustomDen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.CustomDen.Location = new System.Drawing.Point(230, 178);
+            this.CustomDen.Name = "CustomDen";
+            this.CustomDen.Options = CustomControlTB.CustomControlTB.Items.Text;
+            this.CustomDen.Placeholder = null;
+            this.CustomDen.Size = new System.Drawing.Size(197, 27);
+            this.CustomDen.TabIndex = 11;
+            // 
+            // CustomCodi
+            // 
+            this.CustomCodi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.CustomCodi.Location = new System.Drawing.Point(230, 126);
+            this.CustomCodi.Name = "CustomCodi";
+            this.CustomCodi.Options = CustomControlTB.CustomControlTB.Items.Text;
+            this.CustomCodi.Placeholder = null;
+            this.CustomCodi.Size = new System.Drawing.Size(197, 27);
+            this.CustomCodi.TabIndex = 10;
             // 
             // Laboratoris
             // 
