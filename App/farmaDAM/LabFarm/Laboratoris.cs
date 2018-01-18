@@ -48,7 +48,6 @@ namespace LabFarm
             Data = TextBoxData(Data);
 
             string query = "UPDATE " + table + " SET codi_lab = " + Data[1] + " ,rao_social = '" + Data[3] + "' ,cif = " + Data[4] + " ,denominacio = '" + Data[2] + "' WHERE id_lab = " + Data[0];
-            MessageBox.Show(query);
             try
             {
                 if (conn.update_field(query))
@@ -133,8 +132,7 @@ namespace LabFarm
             string[] Data = new string[5];
             Data = TextBoxData(Data);
             string query = "INSERT INTO " + table + "(codi_lab,denominacio,rao_social,cif) VALUES(" + Data[1] + ",'" + Data[2] + "','" + Data[3] + "'," + Data[4] + ")";
-
-            MessageBox.Show(query);
+            
             if (conn.inserir(query))
             {
                 MessageBox.Show("Dades afegides");
