@@ -25,13 +25,8 @@ namespace LabFarm
             string query = "SELECT * FROM laboratoris_farmaceutics";
             DataTable data = new DataTable();
             data = conn.filltable(query);
-            dataGridView1.DataSource = data;  }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Laboratoris_Load(sender, e);
+            dataGridView1.DataSource = data;
         }
-
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -70,6 +65,7 @@ namespace LabFarm
                 MessageBox.Show(ex.Message);
             }
             connexio.Close();
+            Laboratoris_Load(sender, e);
         }
 
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -88,10 +84,19 @@ namespace LabFarm
             dataGridView1.Visible = false;
             BtnAct.Visible = false;
             BtnEliminar.Visible = false;
+
+            foreach(Control c in this.Controls)
+            {
+                if(c is UserControl) {
+                    if (c is CustomControlTB.CustomControlTB)
+                        if (c is TextBox) {
+                            c.Text = "";
+                        }
+                }
+
+            }
                     
         }
-
-
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
             string[] Data = new string[4];
@@ -107,14 +112,15 @@ namespace LabFarm
             Laboratoris_Load(sender, e);
         }
 
-            private string[] TextBoxData(string[] Data)
-            {
-                Data[0] = CustomCodi.textBox1.Text;
-                Data[1] = CustomDen.textBox1.Text;
-                Data[2] = CustomSocial.textBox1.Text;
-                Data[3] = CustomCIF.textBox1.Text;
-                return Data;
-            }
+        private string[] TextBoxData(string[] Data)
+        {
+            
+            Data[0] = CustomCodi.textBox1.Text;
+            Data[1] = CustomDen.textBox1.Text;
+            Data[2] = CustomSocial.textBox1.Text;
+            Data[3] = CustomCIF.textBox1.Text;
+            return Data;
+        }
 
         private void BtnInserir_Click(object sender, EventArgs e)
         {
@@ -128,6 +134,11 @@ namespace LabFarm
             {
                 MessageBox.Show("Error al afegir dades");
             }
+        }
+
+        private void Actualitzar_Click(object sender, EventArgs e)
+        {
+            Laboratoris_Load(sender, e);
         }
     }
 }
