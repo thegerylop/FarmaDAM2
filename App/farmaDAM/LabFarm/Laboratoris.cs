@@ -22,6 +22,10 @@ namespace LabFarm
         }
         private void Laboratoris_Load(object sender, EventArgs e)
         {
+            ActualitzarGridView();
+        }
+        private void ActualitzarGridView()
+        {
             string query = "SELECT * FROM laboratoris_farmaceutics";
             DataTable data = new DataTable();
             data = conn.filltable(query);
@@ -29,6 +33,8 @@ namespace LabFarm
         }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            BtnInserir.Visible = false;
+            BtnAceptar.Visible = true;
             if (e.RowIndex >= 0)
             {
                 //gets a collection that contains all the rows
@@ -65,7 +71,7 @@ namespace LabFarm
                 MessageBox.Show(ex.Message);
             }
             connexio.Close();
-            Laboratoris_Load(sender, e);
+            ActualitzarGridView();
         }
 
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -114,7 +120,7 @@ namespace LabFarm
             {
                 MessageBox.Show("Error al esborrar dades");
             }
-            Laboratoris_Load(sender, e);
+            ActualitzarGridView();
         }
 
         private string[] TextBoxData(string[] Data)
@@ -145,8 +151,13 @@ namespace LabFarm
 
         private void Actualitzar_Click(object sender, EventArgs e)
         {
-            Laboratoris_Load(sender, e);
+            ActualitzarGridView();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            BtnInserir.Visible = true;
+            BtnAceptar.Visible = false;
+        }
     }
 }
