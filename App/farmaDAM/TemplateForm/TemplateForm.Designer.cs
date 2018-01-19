@@ -41,6 +41,7 @@
             this.tancarSessioButton = new System.Windows.Forms.Button();
             this.perfilUsuariButton = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.btnTest = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -203,6 +204,7 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.Gray;
+            this.panel8.Controls.Add(this.btnTest);
             this.panel8.Controls.Add(this.button4);
             this.panel8.Controls.Add(this.button5);
             this.panel8.Controls.Add(this.button6);
@@ -216,6 +218,20 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(207, 488);
             this.panel8.TabIndex = 8;
+            // 
+            // btnTest
+            // 
+            this.btnTest.BackColor = System.Drawing.Color.DimGray;
+            this.btnTest.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnTest.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTest.ForeColor = System.Drawing.Color.White;
+            this.btnTest.Location = new System.Drawing.Point(3, 348);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(201, 51);
+            this.btnTest.TabIndex = 32;
+            this.btnTest.Text = "BASE TEST";
+            this.btnTest.UseVisualStyleBackColor = false;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
             // button4
             // 
@@ -352,5 +368,6 @@
         private System.Windows.Forms.Label actualizacionLabel;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button btnTest;
     }
 }

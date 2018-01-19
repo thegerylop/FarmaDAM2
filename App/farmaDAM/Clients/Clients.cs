@@ -72,5 +72,10 @@ namespace Clients
 
             return false;
         }
+
+        private void customNom_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

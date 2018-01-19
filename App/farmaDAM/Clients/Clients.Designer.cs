@@ -60,6 +60,7 @@
             this.customNom.Placeholder = "Nom";
             this.customNom.Size = new System.Drawing.Size(197, 27);
             this.customNom.TabIndex = 0;
+            this.customNom.Load += new System.EventHandler(this.customNom_Load);
             // 
             // customAdreca
             // 

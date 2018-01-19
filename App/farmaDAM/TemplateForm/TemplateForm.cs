@@ -87,5 +87,14 @@ namespace TemplateForm
         {
             Application.Exit();
         }
+
+        private void btnTest_Click(object sender, EventArgs e)
+        {
+            Form frm = new BaseForm.BaseForm();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
     }
 }
