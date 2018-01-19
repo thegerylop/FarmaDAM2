@@ -42,7 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TemplateForm.cs">
       <SubType>Form</SubType>
@@ -57,6 +56,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Clients\Clients.csproj">
+      <Project>{c5ad0804-57bb-4e66-bce8-58af53eb0b2b}</Project>
+      <Name>Clients</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LabFarm\LabFarm.csproj">
       <Project>{1f89a881-ec94-46d3-a799-69a37ce4f4e5}</Project>
       <Name>LabFarm</Name>

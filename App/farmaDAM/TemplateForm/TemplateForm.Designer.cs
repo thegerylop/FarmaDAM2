@@ -37,9 +37,9 @@
             this.labelExitLog = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button10 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.clientsButton = new System.Windows.Forms.Button();
+            this.tancarSessioButton = new System.Windows.Forms.Button();
+            this.perfilUsuariButton = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -157,46 +157,48 @@
             this.button10.UseVisualStyleBackColor = false;
             this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
-            // button3
+            // clientsButton
             // 
-            this.button3.BackColor = System.Drawing.Color.DimGray;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(3, 261);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(201, 51);
-            this.button3.TabIndex = 26;
-            this.button3.Text = "Clients";
-            this.button3.UseVisualStyleBackColor = false;
+            this.clientsButton.BackColor = System.Drawing.Color.DimGray;
+            this.clientsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.clientsButton.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clientsButton.ForeColor = System.Drawing.Color.White;
+            this.clientsButton.Location = new System.Drawing.Point(3, 261);
+            this.clientsButton.Name = "clientsButton";
+            this.clientsButton.Size = new System.Drawing.Size(201, 51);
+            this.clientsButton.TabIndex = 26;
+            this.clientsButton.Text = "Clients";
+            this.clientsButton.UseVisualStyleBackColor = false;
+            this.clientsButton.Click += new System.EventHandler(this.clientsButton_Click);
             // 
-            // button9
+            // tancarSessioButton
             // 
-            this.button9.BackColor = System.Drawing.Color.DarkRed;
-            this.button9.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button9.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.ForeColor = System.Drawing.Color.White;
-            this.button9.Location = new System.Drawing.Point(0, 442);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(207, 23);
-            this.button9.TabIndex = 25;
-            this.button9.Text = "Tancar Sessió";
-            this.button9.UseVisualStyleBackColor = false;
+            this.tancarSessioButton.BackColor = System.Drawing.Color.DarkRed;
+            this.tancarSessioButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tancarSessioButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.tancarSessioButton.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tancarSessioButton.ForeColor = System.Drawing.Color.White;
+            this.tancarSessioButton.Location = new System.Drawing.Point(0, 442);
+            this.tancarSessioButton.Name = "tancarSessioButton";
+            this.tancarSessioButton.Size = new System.Drawing.Size(207, 23);
+            this.tancarSessioButton.TabIndex = 25;
+            this.tancarSessioButton.Text = "Tancar Sessió";
+            this.tancarSessioButton.UseVisualStyleBackColor = false;
+            this.tancarSessioButton.Click += new System.EventHandler(this.tancarSessioButton_Click);
             // 
-            // button8
+            // perfilUsuariButton
             // 
-            this.button8.BackColor = System.Drawing.Color.DimGray;
-            this.button8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button8.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.Location = new System.Drawing.Point(0, 465);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(207, 23);
-            this.button8.TabIndex = 24;
-            this.button8.Text = "Perfil d\'usuari";
-            this.button8.UseVisualStyleBackColor = false;
+            this.perfilUsuariButton.BackColor = System.Drawing.Color.DimGray;
+            this.perfilUsuariButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.perfilUsuariButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.perfilUsuariButton.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.perfilUsuariButton.ForeColor = System.Drawing.Color.White;
+            this.perfilUsuariButton.Location = new System.Drawing.Point(0, 465);
+            this.perfilUsuariButton.Name = "perfilUsuariButton";
+            this.perfilUsuariButton.Size = new System.Drawing.Size(207, 23);
+            this.perfilUsuariButton.TabIndex = 24;
+            this.perfilUsuariButton.Text = "Perfil d\'usuari";
+            this.perfilUsuariButton.UseVisualStyleBackColor = false;
             // 
             // panel8
             // 
@@ -206,9 +208,9 @@
             this.panel8.Controls.Add(this.button6);
             this.panel8.Controls.Add(this.button10);
             this.panel8.Controls.Add(this.button2);
-            this.panel8.Controls.Add(this.button3);
-            this.panel8.Controls.Add(this.button9);
-            this.panel8.Controls.Add(this.button8);
+            this.panel8.Controls.Add(this.clientsButton);
+            this.panel8.Controls.Add(this.tancarSessioButton);
+            this.panel8.Controls.Add(this.perfilUsuariButton);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel8.Location = new System.Drawing.Point(0, 30);
             this.panel8.Name = "panel8";
@@ -338,9 +340,9 @@
         private System.Windows.Forms.Label labelExitLog;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button clientsButton;
+        private System.Windows.Forms.Button tancarSessioButton;
+        private System.Windows.Forms.Button perfilUsuariButton;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;

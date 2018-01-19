@@ -73,5 +73,19 @@ namespace TemplateForm
         {
             date.Text = DateTime.Now.ToString();
         }
+
+        private void clientsButton_Click(object sender, EventArgs e)
+        {
+            Form frm = new Clients.Clients();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void tancarSessioButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
