@@ -158,6 +158,13 @@ namespace LabFarm
         {
             BtnInserir.Visible = true;
             BtnAceptar.Visible = false;
+
+            CustomId.textBox1.Text = "";
+            CustomCodi.textBox1.Text = "";
+            CustomDen.textBox1.Text = "";
+            CustomSocial.textBox1.Text = "";
+            CustomCIF.textBox1.Text = "";
+
         }
     }
 }
