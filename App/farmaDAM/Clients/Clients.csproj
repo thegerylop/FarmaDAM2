@@ -56,6 +56,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ConexioBBDD\ConexioBBDD.csproj">
+      <Project>{384145e7-5b9b-43cb-92b0-d8be9b92fde8}</Project>
+      <Name>ConexioBBDD</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CustomControlTB\CustomControlTB.csproj">
       <Project>{5A96E7F7-6941-4E6B-8379-E8C51EAE3768}</Project>
       <Name>CustomControlTB</Name>

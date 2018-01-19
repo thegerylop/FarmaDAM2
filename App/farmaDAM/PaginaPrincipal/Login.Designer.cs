@@ -162,7 +162,6 @@
             this.customControlTBLogin.Placeholder = "Login";
             this.customControlTBLogin.Size = new System.Drawing.Size(263, 27);
             this.customControlTBLogin.TabIndex = 1;
-            this.customControlTBLogin.Load += new System.EventHandler(this.customControlTBLogin_Load);
             // 
             // customControlTBContrasenya
             // 

@@ -31,22 +31,20 @@
             this.customNom = new CustomControlTB.CustomControlTB();
             this.customAdreca = new CustomControlTB.CustomControlTB();
             this.customDNI = new CustomControlTB.CustomControlTB();
-            this.customEmail = new CustomControlTB.CustomControlTB();
+            this.customCognoms = new CustomControlTB.CustomControlTB();
             this.customTS = new CustomControlTB.CustomControlTB();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.tcDropDown = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.noRadioButton = new System.Windows.Forms.RadioButton();
             this.siRadioButton = new System.Windows.Forms.RadioButton();
             this.cronicLabel = new System.Windows.Forms.Label();
             this.medicamensLabel = new System.Windows.Forms.Label();
             this.emailLabel = new System.Windows.Forms.Label();
-            this.customControlTB1 = new CustomControlTB.CustomControlTB();
+            this.customEmail = new CustomControlTB.CustomControlTB();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cronicGB = new System.Windows.Forms.GroupBox();
-            this.Periode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantitat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Medicament = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cronicGridView = new System.Windows.Forms.DataGridView();
+            this.BtnInserir = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.cronicGB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cronicGridView)).BeginInit();
@@ -85,16 +83,16 @@
             this.customDNI.Size = new System.Drawing.Size(197, 27);
             this.customDNI.TabIndex = 2;
             // 
-            // customEmail
+            // customCognoms
             // 
-            this.customEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.customEmail.Location = new System.Drawing.Point(62, 54);
-            this.customEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.customEmail.Name = "customEmail";
-            this.customEmail.Options = CustomControlTB.CustomControlTB.Items.Text;
-            this.customEmail.Placeholder = "Cognoms";
-            this.customEmail.Size = new System.Drawing.Size(197, 27);
-            this.customEmail.TabIndex = 3;
+            this.customCognoms.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.customCognoms.Location = new System.Drawing.Point(62, 54);
+            this.customCognoms.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.customCognoms.Name = "customCognoms";
+            this.customCognoms.Options = CustomControlTB.CustomControlTB.Items.Text;
+            this.customCognoms.Placeholder = "Cognoms";
+            this.customCognoms.Size = new System.Drawing.Size(197, 27);
+            this.customCognoms.TabIndex = 3;
             // 
             // customTS
             // 
@@ -107,13 +105,18 @@
             this.customTS.Size = new System.Drawing.Size(197, 27);
             this.customTS.TabIndex = 4;
             // 
-            // comboBox1
+            // tcDropDown
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(247, 346);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 9;
+            this.tcDropDown.FormattingEnabled = true;
+            this.tcDropDown.Items.AddRange(new object[] {
+            "Ivan",
+            "Retrasado",
+            "Subnormal",
+            "Normal"});
+            this.tcDropDown.Location = new System.Drawing.Point(247, 346);
+            this.tcDropDown.Name = "tcDropDown";
+            this.tcDropDown.Size = new System.Drawing.Size(121, 21);
+            this.tcDropDown.TabIndex = 9;
             // 
             // label1
             // 
@@ -179,20 +182,20 @@
             this.emailLabel.TabIndex = 10;
             this.emailLabel.Text = "Correu Electrònic:";
             // 
-            // customControlTB1
+            // customEmail
             // 
-            this.customControlTB1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customControlTB1.Location = new System.Drawing.Point(147, 15);
-            this.customControlTB1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.customControlTB1.Name = "customControlTB1";
-            this.customControlTB1.Options = CustomControlTB.CustomControlTB.Items.Text;
-            this.customControlTB1.Placeholder = "e-Mail";
-            this.customControlTB1.Size = new System.Drawing.Size(254, 27);
-            this.customControlTB1.TabIndex = 10;
+            this.customEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customEmail.Location = new System.Drawing.Point(147, 15);
+            this.customEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.customEmail.Name = "customEmail";
+            this.customEmail.Options = CustomControlTB.CustomControlTB.Items.Text;
+            this.customEmail.Placeholder = "e-Mail";
+            this.customEmail.Size = new System.Drawing.Size(254, 27);
+            this.customEmail.TabIndex = 10;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.customEmail);
+            this.groupBox1.Controls.Add(this.customCognoms);
             this.groupBox1.Controls.Add(this.customDNI);
             this.groupBox1.Controls.Add(this.customTS);
             this.groupBox1.Controls.Add(this.customAdreca);
@@ -207,7 +210,7 @@
             // cronicGB
             // 
             this.cronicGB.Controls.Add(this.cronicGridView);
-            this.cronicGB.Controls.Add(this.customControlTB1);
+            this.cronicGB.Controls.Add(this.customEmail);
             this.cronicGB.Controls.Add(this.medicamensLabel);
             this.cronicGB.Controls.Add(this.emailLabel);
             this.cronicGB.Location = new System.Drawing.Point(432, 76);
@@ -217,32 +220,30 @@
             this.cronicGB.TabStop = false;
             this.cronicGB.Text = "Cronic";
             // 
-            // Periode
-            // 
-            this.Periode.HeaderText = "Periode";
-            this.Periode.Name = "Periode";
-            // 
-            // Quantitat
-            // 
-            this.Quantitat.HeaderText = "Quantitat";
-            this.Quantitat.Name = "Quantitat";
-            // 
-            // Medicament
-            // 
-            this.Medicament.HeaderText = "Medicament";
-            this.Medicament.Name = "Medicament";
-            // 
             // cronicGridView
             // 
             this.cronicGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.cronicGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Medicament,
-            this.Quantitat,
-            this.Periode});
-            this.cronicGridView.Location = new System.Drawing.Point(60, 87);
+            this.cronicGridView.Location = new System.Drawing.Point(21, 87);
             this.cronicGridView.Name = "cronicGridView";
-            this.cronicGridView.Size = new System.Drawing.Size(341, 263);
+            this.cronicGridView.Size = new System.Drawing.Size(401, 263);
             this.cronicGridView.TabIndex = 12;
+            // 
+            // BtnInserir
+            // 
+            this.BtnInserir.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnInserir.BackColor = System.Drawing.Color.DimGray;
+            this.BtnInserir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnInserir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.BtnInserir.ForeColor = System.Drawing.Color.White;
+            this.BtnInserir.Location = new System.Drawing.Point(101, 425);
+            this.BtnInserir.Name = "BtnInserir";
+            this.BtnInserir.Size = new System.Drawing.Size(77, 26);
+            this.BtnInserir.TabIndex = 33;
+            this.BtnInserir.Text = "Inserir";
+            this.BtnInserir.UseVisualStyleBackColor = false;
+            this.BtnInserir.Click += new System.EventHandler(this.BtnInserir_Click);
             // 
             // Clients
             // 
@@ -250,9 +251,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(913, 476);
+            this.Controls.Add(this.BtnInserir);
             this.Controls.Add(this.cronicGB);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.tcDropDown);
             this.Controls.Add(this.cronicLabel);
             this.Controls.Add(this.siRadioButton);
             this.Controls.Add(this.label1);
@@ -261,6 +263,7 @@
             this.Name = "Clients";
             this.Text = "Clients";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Clients_Load);
             this.groupBox1.ResumeLayout(false);
             this.cronicGB.ResumeLayout(false);
             this.cronicGB.PerformLayout();
@@ -275,21 +278,19 @@
         private CustomControlTB.CustomControlTB customNom;
         private CustomControlTB.CustomControlTB customAdreca;
         private CustomControlTB.CustomControlTB customDNI;
-        private CustomControlTB.CustomControlTB customEmail;
+        private CustomControlTB.CustomControlTB customCognoms;
         private CustomControlTB.CustomControlTB customTS;
         private System.Windows.Forms.Label cronicLabel;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox tcDropDown;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton noRadioButton;
         private System.Windows.Forms.RadioButton siRadioButton;
         private System.Windows.Forms.Label emailLabel;
-        private CustomControlTB.CustomControlTB customControlTB1;
+        private CustomControlTB.CustomControlTB customEmail;
         private System.Windows.Forms.Label medicamensLabel;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox cronicGB;
         private System.Windows.Forms.DataGridView cronicGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Medicament;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantitat;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Periode;
+        private System.Windows.Forms.Button BtnInserir;
     }
 }
