@@ -15,6 +15,33 @@ namespace ConexioBBDD
         string connString = "SERVER= 51.255.58.1;PORT=3306;DATABASE=g2s2am_FarmaDAM;UID=g2s2am;PASSWORD=12345aA;";
         MySqlConnection conn = new MySqlConnection();
 
+        public string connexioLogin(String login, String password)
+        {
+            string comanda = "SELECT usuari, contrasenya FROM personal WHERE usuari = '" + login + "' and contrasenya = '" + password + "'";
+            conn.ConnectionString = connString;
+            conn.Open();
+            try
+            {
+                MySqlCommand command = new MySqlCommand(comanda, conn);
+                MySqlDataReader dataReader = command.ExecuteReader();
+                string select = null;
+                //code to get select
+                dataReader.Read();
+                if (dataReader[0].ToString().Length > 1 && dataReader[1].ToString().Length > 1)
+                {
+                    select = dataReader[0].ToString() + " - " + dataReader[1].ToString();
+                }
+                dataReader.Close();
+                return select;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally { conn.Close(); }
+        }
+
         public void connexio()
         {
             conn = new MySqlConnection(connString);
@@ -53,8 +80,8 @@ namespace ConexioBBDD
             {
                 connexio();
 
-                dtaDepart = new MySqlDataAdapter();
-                construct = new MySqlCommandBuilder();
+                dtaDepart = new MySqlDataAdapter(query, conn);
+                construct = new MySqlCommandBuilder(dtaDepart);
 
                 if (dtsAct.HasChanges())
                 {
@@ -84,6 +111,7 @@ namespace ConexioBBDD
             MySqlCommand cmdQry = new MySqlCommand(cmd, conn);
 
             return cmdQry.ExecuteNonQuery();
+
         }
     }
 }
