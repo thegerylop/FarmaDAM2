@@ -69,5 +69,9 @@ namespace BaseForm
         private void BaseForm_Load(object sender, EventArgs e)
         {
         }
+
+        private void btnEsborrar_Click(object sender, EventArgs e)
+        {
+        }
     }
 }

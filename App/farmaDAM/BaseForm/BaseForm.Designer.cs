@@ -38,8 +38,7 @@
             // dataGridView1
             // 
             this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 205);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 209);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(873, 220);
             this.dataGridView1.TabIndex = 0;
@@ -51,7 +50,7 @@
             this.btnActualitzar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnActualitzar.Font = new System.Drawing.Font("Verdana", 9.75F);
             this.btnActualitzar.ForeColor = System.Drawing.Color.White;
-            this.btnActualitzar.Location = new System.Drawing.Point(753, 173);
+            this.btnActualitzar.Location = new System.Drawing.Point(753, 177);
             this.btnActualitzar.Name = "btnActualitzar";
             this.btnActualitzar.Size = new System.Drawing.Size(132, 26);
             this.btnActualitzar.TabIndex = 36;
@@ -66,7 +65,7 @@
             this.btnInserir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnInserir.Font = new System.Drawing.Font("Verdana", 9.75F);
             this.btnInserir.ForeColor = System.Drawing.Color.White;
-            this.btnInserir.Location = new System.Drawing.Point(630, 173);
+            this.btnInserir.Location = new System.Drawing.Point(630, 177);
             this.btnInserir.Name = "btnInserir";
             this.btnInserir.Size = new System.Drawing.Size(117, 26);
             this.btnInserir.TabIndex = 37;
@@ -81,12 +80,13 @@
             this.btnEsborrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEsborrar.Font = new System.Drawing.Font("Verdana", 9.75F);
             this.btnEsborrar.ForeColor = System.Drawing.Color.White;
-            this.btnEsborrar.Location = new System.Drawing.Point(497, 173);
+            this.btnEsborrar.Location = new System.Drawing.Point(507, 177);
             this.btnEsborrar.Name = "btnEsborrar";
             this.btnEsborrar.Size = new System.Drawing.Size(117, 26);
             this.btnEsborrar.TabIndex = 38;
             this.btnEsborrar.Text = "Esborrar";
             this.btnEsborrar.UseVisualStyleBackColor = false;
+            this.btnEsborrar.Click += new System.EventHandler(this.btnEsborrar_Click);
             // 
             // BaseForm
             // 
@@ -94,7 +94,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(913, 476);
+            this.ClientSize = new System.Drawing.Size(913, 484);
             this.Controls.Add(this.btnEsborrar);
             this.Controls.Add(this.btnInserir);
             this.Controls.Add(this.btnActualitzar);
@@ -113,6 +113,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnActualitzar;
         private System.Windows.Forms.Button btnInserir;
-        private System.Windows.Forms.Button btnEsborrar;
+        public System.Windows.Forms.Button btnEsborrar;
     }
 }

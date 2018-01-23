@@ -39,13 +39,16 @@
             this.CCcif = new CustomControlTB.CustomControlTB();
             this.CCden = new CustomControlTB.CustomControlTB();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
+            // 
+            // btnEsborrar
+            // 
+            this.btnEsborrar.Click += new System.EventHandler(this.btnEsborrar_Click);
             // 
             // idlabDataGridViewTextBoxColumn
             // 
@@ -82,7 +85,7 @@
             this.CCid.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.CCid.Location = new System.Drawing.Point(229, 47);
             this.CCid.Name = "CCid";
-            this.CCid.Options = CustomControlTB.CustomControlTB.Items.Password;
+            this.CCid.Options = CustomControlTB.CustomControlTB.Items.Text;
             this.CCid.Placeholder = null;
             this.CCid.Size = new System.Drawing.Size(197, 27);
             this.CCid.TabIndex = 38;
@@ -93,7 +96,7 @@
             this.CCcodi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.CCcodi.Location = new System.Drawing.Point(229, 96);
             this.CCcodi.Name = "CCcodi";
-            this.CCcodi.Options = CustomControlTB.CustomControlTB.Items.Password;
+            this.CCcodi.Options = CustomControlTB.CustomControlTB.Items.Text;
             this.CCcodi.Placeholder = null;
             this.CCcodi.Size = new System.Drawing.Size(197, 27);
             this.CCcodi.TabIndex = 39;
@@ -104,7 +107,7 @@
             this.CCrao.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.CCrao.Location = new System.Drawing.Point(229, 147);
             this.CCrao.Name = "CCrao";
-            this.CCrao.Options = CustomControlTB.CustomControlTB.Items.Password;
+            this.CCrao.Options = CustomControlTB.CustomControlTB.Items.Text;
             this.CCrao.Placeholder = null;
             this.CCrao.Size = new System.Drawing.Size(197, 27);
             this.CCrao.TabIndex = 40;
@@ -115,7 +118,7 @@
             this.CCcif.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.CCcif.Location = new System.Drawing.Point(550, 47);
             this.CCcif.Name = "CCcif";
-            this.CCcif.Options = CustomControlTB.CustomControlTB.Items.Password;
+            this.CCcif.Options = CustomControlTB.CustomControlTB.Items.Text;
             this.CCcif.Placeholder = null;
             this.CCcif.Size = new System.Drawing.Size(197, 27);
             this.CCcif.TabIndex = 41;
@@ -126,7 +129,7 @@
             this.CCden.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.CCden.Location = new System.Drawing.Point(550, 96);
             this.CCden.Name = "CCden";
-            this.CCden.Options = CustomControlTB.CustomControlTB.Items.Password;
+            this.CCden.Options = CustomControlTB.CustomControlTB.Items.Text;
             this.CCden.Placeholder = null;
             this.CCden.Size = new System.Drawing.Size(197, 27);
             this.CCden.TabIndex = 42;
@@ -134,6 +137,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label1.Location = new System.Drawing.Point(198, 49);
@@ -142,26 +146,9 @@
             this.label1.TabIndex = 43;
             this.label1.Text = "Id :";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(439, 232);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 44;
-            this.label2.Text = "label2";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(447, 240);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 45;
-            this.label3.Text = "label3";
-            // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label4.Location = new System.Drawing.Point(178, 99);
@@ -172,6 +159,7 @@
             // 
             // label5
             // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label5.Location = new System.Drawing.Point(139, 149);
@@ -182,6 +170,7 @@
             // 
             // label6
             // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label6.Location = new System.Drawing.Point(507, 49);
@@ -192,6 +181,7 @@
             // 
             // label7
             // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label7.Location = new System.Drawing.Point(444, 99);
@@ -200,16 +190,27 @@
             this.label7.TabIndex = 49;
             this.label7.Text = "Denominació :";
             // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label2.Location = new System.Drawing.Point(376, -17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(184, 20);
+            this.label2.TabIndex = 50;
+            this.label2.Text = "Laboratoris farmaceutics";
+            // 
             // Laboratoris
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(913, 476);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CCden);
             this.Controls.Add(this.CCcif);
@@ -217,18 +218,18 @@
             this.Controls.Add(this.CCcodi);
             this.Controls.Add(this.CCid);
             this.Name = "Laboratoris";
+            this.Controls.SetChildIndex(this.btnEsborrar, 0);
             this.Controls.SetChildIndex(this.CCid, 0);
             this.Controls.SetChildIndex(this.CCcodi, 0);
             this.Controls.SetChildIndex(this.CCrao, 0);
             this.Controls.SetChildIndex(this.CCcif, 0);
             this.Controls.SetChildIndex(this.CCden, 0);
             this.Controls.SetChildIndex(this.label1, 0);
-            this.Controls.SetChildIndex(this.label2, 0);
-            this.Controls.SetChildIndex(this.label3, 0);
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.label5, 0);
             this.Controls.SetChildIndex(this.label6, 0);
             this.Controls.SetChildIndex(this.label7, 0);
+            this.Controls.SetChildIndex(this.label2, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,11 +248,10 @@
         private CustomControlTB.CustomControlTB CCcif;
         private CustomControlTB.CustomControlTB CCden;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label2;
     }
 }
