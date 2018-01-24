@@ -49,22 +49,25 @@ namespace BaseForm
                 {
 
                     txt.DataBindings.Clear();
-                    txt.DataBindings.Add(new Binding("Text", dataSet.Tables["laboratoris_farmaceutics"], txt.Tag.ToString(),true));
+                    txt.DataBindings.Add("Text", dataSet.Tables["laboratoris_farmaceutics"], txt.Tag.ToString(),true);
+
                     
+                    txt.Validated += new System.EventHandler(this.validarText);
+
                     //AddHandler DirectCast(txt, System.Windows.Forms.TextBox).Validated, _
                     //txt.DataBindings.
                     //AddressOf validartext
-                    
+
                 }
             }
             dataGridView1.AutoGenerateColumns = true;
             dataGridView1.DataSource = dataSet.Tables["laboratoris_farmaceutics"]; // dataset
         }
       
-        //private void validarText(object sender, EventArgs e)
-        //{
-        //  (sender)<Control>.DataBindings(0).BindingManagerBase.EndCurrentEdit()
-        //}
+        private void validarText(object sender, EventArgs e)
+        {
+            (sender)(TextBox).DataBindings(0).BindingManagerBase.EndCurrentEdit()
+        }
 
         public BaseForm()
         {
