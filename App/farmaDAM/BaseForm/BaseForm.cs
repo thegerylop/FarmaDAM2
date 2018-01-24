@@ -32,6 +32,14 @@ namespace BaseForm
             Boolean correcte = false;
             ConexioBBDD.Conexio bd = new ConexioBBDD.Conexio();
             correcte = bd.Actualitzar(query, table, dataSet);
+            if (correcte)
+            {
+                MessageBox.Show("Dades actualitzades");
+            }
+            else
+            {
+                MessageBox.Show("Error al actualitzar les dades");
+            }
         }
 
         private void BindingDades()
@@ -45,6 +53,7 @@ namespace BaseForm
                     //EventHandler handler1 = (TextBox)BaseForm.FindControl(txt);
                     EventHandler handler2 = new EventHandler(this.validarText);
                     //AddHandler DirectCast(txt, System.Windows.Forms.TextBox).Validated, _
+                    //AddressOf validartext
                 }
             }
             dataGridView1.AutoGenerateColumns = true;
@@ -53,7 +62,8 @@ namespace BaseForm
         }
         private void validarText(object sender , EventArgs e)
         {
-
+            //DirectCast(sender, Windows.Forms.Control).DataBindings(0) _
+            //.BindingManagerBase.EndCurrentEdit()
         }
         
 
@@ -66,10 +76,6 @@ namespace BaseForm
         }
 
         public virtual void actualitzar_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void BaseForm_Load(object sender, EventArgs e)
         {
         }
 
