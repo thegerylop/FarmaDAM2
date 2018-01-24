@@ -30,21 +30,21 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.date = new System.Windows.Forms.Label();
+            this.lblUsuari = new System.Windows.Forms.Label();
+            this.lblDate = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.minimizeLabel = new System.Windows.Forms.Label();
-            this.labelExitLog = new System.Windows.Forms.Label();
+            this.lblMinimize = new System.Windows.Forms.Label();
+            this.lblExit = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button10 = new System.Windows.Forms.Button();
-            this.clientsButton = new System.Windows.Forms.Button();
-            this.tancarSessioButton = new System.Windows.Forms.Button();
-            this.perfilUsuariButton = new System.Windows.Forms.Button();
+            this.btnLaboratorisFarmaceutics = new System.Windows.Forms.Button();
+            this.btnClients = new System.Windows.Forms.Button();
+            this.btnTancarSessio = new System.Windows.Forms.Button();
+            this.btnPerfilUsuari = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnMantenimentProductes = new System.Windows.Forms.Button();
+            this.btnVendaMedicaments = new System.Windows.Forms.Button();
+            this.btnGestioComandesCompra = new System.Windows.Forms.Button();
+            this.btnMantenimentPrincipisActius = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.actualizacionLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -57,11 +57,11 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Gray;
-            this.panel4.Controls.Add(this.label2);
-            this.panel4.Controls.Add(this.date);
+            this.panel4.Controls.Add(this.lblUsuari);
+            this.panel4.Controls.Add(this.lblDate);
             this.panel4.Controls.Add(this.label1);
-            this.panel4.Controls.Add(this.minimizeLabel);
-            this.panel4.Controls.Add(this.labelExitLog);
+            this.panel4.Controls.Add(this.lblMinimize);
+            this.panel4.Controls.Add(this.lblExit);
             this.panel4.Controls.Add(this.panel2);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
@@ -72,29 +72,29 @@
             this.panel4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel4_MouseMove);
             this.panel4.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel4_MouseUp);
             // 
-            // label2
+            // lblUsuari
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(207, 8);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(110, 16);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Usuari: JCASAS";
+            this.lblUsuari.AutoSize = true;
+            this.lblUsuari.BackColor = System.Drawing.Color.Transparent;
+            this.lblUsuari.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuari.ForeColor = System.Drawing.Color.White;
+            this.lblUsuari.Location = new System.Drawing.Point(207, 8);
+            this.lblUsuari.Name = "lblUsuari";
+            this.lblUsuari.Size = new System.Drawing.Size(110, 16);
+            this.lblUsuari.TabIndex = 9;
+            this.lblUsuari.Text = "Usuari: JCASAS";
             // 
-            // date
+            // lblDate
             // 
-            this.date.AutoSize = true;
-            this.date.BackColor = System.Drawing.Color.Transparent;
-            this.date.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.date.ForeColor = System.Drawing.Color.White;
-            this.date.Location = new System.Drawing.Point(758, 7);
-            this.date.Name = "date";
-            this.date.Size = new System.Drawing.Size(96, 16);
-            this.date.TabIndex = 8;
-            this.date.Text = "DD/MM/YYYY";
+            this.lblDate.AutoSize = true;
+            this.lblDate.BackColor = System.Drawing.Color.Transparent;
+            this.lblDate.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.ForeColor = System.Drawing.Color.White;
+            this.lblDate.Location = new System.Drawing.Point(758, 7);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(96, 16);
+            this.lblDate.TabIndex = 8;
+            this.lblDate.Text = "DD/MM/YYYY";
             // 
             // label1
             // 
@@ -107,32 +107,32 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "F A R M A D A M ";
             // 
-            // minimizeLabel
+            // lblMinimize
             // 
-            this.minimizeLabel.AutoSize = true;
-            this.minimizeLabel.BackColor = System.Drawing.Color.Transparent;
-            this.minimizeLabel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.minimizeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minimizeLabel.ForeColor = System.Drawing.Color.White;
-            this.minimizeLabel.Location = new System.Drawing.Point(1075, 1);
-            this.minimizeLabel.Name = "minimizeLabel";
-            this.minimizeLabel.Size = new System.Drawing.Size(20, 24);
-            this.minimizeLabel.TabIndex = 6;
-            this.minimizeLabel.Text = "_";
-            this.minimizeLabel.Click += new System.EventHandler(this.minimizeLabel_Click);
+            this.lblMinimize.AutoSize = true;
+            this.lblMinimize.BackColor = System.Drawing.Color.Transparent;
+            this.lblMinimize.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblMinimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMinimize.ForeColor = System.Drawing.Color.White;
+            this.lblMinimize.Location = new System.Drawing.Point(1075, 1);
+            this.lblMinimize.Name = "lblMinimize";
+            this.lblMinimize.Size = new System.Drawing.Size(20, 24);
+            this.lblMinimize.TabIndex = 6;
+            this.lblMinimize.Text = "_";
+            this.lblMinimize.Click += new System.EventHandler(this.minimizeLabel_Click);
             // 
-            // labelExitLog
+            // lblExit
             // 
-            this.labelExitLog.AutoSize = true;
-            this.labelExitLog.Dock = System.Windows.Forms.DockStyle.Right;
-            this.labelExitLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelExitLog.ForeColor = System.Drawing.Color.White;
-            this.labelExitLog.Location = new System.Drawing.Point(1095, 1);
-            this.labelExitLog.Name = "labelExitLog";
-            this.labelExitLog.Size = new System.Drawing.Size(25, 24);
-            this.labelExitLog.TabIndex = 5;
-            this.labelExitLog.Text = "X";
-            this.labelExitLog.Click += new System.EventHandler(this.labelExitLog_Click);
+            this.lblExit.AutoSize = true;
+            this.lblExit.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExit.ForeColor = System.Drawing.Color.White;
+            this.lblExit.Location = new System.Drawing.Point(1095, 1);
+            this.lblExit.Name = "lblExit";
+            this.lblExit.Size = new System.Drawing.Size(25, 24);
+            this.lblExit.TabIndex = 5;
+            this.lblExit.Text = "X";
+            this.lblExit.Click += new System.EventHandler(this.labelExitLog_Click);
             // 
             // panel2
             // 
@@ -143,132 +143,132 @@
             this.panel2.Size = new System.Drawing.Size(1120, 1);
             this.panel2.TabIndex = 0;
             // 
-            // button10
+            // btnLaboratorisFarmaceutics
             // 
-            this.button10.BackColor = System.Drawing.Color.DimGray;
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button10.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.ForeColor = System.Drawing.Color.White;
-            this.button10.Location = new System.Drawing.Point(3, 105);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(201, 51);
-            this.button10.TabIndex = 28;
-            this.button10.Text = "Laboratoris Farmacèutics";
-            this.button10.UseVisualStyleBackColor = false;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
+            this.btnLaboratorisFarmaceutics.BackColor = System.Drawing.Color.DimGray;
+            this.btnLaboratorisFarmaceutics.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnLaboratorisFarmaceutics.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLaboratorisFarmaceutics.ForeColor = System.Drawing.Color.White;
+            this.btnLaboratorisFarmaceutics.Location = new System.Drawing.Point(3, 105);
+            this.btnLaboratorisFarmaceutics.Name = "btnLaboratorisFarmaceutics";
+            this.btnLaboratorisFarmaceutics.Size = new System.Drawing.Size(201, 51);
+            this.btnLaboratorisFarmaceutics.TabIndex = 28;
+            this.btnLaboratorisFarmaceutics.Text = "Laboratoris Farmacèutics";
+            this.btnLaboratorisFarmaceutics.UseVisualStyleBackColor = false;
+            this.btnLaboratorisFarmaceutics.Click += new System.EventHandler(this.button10_Click);
             // 
-            // clientsButton
+            // btnClients
             // 
-            this.clientsButton.BackColor = System.Drawing.Color.DimGray;
-            this.clientsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.clientsButton.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clientsButton.ForeColor = System.Drawing.Color.White;
-            this.clientsButton.Location = new System.Drawing.Point(3, 261);
-            this.clientsButton.Name = "clientsButton";
-            this.clientsButton.Size = new System.Drawing.Size(201, 51);
-            this.clientsButton.TabIndex = 26;
-            this.clientsButton.Text = "Clients";
-            this.clientsButton.UseVisualStyleBackColor = false;
-            this.clientsButton.Click += new System.EventHandler(this.clientsButton_Click);
+            this.btnClients.BackColor = System.Drawing.Color.DimGray;
+            this.btnClients.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnClients.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClients.ForeColor = System.Drawing.Color.White;
+            this.btnClients.Location = new System.Drawing.Point(3, 261);
+            this.btnClients.Name = "btnClients";
+            this.btnClients.Size = new System.Drawing.Size(201, 51);
+            this.btnClients.TabIndex = 26;
+            this.btnClients.Text = "Clients";
+            this.btnClients.UseVisualStyleBackColor = false;
+            this.btnClients.Click += new System.EventHandler(this.clientsButton_Click);
             // 
-            // tancarSessioButton
+            // btnTancarSessio
             // 
-            this.tancarSessioButton.BackColor = System.Drawing.Color.DarkRed;
-            this.tancarSessioButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tancarSessioButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.tancarSessioButton.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tancarSessioButton.ForeColor = System.Drawing.Color.White;
-            this.tancarSessioButton.Location = new System.Drawing.Point(0, 442);
-            this.tancarSessioButton.Name = "tancarSessioButton";
-            this.tancarSessioButton.Size = new System.Drawing.Size(207, 23);
-            this.tancarSessioButton.TabIndex = 25;
-            this.tancarSessioButton.Text = "Tancar Sessió";
-            this.tancarSessioButton.UseVisualStyleBackColor = false;
-            this.tancarSessioButton.Click += new System.EventHandler(this.tancarSessioButton_Click);
+            this.btnTancarSessio.BackColor = System.Drawing.Color.DarkRed;
+            this.btnTancarSessio.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnTancarSessio.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnTancarSessio.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTancarSessio.ForeColor = System.Drawing.Color.White;
+            this.btnTancarSessio.Location = new System.Drawing.Point(0, 442);
+            this.btnTancarSessio.Name = "btnTancarSessio";
+            this.btnTancarSessio.Size = new System.Drawing.Size(207, 23);
+            this.btnTancarSessio.TabIndex = 25;
+            this.btnTancarSessio.Text = "Tancar Sessió";
+            this.btnTancarSessio.UseVisualStyleBackColor = false;
+            this.btnTancarSessio.Click += new System.EventHandler(this.tancarSessioButton_Click);
             // 
-            // perfilUsuariButton
+            // btnPerfilUsuari
             // 
-            this.perfilUsuariButton.BackColor = System.Drawing.Color.DimGray;
-            this.perfilUsuariButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.perfilUsuariButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.perfilUsuariButton.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.perfilUsuariButton.ForeColor = System.Drawing.Color.White;
-            this.perfilUsuariButton.Location = new System.Drawing.Point(0, 465);
-            this.perfilUsuariButton.Name = "perfilUsuariButton";
-            this.perfilUsuariButton.Size = new System.Drawing.Size(207, 23);
-            this.perfilUsuariButton.TabIndex = 24;
-            this.perfilUsuariButton.Text = "Perfil d\'usuari";
-            this.perfilUsuariButton.UseVisualStyleBackColor = false;
+            this.btnPerfilUsuari.BackColor = System.Drawing.Color.DimGray;
+            this.btnPerfilUsuari.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnPerfilUsuari.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnPerfilUsuari.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPerfilUsuari.ForeColor = System.Drawing.Color.White;
+            this.btnPerfilUsuari.Location = new System.Drawing.Point(0, 465);
+            this.btnPerfilUsuari.Name = "btnPerfilUsuari";
+            this.btnPerfilUsuari.Size = new System.Drawing.Size(207, 23);
+            this.btnPerfilUsuari.TabIndex = 24;
+            this.btnPerfilUsuari.Text = "Perfil d\'usuari";
+            this.btnPerfilUsuari.UseVisualStyleBackColor = false;
             // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.Gray;
-            this.panel8.Controls.Add(this.button4);
-            this.panel8.Controls.Add(this.button5);
-            this.panel8.Controls.Add(this.button6);
-            this.panel8.Controls.Add(this.button10);
-            this.panel8.Controls.Add(this.button2);
-            this.panel8.Controls.Add(this.clientsButton);
-            this.panel8.Controls.Add(this.tancarSessioButton);
-            this.panel8.Controls.Add(this.perfilUsuariButton);
+            this.panel8.Controls.Add(this.btnMantenimentProductes);
+            this.panel8.Controls.Add(this.btnVendaMedicaments);
+            this.panel8.Controls.Add(this.btnGestioComandesCompra);
+            this.panel8.Controls.Add(this.btnLaboratorisFarmaceutics);
+            this.panel8.Controls.Add(this.btnMantenimentPrincipisActius);
+            this.panel8.Controls.Add(this.btnClients);
+            this.panel8.Controls.Add(this.btnTancarSessio);
+            this.panel8.Controls.Add(this.btnPerfilUsuari);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel8.Location = new System.Drawing.Point(0, 30);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(207, 488);
             this.panel8.TabIndex = 8;
             // 
-            // button4
+            // btnMantenimentProductes
             // 
-            this.button4.BackColor = System.Drawing.Color.DimGray;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button4.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(3, 157);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(201, 51);
-            this.button4.TabIndex = 31;
-            this.button4.Text = "Manteniment de productes";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnMantenimentProductes.BackColor = System.Drawing.Color.DimGray;
+            this.btnMantenimentProductes.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnMantenimentProductes.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMantenimentProductes.ForeColor = System.Drawing.Color.White;
+            this.btnMantenimentProductes.Location = new System.Drawing.Point(3, 157);
+            this.btnMantenimentProductes.Name = "btnMantenimentProductes";
+            this.btnMantenimentProductes.Size = new System.Drawing.Size(201, 51);
+            this.btnMantenimentProductes.TabIndex = 31;
+            this.btnMantenimentProductes.Text = "Manteniment de productes";
+            this.btnMantenimentProductes.UseVisualStyleBackColor = false;
             // 
-            // button5
+            // btnVendaMedicaments
             // 
-            this.button5.BackColor = System.Drawing.Color.DimGray;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button5.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(3, 1);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(201, 51);
-            this.button5.TabIndex = 30;
-            this.button5.Text = "Venda de medicaments";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.btnVendaMedicaments.BackColor = System.Drawing.Color.DimGray;
+            this.btnVendaMedicaments.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnVendaMedicaments.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVendaMedicaments.ForeColor = System.Drawing.Color.White;
+            this.btnVendaMedicaments.Location = new System.Drawing.Point(3, 1);
+            this.btnVendaMedicaments.Name = "btnVendaMedicaments";
+            this.btnVendaMedicaments.Size = new System.Drawing.Size(201, 51);
+            this.btnVendaMedicaments.TabIndex = 30;
+            this.btnVendaMedicaments.Text = "Venda de medicaments";
+            this.btnVendaMedicaments.UseVisualStyleBackColor = false;
+            this.btnVendaMedicaments.Click += new System.EventHandler(this.button5_Click);
             // 
-            // button6
+            // btnGestioComandesCompra
             // 
-            this.button6.BackColor = System.Drawing.Color.DimGray;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button6.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(3, 53);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(201, 51);
-            this.button6.TabIndex = 29;
-            this.button6.Text = "Gestió de comandes de compra";
-            this.button6.UseVisualStyleBackColor = false;
+            this.btnGestioComandesCompra.BackColor = System.Drawing.Color.DimGray;
+            this.btnGestioComandesCompra.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnGestioComandesCompra.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGestioComandesCompra.ForeColor = System.Drawing.Color.White;
+            this.btnGestioComandesCompra.Location = new System.Drawing.Point(3, 53);
+            this.btnGestioComandesCompra.Name = "btnGestioComandesCompra";
+            this.btnGestioComandesCompra.Size = new System.Drawing.Size(201, 51);
+            this.btnGestioComandesCompra.TabIndex = 29;
+            this.btnGestioComandesCompra.Text = "Gestió de comandes de compra";
+            this.btnGestioComandesCompra.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnMantenimentPrincipisActius
             // 
-            this.button2.BackColor = System.Drawing.Color.DimGray;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(3, 209);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(201, 51);
-            this.button2.TabIndex = 27;
-            this.button2.Text = "Manteniment de principis actius";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnMantenimentPrincipisActius.BackColor = System.Drawing.Color.DimGray;
+            this.btnMantenimentPrincipisActius.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnMantenimentPrincipisActius.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMantenimentPrincipisActius.ForeColor = System.Drawing.Color.White;
+            this.btnMantenimentPrincipisActius.Location = new System.Drawing.Point(3, 209);
+            this.btnMantenimentPrincipisActius.Name = "btnMantenimentPrincipisActius";
+            this.btnMantenimentPrincipisActius.Size = new System.Drawing.Size(201, 51);
+            this.btnMantenimentPrincipisActius.TabIndex = 27;
+            this.btnMantenimentPrincipisActius.Text = "Manteniment de principis actius";
+            this.btnMantenimentPrincipisActius.UseVisualStyleBackColor = false;
             // 
             // panel7
             // 
@@ -333,21 +333,21 @@
         #endregion
 
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label date;
+        private System.Windows.Forms.Label lblUsuari;
+        private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label minimizeLabel;
-        private System.Windows.Forms.Label labelExitLog;
+        private System.Windows.Forms.Label lblMinimize;
+        private System.Windows.Forms.Label lblExit;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button clientsButton;
-        private System.Windows.Forms.Button tancarSessioButton;
-        private System.Windows.Forms.Button perfilUsuariButton;
+        private System.Windows.Forms.Button btnLaboratorisFarmaceutics;
+        private System.Windows.Forms.Button btnClients;
+        private System.Windows.Forms.Button btnTancarSessio;
+        private System.Windows.Forms.Button btnPerfilUsuari;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnMantenimentProductes;
+        private System.Windows.Forms.Button btnVendaMedicaments;
+        private System.Windows.Forms.Button btnGestioComandesCompra;
+        private System.Windows.Forms.Button btnMantenimentPrincipisActius;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label actualizacionLabel;
         private System.Windows.Forms.Panel panel1;

@@ -56,7 +56,7 @@ namespace TemplateForm
         private void TemplateForm_Load(object sender, EventArgs e)
         {
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            date.Text = DateTime.Now.ToString();
+            lblDate.Text = DateTime.Now.ToString();
         }
 
         private void labelExitLog_Click(object sender, EventArgs e)
@@ -71,7 +71,7 @@ namespace TemplateForm
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            date.Text = DateTime.Now.ToString();
+            lblDate.Text = DateTime.Now.ToString();
         }
 
         private void clientsButton_Click(object sender, EventArgs e)
