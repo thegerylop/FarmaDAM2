@@ -91,11 +91,11 @@
             // labelExitLog
             // 
             this.labelExitLog.AutoSize = true;
-            this.labelExitLog.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelExitLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelExitLog.ForeColor = System.Drawing.Color.White;
             this.labelExitLog.Location = new System.Drawing.Point(482, 4);
             this.labelExitLog.Name = "labelExitLog";
-            this.labelExitLog.Size = new System.Drawing.Size(23, 23);
+            this.labelExitLog.Size = new System.Drawing.Size(25, 24);
             this.labelExitLog.TabIndex = 0;
             this.labelExitLog.Text = "X";
             this.labelExitLog.Click += new System.EventHandler(this.labelExitLog_Click);
@@ -142,7 +142,7 @@
             // 
             this.iniciarBtn.BackColor = System.Drawing.Color.Gray;
             this.iniciarBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iniciarBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iniciarBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iniciarBtn.ForeColor = System.Drawing.Color.White;
             this.iniciarBtn.Location = new System.Drawing.Point(199, 298);
             this.iniciarBtn.Name = "iniciarBtn";
@@ -188,6 +188,7 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Login_Load);
             this.actionBar.ResumeLayout(false);
             this.actionBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

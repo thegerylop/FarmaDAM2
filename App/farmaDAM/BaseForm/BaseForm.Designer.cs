@@ -70,7 +70,7 @@
             this.btnInserir.Name = "btnInserir";
             this.btnInserir.Size = new System.Drawing.Size(117, 26);
             this.btnInserir.TabIndex = 37;
-            this.btnInserir.Text = "Inserir";
+            this.btnInserir.Text = "Portar dades";
             this.btnInserir.UseVisualStyleBackColor = false;
             this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
             // 
@@ -85,7 +85,7 @@
             this.btnEsborrar.Name = "btnEsborrar";
             this.btnEsborrar.Size = new System.Drawing.Size(117, 26);
             this.btnEsborrar.TabIndex = 38;
-            this.btnEsborrar.Text = "Esborrar";
+            this.btnEsborrar.Text = "Afegir";
             this.btnEsborrar.UseVisualStyleBackColor = false;
             this.btnEsborrar.Click += new System.EventHandler(this.btnEsborrar_Click);
             // 

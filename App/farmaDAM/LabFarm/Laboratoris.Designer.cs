@@ -46,10 +46,6 @@
             this.CCcodi = new CustomControl.CustomTextBox();
             this.SuspendLayout();
             // 
-            // btnEsborrar
-            // 
-            this.btnEsborrar.Click += new System.EventHandler(this.btnEsborrar_Click);
-            // 
             // btnInserir
             // 
             this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);

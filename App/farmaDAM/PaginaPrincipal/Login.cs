@@ -62,6 +62,11 @@ namespace PaginaPrincipal
         {
             Application.Exit();
         }
-        
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            CClogin.Text = "Login";
+            CCpassword.Text = "Password";
+        }
     }
 }

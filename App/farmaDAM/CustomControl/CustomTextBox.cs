@@ -11,10 +11,13 @@ namespace CustomControl
 
     public class CustomTextBox: TextBox
     {
-        public CustomControl()
+        public CustomTextBox()
         {
-            
+            this.Enter += new EventHandler(CustomTextBox_Enter);
+            this.Leave += new EventHandler(this_Leave);
+ 
         }
+
         String _placeholder;
         public String Placeholder
         {
@@ -76,7 +79,6 @@ namespace CustomControl
 
         public void CustomTextBox_Enter(object sender, EventArgs e)
         {
-            MessageBox.Show("test");
             if (this.Text == _placeholder)
             {
                 this.Text = "";

@@ -15,8 +15,8 @@ namespace BaseForm
     public partial class BaseForm : Form
     {
         String query = "";
+        DataRow row;
         DataSet dataSet = new DataSet();
-
 
         public void PortarDadesMySQL(string table)
         {
@@ -24,9 +24,8 @@ namespace BaseForm
             query = "Select * from " + table;
             dataSet = bd.portarPerConsulta(query);
             BindingDades();
-            bd = null;
+           // bd = null;
         }
-
         public void ActualitzarMySQL(string table)
         {
             Boolean correcte = false;
@@ -48,22 +47,24 @@ namespace BaseForm
             {
                 if (txt.GetType() == typeof(CustomControl.CustomTextBox))
                 {
+
                     txt.DataBindings.Clear();
-                    txt.DataBindings.Add("Text", dataSet.Tables["laboratoris_farmaceutics"], txt.Tag.ToString());
+                    txt.DataBindings.Add(new Binding("Text", dataSet.Tables["laboratoris_farmaceutics"], txt.Tag.ToString(),true));
+                    
                     //AddHandler DirectCast(txt, System.Windows.Forms.TextBox).Validated, _
+                    //txt.DataBindings.
                     //AddressOf validartext
+                    
                 }
             }
             dataGridView1.AutoGenerateColumns = true;
-            dataGridView1.DataSource = dataSet; // dataset
-            dataGridView1.DataMember = "laboratoris_farmaceutics"; // table name you need to show
+            dataGridView1.DataSource = dataSet.Tables["laboratoris_farmaceutics"]; // dataset
         }
-        private void validarText(object sender , EventArgs e)
-        {
-            //DirectCast(sender, Windows.Forms.Control).DataBindings(0) _
-            //.BindingManagerBase.EndCurrentEdit()
-        }
-        
+      
+        //private void validarText(object sender, EventArgs e)
+        //{
+        //  (sender)<Control>.DataBindings(0).BindingManagerBase.EndCurrentEdit()
+        //}
 
         public BaseForm()
         {
@@ -79,6 +80,21 @@ namespace BaseForm
 
         private void btnEsborrar_Click(object sender, EventArgs e)
         {
+            
+            //netejarCamps();
+            row = dataSet.Tables["laboratoris_farmaceutics"].NewRow();
+            dataSet.Tables["laboratoris_farmaceutics"].Rows.Add(row);
+            
+        }
+        public void netejarCamps()
+        {
+            foreach (Control txt in this.Controls)
+            {
+                if (txt.GetType() == typeof(CustomControl.CustomTextBox))
+                {
+                    txt.Text = "";
+                }
+            }
         }
     }
 }
