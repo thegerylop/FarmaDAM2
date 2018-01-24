@@ -21,7 +21,7 @@ namespace LabFarm
             CCcodi.Text = "";
             CCrao.Text = "";
             CCid.Text = "";
-            CCrao.Text = "";
+            CCden.Text = "";
         }
 
         public override void btnInserir_Click(object sender, EventArgs e)

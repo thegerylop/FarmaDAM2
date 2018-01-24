@@ -8,9 +8,13 @@ using System.Windows.Forms;
 
 namespace CustomControl
 {
+
     public class CustomTextBox: TextBox
     {
-
+        public CustomControl()
+        {
+            
+        }
         String _placeholder;
         public String Placeholder
         {
@@ -70,7 +74,7 @@ namespace CustomControl
 
         }
 
-        private void CustomTextBox_Enter(object sender, EventArgs e)
+        public void CustomTextBox_Enter(object sender, EventArgs e)
         {
             MessageBox.Show("test");
             if (this.Text == _placeholder)
