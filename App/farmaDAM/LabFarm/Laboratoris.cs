@@ -14,7 +14,7 @@ namespace LabFarm
         {
             InitializeComponent();
         }
-
+        string table = "laboratoris_farmaceutics";
         private void btnEsborrar_Click(object sender, EventArgs e)
         {
             CCcif.textBox1.Text = "";
@@ -22,6 +22,16 @@ namespace LabFarm
             CCden.textBox1.Text = "";
             CCid.textBox1.Text = "";
             CCrao.textBox1.Text = "";
+        }
+
+        public override void btnInserir_Click(object sender, EventArgs e)
+        {
+            PortarDadesMySQL(table);
+        }
+
+        public override void actualitzar_Click(object sender, EventArgs e)
+        {
+            ActualitzarMySQL(table);
         }
     }
 }

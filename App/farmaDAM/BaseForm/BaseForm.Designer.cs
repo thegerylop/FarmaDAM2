@@ -56,7 +56,7 @@
             this.btnActualitzar.TabIndex = 36;
             this.btnActualitzar.Text = "Actualitzar";
             this.btnActualitzar.UseVisualStyleBackColor = false;
-            this.btnActualitzar.Click += new System.EventHandler(this.btnActualitzar_Click);
+            this.btnActualitzar.Click += new System.EventHandler(this.actualitzar_Click);
             // 
             // btnInserir
             // 
@@ -101,6 +101,7 @@
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "BaseForm";
+            this.Tag = "test";
             this.Text = "BaseForm";
             this.Load += new System.EventHandler(this.BaseForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -111,8 +112,8 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button btnActualitzar;
-        private System.Windows.Forms.Button btnInserir;
         public System.Windows.Forms.Button btnEsborrar;
+        public System.Windows.Forms.Button btnInserir;
+        public System.Windows.Forms.Button btnActualitzar;
     }
 }

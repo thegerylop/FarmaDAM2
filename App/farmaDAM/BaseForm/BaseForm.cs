@@ -14,24 +14,24 @@ namespace BaseForm
 
     public partial class BaseForm : Form
     {
-        String query = "Select * from laboratoris_farmaceutics";
+        String query = "";
         DataSet dataSet = new DataSet();
 
 
-        private void PortarDadesMySQL()
+        public void PortarDadesMySQL(string table)
         {
             ConexioBBDD.Conexio bd = new ConexioBBDD.Conexio();
-            query = "Select * from laboratoris_farmaceutics";
+            query = "Select * from " + table;
             dataSet = bd.portarPerConsulta(query);
             BindingDades();
             bd = null;
         }
 
-        private void ActualitzarMySQL()
+        public void ActualitzarMySQL(string table)
         {
             Boolean correcte = false;
             ConexioBBDD.Conexio bd = new ConexioBBDD.Conexio();
-            correcte = bd.Actualitzar(query, "laboratoris_farmaceutics", dataSet);
+            correcte = bd.Actualitzar(query, table, dataSet);
         }
 
         private void BindingDades()
@@ -42,28 +42,31 @@ namespace BaseForm
                 {
                     txt.DataBindings.Clear();
                     txt.DataBindings.Add("Text", dataSet.Tables["laboratoris_farmaceutics"], txt.Tag.ToString());
+                    //EventHandler handler1 = (TextBox)BaseForm.FindControl(txt);
+                    EventHandler handler2 = new EventHandler(this.validarText);
+                    //AddHandler DirectCast(txt, System.Windows.Forms.TextBox).Validated, _
                 }
             }
             dataGridView1.AutoGenerateColumns = true;
             dataGridView1.DataSource = dataSet; // dataset
             dataGridView1.DataMember = "laboratoris_farmaceutics"; // table name you need to show
         }
+        private void validarText(object sender , EventArgs e)
+        {
 
+        }
         
 
         public BaseForm()
         {
             InitializeComponent();
         }
-
-        private void btnInserir_Click(object sender, EventArgs e)
+        public virtual void btnInserir_Click(object sender, EventArgs e)
         {
-            PortarDadesMySQL();
         }
 
-        private void btnActualitzar_Click(object sender, EventArgs e)
+        public virtual void actualitzar_Click(object sender, EventArgs e)
         {
-            ActualitzarMySQL();
         }
 
         private void BaseForm_Load(object sender, EventArgs e)

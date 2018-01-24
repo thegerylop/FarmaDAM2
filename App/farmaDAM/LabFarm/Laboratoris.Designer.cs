@@ -50,6 +50,14 @@
             // 
             this.btnEsborrar.Click += new System.EventHandler(this.btnEsborrar_Click);
             // 
+            // btnInserir
+            // 
+            this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
+            // 
+            // btnActualitzar
+            // 
+            this.btnActualitzar.Click += new System.EventHandler(this.actualitzar_Click);
+            // 
             // idlabDataGridViewTextBoxColumn
             // 
             this.idlabDataGridViewTextBoxColumn.DataPropertyName = "id_lab";
@@ -218,6 +226,8 @@
             this.Controls.Add(this.CCcodi);
             this.Controls.Add(this.CCid);
             this.Name = "Laboratoris";
+            this.Controls.SetChildIndex(this.btnActualitzar, 0);
+            this.Controls.SetChildIndex(this.btnInserir, 0);
             this.Controls.SetChildIndex(this.btnEsborrar, 0);
             this.Controls.SetChildIndex(this.CCid, 0);
             this.Controls.SetChildIndex(this.CCcodi, 0);
