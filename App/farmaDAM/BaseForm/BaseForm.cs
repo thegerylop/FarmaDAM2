@@ -46,12 +46,10 @@ namespace BaseForm
         {
             foreach (Control txt in this.Controls)
             {
-                if (txt.GetType() == typeof(CustomControlTB.CustomControlTB))
+                if (txt.GetType() == typeof(CustomControl.CustomTextBox))
                 {
                     txt.DataBindings.Clear();
                     txt.DataBindings.Add("Text", dataSet.Tables["laboratoris_farmaceutics"], txt.Tag.ToString());
-                    //EventHandler handler1 = (TextBox)BaseForm.FindControl(txt);
-                    EventHandler handler2 = new EventHandler(this.validarText);
                     //AddHandler DirectCast(txt, System.Windows.Forms.TextBox).Validated, _
                     //AddressOf validartext
                 }

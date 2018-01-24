@@ -119,6 +119,10 @@
       <Project>{5a96e7f7-6941-4e6b-8379-e8c51eae3768}</Project>
       <Name>CustomControlTB</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CustomControl\CustomControl.csproj">
+      <Project>{a7279e0e-d844-4cc7-99da-9939eaa74818}</Project>
+      <Name>CustomControl</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LabFarm\LabFarm.csproj">
       <Project>{1f89a881-ec94-46d3-a799-69a37ce4f4e5}</Project>
       <Name>LabFarm</Name>

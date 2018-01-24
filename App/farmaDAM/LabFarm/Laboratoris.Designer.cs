@@ -33,17 +33,17 @@
             this.raosocialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cifDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.denominacioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCid = new CustomControlTB.CustomControlTB();
-            this.CCcodi = new CustomControlTB.CustomControlTB();
-            this.CCrao = new CustomControlTB.CustomControlTB();
-            this.CCcif = new CustomControlTB.CustomControlTB();
-            this.CCden = new CustomControlTB.CustomControlTB();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.CCden = new CustomControl.CustomTextBox();
+            this.CCcif = new CustomControl.CustomTextBox();
+            this.CCrao = new CustomControl.CustomTextBox();
+            this.CCid = new CustomControl.CustomTextBox();
+            this.CCcodi = new CustomControl.CustomTextBox();
             this.SuspendLayout();
             // 
             // btnEsborrar
@@ -87,61 +87,6 @@
             this.denominacioDataGridViewTextBoxColumn.DataPropertyName = "denominacio";
             this.denominacioDataGridViewTextBoxColumn.HeaderText = "denominacio";
             this.denominacioDataGridViewTextBoxColumn.Name = "denominacioDataGridViewTextBoxColumn";
-            // 
-            // CCid
-            // 
-            this.CCid.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CCid.Location = new System.Drawing.Point(229, 47);
-            this.CCid.Name = "CCid";
-            this.CCid.Options = CustomControlTB.CustomControlTB.Items.Text;
-            this.CCid.Placeholder = null;
-            this.CCid.Size = new System.Drawing.Size(197, 27);
-            this.CCid.TabIndex = 38;
-            this.CCid.Tag = "id_lab";
-            // 
-            // CCcodi
-            // 
-            this.CCcodi.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CCcodi.Location = new System.Drawing.Point(229, 96);
-            this.CCcodi.Name = "CCcodi";
-            this.CCcodi.Options = CustomControlTB.CustomControlTB.Items.Text;
-            this.CCcodi.Placeholder = null;
-            this.CCcodi.Size = new System.Drawing.Size(197, 27);
-            this.CCcodi.TabIndex = 39;
-            this.CCcodi.Tag = "codi_lab";
-            // 
-            // CCrao
-            // 
-            this.CCrao.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CCrao.Location = new System.Drawing.Point(229, 147);
-            this.CCrao.Name = "CCrao";
-            this.CCrao.Options = CustomControlTB.CustomControlTB.Items.Text;
-            this.CCrao.Placeholder = null;
-            this.CCrao.Size = new System.Drawing.Size(197, 27);
-            this.CCrao.TabIndex = 40;
-            this.CCrao.Tag = "rao_social";
-            // 
-            // CCcif
-            // 
-            this.CCcif.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CCcif.Location = new System.Drawing.Point(550, 47);
-            this.CCcif.Name = "CCcif";
-            this.CCcif.Options = CustomControlTB.CustomControlTB.Items.Text;
-            this.CCcif.Placeholder = null;
-            this.CCcif.Size = new System.Drawing.Size(197, 27);
-            this.CCcif.TabIndex = 41;
-            this.CCcif.Tag = "cif";
-            // 
-            // CCden
-            // 
-            this.CCden.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CCden.Location = new System.Drawing.Point(550, 96);
-            this.CCden.Name = "CCden";
-            this.CCden.Options = CustomControlTB.CustomControlTB.Items.Text;
-            this.CCden.Placeholder = null;
-            this.CCden.Size = new System.Drawing.Size(197, 27);
-            this.CCden.TabIndex = 42;
-            this.CCden.Tag = "Denominacio";
             // 
             // label1
             // 
@@ -209,37 +154,92 @@
             this.label2.TabIndex = 50;
             this.label2.Text = "Laboratoris farmaceutics";
             // 
+            // CCden
+            // 
+            this.CCden.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CCden.Location = new System.Drawing.Point(550, 100);
+            this.CCden.Name = "CCden";
+            this.CCden.Options = CustomControl.CustomTextBox.Items.Text;
+            this.CCden.Placeholder = null;
+            this.CCden.Size = new System.Drawing.Size(197, 20);
+            this.CCden.TabIndex = 51;
+            this.CCden.Tag = "Denominacio";
+            // 
+            // CCcif
+            // 
+            this.CCcif.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CCcif.Location = new System.Drawing.Point(551, 50);
+            this.CCcif.Name = "CCcif";
+            this.CCcif.Options = CustomControl.CustomTextBox.Items.Text;
+            this.CCcif.Placeholder = null;
+            this.CCcif.Size = new System.Drawing.Size(197, 20);
+            this.CCcif.TabIndex = 52;
+            this.CCcif.Tag = "cif";
+            // 
+            // CCrao
+            // 
+            this.CCrao.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CCrao.Location = new System.Drawing.Point(229, 151);
+            this.CCrao.Name = "CCrao";
+            this.CCrao.Options = CustomControl.CustomTextBox.Items.Text;
+            this.CCrao.Placeholder = null;
+            this.CCrao.Size = new System.Drawing.Size(197, 20);
+            this.CCrao.TabIndex = 53;
+            this.CCrao.Tag = "rao_social";
+            // 
+            // CCid
+            // 
+            this.CCid.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CCid.Location = new System.Drawing.Point(230, 49);
+            this.CCid.Name = "CCid";
+            this.CCid.Options = CustomControl.CustomTextBox.Items.Text;
+            this.CCid.Placeholder = null;
+            this.CCid.Size = new System.Drawing.Size(197, 20);
+            this.CCid.TabIndex = 54;
+            this.CCid.Tag = "id_lab";
+            // 
+            // CCcodi
+            // 
+            this.CCcodi.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CCcodi.Location = new System.Drawing.Point(228, 99);
+            this.CCcodi.Name = "CCcodi";
+            this.CCcodi.Options = CustomControl.CustomTextBox.Items.Text;
+            this.CCcodi.Placeholder = null;
+            this.CCcodi.Size = new System.Drawing.Size(197, 20);
+            this.CCcodi.TabIndex = 55;
+            this.CCcodi.Tag = "codi_lab";
+            // 
             // Laboratoris
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(913, 476);
+            this.Controls.Add(this.CCcodi);
+            this.Controls.Add(this.CCid);
+            this.Controls.Add(this.CCrao);
+            this.Controls.Add(this.CCcif);
+            this.Controls.Add(this.CCden);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.CCden);
-            this.Controls.Add(this.CCcif);
-            this.Controls.Add(this.CCrao);
-            this.Controls.Add(this.CCcodi);
-            this.Controls.Add(this.CCid);
             this.Name = "Laboratoris";
             this.Controls.SetChildIndex(this.btnActualitzar, 0);
             this.Controls.SetChildIndex(this.btnInserir, 0);
             this.Controls.SetChildIndex(this.btnEsborrar, 0);
-            this.Controls.SetChildIndex(this.CCid, 0);
-            this.Controls.SetChildIndex(this.CCcodi, 0);
-            this.Controls.SetChildIndex(this.CCrao, 0);
-            this.Controls.SetChildIndex(this.CCcif, 0);
-            this.Controls.SetChildIndex(this.CCden, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.label5, 0);
             this.Controls.SetChildIndex(this.label6, 0);
             this.Controls.SetChildIndex(this.label7, 0);
             this.Controls.SetChildIndex(this.label2, 0);
+            this.Controls.SetChildIndex(this.CCden, 0);
+            this.Controls.SetChildIndex(this.CCcif, 0);
+            this.Controls.SetChildIndex(this.CCrao, 0);
+            this.Controls.SetChildIndex(this.CCid, 0);
+            this.Controls.SetChildIndex(this.CCcodi, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -252,16 +252,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn raosocialDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cifDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn denominacioDataGridViewTextBoxColumn;
-        private CustomControlTB.CustomControlTB CCid;
-        private CustomControlTB.CustomControlTB CCcodi;
-        private CustomControlTB.CustomControlTB CCrao;
-        private CustomControlTB.CustomControlTB CCcif;
-        private CustomControlTB.CustomControlTB CCden;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label2;
+        private CustomControl.CustomTextBox CCden;
+        private CustomControl.CustomTextBox CCcif;
+        private CustomControl.CustomTextBox CCrao;
+        private CustomControl.CustomTextBox CCid;
+        private CustomControl.CustomTextBox CCcodi;
     }
 }
