@@ -50,8 +50,6 @@ namespace BaseForm
 
                     txt.DataBindings.Clear();
                     txt.DataBindings.Add("Text", dataSet.Tables["laboratoris_farmaceutics"], txt.Tag.ToString(),true);
-
-                    
                     txt.Validated += new System.EventHandler(this.validarText);
 
                     //AddHandler DirectCast(txt, System.Windows.Forms.TextBox).Validated, _
@@ -63,12 +61,11 @@ namespace BaseForm
             dataGridView1.AutoGenerateColumns = true;
             dataGridView1.DataSource = dataSet.Tables["laboratoris_farmaceutics"]; // dataset
         }
-      
+
         private void validarText(object sender, EventArgs e)
         {
-            (sender)(TextBox).DataBindings(0).BindingManagerBase.EndCurrentEdit()
+            //textBox tb = (TextBox)sender;
         }
-
         public BaseForm()
         {
             InitializeComponent();
