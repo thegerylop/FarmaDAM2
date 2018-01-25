@@ -56,6 +56,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BaseForm\BaseForm.csproj">
+      <Project>{cf89ea7d-d834-4cb1-8888-e9c0fb24ee7f}</Project>
+      <Name>BaseForm</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Clients\Clients.csproj">
       <Project>{c5ad0804-57bb-4e66-bce8-58af53eb0b2b}</Project>
       <Name>Clients</Name>

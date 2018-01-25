@@ -39,8 +39,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.iniciarBtn = new System.Windows.Forms.Button();
-            this.customControlTBLogin = new CustomControlTB.CustomControlTB();
-            this.customControlTBContrasenya = new CustomControlTB.CustomControlTB();
+            this.CClogin = new CustomControl.CustomTextBox();
+            this.CCpassword = new CustomControl.CustomTextBox();
             this.actionBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -91,11 +91,11 @@
             // labelExitLog
             // 
             this.labelExitLog.AutoSize = true;
-            this.labelExitLog.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelExitLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelExitLog.ForeColor = System.Drawing.Color.White;
             this.labelExitLog.Location = new System.Drawing.Point(482, 4);
             this.labelExitLog.Name = "labelExitLog";
-            this.labelExitLog.Size = new System.Drawing.Size(23, 23);
+            this.labelExitLog.Size = new System.Drawing.Size(25, 24);
             this.labelExitLog.TabIndex = 0;
             this.labelExitLog.Text = "X";
             this.labelExitLog.Click += new System.EventHandler(this.labelExitLog_Click);
@@ -142,7 +142,7 @@
             // 
             this.iniciarBtn.BackColor = System.Drawing.Color.Gray;
             this.iniciarBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iniciarBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iniciarBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iniciarBtn.ForeColor = System.Drawing.Color.White;
             this.iniciarBtn.Location = new System.Drawing.Point(199, 298);
             this.iniciarBtn.Name = "iniciarBtn";
@@ -152,27 +152,23 @@
             this.iniciarBtn.UseVisualStyleBackColor = false;
             this.iniciarBtn.Click += new System.EventHandler(this.iniciarBtn_Click);
             // 
-            // customControlTBLogin
+            // CClogin
             // 
-            this.customControlTBLogin.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customControlTBLogin.Location = new System.Drawing.Point(122, 232);
-            this.customControlTBLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.customControlTBLogin.Name = "customControlTBLogin";
-            this.customControlTBLogin.Options = CustomControlTB.CustomControlTB.Items.Text;
-            this.customControlTBLogin.Placeholder = "Login";
-            this.customControlTBLogin.Size = new System.Drawing.Size(263, 27);
-            this.customControlTBLogin.TabIndex = 1;
+            this.CClogin.Location = new System.Drawing.Point(131, 233);
+            this.CClogin.Name = "CClogin";
+            this.CClogin.Options = CustomControl.CustomTextBox.Items.Text;
+            this.CClogin.Placeholder = "Login";
+            this.CClogin.Size = new System.Drawing.Size(252, 20);
+            this.CClogin.TabIndex = 22;
             // 
-            // customControlTBContrasenya
+            // CCpassword
             // 
-            this.customControlTBContrasenya.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customControlTBContrasenya.Location = new System.Drawing.Point(122, 265);
-            this.customControlTBContrasenya.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.customControlTBContrasenya.Name = "customControlTBContrasenya";
-            this.customControlTBContrasenya.Options = CustomControlTB.CustomControlTB.Items.Password;
-            this.customControlTBContrasenya.Placeholder = "Contrasenya";
-            this.customControlTBContrasenya.Size = new System.Drawing.Size(263, 27);
-            this.customControlTBContrasenya.TabIndex = 2;
+            this.CCpassword.Location = new System.Drawing.Point(131, 266);
+            this.CCpassword.Name = "CCpassword";
+            this.CCpassword.Options = CustomControl.CustomTextBox.Items.Password;
+            this.CCpassword.Placeholder = "password";
+            this.CCpassword.Size = new System.Drawing.Size(252, 20);
+            this.CCpassword.TabIndex = 23;
             // 
             // Login
             // 
@@ -180,22 +176,24 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(509, 342);
+            this.Controls.Add(this.CCpassword);
+            this.Controls.Add(this.CClogin);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.actionBar);
-            this.Controls.Add(this.customControlTBLogin);
-            this.Controls.Add(this.customControlTBContrasenya);
             this.Controls.Add(this.iniciarBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Login_Load);
             this.actionBar.ResumeLayout(false);
             this.actionBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -210,7 +208,7 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button iniciarBtn;
-        public CustomControlTB.CustomControlTB customControlTBContrasenya;
-        public CustomControlTB.CustomControlTB customControlTBLogin;
+        private CustomControl.CustomTextBox CClogin;
+        private CustomControl.CustomTextBox CCpassword;
     }
 }

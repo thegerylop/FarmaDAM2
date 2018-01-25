@@ -15,18 +15,22 @@ namespace ConexioBBDD
         string connString = "SERVER= 51.255.58.1;PORT=3306;DATABASE=g2s2am_FarmaDAM;UID=g2s2am;PASSWORD=12345aA;";
         MySqlConnection conn = new MySqlConnection();
 
-        public string connexioLogin(String login, String password){
+        public string connexioLogin(String login, String password)
+        {
             string comanda = "SELECT usuari, contrasenya FROM personal WHERE usuari = '" + login + "' and contrasenya = '" + password + "'";
             conn.ConnectionString = connString;
             conn.Open();
-             try { 
+            try
+            {
                 MySqlCommand command = new MySqlCommand(comanda, conn);
                 MySqlDataReader dataReader = command.ExecuteReader();
                 string select = null;
                 //code to get select
                 dataReader.Read();
-                if (dataReader[0].ToString().Length > 1 && dataReader[1].ToString().Length > 1){
-                    select = dataReader[0].ToString() + " - " + dataReader[1].ToString();}
+                if (dataReader[0].ToString().Length > 1 && dataReader[1].ToString().Length > 1)
+                {
+                    select = dataReader[0].ToString() + " - " + dataReader[1].ToString();
+                }
                 dataReader.Close();
                 return select;
             }
@@ -38,61 +42,76 @@ namespace ConexioBBDD
             finally { conn.Close(); }
         }
 
-        public bool inserir(string comanda){
-            conn.ConnectionString = connString;
-            conn.Open();
-            try{
-                MySqlCommand command = new MySqlCommand(comanda, conn);
-                var resultSet = command.ExecuteNonQuery();
-                if (resultSet.Equals(1)) { return true; }
-                else { return false; }
-            }catch (MySql.Data.MySqlClient.MySqlException mysqlex){
-                MessageBox.Show(mysqlex.Message);
-                return false;
-            }finally { conn.Close(); }
-        }
-
-        public bool delete(string comanda)
+        public void connexio()
         {
-            conn.ConnectionString = connString;
+            conn = new MySqlConnection(connString);
             conn.Open();
-            MySqlCommand command = new MySqlCommand(comanda, conn);
-            var resultSet = command.ExecuteNonQuery();
-            if (resultSet.Equals(1)) { conn.Close(); return true;}
-            else { conn.Close(); return false;}
-             
+            conn.InitializeLifetimeService();
         }
-
-        public DataTable filltable(string comanda){
-            conn.ConnectionString = connString;
-            conn.Open();
-            DataTable data = new DataTable();
-            try{
-                MySqlCommand command = new MySqlCommand(comanda, conn);
-                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-                adapter.Fill(data);
-                return data;}
-            catch (MySql.Data.MySqlClient.MySqlException mysqlex){
-                MessageBox.Show(mysqlex.Message);
-                return data;}
-            finally { conn.Close(); }
-        }
-
-        public bool update_field(string comanda)
-        {
-            conn.ConnectionString = connString;
-            conn.Open();
-            MySqlDataReader MyReader2;
+        public DataSet portarPerConsulta(String query) {
+            MySqlDataAdapter dtaDades = new MySqlDataAdapter();
+            MySqlCommandBuilder construct = new MySqlCommandBuilder();
+            DataSet dtsDades = new DataSet();
 
             try{
-                MySqlCommand command = new MySqlCommand(comanda, conn);               
-                MyReader2 = command.ExecuteReader();
-                return true;
-            }catch (MySql.Data.MySqlClient.MySqlException mysqlex){
-                MessageBox.Show(mysqlex.Message);
-                return false;
+                connexio();
+                dtaDades = new MySqlDataAdapter(query, conn);
+                construct = new MySqlCommandBuilder(dtaDades);
+                dtsDades = new DataSet();
+                dtaDades.Fill(dtsDades, "laboratoris_farmaceutics");
+            } catch (MySqlException eMySql) {
+                MessageBox.Show(eMySql.ToString());
+            } finally {
+                if (conn != null) {
+                    conn.Close();
+                    conn.Dispose();
+                }
             }
-            finally { conn.Close(); }
+            return dtsDades;
+        }
+        public bool Actualitzar(String query, String taula, DataSet dtsAct)
+        {
+            bool correcte = true;
+
+            MySqlDataAdapter dtaDepart;
+            MySqlCommandBuilder construct;
+
+            try
+            {
+                connexio();
+
+                dtaDepart = new MySqlDataAdapter(query, conn);
+                construct = new MySqlCommandBuilder(dtaDepart);
+
+                if (dtsAct.HasChanges())
+                {
+                    dtaDepart.Update(dtsAct, taula);
+                }
+            }
+            catch (MySqlException e)
+            {
+                correcte = false;
+                MessageBox.Show(e.Message.ToString());
+            }
+            finally
+            {
+                if(conn != null)
+                {
+                    conn.Close();
+                    conn.Dispose();
+                }
+            }
+            return correcte;
+        }
+
+        public int executaSQL(String cmd)
+        {
+            connexio();
+
+            MySqlCommand cmdQry = new MySqlCommand(cmd, conn);
+
+            return cmdQry.ExecuteNonQuery();
+
         }
     }
 }

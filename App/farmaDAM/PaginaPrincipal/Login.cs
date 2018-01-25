@@ -19,8 +19,8 @@ namespace PaginaPrincipal
 
         private void iniciarBtn_Click(object sender, EventArgs e)
         {
-            string login = customControlTBLogin.textBox1.Text;
-            string password = customControlTBContrasenya.textBox1.Text;
+            string login = CClogin.Text;
+            string password = CCpassword.Text;
             string select = conn.connexioLogin(login, password);
 
             if (select != null)
@@ -61,6 +61,12 @@ namespace PaginaPrincipal
         private void labelExitLog_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            CClogin.Text = "Login";
+            CCpassword.Text = "Password";
         }
     }
 }
