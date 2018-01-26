@@ -23,16 +23,16 @@ namespace PaginaPrincipal
             string password = CCpassword.Text;
             string select = conn.connexioLogin(login, password);
 
-            if (select != null)
-            {
-                this.Hide();
+            //if (select != null)
+            //{
+            this.Hide();
                 Form frm = new TemplateForm.TemplateForm();
                 frm.Show();
-            }
-            else
-            {
-                MessageBox.Show("El login o la contrasenya son invàlids");
-            }
+            //}
+            //else
+            //{
+            //MessageBox.Show("El login o la contrasenya son invàlids");
+            //}
         }
 
         bool drag = false;

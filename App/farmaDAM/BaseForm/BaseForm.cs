@@ -22,9 +22,8 @@ namespace BaseForm
         {
             ConexioBBDD.Conexio bd = new ConexioBBDD.Conexio();
             query = "Select * from " + table;
-            dataSet = bd.portarPerConsulta(query);
-            BindingDades();
-           // bd = null;
+            dataSet = bd.portarPerConsulta(query, table);
+            BindingDades(table);
         }
         public void ActualitzarMySQL(string table)
         {
@@ -41,7 +40,7 @@ namespace BaseForm
             }
         }
 
-        private void BindingDades()
+        private void BindingDades(string table)
         {
             foreach (Control txt in this.Controls)
             {
@@ -49,22 +48,18 @@ namespace BaseForm
                 {
 
                     txt.DataBindings.Clear();
-                    txt.DataBindings.Add("Text", dataSet.Tables["laboratoris_farmaceutics"], txt.Tag.ToString(),true);
+                    txt.DataBindings.Add("Text", dataSet.Tables[table], txt.Tag.ToString(),true);
                     txt.Validated += new System.EventHandler(this.validarText);
-
-                    //AddHandler DirectCast(txt, System.Windows.Forms.TextBox).Validated, _
-                    //txt.DataBindings.
-                    //AddressOf validartext
-
                 }
             }
             dataGridView1.AutoGenerateColumns = true;
-            dataGridView1.DataSource = dataSet.Tables["laboratoris_farmaceutics"]; // dataset
+            dataGridView1.DataSource = dataSet.Tables[table]; // dataset
         }
 
         private void validarText(object sender, EventArgs e)
         {
-            //textBox tb = (TextBox)sender;
+            Control test = (Control)sender;
+            test.DataBindings[0].BindingManagerBase.EndCurrentEdit();
         }
         public BaseForm()
         {
@@ -77,15 +72,6 @@ namespace BaseForm
         public virtual void actualitzar_Click(object sender, EventArgs e)
         {
         }
-
-        private void btnEsborrar_Click(object sender, EventArgs e)
-        {
-            
-            //netejarCamps();
-            row = dataSet.Tables["laboratoris_farmaceutics"].NewRow();
-            dataSet.Tables["laboratoris_farmaceutics"].Rows.Add(row);
-            
-        }
         public void netejarCamps()
         {
             foreach (Control txt in this.Controls)
@@ -95,6 +81,19 @@ namespace BaseForm
                     txt.Text = "";
                 }
             }
+        }
+        public void AfegirCamp(string table)
+        {
+            row = dataSet.Tables[table].NewRow();
+            dataSet.Tables[table].Rows.Add(row);
+        }
+        public virtual void btnAfegir_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void btnInserir_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

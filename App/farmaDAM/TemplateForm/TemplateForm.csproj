@@ -68,6 +68,10 @@
       <Project>{1f89a881-ec94-46d3-a799-69a37ce4f4e5}</Project>
       <Name>LabFarm</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Manteniment_Productes\Manteniment_Productes.csproj">
+      <Project>{4eee1884-5464-4929-82d6-b25af0f4f8a6}</Project>
+      <Name>Manteniment_Productes</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -101,5 +101,15 @@ namespace TemplateForm
             frm.Dock = DockStyle.Fill;
             frm.Show();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            Form frm = new Manteniment_Productes.Manteniment_Productes();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
     }
 }

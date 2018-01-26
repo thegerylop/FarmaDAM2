@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.15
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaginaPrincipal", "PaginaPrincipal\PaginaPrincipal.csproj", "{53042222-0403-4BC6-B942-FD126C1AB117}"
 EndProject
@@ -18,6 +18,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseForm", "BaseForm\BaseForm.csproj", "{CF89EA7D-D834-4CB1-8888-E9C0FB24EE7F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomControl", "CustomControl\CustomControl.csproj", "{A7279E0E-D844-4CC7-99DA-9939EAA74818}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Manteniment_Productes", "Manteniment_Productes\Manteniment_Productes.csproj", "{4EEE1884-5464-4929-82D6-B25AF0F4F8A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -159,6 +161,22 @@ Global
 		{A7279E0E-D844-4CC7-99DA-9939EAA74818}.Release|x64.Build.0 = Release|Any CPU
 		{A7279E0E-D844-4CC7-99DA-9939EAA74818}.Release|x86.ActiveCfg = Release|Any CPU
 		{A7279E0E-D844-4CC7-99DA-9939EAA74818}.Release|x86.Build.0 = Release|Any CPU
+		{4EEE1884-5464-4929-82D6-B25AF0F4F8A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EEE1884-5464-4929-82D6-B25AF0F4F8A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EEE1884-5464-4929-82D6-B25AF0F4F8A6}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{4EEE1884-5464-4929-82D6-B25AF0F4F8A6}.Debug|ARM.Build.0 = Debug|Any CPU
+		{4EEE1884-5464-4929-82D6-B25AF0F4F8A6}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4EEE1884-5464-4929-82D6-B25AF0F4F8A6}.Debug|x64.Build.0 = Debug|Any CPU
+		{4EEE1884-5464-4929-82D6-B25AF0F4F8A6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4EEE1884-5464-4929-82D6-B25AF0F4F8A6}.Debug|x86.Build.0 = Debug|Any CPU
+		{4EEE1884-5464-4929-82D6-B25AF0F4F8A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EEE1884-5464-4929-82D6-B25AF0F4F8A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EEE1884-5464-4929-82D6-B25AF0F4F8A6}.Release|ARM.ActiveCfg = Release|Any CPU
+		{4EEE1884-5464-4929-82D6-B25AF0F4F8A6}.Release|ARM.Build.0 = Release|Any CPU
+		{4EEE1884-5464-4929-82D6-B25AF0F4F8A6}.Release|x64.ActiveCfg = Release|Any CPU
+		{4EEE1884-5464-4929-82D6-B25AF0F4F8A6}.Release|x64.Build.0 = Release|Any CPU
+		{4EEE1884-5464-4929-82D6-B25AF0F4F8A6}.Release|x86.ActiveCfg = Release|Any CPU
+		{4EEE1884-5464-4929-82D6-B25AF0F4F8A6}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

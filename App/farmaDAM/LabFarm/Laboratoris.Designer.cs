@@ -46,6 +46,10 @@
             this.CCcodi = new CustomControl.CustomTextBox();
             this.SuspendLayout();
             // 
+            // btnAfegir
+            // 
+            this.btnAfegir.Click += new System.EventHandler(this.btnAfegir_Click);
+            // 
             // btnInserir
             // 
             this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
@@ -192,7 +196,7 @@
             this.CCid.Placeholder = null;
             this.CCid.Size = new System.Drawing.Size(197, 20);
             this.CCid.TabIndex = 54;
-            this.CCid.Tag = "id_lab";
+            this.CCid.Tag = "id_laboratori";
             // 
             // CCcodi
             // 
@@ -203,7 +207,7 @@
             this.CCcodi.Placeholder = null;
             this.CCcodi.Size = new System.Drawing.Size(197, 20);
             this.CCcodi.TabIndex = 55;
-            this.CCcodi.Tag = "codi_lab";
+            this.CCcodi.Tag = "codi_laboratori";
             // 
             // Laboratoris
             // 
@@ -224,7 +228,7 @@
             this.Name = "Laboratoris";
             this.Controls.SetChildIndex(this.btnActualitzar, 0);
             this.Controls.SetChildIndex(this.btnInserir, 0);
-            this.Controls.SetChildIndex(this.btnEsborrar, 0);
+            this.Controls.SetChildIndex(this.btnAfegir, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.label5, 0);

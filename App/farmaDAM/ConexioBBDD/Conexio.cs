@@ -17,7 +17,7 @@ namespace ConexioBBDD
 
         public string connexioLogin(String login, String password)
         {
-            string comanda = "SELECT usuari, contrasenya FROM personal WHERE usuari = '" + login + "' and contrasenya = '" + password + "'";
+            string comanda = "SELECT usuari, contrasenya FROM Personal WHERE usuari = '" + login + "' and contrasenya = '" + password + "'";
             conn.ConnectionString = connString;
             conn.Open();
             try
@@ -48,7 +48,7 @@ namespace ConexioBBDD
             conn.Open();
             conn.InitializeLifetimeService();
         }
-        public DataSet portarPerConsulta(String query) {
+        public DataSet portarPerConsulta(String query, String table) {
             MySqlDataAdapter dtaDades = new MySqlDataAdapter();
             MySqlCommandBuilder construct = new MySqlCommandBuilder();
             DataSet dtsDades = new DataSet();
@@ -58,7 +58,7 @@ namespace ConexioBBDD
                 dtaDades = new MySqlDataAdapter(query, conn);
                 construct = new MySqlCommandBuilder(dtaDades);
                 dtsDades = new DataSet();
-                dtaDades.Fill(dtsDades, "laboratoris_farmaceutics");
+                dtaDades.Fill(dtsDades, table);
             } catch (MySqlException eMySql) {
                 MessageBox.Show(eMySql.ToString());
             } finally {

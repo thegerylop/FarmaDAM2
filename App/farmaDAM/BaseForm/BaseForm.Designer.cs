@@ -31,7 +31,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnActualitzar = new System.Windows.Forms.Button();
             this.btnInserir = new System.Windows.Forms.Button();
-            this.btnEsborrar = new System.Windows.Forms.Button();
+            this.btnAfegir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,7 +57,6 @@
             this.btnActualitzar.TabIndex = 36;
             this.btnActualitzar.Text = "Actualitzar";
             this.btnActualitzar.UseVisualStyleBackColor = false;
-            this.btnActualitzar.Click += new System.EventHandler(this.actualitzar_Click);
             // 
             // btnInserir
             // 
@@ -72,22 +71,21 @@
             this.btnInserir.TabIndex = 37;
             this.btnInserir.Text = "Portar dades";
             this.btnInserir.UseVisualStyleBackColor = false;
-            this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
+            this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click_1);
             // 
-            // btnEsborrar
+            // btnAfegir
             // 
-            this.btnEsborrar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnEsborrar.BackColor = System.Drawing.Color.DimGray;
-            this.btnEsborrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnEsborrar.Font = new System.Drawing.Font("Verdana", 9.75F);
-            this.btnEsborrar.ForeColor = System.Drawing.Color.White;
-            this.btnEsborrar.Location = new System.Drawing.Point(507, 177);
-            this.btnEsborrar.Name = "btnEsborrar";
-            this.btnEsborrar.Size = new System.Drawing.Size(117, 26);
-            this.btnEsborrar.TabIndex = 38;
-            this.btnEsborrar.Text = "Afegir";
-            this.btnEsborrar.UseVisualStyleBackColor = false;
-            this.btnEsborrar.Click += new System.EventHandler(this.btnEsborrar_Click);
+            this.btnAfegir.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAfegir.BackColor = System.Drawing.Color.DimGray;
+            this.btnAfegir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAfegir.Font = new System.Drawing.Font("Verdana", 9.75F);
+            this.btnAfegir.ForeColor = System.Drawing.Color.White;
+            this.btnAfegir.Location = new System.Drawing.Point(507, 177);
+            this.btnAfegir.Name = "btnAfegir";
+            this.btnAfegir.Size = new System.Drawing.Size(117, 26);
+            this.btnAfegir.TabIndex = 38;
+            this.btnAfegir.Text = "Afegir";
+            this.btnAfegir.UseVisualStyleBackColor = false;
             // 
             // BaseForm
             // 
@@ -96,7 +94,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(913, 484);
-            this.Controls.Add(this.btnEsborrar);
+            this.Controls.Add(this.btnAfegir);
             this.Controls.Add(this.btnInserir);
             this.Controls.Add(this.btnActualitzar);
             this.Controls.Add(this.dataGridView1);
@@ -112,7 +110,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        public System.Windows.Forms.Button btnEsborrar;
+        public System.Windows.Forms.Button btnAfegir;
         public System.Windows.Forms.Button btnInserir;
         public System.Windows.Forms.Button btnActualitzar;
     }
