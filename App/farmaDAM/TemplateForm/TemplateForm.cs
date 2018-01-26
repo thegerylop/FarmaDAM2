@@ -111,5 +111,15 @@ namespace TemplateForm
             frm.Dock = DockStyle.Fill;
             frm.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            MantenimentPrincipisActius.PrincipisActius frm = new MantenimentPrincipisActius.PrincipisActius();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
     }
 }
