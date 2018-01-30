@@ -47,7 +47,6 @@ namespace TemplateForm
         public void button10_Click(object sender, EventArgs e)
         {
             panel1.Controls.Clear();
-            //lblTitle.Text = "Laboratoris Farmaceutics";
             Form frm = new LabFarm.Laboratoris();
             frm.TopLevel = false;
             panel1.Controls.Add(frm);
@@ -79,13 +78,13 @@ namespace TemplateForm
 
         private void clientsButton_Click(object sender, EventArgs e)
         {
-            panel1.Controls.Clear();
-            //lblTitle.Text = "Clients";
-            Form frm = new Clients.Clients();
-            frm.TopLevel = false;
-            panel1.Controls.Add(frm);
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
+            //panel1.Controls.Clear();
+            ////lblTitle.Text = "Clients";
+            //Form frm = new Clients.Clients();
+            //frm.TopLevel = false;
+            //panel1.Controls.Add(frm);
+            //frm.Dock = DockStyle.Fill;
+            //frm.Show();
         }
 
         private void tancarSessioButton_Click(object sender, EventArgs e)

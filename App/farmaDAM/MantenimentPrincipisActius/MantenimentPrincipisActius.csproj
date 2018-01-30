@@ -16,7 +16,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\dll\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -59,10 +59,6 @@
     <ProjectReference Include="..\ConexioBBDD\ConexioBBDD.csproj">
       <Project>{384145E7-5B9B-43CB-92B0-D8BE9B92FDE8}</Project>
       <Name>ConexioBBDD</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CustomControlTB\CustomControlTB.csproj">
-      <Project>{5A96E7F7-6941-4E6B-8379-E8C51EAE3768}</Project>
-      <Name>CustomControlTB</Name>
     </ProjectReference>
     <ProjectReference Include="..\CustomControl\CustomControl.csproj">
       <Project>{A7279E0E-D844-4CC7-99DA-9939EAA74818}</Project>
