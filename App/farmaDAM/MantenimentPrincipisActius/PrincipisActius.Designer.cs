@@ -36,6 +36,7 @@
             this.CCid = new CustomControl.CustomTextBox();
             this.CCrao = new CustomControl.CustomTextBox();
             this.CCcif = new CustomControl.CustomTextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnAfegir
@@ -57,20 +58,20 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label6.Location = new System.Drawing.Point(445, 58);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(39, 18);
+            this.label6.Size = new System.Drawing.Size(47, 18);
             this.label6.TabIndex = 52;
-            this.label6.Text = "CIF :";
+            this.label6.Text = "Codi :";
             // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label5.Location = new System.Drawing.Point(89, 158);
+            this.label5.Location = new System.Drawing.Point(26, 160);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(87, 18);
+            this.label5.Size = new System.Drawing.Size(152, 18);
             this.label5.TabIndex = 51;
-            this.label5.Text = "Raó social :";
+            this.label5.Text = "Num registre sanitari :";
             // 
             // label4
             // 
@@ -79,9 +80,9 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label4.Location = new System.Drawing.Point(128, 108);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 18);
+            this.label4.Size = new System.Drawing.Size(49, 18);
             this.label4.TabIndex = 50;
-            this.label4.Text = "Codi :";
+            this.label4.Text = "Nom :";
             // 
             // label1
             // 
@@ -138,10 +139,23 @@
             this.CCcif.TabIndex = 56;
             this.CCcif.Tag = "codi";
             // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label2.Location = new System.Drawing.Point(338, -13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(231, 20);
+            this.label2.TabIndex = 65;
+            this.label2.Text = "Manteniment de principis actius";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
             // PrincipisActius
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(913, 484);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.CCcodi);
             this.Controls.Add(this.CCid);
             this.Controls.Add(this.CCrao);
@@ -162,6 +176,7 @@
             this.Controls.SetChildIndex(this.CCrao, 0);
             this.Controls.SetChildIndex(this.CCid, 0);
             this.Controls.SetChildIndex(this.CCcodi, 0);
+            this.Controls.SetChildIndex(this.label2, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -176,5 +191,6 @@
         private CustomControl.CustomTextBox CCid;
         private CustomControl.CustomTextBox CCrao;
         private CustomControl.CustomTextBox CCcif;
+        private System.Windows.Forms.Label label2;
     }
 }

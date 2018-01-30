@@ -6,15 +6,15 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace MantenimentPrincipisActius
+namespace Personal
 {
-    public partial class PrincipisActius : BaseForm.BaseForm
+    public partial class Personal : BaseForm.BaseForm
     {
-        public PrincipisActius()
+        public Personal()
         {
             InitializeComponent();
         }
-        string table = "principisActius";
+        string table = "Personal";
 
         public override void btnInserir_Click(object sender, EventArgs e)
         {
@@ -29,11 +29,6 @@ namespace MantenimentPrincipisActius
         public override void btnAfegir_Click(object sender, EventArgs e)
         {
             AfegirCamp(table);
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

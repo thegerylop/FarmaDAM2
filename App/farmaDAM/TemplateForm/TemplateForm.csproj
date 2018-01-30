@@ -72,6 +72,10 @@
       <Project>{4eee1884-5464-4929-82d6-b25af0f4f8a6}</Project>
       <Name>Manteniment_Productes</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Personal\MantenimentPersonal.csproj">
+      <Project>{8600272c-feec-406b-9265-015a38e5a713}</Project>
+      <Name>MantenimentPersonal</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

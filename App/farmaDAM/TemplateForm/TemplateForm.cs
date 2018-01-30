@@ -94,7 +94,8 @@ namespace TemplateForm
 
         private void btnTest_Click(object sender, EventArgs e)
         {
-            Form frm = new BaseForm.BaseForm();
+            panel1.Controls.Clear();
+            Personal.Personal frm = new Personal.Personal();
             frm.TopLevel = false;
             panel1.Controls.Add(frm);
             frm.Dock = DockStyle.Fill;
@@ -104,7 +105,7 @@ namespace TemplateForm
         private void button4_Click(object sender, EventArgs e)
         {
             panel1.Controls.Clear();
-            Form frm = new Manteniment_Productes.Manteniment_Productes();
+            Manteniment_Productes.Manteniment_Productes frm = new Manteniment_Productes.Manteniment_Productes();
             frm.TopLevel = false;
             panel1.Controls.Add(frm);
             frm.Dock = DockStyle.Fill;

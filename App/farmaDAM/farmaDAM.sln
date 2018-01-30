@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Manteniment_Productes", "Ma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MantenimentPrincipisActius", "MantenimentPrincipisActius\MantenimentPrincipisActius.csproj", "{C27E3BDF-3314-4F3F-BBDF-3F9883848A22}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MantenimentPersonal", "Personal\MantenimentPersonal.csproj", "{8600272C-FEEC-406B-9265-015A38E5A713}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -159,6 +161,22 @@ Global
 		{C27E3BDF-3314-4F3F-BBDF-3F9883848A22}.Release|x64.Build.0 = Release|Any CPU
 		{C27E3BDF-3314-4F3F-BBDF-3F9883848A22}.Release|x86.ActiveCfg = Release|Any CPU
 		{C27E3BDF-3314-4F3F-BBDF-3F9883848A22}.Release|x86.Build.0 = Release|Any CPU
+		{8600272C-FEEC-406B-9265-015A38E5A713}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8600272C-FEEC-406B-9265-015A38E5A713}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8600272C-FEEC-406B-9265-015A38E5A713}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{8600272C-FEEC-406B-9265-015A38E5A713}.Debug|ARM.Build.0 = Debug|Any CPU
+		{8600272C-FEEC-406B-9265-015A38E5A713}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8600272C-FEEC-406B-9265-015A38E5A713}.Debug|x64.Build.0 = Debug|Any CPU
+		{8600272C-FEEC-406B-9265-015A38E5A713}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8600272C-FEEC-406B-9265-015A38E5A713}.Debug|x86.Build.0 = Debug|Any CPU
+		{8600272C-FEEC-406B-9265-015A38E5A713}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8600272C-FEEC-406B-9265-015A38E5A713}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8600272C-FEEC-406B-9265-015A38E5A713}.Release|ARM.ActiveCfg = Release|Any CPU
+		{8600272C-FEEC-406B-9265-015A38E5A713}.Release|ARM.Build.0 = Release|Any CPU
+		{8600272C-FEEC-406B-9265-015A38E5A713}.Release|x64.ActiveCfg = Release|Any CPU
+		{8600272C-FEEC-406B-9265-015A38E5A713}.Release|x64.Build.0 = Release|Any CPU
+		{8600272C-FEEC-406B-9265-015A38E5A713}.Release|x86.ActiveCfg = Release|Any CPU
+		{8600272C-FEEC-406B-9265-015A38E5A713}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

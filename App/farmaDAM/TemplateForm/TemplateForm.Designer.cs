@@ -225,11 +225,11 @@
             this.btnTest.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnTest.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTest.ForeColor = System.Drawing.Color.White;
-            this.btnTest.Location = new System.Drawing.Point(3, 348);
+            this.btnTest.Location = new System.Drawing.Point(3, 313);
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(201, 51);
             this.btnTest.TabIndex = 32;
-            this.btnTest.Text = "BASE TEST";
+            this.btnTest.Text = "Personal";
             this.btnTest.UseVisualStyleBackColor = false;
             this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
