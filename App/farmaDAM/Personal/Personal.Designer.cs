@@ -50,7 +50,7 @@
             // CCcodi
             // 
             this.CCcodi.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CCcodi.Location = new System.Drawing.Point(243, 76);
+            this.CCcodi.Location = new System.Drawing.Point(187, 79);
             this.CCcodi.Name = "CCcodi";
             this.CCcodi.Options = CustomControl.CustomTextBox.Items.Text;
             this.CCcodi.Placeholder = null;
@@ -61,7 +61,7 @@
             // CCrao
             // 
             this.CCrao.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CCrao.Location = new System.Drawing.Point(606, 76);
+            this.CCrao.Location = new System.Drawing.Point(550, 79);
             this.CCrao.Name = "CCrao";
             this.CCrao.Options = CustomControl.CustomTextBox.Items.Text;
             this.CCrao.Placeholder = null;
@@ -74,7 +74,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label5.Location = new System.Drawing.Point(495, 75);
+            this.label5.Location = new System.Drawing.Point(439, 78);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 18);
             this.label5.TabIndex = 61;
@@ -85,7 +85,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label4.Location = new System.Drawing.Point(174, 78);
+            this.label4.Location = new System.Drawing.Point(118, 81);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(59, 18);
             this.label4.TabIndex = 60;
@@ -95,13 +95,12 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label2.Location = new System.Drawing.Point(441, -12);
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F);
+            this.label2.Location = new System.Drawing.Point(407, -13);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 20);
+            this.label2.Size = new System.Drawing.Size(74, 21);
             this.label2.TabIndex = 64;
             this.label2.Text = "Personal";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // Personal
             // 

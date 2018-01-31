@@ -38,7 +38,7 @@
             this.customTextBox6 = new CustomControl.CustomTextBox();
             this.SuspendLayout();
             // 
-            // btnEsborrar
+            // btnAfegir
             // 
             this.btnAfegir.Location = new System.Drawing.Point(507, 162);
             // 
@@ -55,10 +55,10 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F);
             this.label2.Location = new System.Drawing.Point(360, -57);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(199, 20);
+            this.label2.Size = new System.Drawing.Size(208, 21);
             this.label2.TabIndex = 51;
             this.label2.Text = "Manteniment de productes";
             // 

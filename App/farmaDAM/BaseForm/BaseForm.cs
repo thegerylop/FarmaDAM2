@@ -27,18 +27,40 @@ namespace BaseForm
         public void ActualitzarMySQL(string table)
         {
             Boolean correcte = false;
-            ConexioBBDD.Conexio bd = new ConexioBBDD.Conexio();
-            correcte = bd.Actualitzar(query, table, dataSet);
+            correcte = ComprovarCamps();
             if (correcte)
             {
-                MessageBox.Show("Dades actualitzades");
+                ConexioBBDD.Conexio bd = new ConexioBBDD.Conexio();
+                correcte = bd.Actualitzar(query, table, dataSet);
+                if (correcte)
+                {
+                    MessageBox.Show("Dades actualitzades");
+                }
+                else
+                {
+                    MessageBox.Show("Error al actualitzar les dades");
+                }
             }
             else
             {
-                MessageBox.Show("Error al actualitzar les dades");
+                MessageBox.Show("Camps buits");
             }
+            
         }
-
+        private Boolean ComprovarCamps()
+        {
+            foreach (Control txt in this.Controls)
+            {
+                if (txt.GetType() == typeof(CustomControl.CustomTextBox))
+                {
+                    if (txt.Text == "")
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
         private void BindingDades(string table)
         {
             foreach (Control txt in this.Controls)
