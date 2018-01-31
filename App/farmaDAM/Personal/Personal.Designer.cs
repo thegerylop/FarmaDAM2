@@ -98,9 +98,10 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label2.Location = new System.Drawing.Point(441, -12);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 20);
+            this.label2.Size = new System.Drawing.Size(71, 20);
             this.label2.TabIndex = 64;
-            this.label2.Text = "Clients";
+            this.label2.Text = "Personal";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // Personal
             // 
