@@ -33,8 +33,8 @@ namespace Clients
         {
             string query = "SELECT * FROM clients";
             DataTable data = new DataTable();
-            data = conn.filltable(query);
-            cronicGridView.DataSource = data;
+            //data = conn.filltable(query);
+            //cronicGridView.DataSource = data;
         }
 
         private void BtnInserir_Click(object sender, EventArgs e)
@@ -71,6 +71,11 @@ namespace Clients
         private bool comprovarDades() {
 
             return false;
+        }
+
+        private void customNom_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

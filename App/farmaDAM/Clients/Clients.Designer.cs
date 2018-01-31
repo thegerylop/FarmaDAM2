@@ -60,6 +60,7 @@
             this.customNom.Placeholder = "Nom";
             this.customNom.Size = new System.Drawing.Size(197, 27);
             this.customNom.TabIndex = 0;
+            this.customNom.Load += new System.EventHandler(this.customNom_Load);
             // 
             // customAdreca
             // 
@@ -275,18 +276,12 @@
 
         #endregion
 
-        private CustomControlTB.CustomControlTB customNom;
-        private CustomControlTB.CustomControlTB customAdreca;
-        private CustomControlTB.CustomControlTB customDNI;
-        private CustomControlTB.CustomControlTB customCognoms;
-        private CustomControlTB.CustomControlTB customTS;
         private System.Windows.Forms.Label cronicLabel;
         private System.Windows.Forms.ComboBox tcDropDown;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton noRadioButton;
         private System.Windows.Forms.RadioButton siRadioButton;
         private System.Windows.Forms.Label emailLabel;
-        private CustomControlTB.CustomControlTB customEmail;
         private System.Windows.Forms.Label medicamensLabel;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox cronicGB;

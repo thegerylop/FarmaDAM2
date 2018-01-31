@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C5AD0804-57BB-4E66-BCE8-58AF53EB0B2B}</ProjectGuid>
+    <ProjectGuid>{C27E3BDF-3314-4F3F-BBDF-3F9883848A22}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Clients</RootNamespace>
-    <AssemblyName>Clients</AssemblyName>
+    <RootNamespace>MantenimentPrincipisActius</RootNamespace>
+    <AssemblyName>MantenimentPrincipisActius</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -16,7 +16,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\dll\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -42,24 +42,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clients.cs">
+    <Compile Include="Class1.cs" />
+    <Compile Include="PrincipisActius.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Clients.Designer.cs">
-      <DependentUpon>Clients.cs</DependentUpon>
+    <Compile Include="PrincipisActius.Designer.cs">
+      <DependentUpon>PrincipisActius.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Clients.resx">
-      <DependentUpon>Clients.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\BaseForm\BaseForm.csproj">
+      <Project>{CF89EA7D-D834-4CB1-8888-E9C0FB24EE7F}</Project>
+      <Name>BaseForm</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ConexioBBDD\ConexioBBDD.csproj">
-      <Project>{384145e7-5b9b-43cb-92b0-d8be9b92fde8}</Project>
+      <Project>{384145E7-5B9B-43CB-92B0-D8BE9B92FDE8}</Project>
       <Name>ConexioBBDD</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CustomControl\CustomControl.csproj">
+      <Project>{A7279E0E-D844-4CC7-99DA-9939EAA74818}</Project>
+      <Name>CustomControl</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="PrincipisActius.resx">
+      <DependentUpon>PrincipisActius.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

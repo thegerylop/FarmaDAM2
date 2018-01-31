@@ -56,13 +56,25 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Clients\Clients.csproj">
-      <Project>{c5ad0804-57bb-4e66-bce8-58af53eb0b2b}</Project>
-      <Name>Clients</Name>
+    <ProjectReference Include="..\BaseForm\BaseForm.csproj">
+      <Project>{cf89ea7d-d834-4cb1-8888-e9c0fb24ee7f}</Project>
+      <Name>BaseForm</Name>
     </ProjectReference>
     <ProjectReference Include="..\LabFarm\LabFarm.csproj">
       <Project>{1f89a881-ec94-46d3-a799-69a37ce4f4e5}</Project>
       <Name>LabFarm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MantenimentPrincipisActius\MantenimentPrincipisActius.csproj">
+      <Project>{c27e3bdf-3314-4f3f-bbdf-3f9883848a22}</Project>
+      <Name>MantenimentPrincipisActius</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Manteniment_Productes\Manteniment_Productes.csproj">
+      <Project>{4eee1884-5464-4929-82d6-b25af0f4f8a6}</Project>
+      <Name>Manteniment_Productes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Personal\MantenimentPersonal.csproj">
+      <Project>{8600272c-feec-406b-9265-015a38e5a713}</Project>
+      <Name>MantenimentPersonal</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
