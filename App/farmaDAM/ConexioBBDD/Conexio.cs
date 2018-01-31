@@ -17,7 +17,7 @@ namespace ConexioBBDD
 
         public string connexioLogin(String login, String password)
         {
-            string comanda = "SELECT usuari, contrasenya FROM Personal WHERE usuari = '" + login + "' and contrasenya = '" + password + "'";
+            string comanda = "SELECT usuari, contrasenya FROM Personal WHERE BINARY usuari = '" + login + "' and contrasenya = '" + password + "'";
             conn.ConnectionString = connString;
             conn.Open();
             try

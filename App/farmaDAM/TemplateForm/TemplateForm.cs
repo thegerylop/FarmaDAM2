@@ -12,9 +12,11 @@ namespace TemplateForm
 {
     public partial class TemplateForm : Form
     {
-        public TemplateForm()
+        public TemplateForm(string value)
         {
             InitializeComponent();
+            lblUser.Text = "Usuari: " + value;
+
         }
 
         bool drag = false;

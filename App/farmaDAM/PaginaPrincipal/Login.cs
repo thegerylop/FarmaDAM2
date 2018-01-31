@@ -26,7 +26,7 @@ namespace PaginaPrincipal
             if (select != null)
             {
                 this.Hide();
-                TemplateForm.TemplateForm frm = new TemplateForm.TemplateForm();
+                TemplateForm.TemplateForm frm = new TemplateForm.TemplateForm(login);
                 frm.Show();
             }
             else

@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblUser = new System.Windows.Forms.Label();
             this.date = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.minimizeLabel = new System.Windows.Forms.Label();
@@ -58,7 +58,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Gray;
-            this.panel4.Controls.Add(this.label2);
+            this.panel4.Controls.Add(this.lblUser);
             this.panel4.Controls.Add(this.date);
             this.panel4.Controls.Add(this.label1);
             this.panel4.Controls.Add(this.minimizeLabel);
@@ -73,17 +73,17 @@
             this.panel4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel4_MouseMove);
             this.panel4.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel4_MouseUp);
             // 
-            // label2
+            // lblUser
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(207, 8);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(110, 16);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Usuari: JCASAS";
+            this.lblUser.AutoSize = true;
+            this.lblUser.BackColor = System.Drawing.Color.Transparent;
+            this.lblUser.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUser.ForeColor = System.Drawing.Color.White;
+            this.lblUser.Location = new System.Drawing.Point(207, 8);
+            this.lblUser.Name = "lblUser";
+            this.lblUser.Size = new System.Drawing.Size(110, 16);
+            this.lblUser.TabIndex = 9;
+            this.lblUser.Text = "Usuari: JCASAS";
             // 
             // date
             // 
@@ -353,7 +353,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.Label date;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label minimizeLabel;
