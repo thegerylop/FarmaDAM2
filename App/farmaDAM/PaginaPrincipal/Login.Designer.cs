@@ -169,6 +169,8 @@
             this.CCpassword.Placeholder = "password";
             this.CCpassword.Size = new System.Drawing.Size(252, 20);
             this.CCpassword.TabIndex = 23;
+            this.CCpassword.Enter += new System.EventHandler(this.CCpassword_Enter);
+            this.CCpassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CCpassword_KeyPress);
             // 
             // Login
             // 

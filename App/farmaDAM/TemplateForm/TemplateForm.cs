@@ -89,7 +89,7 @@ namespace TemplateForm
 
         private void tancarSessioButton_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Application.Restart();
         }
 
         private void btnTest_Click(object sender, EventArgs e)

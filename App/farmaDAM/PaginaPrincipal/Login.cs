@@ -23,16 +23,16 @@ namespace PaginaPrincipal
             string password = CCpassword.Text;
             string select = conn.connexioLogin(login, password);
 
-            //if (select != null)
-            //{
-            this.Hide();
-                Form frm = new TemplateForm.TemplateForm();
+            if (select != null)
+            {
+                this.Hide();
+                TemplateForm.TemplateForm frm = new TemplateForm.TemplateForm();
                 frm.Show();
-            //}
-            //else
-            //{
-            //MessageBox.Show("El login o la contrasenya son invàlids");
-            //}
+            }
+            else
+            {
+                MessageBox.Show("El login o la contrasenya son invàlids");
+            }
         }
 
         bool drag = false;
@@ -67,6 +67,27 @@ namespace PaginaPrincipal
         {
             CClogin.Text = "Login";
             CCpassword.Text = "Password";
+
+            
+         
+
+        }
+
+    
+        private void CCpassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\r')
+            {
+                iniciarBtn.PerformClick();
+            }
+        }
+
+        private void CCpassword_Enter(object sender, EventArgs e)
+        {
+            if (CCpassword.Text == "Password")
+            {
+                CCpassword.Text = "";
+            }
         }
     }
 }

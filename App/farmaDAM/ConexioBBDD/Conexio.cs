@@ -26,13 +26,19 @@ namespace ConexioBBDD
                 MySqlDataReader dataReader = command.ExecuteReader();
                 string select = null;
                 //code to get select
-                dataReader.Read();
-                if (dataReader[0].ToString().Length > 1 && dataReader[1].ToString().Length > 1)
+                if (dataReader.Read())
                 {
-                    select = dataReader[0].ToString() + " - " + dataReader[1].ToString();
+                    dataReader.Read();
+                    if (dataReader[0].ToString().Length > 1 && dataReader[1].ToString().Length > 1)
+                    {
+                        select = dataReader[0].ToString() + " - " + dataReader[1].ToString();
+                    }
+                    dataReader.Close();
+                    return select;
+                } else
+                {
+                    return null;
                 }
-                dataReader.Close();
-                return select;
             }
             catch (MySqlException ex)
             {
