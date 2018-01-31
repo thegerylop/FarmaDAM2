@@ -35,5 +35,10 @@ namespace Personal
         {
 
         }
+
+        private void TxBFilter_TextChanged(object sender, EventArgs e)
+        {
+            (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format("usuari LIKE '{0}%'", TxBFilter.Text);
+        }
     }
 }

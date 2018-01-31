@@ -35,5 +35,10 @@ namespace MantenimentPrincipisActius
         {
 
         }
+
+        private void PrincipisActius_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -39,7 +39,7 @@
             // 
             // btnAfegir
             // 
-            this.btnAfegir.Click += new System.EventHandler(this.btnInserir_Click);
+            this.btnAfegir.Click += new System.EventHandler(this.btnAfegir_Click);
             // 
             // btnInserir
             // 
@@ -139,6 +139,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Name = "PrincipisActius";
+            this.Load += new System.EventHandler(this.PrincipisActius_Load);
             this.Controls.SetChildIndex(this.btnActualitzar, 0);
             this.Controls.SetChildIndex(this.btnInserir, 0);
             this.Controls.SetChildIndex(this.btnAfegir, 0);

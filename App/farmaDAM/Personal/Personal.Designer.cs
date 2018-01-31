@@ -33,6 +33,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.TxBFilter = new CustomControl.CustomTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnAfegir
@@ -102,10 +104,35 @@
             this.label2.TabIndex = 64;
             this.label2.Text = "Personal";
             // 
+            // TxBFilter
+            // 
+            this.TxBFilter.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TxBFilter.Location = new System.Drawing.Point(83, 179);
+            this.TxBFilter.Name = "TxBFilter";
+            this.TxBFilter.Options = CustomControl.CustomTextBox.Items.Text;
+            this.TxBFilter.Placeholder = null;
+            this.TxBFilter.Size = new System.Drawing.Size(197, 20);
+            this.TxBFilter.TabIndex = 66;
+            this.TxBFilter.Tag = "";
+            this.TxBFilter.TextChanged += new System.EventHandler(this.TxBFilter_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label1.Location = new System.Drawing.Point(15, 179);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 18);
+            this.label1.TabIndex = 65;
+            this.label1.Text = "Usuari :";
+            // 
             // Personal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(913, 484);
+            this.Controls.Add(this.TxBFilter);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.CCcodi);
             this.Controls.Add(this.CCrao);
@@ -120,6 +147,8 @@
             this.Controls.SetChildIndex(this.CCrao, 0);
             this.Controls.SetChildIndex(this.CCcodi, 0);
             this.Controls.SetChildIndex(this.label2, 0);
+            this.Controls.SetChildIndex(this.label1, 0);
+            this.Controls.SetChildIndex(this.TxBFilter, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,5 +161,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
+        private CustomControl.CustomTextBox TxBFilter;
+        private System.Windows.Forms.Label label1;
     }
 }

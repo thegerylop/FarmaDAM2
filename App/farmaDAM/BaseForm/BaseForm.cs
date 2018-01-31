@@ -53,7 +53,7 @@ namespace BaseForm
             {
                 if (txt.GetType() == typeof(CustomControl.CustomTextBox))
                 {
-                    if (txt.Text == "")
+                    if (txt.Text == "" && txt.Tag != "")
                     {
                         return false;
                     }
@@ -67,10 +67,11 @@ namespace BaseForm
             {
                 if (txt.GetType() == typeof(CustomControl.CustomTextBox))
                 {
-
-                    txt.DataBindings.Clear();
-                    txt.DataBindings.Add("Text", dataSet.Tables[table], txt.Tag.ToString(),true);
-                    txt.Validated += new System.EventHandler(this.validarText);
+                    if (txt.Tag.ToString() != "") {
+                        txt.DataBindings.Clear();
+                        txt.DataBindings.Add("Text", dataSet.Tables[table], txt.Tag.ToString(), true);
+                        txt.Validated += new System.EventHandler(this.validarText);
+                    }
                 }
             }
             dataGridView1.AutoGenerateColumns = true;
@@ -107,6 +108,8 @@ namespace BaseForm
         {
             row = dataSet.Tables[table].NewRow();
             dataSet.Tables[table].Rows.Add(row);
+            dataGridView1.Rows[dataGridView1.Rows.Count - 2].Selected = true;
+            dataGridView1.CurrentCell = dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells[1];
         }
         public virtual void btnAfegir_Click(object sender, EventArgs e)
         {
@@ -115,6 +118,10 @@ namespace BaseForm
         private void btnInserir_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
         }
     }
 }
