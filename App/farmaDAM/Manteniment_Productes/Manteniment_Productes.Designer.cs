@@ -40,32 +40,32 @@
             // 
             // btnAfegir
             // 
-            this.btnAfegir.Location = new System.Drawing.Point(507, 162);
+            this.btnAfegir.Location = new System.Drawing.Point(507, 245);
             // 
             // btnInserir
             // 
-            this.btnInserir.Location = new System.Drawing.Point(630, 162);
+            this.btnInserir.Location = new System.Drawing.Point(630, 245);
             // 
             // btnActualitzar
             // 
-            this.btnActualitzar.Location = new System.Drawing.Point(753, 162);
+            this.btnActualitzar.Location = new System.Drawing.Point(753, 245);
             this.btnActualitzar.Click += new System.EventHandler(this.btnActualitzar_Click);
             // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F);
-            this.label2.Location = new System.Drawing.Point(360, -57);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(360, 26);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(208, 21);
+            this.label2.Size = new System.Drawing.Size(235, 24);
             this.label2.TabIndex = 51;
             this.label2.Text = "Manteniment de productes";
             // 
             // CCcodi
             // 
             this.CCcodi.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CCcodi.Location = new System.Drawing.Point(165, 47);
+            this.CCcodi.Location = new System.Drawing.Point(165, 130);
             this.CCcodi.Name = "CCcodi";
             this.CCcodi.Options = CustomControl.CustomTextBox.Items.Text;
             this.CCcodi.Placeholder = null;
@@ -76,7 +76,7 @@
             // customTextBox1
             // 
             this.customTextBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.customTextBox1.Location = new System.Drawing.Point(165, 73);
+            this.customTextBox1.Location = new System.Drawing.Point(165, 156);
             this.customTextBox1.Name = "customTextBox1";
             this.customTextBox1.Options = CustomControl.CustomTextBox.Items.Text;
             this.customTextBox1.Placeholder = null;
@@ -87,7 +87,7 @@
             // customTextBox2
             // 
             this.customTextBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.customTextBox2.Location = new System.Drawing.Point(165, 101);
+            this.customTextBox2.Location = new System.Drawing.Point(165, 184);
             this.customTextBox2.Name = "customTextBox2";
             this.customTextBox2.Options = CustomControl.CustomTextBox.Items.Text;
             this.customTextBox2.Placeholder = null;
@@ -98,7 +98,7 @@
             // customTextBox3
             // 
             this.customTextBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.customTextBox3.Location = new System.Drawing.Point(165, 134);
+            this.customTextBox3.Location = new System.Drawing.Point(165, 217);
             this.customTextBox3.Name = "customTextBox3";
             this.customTextBox3.Options = CustomControl.CustomTextBox.Items.Text;
             this.customTextBox3.Placeholder = null;
@@ -109,7 +109,7 @@
             // customTextBox4
             // 
             this.customTextBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.customTextBox4.Location = new System.Drawing.Point(165, 166);
+            this.customTextBox4.Location = new System.Drawing.Point(165, 249);
             this.customTextBox4.Name = "customTextBox4";
             this.customTextBox4.Options = CustomControl.CustomTextBox.Items.Text;
             this.customTextBox4.Placeholder = null;
@@ -120,7 +120,7 @@
             // customTextBox5
             // 
             this.customTextBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.customTextBox5.Location = new System.Drawing.Point(165, 20);
+            this.customTextBox5.Location = new System.Drawing.Point(165, 103);
             this.customTextBox5.Name = "customTextBox5";
             this.customTextBox5.Options = CustomControl.CustomTextBox.Items.Text;
             this.customTextBox5.Placeholder = null;
@@ -131,7 +131,7 @@
             // customTextBox6
             // 
             this.customTextBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.customTextBox6.Location = new System.Drawing.Point(165, -6);
+            this.customTextBox6.Location = new System.Drawing.Point(165, 77);
             this.customTextBox6.Name = "customTextBox6";
             this.customTextBox6.Options = CustomControl.CustomTextBox.Items.Text;
             this.customTextBox6.Placeholder = null;
@@ -142,7 +142,7 @@
             // Manteniment_Productes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(913, 484);
+            this.ClientSize = new System.Drawing.Size(913, 651);
             this.Controls.Add(this.customTextBox6);
             this.Controls.Add(this.customTextBox5);
             this.Controls.Add(this.customTextBox4);

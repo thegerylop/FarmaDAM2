@@ -87,12 +87,15 @@ namespace BaseForm
         {
             InitializeComponent();
         }
+        string table = "";
         public virtual void btnInserir_Click(object sender, EventArgs e)
         {
+            PortarDadesMySQL(table);
         }
 
         public virtual void actualitzar_Click(object sender, EventArgs e)
         {
+            ActualitzarMySQL(table);
         }
         public void netejarCamps()
         {
@@ -113,6 +116,7 @@ namespace BaseForm
         }
         public virtual void btnAfegir_Click(object sender, EventArgs e)
         {
+            AfegirCamp(table);
         }
 
         private void btnInserir_Click_1(object sender, EventArgs e)

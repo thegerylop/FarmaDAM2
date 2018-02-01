@@ -119,10 +119,10 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(328, -13);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(245, 21);
+            this.label2.Size = new System.Drawing.Size(274, 24);
             this.label2.TabIndex = 65;
             this.label2.Text = "Manteniment de principis actius";
             this.label2.Click += new System.EventHandler(this.label2_Click);
