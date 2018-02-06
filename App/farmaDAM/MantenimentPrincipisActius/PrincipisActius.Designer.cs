@@ -31,16 +31,18 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.CCcodi = new CustomControl.CustomTextBox();
             this.CCrao = new CustomControl.CustomTextBox();
             this.CCcif = new CustomControl.CustomTextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.TxBFilter = new CustomControl.CustomTextBox();
             this.SuspendLayout();
             // 
             // btnAfegir
             // 
             this.btnAfegir.Click += new System.EventHandler(this.btnAfegir_Click);
-            //
+            // 
             // btnActualitzar
             // 
             this.btnActualitzar.Click += new System.EventHandler(this.actualitzar_Click);
@@ -78,6 +80,18 @@
             this.label4.TabIndex = 50;
             this.label4.Text = "Nom :";
             // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(328, -13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(274, 24);
+            this.label2.TabIndex = 65;
+            this.label2.Text = "Manteniment de principis actius";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
             // CCcodi
             // 
             this.CCcodi.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -111,22 +125,35 @@
             this.CCcif.TabIndex = 56;
             this.CCcif.Tag = "codi";
             // 
-            // label2
+            // label3
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(328, -13);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(274, 24);
-            this.label2.TabIndex = 65;
-            this.label2.Text = "Manteniment de principis actius";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label3.Location = new System.Drawing.Point(12, 185);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 18);
+            this.label3.TabIndex = 71;
+            this.label3.Text = "Nom :";
+            // 
+            // TxBFilter
+            // 
+            this.TxBFilter.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TxBFilter.Location = new System.Drawing.Point(83, 184);
+            this.TxBFilter.Name = "TxBFilter";
+            this.TxBFilter.Options = CustomControl.CustomTextBox.Items.Text;
+            this.TxBFilter.Placeholder = null;
+            this.TxBFilter.Size = new System.Drawing.Size(197, 20);
+            this.TxBFilter.TabIndex = 70;
+            this.TxBFilter.Tag = "";
+            this.TxBFilter.TextChanged += new System.EventHandler(this.TxBFilter_TextChanged);
             // 
             // PrincipisActius
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(913, 484);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.TxBFilter);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.CCcodi);
             this.Controls.Add(this.CCrao);
@@ -145,6 +172,8 @@
             this.Controls.SetChildIndex(this.CCrao, 0);
             this.Controls.SetChildIndex(this.CCcodi, 0);
             this.Controls.SetChildIndex(this.label2, 0);
+            this.Controls.SetChildIndex(this.TxBFilter, 0);
+            this.Controls.SetChildIndex(this.label3, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,5 +187,7 @@
         private CustomControl.CustomTextBox CCrao;
         private CustomControl.CustomTextBox CCcif;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private CustomControl.CustomTextBox TxBFilter;
     }
 }
