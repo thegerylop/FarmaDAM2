@@ -41,11 +41,7 @@
             // btnAfegir
             // 
             this.btnAfegir.Location = new System.Drawing.Point(507, 245);
-            // 
-            // btnInserir
-            // 
-            this.btnInserir.Location = new System.Drawing.Point(630, 245);
-            // 
+            //
             // btnActualitzar
             // 
             this.btnActualitzar.Location = new System.Drawing.Point(753, 245);
@@ -153,7 +149,6 @@
             this.Controls.Add(this.label2);
             this.Name = "Manteniment_Productes";
             this.Controls.SetChildIndex(this.btnActualitzar, 0);
-            this.Controls.SetChildIndex(this.btnInserir, 0);
             this.Controls.SetChildIndex(this.btnAfegir, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.CCcodi, 0);

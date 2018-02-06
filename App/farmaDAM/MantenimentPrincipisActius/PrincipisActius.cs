@@ -14,7 +14,7 @@ namespace MantenimentPrincipisActius
         {
             InitializeComponent();
         }
-        string table = "principisActius";
+        string table = "principis_actius";
 
         public override void btnInserir_Click(object sender, EventArgs e)
         {
@@ -24,6 +24,7 @@ namespace MantenimentPrincipisActius
         public override void actualitzar_Click(object sender, EventArgs e)
         {
             ActualitzarMySQL(table);
+            PortarDadesMySQL(table);
         }
 
         public override void btnAfegir_Click(object sender, EventArgs e)
@@ -38,7 +39,7 @@ namespace MantenimentPrincipisActius
 
         private void PrincipisActius_Load(object sender, EventArgs e)
         {
-
+            PortarDadesMySQL(table);
         }
     }
 }

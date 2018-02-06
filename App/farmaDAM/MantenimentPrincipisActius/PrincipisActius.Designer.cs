@@ -40,11 +40,7 @@
             // btnAfegir
             // 
             this.btnAfegir.Click += new System.EventHandler(this.btnAfegir_Click);
-            // 
-            // btnInserir
-            // 
-            this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
-            // 
+            //
             // btnActualitzar
             // 
             this.btnActualitzar.Click += new System.EventHandler(this.actualitzar_Click);
@@ -141,7 +137,6 @@
             this.Name = "PrincipisActius";
             this.Load += new System.EventHandler(this.PrincipisActius_Load);
             this.Controls.SetChildIndex(this.btnActualitzar, 0);
-            this.Controls.SetChildIndex(this.btnInserir, 0);
             this.Controls.SetChildIndex(this.btnAfegir, 0);
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.label5, 0);
