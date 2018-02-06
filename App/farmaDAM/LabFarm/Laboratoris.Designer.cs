@@ -42,20 +42,16 @@
             this.CCcif = new CustomControl.CustomTextBox();
             this.CCrao = new CustomControl.CustomTextBox();
             this.CCcodi = new CustomControl.CustomTextBox();
+            this.TxBFilter = new CustomControl.CustomTextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnAfegir
             // 
-            this.btnAfegir.Location = new System.Drawing.Point(507, 181);
             this.btnAfegir.Click += new System.EventHandler(this.btnAfegir_Click);
-            // 
-            // btnInserir
-            // 
-            this.btnInserir.Location = new System.Drawing.Point(630, 181);
             // 
             // btnActualitzar
             // 
-            this.btnActualitzar.Location = new System.Drawing.Point(753, 181);
             this.btnActualitzar.Click += new System.EventHandler(this.actualitzar_Click);
             // 
             // idlabDataGridViewTextBoxColumn
@@ -187,11 +183,37 @@
             this.CCcodi.TabIndex = 55;
             this.CCcodi.Tag = "codi_laboratori";
             // 
+            // TxBFilter
+            // 
+            this.TxBFilter.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TxBFilter.Location = new System.Drawing.Point(77, 183);
+            this.TxBFilter.Name = "TxBFilter";
+            this.TxBFilter.Options = CustomControl.CustomTextBox.Items.Text;
+            this.TxBFilter.Placeholder = null;
+            this.TxBFilter.Size = new System.Drawing.Size(197, 20);
+            this.TxBFilter.TabIndex = 68;
+            this.TxBFilter.Tag = "";
+            this.TxBFilter.TextChanged += new System.EventHandler(this.TxBFilter_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label3.Location = new System.Drawing.Point(6, 184);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(47, 18);
+            this.label3.TabIndex = 69;
+            this.label3.Text = "Codi :";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
             // Laboratoris
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(913, 484);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.TxBFilter);
             this.Controls.Add(this.CCcodi);
             this.Controls.Add(this.CCrao);
             this.Controls.Add(this.CCcif);
@@ -204,7 +226,6 @@
             this.Name = "Laboratoris";
             this.Load += new System.EventHandler(this.Laboratoris_Load);
             this.Controls.SetChildIndex(this.btnActualitzar, 0);
-            this.Controls.SetChildIndex(this.btnInserir, 0);
             this.Controls.SetChildIndex(this.btnAfegir, 0);
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.label5, 0);
@@ -215,6 +236,8 @@
             this.Controls.SetChildIndex(this.CCcif, 0);
             this.Controls.SetChildIndex(this.CCrao, 0);
             this.Controls.SetChildIndex(this.CCcodi, 0);
+            this.Controls.SetChildIndex(this.TxBFilter, 0);
+            this.Controls.SetChildIndex(this.label3, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -236,5 +259,7 @@
         private CustomControl.CustomTextBox CCcif;
         private CustomControl.CustomTextBox CCrao;
         private CustomControl.CustomTextBox CCcodi;
+        private CustomControl.CustomTextBox TxBFilter;
+        private System.Windows.Forms.Label label3;
     }
 }

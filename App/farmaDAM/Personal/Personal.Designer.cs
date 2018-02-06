@@ -41,10 +41,6 @@
             // 
             this.btnAfegir.Click += new System.EventHandler(this.btnAfegir_Click);
             // 
-            // btnInserir
-            // 
-            this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
-            // 
             // btnActualitzar
             // 
             this.btnActualitzar.Click += new System.EventHandler(this.actualitzar_Click);
@@ -139,8 +135,8 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Name = "Personal";
+            this.Load += new System.EventHandler(this.Personal_Load);
             this.Controls.SetChildIndex(this.btnActualitzar, 0);
-            this.Controls.SetChildIndex(this.btnInserir, 0);
             this.Controls.SetChildIndex(this.btnAfegir, 0);
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.label5, 0);

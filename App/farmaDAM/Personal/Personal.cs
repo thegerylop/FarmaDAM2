@@ -16,14 +16,10 @@ namespace Personal
         }
         string table = "personal";
 
-        public override void btnInserir_Click(object sender, EventArgs e)
-        {
-            PortarDadesMySQL(table);
-        }
-
         public override void actualitzar_Click(object sender, EventArgs e)
         {
             ActualitzarMySQL(table);
+            PortarDadesMySQL(table);
         }
 
         public override void btnAfegir_Click(object sender, EventArgs e)
@@ -31,14 +27,14 @@ namespace Personal
             AfegirCamp(table);
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void TxBFilter_TextChanged(object sender, EventArgs e)
         {
             (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format("usuari LIKE '{0}%'", TxBFilter.Text);
+        }
+
+        private void Personal_Load(object sender, EventArgs e)
+        {
+            PortarDadesMySQL(table);
         }
     }
 }

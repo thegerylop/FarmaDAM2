@@ -32,5 +32,14 @@ namespace LabFarm
         {
             PortarDadesMySQL(table);
         }
+        private void TxBFilter_TextChanged(object sender, EventArgs e)
+        {
+            (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format("codi_laboratori LIKE '{0}%'", TxBFilter.Text);
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
