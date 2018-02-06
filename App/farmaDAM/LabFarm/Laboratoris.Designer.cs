@@ -48,10 +48,12 @@
             // 
             // btnAfegir
             // 
+            this.btnAfegir.TabIndex = 7;
             this.btnAfegir.Click += new System.EventHandler(this.btnAfegir_Click);
             // 
             // btnActualitzar
             // 
+            this.btnActualitzar.TabIndex = 8;
             this.btnActualitzar.Click += new System.EventHandler(this.actualitzar_Click);
             // 
             // idlabDataGridViewTextBoxColumn
@@ -136,7 +138,7 @@
             this.label2.Location = new System.Drawing.Point(349, -13);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(212, 24);
-            this.label2.TabIndex = 50;
+            this.label2.TabIndex = 1;
             this.label2.Text = "Laboratoris farmaceutics";
             // 
             // CCden
@@ -147,7 +149,7 @@
             this.CCden.Options = CustomControl.CustomTextBox.Items.Text;
             this.CCden.Placeholder = null;
             this.CCden.Size = new System.Drawing.Size(197, 20);
-            this.CCden.TabIndex = 51;
+            this.CCden.TabIndex = 5;
             this.CCden.Tag = "Denominacio";
             // 
             // CCcif
@@ -158,7 +160,7 @@
             this.CCcif.Options = CustomControl.CustomTextBox.Items.Text;
             this.CCcif.Placeholder = null;
             this.CCcif.Size = new System.Drawing.Size(197, 20);
-            this.CCcif.TabIndex = 52;
+            this.CCcif.TabIndex = 3;
             this.CCcif.Tag = "cif";
             // 
             // CCrao
@@ -169,7 +171,7 @@
             this.CCrao.Options = CustomControl.CustomTextBox.Items.Text;
             this.CCrao.Placeholder = null;
             this.CCrao.Size = new System.Drawing.Size(197, 20);
-            this.CCrao.TabIndex = 53;
+            this.CCrao.TabIndex = 4;
             this.CCrao.Tag = "rao_social";
             // 
             // CCcodi
@@ -180,7 +182,7 @@
             this.CCcodi.Options = CustomControl.CustomTextBox.Items.Text;
             this.CCcodi.Placeholder = null;
             this.CCcodi.Size = new System.Drawing.Size(197, 20);
-            this.CCcodi.TabIndex = 55;
+            this.CCcodi.TabIndex = 2;
             this.CCcodi.Tag = "codi_laboratori";
             // 
             // TxBFilter
@@ -191,7 +193,7 @@
             this.TxBFilter.Options = CustomControl.CustomTextBox.Items.Text;
             this.TxBFilter.Placeholder = null;
             this.TxBFilter.Size = new System.Drawing.Size(197, 20);
-            this.TxBFilter.TabIndex = 68;
+            this.TxBFilter.TabIndex = 6;
             this.TxBFilter.Tag = "";
             this.TxBFilter.TextChanged += new System.EventHandler(this.TxBFilter_TextChanged);
             // 

@@ -39,10 +39,12 @@
             // 
             // btnAfegir
             // 
+            this.btnAfegir.TabIndex = 5;
             this.btnAfegir.Click += new System.EventHandler(this.btnAfegir_Click);
             // 
             // btnActualitzar
             // 
+            this.btnActualitzar.TabIndex = 6;
             this.btnActualitzar.Click += new System.EventHandler(this.actualitzar_Click);
             // 
             // CCcodi
@@ -53,7 +55,7 @@
             this.CCcodi.Options = CustomControl.CustomTextBox.Items.Text;
             this.CCcodi.Placeholder = null;
             this.CCcodi.Size = new System.Drawing.Size(197, 20);
-            this.CCcodi.TabIndex = 63;
+            this.CCcodi.TabIndex = 2;
             this.CCcodi.Tag = "usuari";
             // 
             // CCrao
@@ -64,7 +66,7 @@
             this.CCrao.Options = CustomControl.CustomTextBox.Items.Text;
             this.CCrao.Placeholder = null;
             this.CCrao.Size = new System.Drawing.Size(197, 20);
-            this.CCrao.TabIndex = 62;
+            this.CCrao.TabIndex = 3;
             this.CCrao.Tag = "contrasenya";
             // 
             // label5
@@ -97,7 +99,7 @@
             this.label2.Location = new System.Drawing.Point(407, -13);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(84, 24);
-            this.label2.TabIndex = 64;
+            this.label2.TabIndex = 1;
             this.label2.Text = "Personal";
             // 
             // TxBFilter
@@ -108,7 +110,7 @@
             this.TxBFilter.Options = CustomControl.CustomTextBox.Items.Text;
             this.TxBFilter.Placeholder = null;
             this.TxBFilter.Size = new System.Drawing.Size(197, 20);
-            this.TxBFilter.TabIndex = 66;
+            this.TxBFilter.TabIndex = 4;
             this.TxBFilter.Tag = "";
             this.TxBFilter.TextChanged += new System.EventHandler(this.TxBFilter_TextChanged);
             // 
