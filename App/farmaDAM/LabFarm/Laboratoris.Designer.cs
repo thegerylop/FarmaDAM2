@@ -52,7 +52,6 @@
             // btnInserir
             // 
             this.btnInserir.Location = new System.Drawing.Point(630, 181);
-            this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
             // 
             // btnActualitzar
             // 
@@ -203,6 +202,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Name = "Laboratoris";
+            this.Load += new System.EventHandler(this.Laboratoris_Load);
             this.Controls.SetChildIndex(this.btnActualitzar, 0);
             this.Controls.SetChildIndex(this.btnInserir, 0);
             this.Controls.SetChildIndex(this.btnAfegir, 0);

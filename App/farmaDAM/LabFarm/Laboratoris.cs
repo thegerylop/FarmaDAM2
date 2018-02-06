@@ -14,21 +14,23 @@ namespace LabFarm
         {
             InitializeComponent();
         }
-        string table = "laboratorisFarmaceutics";
+        string table = "laboratoris_farmaceutics";
         
-        public override void btnInserir_Click(object sender, EventArgs e)
-        {
-            PortarDadesMySQL(table);
-        }
 
         public override void actualitzar_Click(object sender, EventArgs e)
         {
             ActualitzarMySQL(table);
+            PortarDadesMySQL(table);
         }
 
         public override void btnAfegir_Click(object sender, EventArgs e)
         {
             AfegirCamp(table);
+        }
+
+        private void Laboratoris_Load(object sender, EventArgs e)
+        {
+            PortarDadesMySQL(table);
         }
     }
 }

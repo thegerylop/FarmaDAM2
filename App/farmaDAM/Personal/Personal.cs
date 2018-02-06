@@ -14,7 +14,7 @@ namespace Personal
         {
             InitializeComponent();
         }
-        string table = "Personal";
+        string table = "personal";
 
         public override void btnInserir_Click(object sender, EventArgs e)
         {
