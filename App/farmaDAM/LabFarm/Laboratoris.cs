@@ -35,12 +35,11 @@ namespace LabFarm
         }
         private void TxBFilter_TextChanged(object sender, EventArgs e)
         {
-            (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format("codi_laboratori LIKE '{0}%'", TxBFilter.Text);
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
+            double number;
+            string rowFilter = double.TryParse(TxBFilter.Text, out number) ?
+                string.Format("codi_laboratori='{0}'", TxBFilter.Text) :
+                string.Format("codi_laboratori like '%{0}%'", TxBFilter.Text);
+            (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = rowFilter;
         }
     }
 }

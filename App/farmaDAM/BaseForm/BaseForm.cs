@@ -127,5 +127,12 @@ namespace BaseForm
         private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
         }
+
+        private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.ThrowException = false;
+            MessageBox.Show("Introdueixi només números");
+            dataGridView1.RefreshEdit();
+        }
     }
 }

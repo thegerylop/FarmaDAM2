@@ -207,7 +207,6 @@
             this.label3.Size = new System.Drawing.Size(47, 18);
             this.label3.TabIndex = 69;
             this.label3.Text = "Codi :";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // Laboratoris
             // 
