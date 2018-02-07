@@ -35,6 +35,7 @@ namespace Personal
         private void Personal_Load(object sender, EventArgs e)
         {
             PortarDadesMySQL(table);
+            this.dataGridView1.Columns[0].Visible = false;
         }
     }
 }

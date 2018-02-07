@@ -40,6 +40,7 @@ namespace MantenimentPrincipisActius
         private void PrincipisActius_Load(object sender, EventArgs e)
         {
             PortarDadesMySQL(table);
+            this.dataGridView1.Columns[0].Visible = false;
         }
 
         private void TxBFilter_TextChanged(object sender, EventArgs e)
