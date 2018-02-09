@@ -12,11 +12,16 @@ namespace TemplateForm
 {
     public partial class TemplateForm : Form
     {
-        public TemplateForm(string value)
+        public void userName(string value)
         {
-            InitializeComponent();
+            
             lblUser.Text = "Usuari: " + value;
 
+        }
+
+        public TemplateForm()
+        {
+            InitializeComponent();
         }
 
         bool drag = false;
@@ -48,12 +53,7 @@ namespace TemplateForm
 
         public void button10_Click(object sender, EventArgs e)
         {
-            panel1.Controls.Clear();
-            Form frm = new LabFarm.Laboratoris();
-            frm.TopLevel = false;
-            panel1.Controls.Add(frm);
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
+            
             
         }
 
@@ -87,41 +87,6 @@ namespace TemplateForm
             //panel1.Controls.Add(frm);
             //frm.Dock = DockStyle.Fill;
             //frm.Show();
-        }
-
-        private void tancarSessioButton_Click(object sender, EventArgs e)
-        {
-            Application.Restart();
-        }
-
-        private void btnTest_Click(object sender, EventArgs e)
-        {
-            panel1.Controls.Clear();
-            Personal.Personal frm = new Personal.Personal();
-            frm.TopLevel = false;
-            panel1.Controls.Add(frm);
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            panel1.Controls.Clear();
-            Manteniment_Productes.Manteniment_Productes frm = new Manteniment_Productes.Manteniment_Productes();
-            frm.TopLevel = false;
-            panel1.Controls.Add(frm);
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            panel1.Controls.Clear();
-            MantenimentPrincipisActius.PrincipisActius frm = new MantenimentPrincipisActius.PrincipisActius();
-            frm.TopLevel = false;
-            panel1.Controls.Add(frm);
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
         }
     }
 }

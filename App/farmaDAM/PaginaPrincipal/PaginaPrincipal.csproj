@@ -67,6 +67,12 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="PagPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PagPrincipal.Designer.cs">
+      <DependentUpon>PagPrincipal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Splash.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PagPrincipal.resx">
+      <DependentUpon>PagPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Splash.resx">
       <DependentUpon>Splash.cs</DependentUpon>
@@ -111,6 +120,10 @@
     <None Include="Resources\logofarma.PNG" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BaseForm\BaseForm.csproj">
+      <Project>{cf89ea7d-d834-4cb1-8888-e9c0fb24ee7f}</Project>
+      <Name>BaseForm</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ConexioBBDD\ConexioBBDD.csproj">
       <Project>{384145e7-5b9b-43cb-92b0-d8be9b92fde8}</Project>
       <Name>ConexioBBDD</Name>
@@ -122,6 +135,18 @@
     <ProjectReference Include="..\LabFarm\LabFarm.csproj">
       <Project>{1f89a881-ec94-46d3-a799-69a37ce4f4e5}</Project>
       <Name>LabFarm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MantenimentPrincipisActius\MantenimentPrincipisActius.csproj">
+      <Project>{C27E3BDF-3314-4F3F-BBDF-3F9883848A22}</Project>
+      <Name>MantenimentPrincipisActius</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Manteniment_Productes\Manteniment_Productes.csproj">
+      <Project>{4EEE1884-5464-4929-82D6-B25AF0F4F8A6}</Project>
+      <Name>Manteniment_Productes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Personal\MantenimentPersonal.csproj">
+      <Project>{8600272C-FEEC-406B-9265-015A38E5A713}</Project>
+      <Name>MantenimentPersonal</Name>
     </ProjectReference>
     <ProjectReference Include="..\TemplateForm\TemplateForm.csproj">
       <Project>{94f175c3-5354-4929-a1aa-55d098ab91cc}</Project>

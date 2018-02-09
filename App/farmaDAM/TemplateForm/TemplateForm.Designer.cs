@@ -36,16 +36,16 @@
             this.minimizeLabel = new System.Windows.Forms.Label();
             this.labelExitLog = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button10 = new System.Windows.Forms.Button();
-            this.clientsButton = new System.Windows.Forms.Button();
+            this.Laboratoris = new System.Windows.Forms.Button();
+            this.Clients = new System.Windows.Forms.Button();
             this.tancarSessioButton = new System.Windows.Forms.Button();
             this.perfilUsuariButton = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.btnTest = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.Personal = new System.Windows.Forms.Button();
+            this.MantenimentProductes = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.PrincipisActius = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.actualizacionLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -144,33 +144,32 @@
             this.panel2.Size = new System.Drawing.Size(1120, 1);
             this.panel2.TabIndex = 0;
             // 
-            // button10
+            // Laboratoris
             // 
-            this.button10.BackColor = System.Drawing.Color.DimGray;
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button10.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.ForeColor = System.Drawing.Color.White;
-            this.button10.Location = new System.Drawing.Point(3, 105);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(201, 51);
-            this.button10.TabIndex = 28;
-            this.button10.Text = "Laboratoris Farmacèutics";
-            this.button10.UseVisualStyleBackColor = false;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
+            this.Laboratoris.BackColor = System.Drawing.Color.DimGray;
+            this.Laboratoris.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Laboratoris.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Laboratoris.ForeColor = System.Drawing.Color.White;
+            this.Laboratoris.Location = new System.Drawing.Point(3, 105);
+            this.Laboratoris.Name = "Laboratoris";
+            this.Laboratoris.Size = new System.Drawing.Size(201, 51);
+            this.Laboratoris.TabIndex = 28;
+            this.Laboratoris.Text = "Laboratoris Farmacèutics";
+            this.Laboratoris.UseVisualStyleBackColor = false;
             // 
-            // clientsButton
+            // Clients
             // 
-            this.clientsButton.BackColor = System.Drawing.Color.DimGray;
-            this.clientsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.clientsButton.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clientsButton.ForeColor = System.Drawing.Color.White;
-            this.clientsButton.Location = new System.Drawing.Point(3, 261);
-            this.clientsButton.Name = "clientsButton";
-            this.clientsButton.Size = new System.Drawing.Size(201, 51);
-            this.clientsButton.TabIndex = 26;
-            this.clientsButton.Text = "Clients";
-            this.clientsButton.UseVisualStyleBackColor = false;
-            this.clientsButton.Click += new System.EventHandler(this.clientsButton_Click);
+            this.Clients.BackColor = System.Drawing.Color.DimGray;
+            this.Clients.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Clients.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Clients.ForeColor = System.Drawing.Color.White;
+            this.Clients.Location = new System.Drawing.Point(3, 261);
+            this.Clients.Name = "Clients";
+            this.Clients.Size = new System.Drawing.Size(201, 51);
+            this.Clients.TabIndex = 26;
+            this.Clients.Text = "Clients";
+            this.Clients.UseVisualStyleBackColor = false;
+            this.Clients.Click += new System.EventHandler(this.clientsButton_Click);
             // 
             // tancarSessioButton
             // 
@@ -185,7 +184,6 @@
             this.tancarSessioButton.TabIndex = 25;
             this.tancarSessioButton.Text = "Tancar Sessió";
             this.tancarSessioButton.UseVisualStyleBackColor = false;
-            this.tancarSessioButton.Click += new System.EventHandler(this.tancarSessioButton_Click);
             // 
             // perfilUsuariButton
             // 
@@ -204,13 +202,13 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.Gray;
-            this.panel8.Controls.Add(this.btnTest);
-            this.panel8.Controls.Add(this.button4);
+            this.panel8.Controls.Add(this.Personal);
+            this.panel8.Controls.Add(this.MantenimentProductes);
             this.panel8.Controls.Add(this.button5);
             this.panel8.Controls.Add(this.button6);
-            this.panel8.Controls.Add(this.button10);
-            this.panel8.Controls.Add(this.button2);
-            this.panel8.Controls.Add(this.clientsButton);
+            this.panel8.Controls.Add(this.Laboratoris);
+            this.panel8.Controls.Add(this.PrincipisActius);
+            this.panel8.Controls.Add(this.Clients);
             this.panel8.Controls.Add(this.tancarSessioButton);
             this.panel8.Controls.Add(this.perfilUsuariButton);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
@@ -219,33 +217,31 @@
             this.panel8.Size = new System.Drawing.Size(207, 488);
             this.panel8.TabIndex = 8;
             // 
-            // btnTest
+            // Personal
             // 
-            this.btnTest.BackColor = System.Drawing.Color.DimGray;
-            this.btnTest.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnTest.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTest.ForeColor = System.Drawing.Color.White;
-            this.btnTest.Location = new System.Drawing.Point(3, 313);
-            this.btnTest.Name = "btnTest";
-            this.btnTest.Size = new System.Drawing.Size(201, 51);
-            this.btnTest.TabIndex = 32;
-            this.btnTest.Text = "Personal";
-            this.btnTest.UseVisualStyleBackColor = false;
-            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            this.Personal.BackColor = System.Drawing.Color.DimGray;
+            this.Personal.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Personal.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Personal.ForeColor = System.Drawing.Color.White;
+            this.Personal.Location = new System.Drawing.Point(3, 313);
+            this.Personal.Name = "Personal";
+            this.Personal.Size = new System.Drawing.Size(201, 51);
+            this.Personal.TabIndex = 32;
+            this.Personal.Text = "Personal";
+            this.Personal.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // MantenimentProductes
             // 
-            this.button4.BackColor = System.Drawing.Color.DimGray;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button4.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(3, 157);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(201, 51);
-            this.button4.TabIndex = 31;
-            this.button4.Text = "Manteniment de productes";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.MantenimentProductes.BackColor = System.Drawing.Color.DimGray;
+            this.MantenimentProductes.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.MantenimentProductes.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MantenimentProductes.ForeColor = System.Drawing.Color.White;
+            this.MantenimentProductes.Location = new System.Drawing.Point(3, 157);
+            this.MantenimentProductes.Name = "MantenimentProductes";
+            this.MantenimentProductes.Size = new System.Drawing.Size(201, 51);
+            this.MantenimentProductes.TabIndex = 31;
+            this.MantenimentProductes.Text = "Manteniment de productes";
+            this.MantenimentProductes.UseVisualStyleBackColor = false;
             // 
             // button5
             // 
@@ -274,19 +270,18 @@
             this.button6.Text = "Gestió de comandes de compra";
             this.button6.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // PrincipisActius
             // 
-            this.button2.BackColor = System.Drawing.Color.DimGray;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(3, 209);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(201, 51);
-            this.button2.TabIndex = 27;
-            this.button2.Text = "Manteniment de principis actius";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.PrincipisActius.BackColor = System.Drawing.Color.DimGray;
+            this.PrincipisActius.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.PrincipisActius.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PrincipisActius.ForeColor = System.Drawing.Color.White;
+            this.PrincipisActius.Location = new System.Drawing.Point(3, 209);
+            this.PrincipisActius.Name = "PrincipisActius";
+            this.PrincipisActius.Size = new System.Drawing.Size(201, 51);
+            this.PrincipisActius.TabIndex = 27;
+            this.PrincipisActius.Text = "Manteniment de principis actius";
+            this.PrincipisActius.UseVisualStyleBackColor = false;
             // 
             // panel7
             // 
@@ -353,25 +348,25 @@
         #endregion
 
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.Label date;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label minimizeLabel;
         private System.Windows.Forms.Label labelExitLog;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button clientsButton;
-        private System.Windows.Forms.Button tancarSessioButton;
         private System.Windows.Forms.Button perfilUsuariButton;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label actualizacionLabel;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Button btnTest;
+        public System.Windows.Forms.Button button5;
+        public System.Windows.Forms.Label lblUser;
+        public System.Windows.Forms.Button Laboratoris;
+        public System.Windows.Forms.Button Clients;
+        public System.Windows.Forms.Button MantenimentProductes;
+        public System.Windows.Forms.Button button6;
+        public System.Windows.Forms.Button PrincipisActius;
+        public System.Windows.Forms.Button Personal;
+        public System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.Button tancarSessioButton;
     }
 }
