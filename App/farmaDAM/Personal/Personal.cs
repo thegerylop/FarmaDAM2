@@ -35,7 +35,11 @@ namespace Personal
         private void Personal_Load(object sender, EventArgs e)
         {
             PortarDadesMySQL(table);
+            //Esconder el primer campo que es la primary Key
             this.dataGridView1.Columns[0].Visible = false;
+            //Alias para las columnas
+            this.dataGridView1.Columns[1].HeaderText = "Usuari"; //usuari
+            this.dataGridView1.Columns[2].HeaderText = "Contrasenya"; //contrasenya
         }
     }
 }
