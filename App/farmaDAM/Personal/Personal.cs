@@ -15,17 +15,8 @@ namespace Personal
             InitializeComponent();
         }
         string table = "personal";
-
-        public override void actualitzar_Click(object sender, EventArgs e)
-        {
-            ActualitzarMySQL(table);
-            PortarDadesMySQL(table);
-        }
-
-        public override void btnAfegir_Click(object sender, EventArgs e)
-        {
-            AfegirCamp(table);
-        }
+        
+        
 
         private void TxBFilter_TextChanged(object sender, EventArgs e)
         {
@@ -34,7 +25,7 @@ namespace Personal
 
         private void Personal_Load(object sender, EventArgs e)
         {
-            PortarDadesMySQL(table);
+            Table(table);
             //Esconder el primer campo que es la primary Key
             this.dgvBase.Columns[0].Visible = false;
             //Alias para las columnas

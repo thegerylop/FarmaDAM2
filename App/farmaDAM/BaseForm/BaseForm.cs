@@ -16,7 +16,16 @@ namespace BaseForm
         String query = "";
         DataRow row;
         DataSet dataSet = new DataSet();
-
+        String table = "";
+        public BaseForm()
+        {
+            InitializeComponent();
+        }
+        public void Table(string value)
+        {
+            table = value;
+            PortarDadesMySQL(table);
+        }
         public void PortarDadesMySQL(string table)
         {
             ConexioBBDD.Conexio bd = new ConexioBBDD.Conexio();
@@ -83,16 +92,10 @@ namespace BaseForm
             Control test = (Control)sender;
             test.DataBindings[0].BindingManagerBase.EndCurrentEdit();
         }
-        public BaseForm()
+        public virtual void btnAfegir_Click(object sender, EventArgs e)
         {
-            InitializeComponent();
+            AfegirCamp(table);
         }
-        string table = "";
-        public virtual void btnInserir_Click(object sender, EventArgs e)
-        {
-            PortarDadesMySQL(table);
-        }
-
         public virtual void actualitzar_Click(object sender, EventArgs e)
         {
             ActualitzarMySQL(table);
@@ -114,19 +117,7 @@ namespace BaseForm
             dgvBase.Rows[dgvBase.Rows.Count - 2].Selected = true;
             dgvBase.CurrentCell = dgvBase.Rows[dgvBase.Rows.Count - 2].Cells[1];
         }
-        public virtual void btnAfegir_Click(object sender, EventArgs e)
-        {
-            AfegirCamp(table);
-        }
-
-        private void btnInserir_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgvBase_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
-        {
-        }
+       
 
         private void dgvBase_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
