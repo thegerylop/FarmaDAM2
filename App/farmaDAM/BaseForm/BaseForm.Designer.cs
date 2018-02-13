@@ -28,23 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvBase = new System.Windows.Forms.DataGridView();
             this.btnActualitzar = new System.Windows.Forms.Button();
             this.btnAfegir = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBase)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvBase
             // 
-            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 209);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(873, 255);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView1_DataError);
+            this.dgvBase.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dgvBase.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvBase.BackgroundColor = System.Drawing.Color.White;
+            this.dgvBase.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvBase.Location = new System.Drawing.Point(12, 209);
+            this.dgvBase.Name = "dgvBase";
+            this.dgvBase.Size = new System.Drawing.Size(873, 255);
+            this.dgvBase.TabIndex = 0;
+            this.dgvBase.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvBase_DataError);
             // 
             // btnActualitzar
             // 
@@ -83,12 +83,12 @@
             this.ClientSize = new System.Drawing.Size(913, 484);
             this.Controls.Add(this.btnAfegir);
             this.Controls.Add(this.btnActualitzar);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvBase);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "BaseForm";
             this.Tag = "test";
             this.Text = "BaseForm";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBase)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -96,6 +96,6 @@
         #endregion
         public System.Windows.Forms.Button btnAfegir;
         public System.Windows.Forms.Button btnActualitzar;
-        public System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.DataGridView dgvBase;
     }
 }

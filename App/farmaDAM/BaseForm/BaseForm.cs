@@ -74,8 +74,8 @@ namespace BaseForm
                     }
                 }
             }
-            dataGridView1.AutoGenerateColumns = true;
-            dataGridView1.DataSource = dataSet.Tables[table]; // dataset
+            dgvBase.AutoGenerateColumns = true;
+            dgvBase.DataSource = dataSet.Tables[table]; // dataset
         }
 
         private void validarText(object sender, EventArgs e)
@@ -111,8 +111,8 @@ namespace BaseForm
         {
             row = dataSet.Tables[table].NewRow();
             dataSet.Tables[table].Rows.Add(row);
-            dataGridView1.Rows[dataGridView1.Rows.Count - 2].Selected = true;
-            dataGridView1.CurrentCell = dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells[1];
+            dgvBase.Rows[dgvBase.Rows.Count - 2].Selected = true;
+            dgvBase.CurrentCell = dgvBase.Rows[dgvBase.Rows.Count - 2].Cells[1];
         }
         public virtual void btnAfegir_Click(object sender, EventArgs e)
         {
@@ -124,15 +124,15 @@ namespace BaseForm
 
         }
 
-        private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        private void dgvBase_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
         }
 
-        private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        private void dgvBase_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             e.ThrowException = false;
-            MessageBox.Show("Introdueixi només números");
-            dataGridView1.RefreshEdit();
+            MessageBox.Show("Entrada no vàlida");
+            dgvBase.RefreshEdit();
         }
     }
 }

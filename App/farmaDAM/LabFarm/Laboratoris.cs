@@ -32,12 +32,12 @@ namespace LabFarm
         {
             PortarDadesMySQL(table);
             //Esconder el primer campo que es la primary Key
-            this.dataGridView1.Columns[0].Visible = false;
+            this.dgvBase.Columns[0].Visible = false;
             //Alias para las columnas
-            this.dataGridView1.Columns[1].HeaderText = "Codi Laboratori"; //codi_laboratori
-            this.dataGridView1.Columns[2].HeaderText = "Raó Social"; //rao_social
-            this.dataGridView1.Columns[3].HeaderText = "CIF"; //cif
-            this.dataGridView1.Columns[4].HeaderText = "Denominació"; //denominacio
+            this.dgvBase.Columns[1].HeaderText = "Codi Laboratori"; //codi_laboratori
+            this.dgvBase.Columns[2].HeaderText = "Raó Social"; //rao_social
+            this.dgvBase.Columns[3].HeaderText = "CIF"; //cif
+            this.dgvBase.Columns[4].HeaderText = "Denominació"; //denominacio
         }
         private void TxBFilter_TextChanged(object sender, EventArgs e)
         {
@@ -45,7 +45,7 @@ namespace LabFarm
             string rowFilter = double.TryParse(TxBFilter.Text, out number) ?
                 string.Format("codi_laboratori='{0}'", TxBFilter.Text) :
                 string.Format("codi_laboratori like '%{0}%'", TxBFilter.Text);
-            (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = rowFilter;
+            (dgvBase.DataSource as DataTable).DefaultView.RowFilter = rowFilter;
         }
     }
 }
