@@ -66,5 +66,15 @@ namespace PaginaPrincipal
             Login frm = new Login();
             frm.Show();
         }
+
+        private void Clients_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            client.Client frm = new client.Client();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
     }
 }
