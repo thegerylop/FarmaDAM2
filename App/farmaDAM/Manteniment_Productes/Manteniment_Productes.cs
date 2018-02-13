@@ -15,20 +15,5 @@ namespace Manteniment_Productes
         {
             InitializeComponent();
         }
-
-        private void btnEsborrar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        public override void btnInserir_Click(object sender, EventArgs e)
-        {
-            PortarDadesMySQL(table);
-        }
-
-        private void btnActualitzar_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

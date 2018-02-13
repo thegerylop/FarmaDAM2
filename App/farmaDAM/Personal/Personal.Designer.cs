@@ -40,12 +40,10 @@
             // btnAfegir
             // 
             this.btnAfegir.TabIndex = 5;
-            this.btnAfegir.Click += new System.EventHandler(this.btnAfegir_Click);
             // 
             // btnActualitzar
             // 
             this.btnActualitzar.TabIndex = 6;
-            this.btnActualitzar.Click += new System.EventHandler(this.actualitzar_Click);
             // 
             // CCcodi
             // 

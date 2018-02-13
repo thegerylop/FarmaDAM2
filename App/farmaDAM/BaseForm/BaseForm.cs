@@ -16,7 +16,18 @@ namespace BaseForm
         String query = "";
         DataRow row;
         DataSet dataSet = new DataSet();
+        String table = "";
+        public BaseForm()
+        {
+            InitializeComponent();
+        }
 
+        public void Table(string value)
+        {
+            table = value;
+            PortarDadesMySQL(table);
+        } 
+        
         public void PortarDadesMySQL(string table)
         {
             ConexioBBDD.Conexio bd = new ConexioBBDD.Conexio();
@@ -83,20 +94,6 @@ namespace BaseForm
             Control test = (Control)sender;
             test.DataBindings[0].BindingManagerBase.EndCurrentEdit();
         }
-        public BaseForm()
-        {
-            InitializeComponent();
-        }
-        string table = "";
-        public virtual void btnInserir_Click(object sender, EventArgs e)
-        {
-            PortarDadesMySQL(table);
-        }
-
-        public virtual void actualitzar_Click(object sender, EventArgs e)
-        {
-            ActualitzarMySQL(table);
-        }
         public void netejarCamps()
         {
             foreach (Control txt in this.Controls)
@@ -114,18 +111,16 @@ namespace BaseForm
             dataGridView1.Rows[dataGridView1.Rows.Count - 2].Selected = true;
             dataGridView1.CurrentCell = dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells[1];
         }
-        public virtual void btnAfegir_Click(object sender, EventArgs e)
+
+        private void btnActualitzar_Click(object sender, EventArgs e)
+        {
+            ActualitzarMySQL(table);
+            PortarDadesMySQL(table);
+        }
+
+        private void btnAfegir_Click_1(object sender, EventArgs e)
         {
             AfegirCamp(table);
-        }
-
-        private void btnInserir_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
-        {
         }
 
         private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)

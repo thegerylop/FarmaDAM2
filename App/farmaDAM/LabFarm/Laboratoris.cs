@@ -15,22 +15,10 @@ namespace LabFarm
             InitializeComponent();
         }
         string table = "laboratoris_farmaceutics";
-        
-
-        public override void actualitzar_Click(object sender, EventArgs e)
-        {
-            ActualitzarMySQL(table);
-            PortarDadesMySQL(table);
-        }
-
-        public override void btnAfegir_Click(object sender, EventArgs e)
-        {
-            AfegirCamp(table);
-        }
 
         private void Laboratoris_Load(object sender, EventArgs e)
         {
-            PortarDadesMySQL(table);
+            Table(table);
             this.dataGridView1.Columns[0].Visible = false;
         }
         private void TxBFilter_TextChanged(object sender, EventArgs e)

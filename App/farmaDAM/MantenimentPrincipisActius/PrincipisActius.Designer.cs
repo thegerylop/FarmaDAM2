@@ -42,12 +42,10 @@
             // btnAfegir
             // 
             this.btnAfegir.TabIndex = 6;
-            this.btnAfegir.Click += new System.EventHandler(this.btnAfegir_Click);
             // 
             // btnActualitzar
             // 
             this.btnActualitzar.TabIndex = 7;
-            this.btnActualitzar.Click += new System.EventHandler(this.actualitzar_Click);
             // 
             // label6
             // 
@@ -92,7 +90,6 @@
             this.label2.Size = new System.Drawing.Size(274, 24);
             this.label2.TabIndex = 1;
             this.label2.Text = "Manteniment de principis actius";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // CCcodi
             // 
