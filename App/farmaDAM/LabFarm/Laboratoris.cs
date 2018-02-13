@@ -41,10 +41,18 @@ namespace LabFarm
         }
         private void TxBFilter_TextChanged(object sender, EventArgs e)
         {
+            String columna = "";
+
+            for (int i = 1 ; i <= dgvBase.Columns.Count; i++) {
+                if (dgvBase.Columns[i].HeaderText.Equals(cbLabs.Text)) {
+                    columna = dgvBase.Columns[i].Name;
+                    break;
+                }
+            }
+
             double number;
-            string rowFilter = double.TryParse(TxBFilter.Text, out number) ?
-                string.Format("codi_laboratori='{0}'", TxBFilter.Text) :
-                string.Format("codi_laboratori like '%{0}%'", TxBFilter.Text);
+
+            string rowFilter = double.TryParse(TxBFilter.Text, out number) ? string.Format(columna + " = '{0}'", TxBFilter.Text) : string.Format(columna + " like '%{0}%'", TxBFilter.Text);
             (dgvBase.DataSource as DataTable).DefaultView.RowFilter = rowFilter;
         }
     }
