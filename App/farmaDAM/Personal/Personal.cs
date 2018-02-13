@@ -25,6 +25,10 @@ namespace Personal
         {
             Table(table);
             this.dataGridView1.Columns[0].Visible = false;
+            //Alias para las columnas
+            this.dataGridView1.Columns[1].HeaderText = "Usuari"; //usuari
+            this.dataGridView1.Columns[2].HeaderText = "Contrasenya"; //contrasenya
+
         }
     }
 }

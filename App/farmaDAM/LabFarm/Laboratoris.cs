@@ -20,6 +20,11 @@ namespace LabFarm
         {
             Table(table);
             this.dataGridView1.Columns[0].Visible = false;
+            //Alias para las columnas
+            this.dataGridView1.Columns[1].HeaderText = "Codi Laboratori"; //codi_laboratori
+            this.dataGridView1.Columns[2].HeaderText = "Raó Social"; //rao_social
+            this.dataGridView1.Columns[3].HeaderText = "CIF"; //cif
+            this.dataGridView1.Columns[4].HeaderText = "Denominació"; //denominacio
         }
         private void TxBFilter_TextChanged(object sender, EventArgs e)
         {
