@@ -59,7 +59,10 @@
             this.btnActualitzar.TabIndex = 36;
             this.btnActualitzar.Text = "Actualitzar";
             this.btnActualitzar.UseVisualStyleBackColor = false;
+<<<<<<< HEAD
             this.btnActualitzar.Click += new System.EventHandler(this.actualitzar_Click);
+=======
+>>>>>>> JCasas_13022018
             // 
             // btnAfegir
             // 
@@ -74,7 +77,10 @@
             this.btnAfegir.TabIndex = 38;
             this.btnAfegir.Text = "Afegir";
             this.btnAfegir.UseVisualStyleBackColor = false;
+<<<<<<< HEAD
             this.btnAfegir.Click += new System.EventHandler(this.btnAfegir_Click);
+=======
+>>>>>>> JCasas_13022018
             // 
             // BaseForm
             // 
