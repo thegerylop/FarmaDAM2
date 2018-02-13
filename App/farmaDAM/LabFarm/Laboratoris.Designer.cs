@@ -43,7 +43,8 @@
             this.CCrao = new CustomControl.CustomTextBox();
             this.CCcodi = new CustomControl.CustomTextBox();
             this.TxBFilter = new CustomControl.CustomTextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.lblFiltrar = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnAfegir
@@ -186,32 +187,42 @@
             // TxBFilter
             // 
             this.TxBFilter.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TxBFilter.Location = new System.Drawing.Point(77, 183);
+            this.TxBFilter.Location = new System.Drawing.Point(63, 186);
             this.TxBFilter.Name = "TxBFilter";
             this.TxBFilter.Options = CustomControl.CustomTextBox.Items.Text;
             this.TxBFilter.Placeholder = null;
-            this.TxBFilter.Size = new System.Drawing.Size(197, 20);
+            this.TxBFilter.Size = new System.Drawing.Size(221, 20);
             this.TxBFilter.TabIndex = 6;
             this.TxBFilter.Tag = "";
             this.TxBFilter.TextChanged += new System.EventHandler(this.TxBFilter_TextChanged);
             // 
-            // label3
+            // comboBox1
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label3.Location = new System.Drawing.Point(6, 184);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 18);
-            this.label3.TabIndex = 69;
-            this.label3.Text = "Codi :";
+            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(290, 186);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 50;
+            // 
+            // lblFiltrar
+            // 
+            this.lblFiltrar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblFiltrar.AutoSize = true;
+            this.lblFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFiltrar.Location = new System.Drawing.Point(12, 186);
+            this.lblFiltrar.Name = "lblFiltrar";
+            this.lblFiltrar.Size = new System.Drawing.Size(45, 18);
+            this.lblFiltrar.TabIndex = 51;
+            this.lblFiltrar.Text = "Filtrar";
             // 
             // Laboratoris
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(913, 484);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblFiltrar);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.TxBFilter);
             this.Controls.Add(this.CCcodi);
             this.Controls.Add(this.CCrao);
@@ -224,8 +235,6 @@
             this.Controls.Add(this.label4);
             this.Name = "Laboratoris";
             this.Load += new System.EventHandler(this.Laboratoris_Load);
-            this.Controls.SetChildIndex(this.btnActualitzar, 0);
-            this.Controls.SetChildIndex(this.btnAfegir, 0);
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.label5, 0);
             this.Controls.SetChildIndex(this.label6, 0);
@@ -236,7 +245,10 @@
             this.Controls.SetChildIndex(this.CCrao, 0);
             this.Controls.SetChildIndex(this.CCcodi, 0);
             this.Controls.SetChildIndex(this.TxBFilter, 0);
-            this.Controls.SetChildIndex(this.label3, 0);
+            this.Controls.SetChildIndex(this.btnActualitzar, 0);
+            this.Controls.SetChildIndex(this.btnAfegir, 0);
+            this.Controls.SetChildIndex(this.comboBox1, 0);
+            this.Controls.SetChildIndex(this.lblFiltrar, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -259,6 +271,7 @@
         private CustomControl.CustomTextBox CCrao;
         private CustomControl.CustomTextBox CCcodi;
         private CustomControl.CustomTextBox TxBFilter;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label lblFiltrar;
     }
 }
