@@ -49,12 +49,10 @@
             // btnAfegir
             // 
             this.btnAfegir.TabIndex = 7;
-            this.btnAfegir.Click += new System.EventHandler(this.btnAfegir_Click);
             // 
             // btnActualitzar
             // 
             this.btnActualitzar.TabIndex = 8;
-            this.btnActualitzar.Click += new System.EventHandler(this.actualitzar_Click);
             // 
             // idlabDataGridViewTextBoxColumn
             // 

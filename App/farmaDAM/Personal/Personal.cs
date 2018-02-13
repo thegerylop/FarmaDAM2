@@ -16,17 +16,6 @@ namespace Personal
         }
         string table = "personal";
 
-        public override void actualitzar_Click(object sender, EventArgs e)
-        {
-            ActualitzarMySQL(table);
-            PortarDadesMySQL(table);
-        }
-
-        public override void btnAfegir_Click(object sender, EventArgs e)
-        {
-            AfegirCamp(table);
-        }
-
         private void TxBFilter_TextChanged(object sender, EventArgs e)
         {
             (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format("usuari LIKE '{0}%'", TxBFilter.Text);
@@ -34,12 +23,8 @@ namespace Personal
 
         private void Personal_Load(object sender, EventArgs e)
         {
-            PortarDadesMySQL(table);
-            //Esconder el primer campo que es la primary Key
+            Table(table);
             this.dataGridView1.Columns[0].Visible = false;
-            //Alias para las columnas
-            this.dataGridView1.Columns[1].HeaderText = "Usuari"; //usuari
-            this.dataGridView1.Columns[2].HeaderText = "Contrasenya"; //contrasenya
         }
     }
 }

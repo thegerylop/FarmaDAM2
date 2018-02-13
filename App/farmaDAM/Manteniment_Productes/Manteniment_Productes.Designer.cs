@@ -45,7 +45,6 @@
             // btnActualitzar
             // 
             this.btnActualitzar.Location = new System.Drawing.Point(753, 245);
-            this.btnActualitzar.Click += new System.EventHandler(this.btnActualitzar_Click);
             // 
             // label2
             // 

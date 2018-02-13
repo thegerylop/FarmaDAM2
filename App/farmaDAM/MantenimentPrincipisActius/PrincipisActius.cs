@@ -16,30 +16,9 @@ namespace MantenimentPrincipisActius
         }
         string table = "principis_actius";
 
-        public override void btnInserir_Click(object sender, EventArgs e)
-        {
-            PortarDadesMySQL(table);
-        }
-
-        public override void actualitzar_Click(object sender, EventArgs e)
-        {
-            ActualitzarMySQL(table);
-            PortarDadesMySQL(table);
-        }
-
-        public override void btnAfegir_Click(object sender, EventArgs e)
-        {
-            AfegirCamp(table);
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void PrincipisActius_Load(object sender, EventArgs e)
         {
-            PortarDadesMySQL(table);
+            Table(table);
             this.dataGridView1.Columns[0].Visible = false;
             //Alias para las columnas
             this.dataGridView1.Columns[1].HeaderText = "Nom"; //nom
