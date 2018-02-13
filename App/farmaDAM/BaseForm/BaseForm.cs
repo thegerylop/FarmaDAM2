@@ -16,18 +16,7 @@ namespace BaseForm
         String query = "";
         DataRow row;
         DataSet dataSet = new DataSet();
-        String table = "";
-        public BaseForm()
-        {
-            InitializeComponent();
-        }
 
-        public void Table(string value)
-        {
-            table = value;
-            PortarDadesMySQL(table);
-        } 
-        
         public void PortarDadesMySQL(string table)
         {
             ConexioBBDD.Conexio bd = new ConexioBBDD.Conexio();
@@ -85,14 +74,28 @@ namespace BaseForm
                     }
                 }
             }
-            dataGridView1.AutoGenerateColumns = true;
-            dataGridView1.DataSource = dataSet.Tables[table]; // dataset
+            dgvBase.AutoGenerateColumns = true;
+            dgvBase.DataSource = dataSet.Tables[table]; // dataset
         }
 
         private void validarText(object sender, EventArgs e)
         {
             Control test = (Control)sender;
             test.DataBindings[0].BindingManagerBase.EndCurrentEdit();
+        }
+        public BaseForm()
+        {
+            InitializeComponent();
+        }
+        string table = "";
+        public virtual void btnInserir_Click(object sender, EventArgs e)
+        {
+            PortarDadesMySQL(table);
+        }
+
+        public virtual void actualitzar_Click(object sender, EventArgs e)
+        {
+            ActualitzarMySQL(table);
         }
         public void netejarCamps()
         {
@@ -108,26 +111,28 @@ namespace BaseForm
         {
             row = dataSet.Tables[table].NewRow();
             dataSet.Tables[table].Rows.Add(row);
-            dataGridView1.Rows[dataGridView1.Rows.Count - 2].Selected = true;
-            dataGridView1.CurrentCell = dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells[1];
+            dgvBase.Rows[dgvBase.Rows.Count - 2].Selected = true;
+            dgvBase.CurrentCell = dgvBase.Rows[dgvBase.Rows.Count - 2].Cells[1];
         }
-
-        private void btnActualitzar_Click(object sender, EventArgs e)
-        {
-            ActualitzarMySQL(table);
-            PortarDadesMySQL(table);
-        }
-
-        private void btnAfegir_Click_1(object sender, EventArgs e)
+        public virtual void btnAfegir_Click(object sender, EventArgs e)
         {
             AfegirCamp(table);
         }
 
-        private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        private void btnInserir_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvBase_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+        }
+
+        private void dgvBase_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             e.ThrowException = false;
-            MessageBox.Show("Introdueixi només números");
-            dataGridView1.RefreshEdit();
+            MessageBox.Show("Entrada no vàlida");
+            dgvBase.RefreshEdit();
         }
     }
 }
