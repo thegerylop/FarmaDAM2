@@ -43,6 +43,9 @@
             this.CCognom1 = new CustomControl.CustomTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.CAdreça = new CustomControl.CustomTextBox();
+            this.lblFiltrar = new System.Windows.Forms.Label();
+            this.cbClients = new System.Windows.Forms.ComboBox();
+            this.TxBFilter = new CustomControl.CustomTextBox();
             this.SuspendLayout();
             // 
             // btnAfegir
@@ -217,12 +220,57 @@
             this.CAdreça.Placeholder = null;
             this.CAdreça.Size = new System.Drawing.Size(197, 20);
             this.CAdreça.TabIndex = 64;
-            this.CAdreça.Tag = "";
+            this.CAdreça.Tag = "direccio";
+            // 
+            // lblFiltrar
+            // 
+            this.lblFiltrar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblFiltrar.AutoSize = true;
+            this.lblFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFiltrar.Location = new System.Drawing.Point(10, 183);
+            this.lblFiltrar.Name = "lblFiltrar";
+            this.lblFiltrar.Size = new System.Drawing.Size(53, 18);
+            this.lblFiltrar.TabIndex = 67;
+            this.lblFiltrar.Text = "Filtrar :";
+            // 
+            // cbClients
+            // 
+            this.cbClients.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbClients.AutoCompleteCustomSource.AddRange(new string[] {
+            "codi_laboratori",
+            "rao_social",
+            "cif",
+            "denominacio"});
+            this.cbClients.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbClients.FormattingEnabled = true;
+            this.cbClients.Items.AddRange(new object[] {
+            "dni",
+            "t_sanitaria",
+            "nom"});
+            this.cbClients.Location = new System.Drawing.Point(292, 183);
+            this.cbClients.Name = "cbClients";
+            this.cbClients.Size = new System.Drawing.Size(121, 21);
+            this.cbClients.TabIndex = 66;
+            // 
+            // TxBFilter
+            // 
+            this.TxBFilter.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TxBFilter.Location = new System.Drawing.Point(65, 183);
+            this.TxBFilter.Name = "TxBFilter";
+            this.TxBFilter.Options = CustomControl.CustomTextBox.Items.Text;
+            this.TxBFilter.Placeholder = null;
+            this.TxBFilter.Size = new System.Drawing.Size(221, 20);
+            this.TxBFilter.TabIndex = 65;
+            this.TxBFilter.Tag = "";
+            this.TxBFilter.TextChanged += new System.EventHandler(this.TxBFilter_TextChanged);
             // 
             // Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(913, 484);
+            this.Controls.Add(this.lblFiltrar);
+            this.Controls.Add(this.cbClients);
+            this.Controls.Add(this.TxBFilter);
             this.Controls.Add(this.CAdreça);
             this.Controls.Add(this.CCognom1);
             this.Controls.Add(this.label3);
@@ -257,6 +305,9 @@
             this.Controls.SetChildIndex(this.label3, 0);
             this.Controls.SetChildIndex(this.CCognom1, 0);
             this.Controls.SetChildIndex(this.CAdreça, 0);
+            this.Controls.SetChildIndex(this.TxBFilter, 0);
+            this.Controls.SetChildIndex(this.cbClients, 0);
+            this.Controls.SetChildIndex(this.lblFiltrar, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -279,5 +330,8 @@
         private CustomControl.CustomTextBox CCognom1;
         private System.Windows.Forms.Label label3;
         private CustomControl.CustomTextBox CAdreça;
+        private System.Windows.Forms.Label lblFiltrar;
+        private System.Windows.Forms.ComboBox cbClients;
+        private CustomControl.CustomTextBox TxBFilter;
     }
 }

@@ -204,6 +204,7 @@
             "rao_social",
             "cif",
             "denominacio"});
+            this.cbLabs.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLabs.FormattingEnabled = true;
             this.cbLabs.Items.AddRange(new object[] {
             "Codi Laboratori",
@@ -220,11 +221,11 @@
             this.lblFiltrar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblFiltrar.AutoSize = true;
             this.lblFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFiltrar.Location = new System.Drawing.Point(12, 186);
+            this.lblFiltrar.Location = new System.Drawing.Point(9, 186);
             this.lblFiltrar.Name = "lblFiltrar";
-            this.lblFiltrar.Size = new System.Drawing.Size(45, 18);
+            this.lblFiltrar.Size = new System.Drawing.Size(53, 18);
             this.lblFiltrar.TabIndex = 51;
-            this.lblFiltrar.Text = "Filtrar";
+            this.lblFiltrar.Text = "Filtrar :";
             // 
             // Laboratoris
             // 

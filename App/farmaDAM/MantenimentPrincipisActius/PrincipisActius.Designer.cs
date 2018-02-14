@@ -35,7 +35,8 @@
             this.CCcodi = new CustomControl.CustomTextBox();
             this.CCrao = new CustomControl.CustomTextBox();
             this.CCcif = new CustomControl.CustomTextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblFiltrar = new System.Windows.Forms.Label();
+            this.cbActius = new System.Windows.Forms.ComboBox();
             this.TxBFilter = new CustomControl.CustomTextBox();
             this.SuspendLayout();
             // 
@@ -124,34 +125,54 @@
             this.CCcif.TabIndex = 3;
             this.CCcif.Tag = "codi";
             // 
-            // label3
+            // lblFiltrar
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label3.Location = new System.Drawing.Point(12, 185);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 18);
-            this.label3.TabIndex = 71;
-            this.label3.Text = "Nom :";
+            this.lblFiltrar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblFiltrar.AutoSize = true;
+            this.lblFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFiltrar.Location = new System.Drawing.Point(6, 183);
+            this.lblFiltrar.Name = "lblFiltrar";
+            this.lblFiltrar.Size = new System.Drawing.Size(53, 18);
+            this.lblFiltrar.TabIndex = 55;
+            this.lblFiltrar.Text = "Filtrar :";
+            // 
+            // cbActius
+            // 
+            this.cbActius.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbActius.AutoCompleteCustomSource.AddRange(new string[] {
+            "codi_laboratori",
+            "rao_social",
+            "cif",
+            "denominacio"});
+            this.cbActius.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbActius.FormattingEnabled = true;
+            this.cbActius.Items.AddRange(new object[] {
+            "Nom",
+            "Número Registre Sanitari",
+            "Codi"});
+            this.cbActius.Location = new System.Drawing.Point(287, 183);
+            this.cbActius.Name = "cbActius";
+            this.cbActius.Size = new System.Drawing.Size(121, 21);
+            this.cbActius.TabIndex = 54;
             // 
             // TxBFilter
             // 
             this.TxBFilter.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TxBFilter.Location = new System.Drawing.Point(83, 184);
+            this.TxBFilter.Location = new System.Drawing.Point(60, 183);
             this.TxBFilter.Name = "TxBFilter";
             this.TxBFilter.Options = CustomControl.CustomTextBox.Items.Text;
             this.TxBFilter.Placeholder = null;
-            this.TxBFilter.Size = new System.Drawing.Size(197, 20);
-            this.TxBFilter.TabIndex = 5;
+            this.TxBFilter.Size = new System.Drawing.Size(221, 20);
+            this.TxBFilter.TabIndex = 53;
             this.TxBFilter.Tag = "";
-            this.TxBFilter.TextChanged += new System.EventHandler(this.TxBFilter_TextChanged);
+            this.TxBFilter.TextChanged += new System.EventHandler(this.TxBFilter_TextChanged_1);
             // 
             // PrincipisActius
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(913, 484);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblFiltrar);
+            this.Controls.Add(this.cbActius);
             this.Controls.Add(this.TxBFilter);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.CCcodi);
@@ -172,7 +193,8 @@
             this.Controls.SetChildIndex(this.CCcodi, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.TxBFilter, 0);
-            this.Controls.SetChildIndex(this.label3, 0);
+            this.Controls.SetChildIndex(this.cbActius, 0);
+            this.Controls.SetChildIndex(this.lblFiltrar, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -186,7 +208,8 @@
         private CustomControl.CustomTextBox CCrao;
         private CustomControl.CustomTextBox CCcif;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblFiltrar;
+        private System.Windows.Forms.ComboBox cbActius;
         private CustomControl.CustomTextBox TxBFilter;
     }
 }
