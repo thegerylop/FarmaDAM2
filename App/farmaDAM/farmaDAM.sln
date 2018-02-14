@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.15
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaginaPrincipal", "PaginaPrincipal\PaginaPrincipal.csproj", "{53042222-0403-4BC6-B942-FD126C1AB117}"
 EndProject
@@ -20,6 +20,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MantenimentPrincipisActius", "MantenimentPrincipisActius\MantenimentPrincipisActius.csproj", "{C27E3BDF-3314-4F3F-BBDF-3F9883848A22}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MantenimentPersonal", "Personal\MantenimentPersonal.csproj", "{8600272C-FEEC-406B-9265-015A38E5A713}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "client", "client\client.csproj", "{B55DACDC-350E-423B-BA63-B616401B5BD9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -177,6 +179,22 @@ Global
 		{8600272C-FEEC-406B-9265-015A38E5A713}.Release|x64.Build.0 = Release|Any CPU
 		{8600272C-FEEC-406B-9265-015A38E5A713}.Release|x86.ActiveCfg = Release|Any CPU
 		{8600272C-FEEC-406B-9265-015A38E5A713}.Release|x86.Build.0 = Release|Any CPU
+		{B55DACDC-350E-423B-BA63-B616401B5BD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B55DACDC-350E-423B-BA63-B616401B5BD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B55DACDC-350E-423B-BA63-B616401B5BD9}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{B55DACDC-350E-423B-BA63-B616401B5BD9}.Debug|ARM.Build.0 = Debug|Any CPU
+		{B55DACDC-350E-423B-BA63-B616401B5BD9}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B55DACDC-350E-423B-BA63-B616401B5BD9}.Debug|x64.Build.0 = Debug|Any CPU
+		{B55DACDC-350E-423B-BA63-B616401B5BD9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B55DACDC-350E-423B-BA63-B616401B5BD9}.Debug|x86.Build.0 = Debug|Any CPU
+		{B55DACDC-350E-423B-BA63-B616401B5BD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B55DACDC-350E-423B-BA63-B616401B5BD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B55DACDC-350E-423B-BA63-B616401B5BD9}.Release|ARM.ActiveCfg = Release|Any CPU
+		{B55DACDC-350E-423B-BA63-B616401B5BD9}.Release|ARM.Build.0 = Release|Any CPU
+		{B55DACDC-350E-423B-BA63-B616401B5BD9}.Release|x64.ActiveCfg = Release|Any CPU
+		{B55DACDC-350E-423B-BA63-B616401B5BD9}.Release|x64.Build.0 = Release|Any CPU
+		{B55DACDC-350E-423B-BA63-B616401B5BD9}.Release|x86.ActiveCfg = Release|Any CPU
+		{B55DACDC-350E-423B-BA63-B616401B5BD9}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

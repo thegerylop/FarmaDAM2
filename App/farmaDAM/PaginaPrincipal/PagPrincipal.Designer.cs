@@ -38,6 +38,10 @@
             // 
             this.Laboratoris.Click += new System.EventHandler(this.Laboratoris_Click);
             // 
+            // Clients
+            // 
+            this.Clients.Click += new System.EventHandler(this.Clients_Click);
+            // 
             // MantenimentProductes
             // 
             this.MantenimentProductes.Click += new System.EventHandler(this.MantenimentProductes_Click);
