@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseForm));
             this.dgvBase = new System.Windows.Forms.DataGridView();
             this.btnActualitzar = new System.Windows.Forms.Button();
             this.btnAfegir = new System.Windows.Forms.Button();
@@ -59,10 +60,7 @@
             this.btnActualitzar.TabIndex = 36;
             this.btnActualitzar.Text = "Actualitzar";
             this.btnActualitzar.UseVisualStyleBackColor = false;
-<<<<<<< HEAD
             this.btnActualitzar.Click += new System.EventHandler(this.actualitzar_Click);
-=======
->>>>>>> JCasas_13022018
             // 
             // btnAfegir
             // 
@@ -77,10 +75,7 @@
             this.btnAfegir.TabIndex = 38;
             this.btnAfegir.Text = "Afegir";
             this.btnAfegir.UseVisualStyleBackColor = false;
-<<<<<<< HEAD
             this.btnAfegir.Click += new System.EventHandler(this.btnAfegir_Click);
-=======
->>>>>>> JCasas_13022018
             // 
             // BaseForm
             // 
@@ -93,6 +88,7 @@
             this.Controls.Add(this.btnActualitzar);
             this.Controls.Add(this.dgvBase);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "BaseForm";
             this.Tag = "test";
             this.Text = "BaseForm";
