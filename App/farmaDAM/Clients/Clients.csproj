@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C5AD0804-57BB-4E66-BCE8-58AF53EB0B2B}</ProjectGuid>
+    <ProjectGuid>{4EE18824-2E1E-4AB9-8692-18FDEEF27E4C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Clients</RootNamespace>
@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
     <Compile Include="Clients.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -56,9 +57,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ConexioBBDD\ConexioBBDD.csproj">
-      <Project>{384145e7-5b9b-43cb-92b0-d8be9b92fde8}</Project>
-      <Name>ConexioBBDD</Name>
+    <ProjectReference Include="..\CustomControl\CustomControl.csproj">
+      <Project>{a7279e0e-d844-4cc7-99da-9939eaa74818}</Project>
+      <Name>CustomControl</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

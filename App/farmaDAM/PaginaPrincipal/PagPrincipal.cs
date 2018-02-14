@@ -70,7 +70,7 @@ namespace PaginaPrincipal
         private void Clients_Click(object sender, EventArgs e)
         {
             panel1.Controls.Clear();
-            client.Client frm = new client.Client();
+            Clients.Clients frm = new Clients.Clients();
             frm.TopLevel = false;
             panel1.Controls.Add(frm);
             frm.Dock = DockStyle.Fill;

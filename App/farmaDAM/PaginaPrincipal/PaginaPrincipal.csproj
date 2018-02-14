@@ -124,6 +124,10 @@
       <Project>{cf89ea7d-d834-4cb1-8888-e9c0fb24ee7f}</Project>
       <Name>BaseForm</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Clients\Clients.csproj">
+      <Project>{4ee18824-2e1e-4ab9-8692-18fdeef27e4c}</Project>
+      <Name>Clients</Name>
+    </ProjectReference>
     <ProjectReference Include="..\client\client.csproj">
       <Project>{b55dacdc-350e-423b-ba63-b616401b5bd9}</Project>
       <Name>client</Name>

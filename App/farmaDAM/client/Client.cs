@@ -15,11 +15,11 @@ namespace client
             InitializeComponent();
         }
 
-        string table = "clients";
+        string table = "taula";
+        string query = "SELECT e.dni,e.nom,e.cognom1,e.cognom2,e.direccio,t.nom_carnet,e.t_sanitaria,e.punts,e.cronic FROM clients e, tipus_carnet t WHERE e.tipus_carnet = t.id_carnet";
 
         private void Client_Load(object sender, EventArgs e)
         {
-            Table(table);
             //Esconder el primer campo que es la primary Key
             this.dgvBase.Columns[0].Visible = false;
         }

@@ -28,247 +28,310 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.customNom = new CustomControlTB.CustomControlTB();
-            this.customAdreca = new CustomControlTB.CustomControlTB();
-            this.customDNI = new CustomControlTB.CustomControlTB();
-            this.customCognoms = new CustomControlTB.CustomControlTB();
-            this.customTS = new CustomControlTB.CustomControlTB();
-            this.tcDropDown = new System.Windows.Forms.ComboBox();
+            this.lblFiltrar = new System.Windows.Forms.Label();
+            this.cbClients = new System.Windows.Forms.ComboBox();
+            this.TxBFilter = new CustomControl.CustomTextBox();
+            this.CAdreça = new CustomControl.CustomTextBox();
+            this.CCognom1 = new CustomControl.CustomTextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.CCognom2 = new CustomControl.CustomTextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.noRadioButton = new System.Windows.Forms.RadioButton();
-            this.siRadioButton = new System.Windows.Forms.RadioButton();
-            this.cronicLabel = new System.Windows.Forms.Label();
-            this.medicamensLabel = new System.Windows.Forms.Label();
-            this.emailLabel = new System.Windows.Forms.Label();
-            this.customEmail = new CustomControlTB.CustomControlTB();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cronicGB = new System.Windows.Forms.GroupBox();
-            this.cronicGridView = new System.Windows.Forms.DataGridView();
-            this.BtnInserir = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
-            this.cronicGB.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cronicGridView)).BeginInit();
+            this.CCcodi = new CustomControl.CustomTextBox();
+            this.CNom = new CustomControl.CustomTextBox();
+            this.CTargeta = new CustomControl.CustomTextBox();
+            this.CCarnet = new CustomControl.CustomTextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnAfegir = new System.Windows.Forms.Button();
+            this.btnActualitzar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // customNom
+            // lblFiltrar
             // 
-            this.customNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customNom.Location = new System.Drawing.Point(62, 21);
-            this.customNom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.customNom.Name = "customNom";
-            this.customNom.Options = CustomControlTB.CustomControlTB.Items.Text;
-            this.customNom.Placeholder = "Nom";
-            this.customNom.Size = new System.Drawing.Size(197, 27);
-            this.customNom.TabIndex = 0;
-            this.customNom.Load += new System.EventHandler(this.customNom_Load);
+            this.lblFiltrar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblFiltrar.AutoSize = true;
+            this.lblFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFiltrar.Location = new System.Drawing.Point(16, 182);
+            this.lblFiltrar.Name = "lblFiltrar";
+            this.lblFiltrar.Size = new System.Drawing.Size(53, 18);
+            this.lblFiltrar.TabIndex = 85;
+            this.lblFiltrar.Text = "Filtrar :";
             // 
-            // customAdreca
+            // cbClients
             // 
-            this.customAdreca.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.customAdreca.Location = new System.Drawing.Point(62, 119);
-            this.customAdreca.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.customAdreca.Name = "customAdreca";
-            this.customAdreca.Options = CustomControlTB.CustomControlTB.Items.Text;
-            this.customAdreca.Placeholder = "Adreça";
-            this.customAdreca.Size = new System.Drawing.Size(197, 27);
-            this.customAdreca.TabIndex = 1;
+            this.cbClients.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbClients.AutoCompleteCustomSource.AddRange(new string[] {
+            "codi_laboratori",
+            "rao_social",
+            "cif",
+            "denominacio"});
+            this.cbClients.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbClients.FormattingEnabled = true;
+            this.cbClients.Items.AddRange(new object[] {
+            "dni",
+            "t_sanitaria",
+            "nom"});
+            this.cbClients.Location = new System.Drawing.Point(298, 182);
+            this.cbClients.Name = "cbClients";
+            this.cbClients.Size = new System.Drawing.Size(121, 21);
+            this.cbClients.TabIndex = 84;
             // 
-            // customDNI
+            // TxBFilter
             // 
-            this.customDNI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.customDNI.Location = new System.Drawing.Point(62, 87);
-            this.customDNI.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.customDNI.Name = "customDNI";
-            this.customDNI.Options = CustomControlTB.CustomControlTB.Items.Text;
-            this.customDNI.Placeholder = "DNI";
-            this.customDNI.Size = new System.Drawing.Size(197, 27);
-            this.customDNI.TabIndex = 2;
+            this.TxBFilter.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TxBFilter.Location = new System.Drawing.Point(71, 182);
+            this.TxBFilter.Name = "TxBFilter";
+            this.TxBFilter.Options = CustomControl.CustomTextBox.Items.Text;
+            this.TxBFilter.Placeholder = null;
+            this.TxBFilter.Size = new System.Drawing.Size(221, 20);
+            this.TxBFilter.TabIndex = 83;
+            this.TxBFilter.Tag = "";
             // 
-            // customCognoms
+            // CAdreça
             // 
-            this.customCognoms.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.customCognoms.Location = new System.Drawing.Point(62, 54);
-            this.customCognoms.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.customCognoms.Name = "customCognoms";
-            this.customCognoms.Options = CustomControlTB.CustomControlTB.Items.Text;
-            this.customCognoms.Placeholder = "Cognoms";
-            this.customCognoms.Size = new System.Drawing.Size(197, 27);
-            this.customCognoms.TabIndex = 3;
+            this.CAdreça.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CAdreça.Location = new System.Drawing.Point(623, -28);
+            this.CAdreça.Name = "CAdreça";
+            this.CAdreça.Options = CustomControl.CustomTextBox.Items.Text;
+            this.CAdreça.Placeholder = null;
+            this.CAdreça.Size = new System.Drawing.Size(197, 20);
+            this.CAdreça.TabIndex = 82;
+            this.CAdreça.Tag = "direccio";
             // 
-            // customTS
+            // CCognom1
             // 
-            this.customTS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.customTS.Location = new System.Drawing.Point(62, 152);
-            this.customTS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.customTS.Name = "customTS";
-            this.customTS.Options = CustomControlTB.CustomControlTB.Items.Text;
-            this.customTS.Placeholder = "Targeta Sanitaria";
-            this.customTS.Size = new System.Drawing.Size(197, 27);
-            this.customTS.TabIndex = 4;
+            this.CCognom1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CCognom1.Location = new System.Drawing.Point(248, 69);
+            this.CCognom1.Name = "CCognom1";
+            this.CCognom1.Options = CustomControl.CustomTextBox.Items.Text;
+            this.CCognom1.Placeholder = null;
+            this.CCognom1.Size = new System.Drawing.Size(197, 20);
+            this.CCognom1.TabIndex = 69;
+            this.CCognom1.Tag = "cognom1";
             // 
-            // tcDropDown
+            // label3
             // 
-            this.tcDropDown.FormattingEnabled = true;
-            this.tcDropDown.Items.AddRange(new object[] {
-            "Ivan",
-            "Retrasado",
-            "Subnormal",
-            "Normal"});
-            this.tcDropDown.Location = new System.Drawing.Point(247, 346);
-            this.tcDropDown.Name = "tcDropDown";
-            this.tcDropDown.Size = new System.Drawing.Size(121, 21);
-            this.tcDropDown.TabIndex = 9;
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label3.Location = new System.Drawing.Point(148, 69);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(91, 18);
+            this.label3.TabIndex = 81;
+            this.label3.Text = "1r Cognom :";
+            // 
+            // CCognom2
+            // 
+            this.CCognom2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CCognom2.Location = new System.Drawing.Point(248, 112);
+            this.CCognom2.Name = "CCognom2";
+            this.CCognom2.Options = CustomControl.CustomTextBox.Items.Text;
+            this.CCognom2.Placeholder = null;
+            this.CCognom2.Size = new System.Drawing.Size(197, 20);
+            this.CCognom2.TabIndex = 70;
+            this.CCognom2.Tag = "cognom2";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label2.Location = new System.Drawing.Point(145, 111);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(94, 18);
+            this.label2.TabIndex = 80;
+            this.label2.Text = "2n Cognom :";
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F);
-            this.label1.Location = new System.Drawing.Point(128, 346);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label1.Location = new System.Drawing.Point(552, -29);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 18);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Tipus de carnet:";
+            this.label1.Size = new System.Drawing.Size(62, 18);
+            this.label1.TabIndex = 79;
+            this.label1.Text = "Adreça :";
             // 
-            // noRadioButton
+            // CCcodi
             // 
-            this.noRadioButton.AutoSize = true;
-            this.noRadioButton.Location = new System.Drawing.Point(270, 313);
-            this.noRadioButton.Name = "noRadioButton";
-            this.noRadioButton.Size = new System.Drawing.Size(39, 17);
-            this.noRadioButton.TabIndex = 7;
-            this.noRadioButton.TabStop = true;
-            this.noRadioButton.Text = "No";
-            this.noRadioButton.UseVisualStyleBackColor = true;
-            this.noRadioButton.CheckedChanged += new System.EventHandler(this.noRadioButton_CheckedChanged);
+            this.CCcodi.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CCcodi.Location = new System.Drawing.Point(248, -28);
+            this.CCcodi.Name = "CCcodi";
+            this.CCcodi.Options = CustomControl.CustomTextBox.Items.Text;
+            this.CCcodi.Placeholder = null;
+            this.CCcodi.Size = new System.Drawing.Size(197, 20);
+            this.CCcodi.TabIndex = 74;
+            this.CCcodi.Tag = "dni";
             // 
-            // siRadioButton
+            // CNom
             // 
-            this.siRadioButton.AutoSize = true;
-            this.siRadioButton.Location = new System.Drawing.Point(230, 313);
-            this.siRadioButton.Name = "siRadioButton";
-            this.siRadioButton.Size = new System.Drawing.Size(34, 17);
-            this.siRadioButton.TabIndex = 6;
-            this.siRadioButton.TabStop = true;
-            this.siRadioButton.Text = "Si";
-            this.siRadioButton.UseVisualStyleBackColor = true;
-            this.siRadioButton.CheckedChanged += new System.EventHandler(this.siRadioButton_CheckedChanged);
+            this.CNom.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CNom.Location = new System.Drawing.Point(248, 21);
+            this.CNom.Name = "CNom";
+            this.CNom.Options = CustomControl.CustomTextBox.Items.Text;
+            this.CNom.Placeholder = null;
+            this.CNom.Size = new System.Drawing.Size(197, 20);
+            this.CNom.TabIndex = 68;
+            this.CNom.Tag = "nom";
             // 
-            // cronicLabel
+            // CTargeta
             // 
-            this.cronicLabel.AutoSize = true;
-            this.cronicLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F);
-            this.cronicLabel.Location = new System.Drawing.Point(160, 312);
-            this.cronicLabel.Name = "cronicLabel";
-            this.cronicLabel.Size = new System.Drawing.Size(56, 18);
-            this.cronicLabel.TabIndex = 5;
-            this.cronicLabel.Text = "Crònic:";
+            this.CTargeta.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CTargeta.Location = new System.Drawing.Point(623, 16);
+            this.CTargeta.Name = "CTargeta";
+            this.CTargeta.Options = CustomControl.CustomTextBox.Items.Text;
+            this.CTargeta.Placeholder = null;
+            this.CTargeta.Size = new System.Drawing.Size(197, 20);
+            this.CTargeta.TabIndex = 71;
+            this.CTargeta.Tag = "t_sanitaria";
             // 
-            // medicamensLabel
+            // CCarnet
             // 
-            this.medicamensLabel.AutoSize = true;
-            this.medicamensLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F);
-            this.medicamensLabel.Location = new System.Drawing.Point(18, 57);
-            this.medicamensLabel.Name = "medicamensLabel";
-            this.medicamensLabel.Size = new System.Drawing.Size(172, 18);
-            this.medicamensLabel.TabIndex = 11;
-            this.medicamensLabel.Text = "Medicaments Necesaris:";
+            this.CCarnet.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CCarnet.Location = new System.Drawing.Point(623, 67);
+            this.CCarnet.Name = "CCarnet";
+            this.CCarnet.Options = CustomControl.CustomTextBox.Items.Text;
+            this.CCarnet.Placeholder = null;
+            this.CCarnet.Size = new System.Drawing.Size(197, 20);
+            this.CCarnet.TabIndex = 72;
+            this.CCarnet.Tag = "nom_carnet";
             // 
-            // emailLabel
+            // label7
             // 
-            this.emailLabel.AutoSize = true;
-            this.emailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F);
-            this.emailLabel.Location = new System.Drawing.Point(18, 21);
-            this.emailLabel.Name = "emailLabel";
-            this.emailLabel.Size = new System.Drawing.Size(128, 18);
-            this.emailLabel.TabIndex = 10;
-            this.emailLabel.Text = "Correu Electrònic:";
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label7.Location = new System.Drawing.Point(517, 67);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(100, 18);
+            this.label7.TabIndex = 78;
+            this.label7.Text = "Tipus Carnet :";
             // 
-            // customEmail
+            // label6
             // 
-            this.customEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customEmail.Location = new System.Drawing.Point(147, 15);
-            this.customEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.customEmail.Name = "customEmail";
-            this.customEmail.Options = CustomControlTB.CustomControlTB.Items.Text;
-            this.customEmail.Placeholder = "e-Mail";
-            this.customEmail.Size = new System.Drawing.Size(254, 27);
-            this.customEmail.TabIndex = 10;
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label6.Location = new System.Drawing.Point(490, 15);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(127, 18);
+            this.label6.TabIndex = 77;
+            this.label6.Text = "Targeta Sanitaria :";
             // 
-            // groupBox1
+            // label5
             // 
-            this.groupBox1.Controls.Add(this.customCognoms);
-            this.groupBox1.Controls.Add(this.customDNI);
-            this.groupBox1.Controls.Add(this.customTS);
-            this.groupBox1.Controls.Add(this.customAdreca);
-            this.groupBox1.Controls.Add(this.customNom);
-            this.groupBox1.Location = new System.Drawing.Point(101, 76);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(325, 206);
-            this.groupBox1.TabIndex = 10;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Dades Generals";
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label5.Location = new System.Drawing.Point(190, 21);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(49, 18);
+            this.label5.TabIndex = 76;
+            this.label5.Text = "Nom :";
             // 
-            // cronicGB
+            // label4
             // 
-            this.cronicGB.Controls.Add(this.cronicGridView);
-            this.cronicGB.Controls.Add(this.customEmail);
-            this.cronicGB.Controls.Add(this.medicamensLabel);
-            this.cronicGB.Controls.Add(this.emailLabel);
-            this.cronicGB.Location = new System.Drawing.Point(432, 76);
-            this.cronicGB.Name = "cronicGB";
-            this.cronicGB.Size = new System.Drawing.Size(446, 375);
-            this.cronicGB.TabIndex = 13;
-            this.cronicGB.TabStop = false;
-            this.cronicGB.Text = "Cronic";
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label4.Location = new System.Drawing.Point(198, -27);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 18);
+            this.label4.TabIndex = 75;
+            this.label4.Tag = "dni";
+            this.label4.Text = "DNI :";
             // 
-            // cronicGridView
+            // label8
             // 
-            this.cronicGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.cronicGridView.Location = new System.Drawing.Point(21, 87);
-            this.cronicGridView.Name = "cronicGridView";
-            this.cronicGridView.Size = new System.Drawing.Size(401, 263);
-            this.cronicGridView.TabIndex = 12;
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(423, -93);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(66, 24);
+            this.label8.TabIndex = 73;
+            this.label8.Text = "Clients";
             // 
-            // BtnInserir
+            // dataGridView1
             // 
-            this.BtnInserir.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnInserir.BackColor = System.Drawing.Color.DimGray;
-            this.BtnInserir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnInserir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.BtnInserir.ForeColor = System.Drawing.Color.White;
-            this.BtnInserir.Location = new System.Drawing.Point(101, 425);
-            this.BtnInserir.Name = "BtnInserir";
-            this.BtnInserir.Size = new System.Drawing.Size(77, 26);
-            this.BtnInserir.TabIndex = 33;
-            this.BtnInserir.Text = "Inserir";
-            this.BtnInserir.UseVisualStyleBackColor = false;
-            this.BtnInserir.Click += new System.EventHandler(this.BtnInserir_Click);
+            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(19, 221);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(873, 255);
+            this.dataGridView1.TabIndex = 86;
+            // 
+            // btnAfegir
+            // 
+            this.btnAfegir.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAfegir.BackColor = System.Drawing.Color.DimGray;
+            this.btnAfegir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAfegir.Font = new System.Drawing.Font("Verdana", 9.75F);
+            this.btnAfegir.ForeColor = System.Drawing.Color.White;
+            this.btnAfegir.Location = new System.Drawing.Point(596, 182);
+            this.btnAfegir.Name = "btnAfegir";
+            this.btnAfegir.Size = new System.Drawing.Size(117, 26);
+            this.btnAfegir.TabIndex = 88;
+            this.btnAfegir.Text = "Afegir";
+            this.btnAfegir.UseVisualStyleBackColor = false;
+            // 
+            // btnActualitzar
+            // 
+            this.btnActualitzar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnActualitzar.BackColor = System.Drawing.Color.DimGray;
+            this.btnActualitzar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnActualitzar.Font = new System.Drawing.Font("Verdana", 9.75F);
+            this.btnActualitzar.ForeColor = System.Drawing.Color.White;
+            this.btnActualitzar.Location = new System.Drawing.Point(719, 182);
+            this.btnActualitzar.Name = "btnActualitzar";
+            this.btnActualitzar.Size = new System.Drawing.Size(132, 26);
+            this.btnActualitzar.TabIndex = 87;
+            this.btnActualitzar.Text = "Actualitzar";
+            this.btnActualitzar.UseVisualStyleBackColor = false;
             // 
             // Clients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(913, 476);
-            this.Controls.Add(this.BtnInserir);
-            this.Controls.Add(this.cronicGB);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.tcDropDown);
-            this.Controls.Add(this.cronicLabel);
-            this.Controls.Add(this.siRadioButton);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientSize = new System.Drawing.Size(913, 484);
+            this.Controls.Add(this.btnAfegir);
+            this.Controls.Add(this.btnActualitzar);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.lblFiltrar);
+            this.Controls.Add(this.cbClients);
+            this.Controls.Add(this.TxBFilter);
+            this.Controls.Add(this.CAdreça);
+            this.Controls.Add(this.CCognom1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.CCognom2);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.noRadioButton);
+            this.Controls.Add(this.CCcodi);
+            this.Controls.Add(this.CNom);
+            this.Controls.Add(this.CTargeta);
+            this.Controls.Add(this.CCarnet);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label8);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Clients";
             this.Text = "Clients";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Clients_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.cronicGB.ResumeLayout(false);
-            this.cronicGB.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cronicGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -276,16 +339,26 @@
 
         #endregion
 
-        private System.Windows.Forms.Label cronicLabel;
-        private System.Windows.Forms.ComboBox tcDropDown;
+        private System.Windows.Forms.Label lblFiltrar;
+        private System.Windows.Forms.ComboBox cbClients;
+        private CustomControl.CustomTextBox TxBFilter;
+        private CustomControl.CustomTextBox CAdreça;
+        private CustomControl.CustomTextBox CCognom1;
+        private System.Windows.Forms.Label label3;
+        private CustomControl.CustomTextBox CCognom2;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RadioButton noRadioButton;
-        private System.Windows.Forms.RadioButton siRadioButton;
-        private System.Windows.Forms.Label emailLabel;
-        private System.Windows.Forms.Label medicamensLabel;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox cronicGB;
-        private System.Windows.Forms.DataGridView cronicGridView;
-        private System.Windows.Forms.Button BtnInserir;
+        private CustomControl.CustomTextBox CCcodi;
+        private CustomControl.CustomTextBox CNom;
+        private CustomControl.CustomTextBox CTargeta;
+        private CustomControl.CustomTextBox CCarnet;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.Button btnAfegir;
+        public System.Windows.Forms.Button btnActualitzar;
     }
 }

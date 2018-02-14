@@ -65,6 +65,8 @@ namespace ConexioBBDD
                 construct = new MySqlCommandBuilder(dtaDades);
                 dtsDades = new DataSet();
                 dtaDades.Fill(dtsDades, table);
+               
+                
             } catch (MySqlException eMySql) {
                 MessageBox.Show(eMySql.ToString());
             } finally {
