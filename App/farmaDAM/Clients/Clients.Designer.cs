@@ -30,26 +30,27 @@
         {
             this.lblFiltrar = new System.Windows.Forms.Label();
             this.cbClients = new System.Windows.Forms.ComboBox();
-            this.TxBFilter = new CustomControl.CustomTextBox();
-            this.CAdreça = new CustomControl.CustomTextBox();
-            this.CCognom1 = new CustomControl.CustomTextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.CCognom2 = new CustomControl.CustomTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.CCcodi = new CustomControl.CustomTextBox();
-            this.CNom = new CustomControl.CustomTextBox();
-            this.CTargeta = new CustomControl.CustomTextBox();
-            this.CCarnet = new CustomControl.CustomTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.clientsDataGridView = new System.Windows.Forms.DataGridView();
             this.btnAfegir = new System.Windows.Forms.Button();
             this.btnActualitzar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.CcomboBox = new CustomControl.comboBox();
+            this.TxBFilter = new CustomControl.CustomTextBox();
+            this.CAdreça = new CustomControl.CustomTextBox();
+            this.CCognom1 = new CustomControl.CustomTextBox();
+            this.CCognom2 = new CustomControl.CustomTextBox();
+            this.CCcodi = new CustomControl.CustomTextBox();
+            this.CNom = new CustomControl.CustomTextBox();
+            this.CTargeta = new CustomControl.CustomTextBox();
+            this.customTextBox1 = new CustomControl.CustomTextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.clientsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // lblFiltrar
@@ -82,39 +83,6 @@
             this.cbClients.Size = new System.Drawing.Size(121, 21);
             this.cbClients.TabIndex = 84;
             // 
-            // TxBFilter
-            // 
-            this.TxBFilter.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TxBFilter.Location = new System.Drawing.Point(71, 182);
-            this.TxBFilter.Name = "TxBFilter";
-            this.TxBFilter.Options = CustomControl.CustomTextBox.Items.Text;
-            this.TxBFilter.Placeholder = null;
-            this.TxBFilter.Size = new System.Drawing.Size(221, 20);
-            this.TxBFilter.TabIndex = 83;
-            this.TxBFilter.Tag = "";
-            // 
-            // CAdreça
-            // 
-            this.CAdreça.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CAdreça.Location = new System.Drawing.Point(623, -28);
-            this.CAdreça.Name = "CAdreça";
-            this.CAdreça.Options = CustomControl.CustomTextBox.Items.Text;
-            this.CAdreça.Placeholder = null;
-            this.CAdreça.Size = new System.Drawing.Size(197, 20);
-            this.CAdreça.TabIndex = 82;
-            this.CAdreça.Tag = "direccio";
-            // 
-            // CCognom1
-            // 
-            this.CCognom1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CCognom1.Location = new System.Drawing.Point(248, 69);
-            this.CCognom1.Name = "CCognom1";
-            this.CCognom1.Options = CustomControl.CustomTextBox.Items.Text;
-            this.CCognom1.Placeholder = null;
-            this.CCognom1.Size = new System.Drawing.Size(197, 20);
-            this.CCognom1.TabIndex = 69;
-            this.CCognom1.Tag = "cognom1";
-            // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -125,17 +93,6 @@
             this.label3.Size = new System.Drawing.Size(91, 18);
             this.label3.TabIndex = 81;
             this.label3.Text = "1r Cognom :";
-            // 
-            // CCognom2
-            // 
-            this.CCognom2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CCognom2.Location = new System.Drawing.Point(248, 112);
-            this.CCognom2.Name = "CCognom2";
-            this.CCognom2.Options = CustomControl.CustomTextBox.Items.Text;
-            this.CCognom2.Placeholder = null;
-            this.CCognom2.Size = new System.Drawing.Size(197, 20);
-            this.CCognom2.TabIndex = 70;
-            this.CCognom2.Tag = "cognom2";
             // 
             // label2
             // 
@@ -158,50 +115,6 @@
             this.label1.Size = new System.Drawing.Size(62, 18);
             this.label1.TabIndex = 79;
             this.label1.Text = "Adreça :";
-            // 
-            // CCcodi
-            // 
-            this.CCcodi.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CCcodi.Location = new System.Drawing.Point(248, -28);
-            this.CCcodi.Name = "CCcodi";
-            this.CCcodi.Options = CustomControl.CustomTextBox.Items.Text;
-            this.CCcodi.Placeholder = null;
-            this.CCcodi.Size = new System.Drawing.Size(197, 20);
-            this.CCcodi.TabIndex = 74;
-            this.CCcodi.Tag = "dni";
-            // 
-            // CNom
-            // 
-            this.CNom.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CNom.Location = new System.Drawing.Point(248, 21);
-            this.CNom.Name = "CNom";
-            this.CNom.Options = CustomControl.CustomTextBox.Items.Text;
-            this.CNom.Placeholder = null;
-            this.CNom.Size = new System.Drawing.Size(197, 20);
-            this.CNom.TabIndex = 68;
-            this.CNom.Tag = "nom";
-            // 
-            // CTargeta
-            // 
-            this.CTargeta.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CTargeta.Location = new System.Drawing.Point(623, 16);
-            this.CTargeta.Name = "CTargeta";
-            this.CTargeta.Options = CustomControl.CustomTextBox.Items.Text;
-            this.CTargeta.Placeholder = null;
-            this.CTargeta.Size = new System.Drawing.Size(197, 20);
-            this.CTargeta.TabIndex = 71;
-            this.CTargeta.Tag = "t_sanitaria";
-            // 
-            // CCarnet
-            // 
-            this.CCarnet.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CCarnet.Location = new System.Drawing.Point(623, 67);
-            this.CCarnet.Name = "CCarnet";
-            this.CCarnet.Options = CustomControl.CustomTextBox.Items.Text;
-            this.CCarnet.Placeholder = null;
-            this.CCarnet.Size = new System.Drawing.Size(197, 20);
-            this.CCarnet.TabIndex = 72;
-            this.CCarnet.Tag = "nom_carnet";
             // 
             // label7
             // 
@@ -259,17 +172,17 @@
             this.label8.TabIndex = 73;
             this.label8.Text = "Clients";
             // 
-            // dataGridView1
+            // clientsDataGridView
             // 
-            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(19, 221);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(873, 255);
-            this.dataGridView1.TabIndex = 86;
+            this.clientsDataGridView.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.clientsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.clientsDataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.clientsDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.clientsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.clientsDataGridView.Location = new System.Drawing.Point(19, 221);
+            this.clientsDataGridView.Name = "clientsDataGridView";
+            this.clientsDataGridView.Size = new System.Drawing.Size(873, 255);
+            this.clientsDataGridView.TabIndex = 86;
             // 
             // btnAfegir
             // 
@@ -284,6 +197,7 @@
             this.btnAfegir.TabIndex = 88;
             this.btnAfegir.Text = "Afegir";
             this.btnAfegir.UseVisualStyleBackColor = false;
+            this.btnAfegir.Click += new System.EventHandler(this.btnAfegir_Click);
             // 
             // btnActualitzar
             // 
@@ -298,6 +212,111 @@
             this.btnActualitzar.TabIndex = 87;
             this.btnActualitzar.Text = "Actualitzar";
             this.btnActualitzar.UseVisualStyleBackColor = false;
+            this.btnActualitzar.Click += new System.EventHandler(this.btnActualitzar_Click);
+            // 
+            // CcomboBox
+            // 
+            this.CcomboBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CcomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CcomboBox.FormattingEnabled = true;
+            this.CcomboBox.Location = new System.Drawing.Point(623, 68);
+            this.CcomboBox.Name = "CcomboBox";
+            this.CcomboBox.Reference = "tipus_carnet";
+            this.CcomboBox.Size = new System.Drawing.Size(197, 21);
+            this.CcomboBox.TabIndex = 89;
+            this.CcomboBox.Tag = "";
+            this.CcomboBox.SelectedIndexChanged += new System.EventHandler(this.CcomboBox_SelectedIndexChanged);
+            // 
+            // TxBFilter
+            // 
+            this.TxBFilter.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TxBFilter.Location = new System.Drawing.Point(71, 182);
+            this.TxBFilter.Name = "TxBFilter";
+            this.TxBFilter.Options = CustomControl.CustomTextBox.Items.Text;
+            this.TxBFilter.Placeholder = null;
+            this.TxBFilter.Size = new System.Drawing.Size(221, 20);
+            this.TxBFilter.TabIndex = 83;
+            this.TxBFilter.Tag = "";
+            this.TxBFilter.TextChanged += new System.EventHandler(this.TxBFilter_TextChanged);
+            // 
+            // CAdreça
+            // 
+            this.CAdreça.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CAdreça.Location = new System.Drawing.Point(623, -28);
+            this.CAdreça.Name = "CAdreça";
+            this.CAdreça.Options = CustomControl.CustomTextBox.Items.Text;
+            this.CAdreça.Placeholder = null;
+            this.CAdreça.Size = new System.Drawing.Size(197, 20);
+            this.CAdreça.TabIndex = 82;
+            this.CAdreça.Tag = "direccio";
+            // 
+            // CCognom1
+            // 
+            this.CCognom1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CCognom1.Location = new System.Drawing.Point(248, 69);
+            this.CCognom1.Name = "CCognom1";
+            this.CCognom1.Options = CustomControl.CustomTextBox.Items.Text;
+            this.CCognom1.Placeholder = null;
+            this.CCognom1.Size = new System.Drawing.Size(197, 20);
+            this.CCognom1.TabIndex = 69;
+            this.CCognom1.Tag = "cognom1";
+            // 
+            // CCognom2
+            // 
+            this.CCognom2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CCognom2.Location = new System.Drawing.Point(248, 111);
+            this.CCognom2.Name = "CCognom2";
+            this.CCognom2.Options = CustomControl.CustomTextBox.Items.Text;
+            this.CCognom2.Placeholder = null;
+            this.CCognom2.Size = new System.Drawing.Size(197, 20);
+            this.CCognom2.TabIndex = 70;
+            this.CCognom2.Tag = "cognom2";
+            // 
+            // CCcodi
+            // 
+            this.CCcodi.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CCcodi.Location = new System.Drawing.Point(248, -28);
+            this.CCcodi.Name = "CCcodi";
+            this.CCcodi.Options = CustomControl.CustomTextBox.Items.Text;
+            this.CCcodi.Placeholder = null;
+            this.CCcodi.Size = new System.Drawing.Size(197, 20);
+            this.CCcodi.TabIndex = 74;
+            this.CCcodi.Tag = "dni";
+            // 
+            // CNom
+            // 
+            this.CNom.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CNom.Location = new System.Drawing.Point(248, 21);
+            this.CNom.Name = "CNom";
+            this.CNom.Options = CustomControl.CustomTextBox.Items.Text;
+            this.CNom.Placeholder = null;
+            this.CNom.Size = new System.Drawing.Size(197, 20);
+            this.CNom.TabIndex = 68;
+            this.CNom.Tag = "nom";
+            // 
+            // CTargeta
+            // 
+            this.CTargeta.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CTargeta.Location = new System.Drawing.Point(623, 16);
+            this.CTargeta.Name = "CTargeta";
+            this.CTargeta.Options = CustomControl.CustomTextBox.Items.Text;
+            this.CTargeta.Placeholder = null;
+            this.CTargeta.Size = new System.Drawing.Size(197, 20);
+            this.CTargeta.TabIndex = 71;
+            this.CTargeta.Tag = "t_sanitaria";
+            // 
+            // customTextBox1
+            // 
+            this.customTextBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.customTextBox1.Location = new System.Drawing.Point(451, 112);
+            this.customTextBox1.Name = "customTextBox1";
+            this.customTextBox1.Options = CustomControl.CustomTextBox.Items.Text;
+            this.customTextBox1.Placeholder = null;
+            this.customTextBox1.Size = new System.Drawing.Size(1, 20);
+            this.customTextBox1.TabIndex = 90;
+            this.customTextBox1.TabStop = false;
+            this.customTextBox1.Tag = "tipus_carnet";
+            this.customTextBox1.TextChanged += new System.EventHandler(this.customTextBox1_TextChanged);
             // 
             // Clients
             // 
@@ -306,9 +325,11 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(913, 484);
+            this.Controls.Add(this.customTextBox1);
+            this.Controls.Add(this.CcomboBox);
             this.Controls.Add(this.btnAfegir);
             this.Controls.Add(this.btnActualitzar);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.clientsDataGridView);
             this.Controls.Add(this.lblFiltrar);
             this.Controls.Add(this.cbClients);
             this.Controls.Add(this.TxBFilter);
@@ -321,7 +342,6 @@
             this.Controls.Add(this.CCcodi);
             this.Controls.Add(this.CNom);
             this.Controls.Add(this.CTargeta);
-            this.Controls.Add(this.CCarnet);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -331,7 +351,7 @@
             this.Name = "Clients";
             this.Text = "Clients";
             this.Load += new System.EventHandler(this.Clients_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientsDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -351,14 +371,15 @@
         private CustomControl.CustomTextBox CCcodi;
         private CustomControl.CustomTextBox CNom;
         private CustomControl.CustomTextBox CTargeta;
-        private CustomControl.CustomTextBox CCarnet;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView clientsDataGridView;
         public System.Windows.Forms.Button btnAfegir;
         public System.Windows.Forms.Button btnActualitzar;
+        private CustomControl.comboBox CcomboBox;
+        private CustomControl.CustomTextBox customTextBox1;
     }
 }

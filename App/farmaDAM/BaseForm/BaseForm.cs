@@ -96,6 +96,7 @@ namespace BaseForm
         {
             AfegirCamp(table);
         }
+
         public virtual void actualitzar_Click(object sender, EventArgs e)
         {
             ActualitzarMySQL(table);

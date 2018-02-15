@@ -31,8 +31,10 @@ namespace LabFarm
         {
             String columna = "";
 
-            for (int i = 1 ; i <= dgvBase.Columns.Count; i++) {
-                if (dgvBase.Columns[i].HeaderText.Equals(cbLabs.Text)) {
+            for (int i = 0; i <= dgvBase.Columns.Count; i++)
+            {
+                if (dgvBase.Columns[i].HeaderText.Equals(cbLabs.Text))
+                {
                     columna = dgvBase.Columns[i].Name;
                     break;
                 }
