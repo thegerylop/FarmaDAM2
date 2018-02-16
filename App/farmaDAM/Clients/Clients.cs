@@ -8,14 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-
+using ConexioBBDD;
 namespace Clients
 {
     public partial class Clients : Form
     {
         string table = "clients";
         string query;
-        string query2;
+        string comboBoxQuery;
         DataSet dataSet = new DataSet();
         string connString = "SERVER= 51.255.58.1;PORT=3306;DATABASE=g2s2am_FarmaDAM;UID=g2s2am;PASSWORD=diopters12345;";
         MySqlConnection conn = new MySqlConnection();
@@ -30,11 +30,15 @@ namespace Clients
             query = "Select * from " + table;
             dataSet = bd.portarPerConsulta(query, table);
             //ComboBox table options
-            query2 = "Select nom_carnet from " + CcomboBox.Reference;
-            DataTable t = searchTableFromQuery(query2);
+            comboBoxQuery = "Select nom_carnet from " + CcomboBox.Reference;
+            DataTable t = bd.searchTableFromQuery(comboBoxQuery);
             addComboBoxData(t ,CcomboBox);
 
             BindingDades(table);
+
+
+            clientsDataGridView.Columns[0].Visible = false;
+            clientsDataGridView.Columns[7].Visible = false;
         }
 
         //bindegar dades textbox
@@ -63,45 +67,7 @@ namespace Clients
             Control test = (Control)sender;
             test.DataBindings[0].BindingManagerBase.EndCurrentEdit();
         }
-
-        //afegir dades al combobox
-        public void connexio()
-        {
-            conn = new MySqlConnection(connString);
-            conn.Open();
-            conn.InitializeLifetimeService();
-        }
-        public DataTable searchTableFromQuery(string query2)
-        {
-            MySqlDataAdapter dtaDades = new MySqlDataAdapter();
-            MySqlCommandBuilder construct = new MySqlCommandBuilder();
-            DataSet dtsDades = new DataSet();
-            DataTable dt = null;
-            try
-            {
-                connexio();
-                dtaDades = new MySqlDataAdapter(query2, conn);
-                construct = new MySqlCommandBuilder(dtaDades);
-                dtsDades = new DataSet();
-                dt = new DataTable();
-                dtaDades.Fill(dt);
-
-
-            }
-            catch (MySqlException eMySql)
-            {
-                MessageBox.Show(eMySql.ToString());
-            }
-            finally
-            {
-                if (conn != null)
-                {
-                    conn.Close();
-                    conn.Dispose();
-                }
-            }
-            return dt;
-        }
+        
         public void addComboBoxData(DataTable t, ComboBox CcomboBox)
         {
             CcomboBox.Items.Add("Selecciona...");

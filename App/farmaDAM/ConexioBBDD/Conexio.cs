@@ -121,5 +121,37 @@ namespace ConexioBBDD
             return cmdQry.ExecuteNonQuery();
 
         }
+
+        public DataTable searchTableFromQuery(string query2)
+        {
+            MySqlDataAdapter dtaDades = new MySqlDataAdapter();
+            MySqlCommandBuilder construct = new MySqlCommandBuilder();
+            DataSet dtsDades = new DataSet();
+            DataTable dt = null;
+            try
+            {
+                connexio();
+                dtaDades = new MySqlDataAdapter(query2, conn);
+                construct = new MySqlCommandBuilder(dtaDades);
+                dtsDades = new DataSet();
+                dt = new DataTable();
+                dtaDades.Fill(dt);
+
+
+            }
+            catch (MySqlException eMySql)
+            {
+                MessageBox.Show(eMySql.ToString());
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                    conn.Dispose();
+                }
+            }
+            return dt;
+        }
     }
 }

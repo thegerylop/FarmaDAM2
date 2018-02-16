@@ -156,6 +156,10 @@
       <Project>{94f175c3-5354-4929-a1aa-55d098ab91cc}</Project>
       <Name>TemplateForm</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Ventas\Ventas.csproj">
+      <Project>{83d6b0ea-94c7-421b-9e54-eccd7f945818}</Project>
+      <Name>Ventas</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

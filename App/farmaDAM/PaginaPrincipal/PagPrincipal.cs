@@ -17,7 +17,12 @@ namespace PaginaPrincipal
 
         private void button5_Click_1(object sender, EventArgs e)
         {
-
+            panel1.Controls.Clear();
+            Form frm = new Ventas.Ventas();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
         }
 
         private void Laboratoris_Click(object sender, EventArgs e)
