@@ -135,11 +135,16 @@ namespace ConexioBBDD
                 {
                     return false;
                 }
+               
             }
             catch (MySqlException eMySql)
             {
                 MessageBox.Show(eMySql.ToString());
                 return false;
+            }
+            finally
+            {
+                conn.Close();
             }
         }
     }

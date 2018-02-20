@@ -41,36 +41,58 @@ namespace TractarXML
                 FileStream fs = new FileStream(strPath, FileMode.Open, FileAccess.Read);
                 xmlDoc.Load(fs);
                 xmlNode = xmlDoc.GetElementsByTagName("laboratorios");
+                Boolean repetit = false;
                 foreach (XmlNode no in xmlNode)
                 {
                     var dict = new Dictionary<string, string> { };
-                    foreach (XmlNode ChildNode in no.ChildNodes){
+                    foreach (XmlNode ChildNode in no.ChildNodes)
+                    {
                         columna = ChildNode.Name.Trim();
                         valor = ChildNode.InnerText.Trim();
                         columna = traduirColumna(columna);
-                        dict.Add(columna,valor);
+                        if (columna == "codi_laboratori")
+                        {
+                            if (!validarRepetit(columna,taula, valor))
+                            {
+                                dict.Add(columna, valor);
+                                repetit = false;
+                            }
+                            else { repetit = true; }
+                        }
+                        else
+                        {
+                            dict.Add(columna, valor);
+                        }
                     }
                     //recorro el diccionari per ficar-ho despres a la query
                     //afegeixo els valors en un string, si es el primer no afegeixo coma
-                    foreach (KeyValuePair<string, string> entry in dict)
+
+                    if (!repetit)
                     {
-                        if (entry.Key != null || entry.Key != "") { 
-                        if (columnes == "")
+                        foreach (KeyValuePair<string, string> entry in dict)
                         {
-                            columnes = "'" + entry.Key + "'";
+                            if (entry.Key != null || entry.Key != "")
+                            {
+                                if (columnes == "")
+                                {
+                                    columnes = entry.Key;
+                                }
+                                else { columnes += "," + entry.Key; }
+
+                                if (valors == "")
+                                {
+                                    valors = "'" + entry.Value + "'";
+                                }
+                                else { valors += "," + "'" + entry.Value + "'"; }
+                            }
+
                         }
-                        else { columnes += "," + "'" + entry.Key + "'"; }
 
-                        if (valors == "")
-                        {
-                            valors = "'" + entry.Value + "'";
-                        }
-                        else { valors += "," + "'" + entry.Value + "'"; }
+                        inserirDades(columnes, taula, valors);
                     }
-
-                    }
-
-                    inserirDades(columnes, taula, valors);
+                        //reinicio variables desprès d'inserir. 
+                        columnes = "";
+                        valors = "";
                     
                 }
             }
@@ -86,7 +108,7 @@ namespace TractarXML
 
             if(validarDades(columna, taula, valor))
             {
-                var resultSet = conn.executaComanda("INSERT INTO " + taula + "( " + columna + " ) VALUES ( '" + valor + "' );");
+                var resultSet = conn.executaComanda("INSERT INTO " + taula + "( " + columna + " ) VALUES ( " + valor + " );");
 
                 if ((!resultSet.Equals(0)))
                 {
@@ -117,6 +139,24 @@ namespace TractarXML
             }
 
             return correcte;
+        }
+
+        public Boolean validarRepetit(string columna, string taula, string valor)
+        {
+            Boolean repetit = false;
+
+            if (columna == null || taula == null || valor == null)
+            {
+
+                return repetit;
+            }else if (conn.executaComanda("SELECT * FROM " + taula + " WHERE " + columna + " = '" + valor +"'"))
+            {
+
+                return repetit = true;
+            }
+            else { repetit = false; }
+
+            return repetit;
         }
         public string traduirColumna(string str)
         {
