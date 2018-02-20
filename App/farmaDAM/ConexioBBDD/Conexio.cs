@@ -119,5 +119,28 @@ namespace ConexioBBDD
             return cmdQry.ExecuteNonQuery();
 
         }
+
+        public Boolean executaComanda(string comanda)
+        {
+            try
+            {
+                connexio();
+                MySqlCommand command = new MySqlCommand(comanda, conn);
+                var resultSet = command.ExecuteNonQuery();
+                if (!resultSet.Equals(0))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (MySqlException eMySql)
+            {
+                MessageBox.Show(eMySql.ToString());
+                return false;
+            }
+        }
     }
 }

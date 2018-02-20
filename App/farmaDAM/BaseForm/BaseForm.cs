@@ -134,5 +134,11 @@ namespace BaseForm
             MessageBox.Show("Entrada no vàlida");
             dgvBase.RefreshEdit();
         }
+
+        public virtual void btnXML_Click(object sender, EventArgs e)
+        {
+            
+
+        }
     }
 }

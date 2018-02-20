@@ -31,6 +31,7 @@
             this.dgvBase = new System.Windows.Forms.DataGridView();
             this.btnActualitzar = new System.Windows.Forms.Button();
             this.btnAfegir = new System.Windows.Forms.Button();
+            this.btnXML = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBase)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,7 +60,6 @@
             this.btnActualitzar.TabIndex = 36;
             this.btnActualitzar.Text = "Actualitzar";
             this.btnActualitzar.UseVisualStyleBackColor = false;
-            this.btnActualitzar.Click += new System.EventHandler(this.btnActualitzar_Click);
             // 
             // btnAfegir
             // 
@@ -74,7 +74,21 @@
             this.btnAfegir.TabIndex = 38;
             this.btnAfegir.Text = "Afegir";
             this.btnAfegir.UseVisualStyleBackColor = false;
-            this.btnAfegir.Click += new System.EventHandler(this.btnAfegir_Click_1);
+            // 
+            // btnXML
+            // 
+            this.btnXML.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnXML.BackColor = System.Drawing.Color.DimGray;
+            this.btnXML.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnXML.Font = new System.Drawing.Font("Verdana", 9.75F);
+            this.btnXML.ForeColor = System.Drawing.Color.White;
+            this.btnXML.Location = new System.Drawing.Point(507, 177);
+            this.btnXML.Name = "btnXML";
+            this.btnXML.Size = new System.Drawing.Size(117, 26);
+            this.btnXML.TabIndex = 39;
+            this.btnXML.Text = "Llegir XML";
+            this.btnXML.UseVisualStyleBackColor = false;
+            this.btnXML.Click += new System.EventHandler(this.btnXML_Click);
             // 
             // BaseForm
             // 
@@ -83,6 +97,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(913, 484);
+            this.Controls.Add(this.btnXML);
             this.Controls.Add(this.btnAfegir);
             this.Controls.Add(this.btnActualitzar);
             this.Controls.Add(this.dgvBase);
@@ -99,5 +114,6 @@
         public System.Windows.Forms.Button btnAfegir;
         public System.Windows.Forms.Button btnActualitzar;
         public System.Windows.Forms.DataGridView dgvBase;
+        public System.Windows.Forms.Button btnXML;
     }
 }

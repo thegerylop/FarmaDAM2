@@ -28,6 +28,13 @@ namespace LabFarm
             AfegirCamp(table);
         }
 
+        public override void btnXML_Click(object sender, EventArgs e)
+        {
+            base.btnXML_Click(sender, e);
+            TractarXML.Class1 xml = new TractarXML.Class1();
+            xml.ReadXML(table);
+        }
+
         private void Laboratoris_Load(object sender, EventArgs e)
         {
             PortarDadesMySQL(table);

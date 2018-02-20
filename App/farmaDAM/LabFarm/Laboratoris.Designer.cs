@@ -124,9 +124,9 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label7.Location = new System.Drawing.Point(417, 103);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(104, 18);
+            this.label7.Size = new System.Drawing.Size(71, 18);
             this.label7.TabIndex = 49;
-            this.label7.Text = "Denominació :";
+            this.label7.Text = "Direcció :";
             // 
             // label2
             // 
@@ -148,7 +148,7 @@
             this.CCden.Placeholder = null;
             this.CCden.Size = new System.Drawing.Size(197, 20);
             this.CCden.TabIndex = 5;
-            this.CCden.Tag = "Denominacio";
+            this.CCden.Tag = "direccio";
             // 
             // CCcif
             // 
@@ -224,6 +224,7 @@
             this.Controls.Add(this.label4);
             this.Name = "Laboratoris";
             this.Load += new System.EventHandler(this.Laboratoris_Load);
+            this.Controls.SetChildIndex(this.btnXML, 0);
             this.Controls.SetChildIndex(this.btnActualitzar, 0);
             this.Controls.SetChildIndex(this.btnAfegir, 0);
             this.Controls.SetChildIndex(this.label4, 0);
