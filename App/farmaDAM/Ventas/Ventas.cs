@@ -13,12 +13,11 @@ namespace Ventas
 {
     public partial class Ventas : Form
     {
+        double total = 0;
         string table = "clients";
         string query;
-        string comboBoxQuery;
         DataSet dataSet = new DataSet();
         DataSet medicaments = new DataSet();
-        string connString = "SERVER= 51.255.58.1;PORT=3306;DATABASE=g2s2am_FarmaDAM;UID=g2s2am;PASSWORD=diopters12345;";
         MySqlConnection conn = new MySqlConnection();
         ConexioBBDD.Conexio bd = new ConexioBBDD.Conexio();
 
@@ -35,7 +34,8 @@ namespace Ventas
             CcomboBox.SelectedIndex = 0;
             query = "Select * from " + table;
             dataSet = bd.portarPerConsulta(query, table);
-            medicaments = bd.portarPerConsulta("select * from medicaments", "medicaments");
+            medicaments = bd.portarPerConsulta("select v.nom_comercial as 'Producte',v.contingut, e.nom as 'Principi Actiu',v.PVP,v.IVA,s.quantitat from medicaments v , principis_actius e , stock s where v.id_PrincipiActiu = e.id_PrincipiActiu and v.id_stock = s.id_stock", "medicaments");
+           
             BindingDades("medicaments");
             
 
@@ -44,17 +44,6 @@ namespace Ventas
         {
             dgvVentas.AutoGenerateColumns = true;
             dgvVentas.DataSource = medicaments.Tables[table]; // dataset
-            dgvVentas.Columns[0].Visible = false;
-            dgvVentas.Columns[1].Visible = false;
-            dgvVentas.Columns[2].Visible = false;
-            dgvVentas.Columns[5].Visible = false;
-            dgvVentas.Columns[6].Visible = false;
-            dgvVentas.Columns[7].Visible = false;
-            dgvVentas.Columns[9].Visible = false;
-            dgvVentas.Columns[10].Visible = false;
-            dgvVentas.Columns[11].Visible = false;
-            dgvVentas.Columns[13].Visible = false;
-            dgvVentas.Columns[14].Visible = false;
         }
 
         private void customTextBox1_Leave(object sender, EventArgs e)
@@ -83,9 +72,60 @@ namespace Ventas
 
         private void dgvVentas_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            string[] row = { "aaa", "aaa", "aaa" };
-            var listViewItem = new ListViewItem(row);
-            listViewCompra.Items.Add(listViewItem);
+            
+            Boolean add = true;
+            int index = dgvVentas.CurrentCell.RowIndex;
+            string medicament;
+            foreach (ListViewItem itemRow in this.listViewCompra.Items)
+            {
+                medicament = itemRow.SubItems[0].Text;
+                if(medicament == dgvVentas.Rows[index].Cells[0].Value.ToString())
+                {
+                    add = false;
+                    int quantity;
+                    quantity = Int32.Parse(itemRow.SubItems[3].Text);
+                    quantity += 1;
+                    itemRow.SubItems[3].Text = quantity.ToString();
+                }
+            }
+            if (add)
+            {
+                string[] row = { dgvVentas.Rows[index].Cells[0].Value.ToString(), dgvVentas.Rows[index].Cells[3].Value.ToString(), dgvVentas.Rows[index].Cells[4].Value.ToString(), "1" };
+                var listViewItem = new ListViewItem(row);
+                listViewCompra.Items.Add(listViewItem);
+            }
+            double value1 = Convert.ToDouble(dgvVentas.Rows[index].Cells[3].Value.ToString());
+            double value2 = Convert.ToDouble(dgvVentas.Rows[index].Cells[4].Value.ToString());
+            total += value1 + (value1 * (value2 / 100));
+            lblTotal.Text = total.ToString() + " €";
+        }
+
+        private void listViewCompra_ItemActivate(object sender, EventArgs e)
+        {
+            for (int i = 0; i < listViewCompra.Items.Count; i++)
+            {
+                if (listViewCompra.Items[i].Selected)
+                {
+                    borrarFactura(listViewCompra.Items[i]);
+                    listViewCompra.Items[i].Remove();
+                    i = listViewCompra.Items.Count;
+                }
+            }
+        }
+        private void borrarFactura(ListViewItem valor)
+        {
+            double preu = Convert.ToDouble(valor.SubItems[1].Text);
+            double iva = Convert.ToDouble(valor.SubItems[2].Text);
+            int quantitat = Int32.Parse(valor.SubItems[3].Text);
+            double resultat = ((preu + (preu * (iva / 100))) * quantitat);
+            total -= resultat;
+            lblTotal.Text = total.ToString();
+
+        }
+
+        private void btnAcceptar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
