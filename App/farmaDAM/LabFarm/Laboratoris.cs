@@ -18,6 +18,7 @@ namespace LabFarm
         
         private void Laboratoris_Load(object sender, EventArgs e)
         {
+            cbLabs.SelectedIndex = 0;
             Table(table);
             //Esconder el primer campo que es la primary Key
             this.dgvBase.Columns[0].Visible = false;

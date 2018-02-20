@@ -18,6 +18,7 @@ namespace MantenimentPrincipisActius
 
         private void PrincipisActius_Load(object sender, EventArgs e)
         {
+            cbActius.SelectedIndex = 0;
             Table(table);
             this.dgvBase.Columns[0].Visible = false;
             //Alias para las columnas

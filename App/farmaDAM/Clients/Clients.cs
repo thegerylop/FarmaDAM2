@@ -27,6 +27,7 @@ namespace Clients
 
         private void Clients_Load(object sender, EventArgs e)
         {
+            cbClients.SelectedIndex = 0;
             query = "Select * from " + table;
             dataSet = bd.portarPerConsulta(query, table);
             //ComboBox table options
@@ -178,10 +179,7 @@ namespace Clients
                 }
             }
 
-            double number;
-
-            string rowFilter = double.TryParse(TxBFilter.Text, out number) ? string.Format(columna + " = '{0}'", TxBFilter.Text) : string.Format(columna + " like '%{0}%'", TxBFilter.Text);
-            (clientsDataGridView.DataSource as DataTable).DefaultView.RowFilter = rowFilter;
+        (clientsDataGridView.DataSource as DataTable).DefaultView.RowFilter = string.Format(columna + " LIKE '{0}%'", TxBFilter.Text);
         }
     }
 }
