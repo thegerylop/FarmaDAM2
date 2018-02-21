@@ -180,8 +180,9 @@ namespace Ventas
 
                 if (dgvVentas.Rows.Count > 0)
                 {
+                    int stock = Int32.Parse(dgvVentas.Rows[0].Cells[5].Value.ToString());
                     Boolean subs = Convert.ToBoolean(dgvVentas.Rows[0].Cells[6].Value);
-                    if (subs)
+                    if (subs && stock == 0)
                     {
                         string principi = dgvVentas.Rows[0].Cells[2].Value.ToString();
                         (dgvVentas.DataSource as DataTable).DefaultView.RowFilter = string.Format("Principi_Actiu LIKE '{0}'", principi);
