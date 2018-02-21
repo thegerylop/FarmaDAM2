@@ -71,6 +71,7 @@ namespace Ventas
         {
             dgvVentas.AutoGenerateColumns = true;
             dgvVentas.DataSource = medicaments.Tables[table]; // dataset
+            dgvVentas.Columns[7].Visible = false;
             dgvVentas.Columns[6].Visible = false;
         }
 

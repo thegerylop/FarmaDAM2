@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lblUser = new System.Windows.Forms.Label();
             this.date = new System.Windows.Forms.Label();
@@ -38,7 +39,6 @@
             this.Laboratoris = new System.Windows.Forms.Button();
             this.Clients = new System.Windows.Forms.Button();
             this.tancarSessioButton = new System.Windows.Forms.Button();
-            this.perfilUsuariButton = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.Personal = new System.Windows.Forms.Button();
             this.MantenimentProductes = new System.Windows.Forms.Button();
@@ -46,12 +46,10 @@
             this.button6 = new System.Windows.Forms.Button();
             this.PrincipisActius = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.actualizacionLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.timer1 = new System.Windows.Forms.Timer();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel4.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel4
@@ -177,26 +175,12 @@
             this.tancarSessioButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.tancarSessioButton.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tancarSessioButton.ForeColor = System.Drawing.Color.White;
-            this.tancarSessioButton.Location = new System.Drawing.Point(0, 442);
+            this.tancarSessioButton.Location = new System.Drawing.Point(0, 465);
             this.tancarSessioButton.Name = "tancarSessioButton";
             this.tancarSessioButton.Size = new System.Drawing.Size(207, 23);
             this.tancarSessioButton.TabIndex = 25;
             this.tancarSessioButton.Text = "Tancar Sessió";
             this.tancarSessioButton.UseVisualStyleBackColor = false;
-            // 
-            // perfilUsuariButton
-            // 
-            this.perfilUsuariButton.BackColor = System.Drawing.Color.DimGray;
-            this.perfilUsuariButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.perfilUsuariButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.perfilUsuariButton.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.perfilUsuariButton.ForeColor = System.Drawing.Color.White;
-            this.perfilUsuariButton.Location = new System.Drawing.Point(0, 465);
-            this.perfilUsuariButton.Name = "perfilUsuariButton";
-            this.perfilUsuariButton.Size = new System.Drawing.Size(207, 23);
-            this.perfilUsuariButton.TabIndex = 24;
-            this.perfilUsuariButton.Text = "Perfil d\'usuari";
-            this.perfilUsuariButton.UseVisualStyleBackColor = false;
             // 
             // panel8
             // 
@@ -209,7 +193,6 @@
             this.panel8.Controls.Add(this.PrincipisActius);
             this.panel8.Controls.Add(this.Clients);
             this.panel8.Controls.Add(this.tancarSessioButton);
-            this.panel8.Controls.Add(this.perfilUsuariButton);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel8.Location = new System.Drawing.Point(0, 30);
             this.panel8.Name = "panel8";
@@ -285,24 +268,11 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.Gray;
-            this.panel7.Controls.Add(this.actualizacionLabel);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel7.Location = new System.Drawing.Point(207, 501);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(913, 17);
             this.panel7.TabIndex = 9;
-            // 
-            // actualizacionLabel
-            // 
-            this.actualizacionLabel.AutoSize = true;
-            this.actualizacionLabel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.actualizacionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.actualizacionLabel.ForeColor = System.Drawing.Color.White;
-            this.actualizacionLabel.Location = new System.Drawing.Point(836, 0);
-            this.actualizacionLabel.Name = "actualizacionLabel";
-            this.actualizacionLabel.Size = new System.Drawing.Size(77, 13);
-            this.actualizacionLabel.TabIndex = 0;
-            this.actualizacionLabel.Text = "Actualizando...";
             // 
             // panel1
             // 
@@ -337,8 +307,6 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel8.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -352,10 +320,8 @@
         private System.Windows.Forms.Label minimizeLabel;
         private System.Windows.Forms.Label labelExitLog;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button perfilUsuariButton;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Label actualizacionLabel;
         private System.Windows.Forms.Timer timer1;
         public System.Windows.Forms.Button button5;
         public System.Windows.Forms.Label lblUser;
