@@ -15,13 +15,13 @@ namespace TractarXML
         public void ReadXML(string taula)
         {
             XmlDocument xmlDoc = new XmlDocument();
-            XmlNodeList xmlNode;
+            XmlNodeList xmlNode = null;
             String valor = null;
             String columna = null;
             String strPath = Environment.GetFolderPath(System.Environment.SpecialFolder.DesktopDirectory);
             String columnes = "";
             String valors = "";
-            
+            FileStream fs = null; 
             try
             {
                 //switch per trobar el arxiu segons la taula a modificar
@@ -29,18 +29,23 @@ namespace TractarXML
                 {
                     case "laboratoris_farmaceutics":
                         strPath = strPath + @"\XML\DICCIONARIO_LABORATORIOS.xml";
+                        fs = generarFileStream(strPath);
+                        xmlNode = generarXmlNode("laboratorios",fs);
                         break;
                     case "principis_actius":
                         strPath = strPath + @"\XML\DICCIONARIO_PRINCIPIOS_ACTIVOS.xml";
+                        fs = generarFileStream(strPath);
+                        xmlNode = generarXmlNode("principiosactivos", fs);
                         break;
                     case "medicaments":
                         strPath = strPath + @"\XML\Prescripcion.xml";
+                        fs = generarFileStream(strPath);
+                        xmlNode = generarXmlNode("prescription", fs);
                         break;
+       
                 }
 
-                FileStream fs = new FileStream(strPath, FileMode.Open, FileAccess.Read);
-                xmlDoc.Load(fs);
-                xmlNode = xmlDoc.GetElementsByTagName("laboratorios");
+               
                 Boolean repetit = false;
                 foreach (XmlNode no in xmlNode)
                 {
@@ -49,10 +54,11 @@ namespace TractarXML
                     {
                         columna = ChildNode.Name.Trim();
                         valor = ChildNode.InnerText.Trim();
+                        valor = valor.Replace(@"'", " ");
                         columna = traduirColumna(columna);
-                        if (columna == "codi_laboratori")
+                        if (columna == "codi_laboratori" || columna == "codi" || columna == "registre_nacional")
                         {
-                            if (!validarRepetit(columna,taula, valor))
+                            if (!validarRepetit(columna, taula, valor))
                             {
                                 dict.Add(columna, valor);
                                 repetit = false;
@@ -75,7 +81,8 @@ namespace TractarXML
                             {
                                 if (columnes == "")
                                 {
-                                    columnes = entry.Key;
+                                    columnes = @entry.Key;
+
                                 }
                                 else { columnes += "," + entry.Key; }
 
@@ -90,10 +97,10 @@ namespace TractarXML
 
                         inserirDades(columnes, taula, valors);
                     }
-                        //reinicio variables desprès d'inserir. 
-                        columnes = "";
-                        valors = "";
-                    
+                    //reinicio variables desprès d'inserir. 
+                    columnes = "";
+                    valors = "";
+
                 }
             }
             catch (System.IO.FileNotFoundException)
@@ -102,11 +109,11 @@ namespace TractarXML
             }
         }
 
-        public Boolean inserirDades(string columna, string taula,string valor)
+        public Boolean inserirDades(string columna, string taula, string valor)
         {
             Boolean inserit = false;
 
-            if(validarDades(columna, taula, valor))
+            if (validarDades(columna, taula, valor))
             {
                 var resultSet = conn.executaComanda("INSERT INTO " + taula + "( " + columna + " ) VALUES ( " + valor + " );");
 
@@ -129,7 +136,7 @@ namespace TractarXML
             } else if (!conn.executaComanda("SELECT * FROM " + taula))
             {
                 MessageBox.Show("La taula no existeix - contacti amb els desenvolupadors");
-            } else if (!conn.executaComanda("SELECT "+ columna + " FROM " + taula))
+            } else if (!conn.executaComanda("SELECT " + columna + " FROM " + taula))
             {
                 MessageBox.Show("La columna no existeix - contacti amb els desenvolupadors");
             }
@@ -149,7 +156,7 @@ namespace TractarXML
             {
 
                 return repetit;
-            }else if (conn.executaComanda("SELECT * FROM " + taula + " WHERE " + columna + " = '" + valor +"'"))
+            } else if (conn.executaComanda("SELECT * FROM " + taula + " WHERE " + columna + " = '" + valor + "'"))
             {
 
                 return repetit = true;
@@ -160,7 +167,7 @@ namespace TractarXML
         }
         public string traduirColumna(string str)
         {
-           string columna = "";
+            string columna = "";
 
             switch (str)
             {
@@ -204,7 +211,7 @@ namespace TractarXML
                     columna = "url_prospecte";
                     break;
                 case "cod_principo_activo":
-                     columna = "codi_laboratori";
+                    columna = "codi_laboratori";
                     break;
                 case "cif":
                     columna = "cif";
@@ -212,8 +219,37 @@ namespace TractarXML
                 case "":
                     columna = null;
                     break;
+                case "nro_definitivo":
+                    columna = "registre_nacional";
+                    break;
+                case "des_dosific":
+                    columna = "contingut";
+                    break;
+                case "laboratorio_titular":
+                    columna = "codi_laboratori";
+                    break;
             }
             return columna;
+        }
+
+        private FileStream generarFileStream(string strPath){
+
+            FileStream fs = new FileStream(strPath, FileMode.Open, FileAccess.Read);
+
+            return fs;
+            
+            }
+
+        private XmlNodeList generarXmlNode(string str, FileStream fs)
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+            XmlNodeList xmlNode;
+
+            xmlDoc.Load(fs);
+            xmlNode = xmlDoc.GetElementsByTagName(str);
+                
+            return xmlNode;
+
         }
     }
 }

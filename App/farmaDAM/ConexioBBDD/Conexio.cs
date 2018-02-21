@@ -126,8 +126,8 @@ namespace ConexioBBDD
             {
                 connexio();
                 MySqlCommand command = new MySqlCommand(comanda, conn);
-                var resultSet = command.ExecuteNonQuery();
-                if (!resultSet.Equals(0))
+                var result = command.ExecuteScalar();
+                if (result != null)
                 {
                     return true;
                 }

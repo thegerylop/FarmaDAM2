@@ -13,6 +13,10 @@ namespace LabFarm
         public Laboratoris()
         {
             InitializeComponent();
+            
+            backgroundWorker1.ProgressChanged += backgroundWorker1_ProgressChanged;
+            backgroundWorker1.WorkerReportsProgress = true;
+
         }
         string table = "laboratoris_farmaceutics";
         
@@ -30,9 +34,9 @@ namespace LabFarm
 
         public override void btnXML_Click(object sender, EventArgs e)
         {
-            base.btnXML_Click(sender, e);
-            TractarXML.Class1 xml = new TractarXML.Class1();
-            xml.ReadXML(table);
+            backgroundWorker1.DoWork += backgroundWorker1_DoWork;
+            backgroundWorker1.RunWorkerAsync();
+            
         }
 
         private void Laboratoris_Load(object sender, EventArgs e)
@@ -53,6 +57,25 @@ namespace LabFarm
                 string.Format("codi_laboratori='{0}'", TxBFilter.Text) :
                 string.Format("codi_laboratori like '%{0}%'", TxBFilter.Text);
             (dgvBase.DataSource as DataTable).DefaultView.RowFilter = rowFilter;
+        }
+
+        private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            //for (int i = 0; i < 100; i++)
+            //{
+            //    System.Threading.Thread.Sleep(250);
+            //    backgroundWorker1.ReportProgress(i);
+            //}
+
+            base.btnXML_Click(sender, e);
+            TractarXML.Class1 xml = new TractarXML.Class1();
+            xml.ReadXML(table);
+
+        }
+        private void backgroundWorker1_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
+        {
+            progressBar1.Visible = true;
+            progressBar1.Value = e.ProgressPercentage;
         }
     }
 }
