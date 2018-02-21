@@ -61,7 +61,7 @@ namespace Ventas
             CcomboBox.SelectedIndex = 0;
             query = "Select * from " + table;
             dataSet = bd.portarPerConsulta(query, table);
-            medicaments = bd.portarPerConsulta("select v.nom_comercial as 'Producte',v.contingut, e.nom as 'Principi Actiu',v.PVP,v.IVA,s.quantitat from medicaments v , principis_actius e , stock s where v.id_PrincipiActiu = e.id_PrincipiActiu and v.id_stock = s.id_stock", "medicaments");
+            medicaments = bd.portarPerConsulta("select v.nom_comercial as 'Producte',v.contingut, e.nom as 'Principi_Actiu',v.PVP,v.IVA,s.quantitat,v.substituible,v.generic from medicaments v , principis_actius e , stock s where v.id_PrincipiActiu = e.id_PrincipiActiu and v.id_stock = s.id_stock", "medicaments");
            
             BindingDades("medicaments");
             
@@ -71,6 +71,8 @@ namespace Ventas
         {
             dgvVentas.AutoGenerateColumns = true;
             dgvVentas.DataSource = medicaments.Tables[table]; // dataset
+            dgvVentas.Columns[6].Visible = false;
+            dgvVentas.Columns[7].Visible = false;
         }
 
         private void customTextBox1_Leave(object sender, EventArgs e)
@@ -155,16 +157,40 @@ namespace Ventas
 
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void CCpassword_Enter(object sender, EventArgs e)
         {
             if (CCpassword.Text == "Password")
             {
                 CCpassword.Text = "";
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Ventas form = new Ventas();
+            form.Show();
+            this.Dispose();
+        }
+
+        private void TxBFilter_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\r')
+            {
+                (dgvVentas.DataSource as DataTable).DefaultView.RowFilter = string.Format("Producte = '" + TxBFilter.Text +"'");
+
+                if (dgvVentas.Rows.Count > 0)
+                {
+                    Boolean subs = Convert.ToBoolean(dgvVentas.Rows[0].Cells[6].Value);
+                    if (subs)
+                    {
+                        string principi = dgvVentas.Rows[0].Cells[2].Value.ToString();
+                        (dgvVentas.DataSource as DataTable).DefaultView.RowFilter = string.Format("Principi_Actiu LIKE '{0}'", principi);
+                    }
+                }
+                else if(TxBFilter.Text.Length == 0)
+                {
+                    (dgvVentas.DataSource as DataTable).DefaultView.RowFilter = string.Format("Producte LIKE '{0}%'", TxBFilter.Text);
+                }
             }
         }
     }

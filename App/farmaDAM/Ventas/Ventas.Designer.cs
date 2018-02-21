@@ -30,6 +30,8 @@
         {
             this.label2 = new System.Windows.Forms.Label();
             this.groupBoxMed = new System.Windows.Forms.GroupBox();
+            this.lblFiltrar = new System.Windows.Forms.Label();
+            this.TxBFilter = new CustomControl.CustomTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvVentas = new System.Windows.Forms.DataGridView();
             this.listViewCompra = new System.Windows.Forms.ListView();
@@ -43,14 +45,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lblPreu = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.CCpassword = new CustomControl.CustomTextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.CClogin = new CustomControl.CustomTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.gbClient = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.customTextBox1 = new CustomControl.CustomTextBox();
             this.CcomboBox = new CustomControl.comboBox();
-            this.CCpassword = new CustomControl.CustomTextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.groupBoxMed.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).BeginInit();
             this.groupBoxLlista.SuspendLayout();
@@ -72,6 +75,8 @@
             // groupBoxMed
             // 
             this.groupBoxMed.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBoxMed.Controls.Add(this.lblFiltrar);
+            this.groupBoxMed.Controls.Add(this.TxBFilter);
             this.groupBoxMed.Controls.Add(this.label1);
             this.groupBoxMed.Controls.Add(this.dgvVentas);
             this.groupBoxMed.Location = new System.Drawing.Point(5, 196);
@@ -79,6 +84,29 @@
             this.groupBoxMed.Size = new System.Drawing.Size(539, 335);
             this.groupBoxMed.TabIndex = 51;
             this.groupBoxMed.TabStop = false;
+            // 
+            // lblFiltrar
+            // 
+            this.lblFiltrar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblFiltrar.AutoSize = true;
+            this.lblFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFiltrar.Location = new System.Drawing.Point(124, 43);
+            this.lblFiltrar.Name = "lblFiltrar";
+            this.lblFiltrar.Size = new System.Drawing.Size(97, 18);
+            this.lblFiltrar.TabIndex = 88;
+            this.lblFiltrar.Text = "Medicament :";
+            // 
+            // TxBFilter
+            // 
+            this.TxBFilter.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TxBFilter.Location = new System.Drawing.Point(246, 43);
+            this.TxBFilter.Name = "TxBFilter";
+            this.TxBFilter.Options = CustomControl.CustomTextBox.Items.Text;
+            this.TxBFilter.Placeholder = null;
+            this.TxBFilter.Size = new System.Drawing.Size(221, 20);
+            this.TxBFilter.TabIndex = 86;
+            this.TxBFilter.Tag = "";
+            this.TxBFilter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxBFilter_KeyPress);
             // 
             // label1
             // 
@@ -202,15 +230,51 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.CCpassword);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.CClogin);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Location = new System.Drawing.Point(5, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(244, 94);
+            this.groupBox1.Size = new System.Drawing.Size(244, 117);
             this.groupBox1.TabIndex = 53;
             this.groupBox1.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DimGray;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Verdana", 9F);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(139, 87);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(70, 22);
+            this.button1.TabIndex = 57;
+            this.button1.Text = "Tancar";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // CCpassword
+            // 
+            this.CCpassword.Location = new System.Drawing.Point(88, 56);
+            this.CCpassword.Name = "CCpassword";
+            this.CCpassword.Options = CustomControl.CustomTextBox.Items.Password;
+            this.CCpassword.Placeholder = "Password";
+            this.CCpassword.Size = new System.Drawing.Size(121, 20);
+            this.CCpassword.TabIndex = 2;
+            this.CCpassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CCpassword_KeyPress);
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label6.Location = new System.Drawing.Point(7, 58);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(75, 18);
+            this.label6.TabIndex = 56;
+            this.label6.Text = "Password";
             // 
             // CClogin
             // 
@@ -219,19 +283,18 @@
             this.CClogin.Options = CustomControl.CustomTextBox.Items.Text;
             this.CClogin.Placeholder = "Login";
             this.CClogin.Size = new System.Drawing.Size(121, 20);
-            this.CClogin.TabIndex = 55;
+            this.CClogin.TabIndex = 1;
             // 
             // label4
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label4.Location = new System.Drawing.Point(38, 20);
+            this.label4.Location = new System.Drawing.Point(38, 19);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(44, 18);
             this.label4.TabIndex = 54;
             this.label4.Text = "Login";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // gbClient
             // 
@@ -264,7 +327,8 @@
             this.customTextBox1.Options = CustomControl.CustomTextBox.Items.Text;
             this.customTextBox1.Placeholder = null;
             this.customTextBox1.Size = new System.Drawing.Size(121, 20);
-            this.customTextBox1.TabIndex = 50;
+            this.customTextBox1.TabIndex = 3;
+            this.customTextBox1.Leave += new System.EventHandler(this.customTextBox1_Leave);
             // 
             // CcomboBox
             // 
@@ -277,28 +341,7 @@
             this.CcomboBox.Name = "CcomboBox";
             this.CcomboBox.Reference = null;
             this.CcomboBox.Size = new System.Drawing.Size(107, 21);
-            this.CcomboBox.TabIndex = 49;
-            // 
-            // CCpassword
-            // 
-            this.CCpassword.Location = new System.Drawing.Point(88, 56);
-            this.CCpassword.Name = "CCpassword";
-            this.CCpassword.Options = CustomControl.CustomTextBox.Items.Password;
-            this.CCpassword.Placeholder = "Password";
-            this.CCpassword.Size = new System.Drawing.Size(121, 20);
-            this.CCpassword.TabIndex = 56;
-            this.CCpassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CCpassword_KeyPress);
-            // 
-            // label6
-            // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label6.Location = new System.Drawing.Point(7, 56);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 18);
-            this.label6.TabIndex = 56;
-            this.label6.Text = "Password";
+            this.CcomboBox.TabIndex = 4;
             // 
             // Ventas
             // 
@@ -355,5 +398,8 @@
         private CustomControl.CustomTextBox CClogin;
         private CustomControl.CustomTextBox CCpassword;
         private System.Windows.Forms.Label label6;
+        public System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lblFiltrar;
+        private CustomControl.CustomTextBox TxBFilter;
     }
 }
