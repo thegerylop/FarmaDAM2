@@ -72,7 +72,6 @@ namespace Ventas
             dgvVentas.AutoGenerateColumns = true;
             dgvVentas.DataSource = medicaments.Tables[table]; // dataset
             dgvVentas.Columns[6].Visible = false;
-            dgvVentas.Columns[7].Visible = false;
         }
 
         private void customTextBox1_Leave(object sender, EventArgs e)
@@ -185,11 +184,13 @@ namespace Ventas
                     {
                         string principi = dgvVentas.Rows[0].Cells[2].Value.ToString();
                         (dgvVentas.DataSource as DataTable).DefaultView.RowFilter = string.Format("Principi_Actiu LIKE '{0}'", principi);
+                        dgvVentas.Sort(dgvVentas.Columns[3], ListSortDirection.Ascending);
                     }
                 }
                 else if(TxBFilter.Text.Length == 0)
                 {
                     (dgvVentas.DataSource as DataTable).DefaultView.RowFilter = string.Format("Producte LIKE '{0}%'", TxBFilter.Text);
+                    dgvVentas.Sort(dgvVentas.Columns[0], ListSortDirection.Ascending);
                 }
             }
         }
