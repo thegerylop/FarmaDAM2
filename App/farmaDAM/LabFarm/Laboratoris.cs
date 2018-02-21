@@ -74,8 +74,7 @@ namespace LabFarm
         }
         private void backgroundWorker1_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
         {
-            progressBar1.Visible = true;
-            progressBar1.Value = e.ProgressPercentage;
+          
         }
     }
 }

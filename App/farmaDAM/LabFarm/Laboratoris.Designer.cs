@@ -44,7 +44,6 @@
             this.CCcodi = new CustomControl.CustomTextBox();
             this.TxBFilter = new CustomControl.CustomTextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
@@ -208,20 +207,11 @@
             this.label3.TabIndex = 69;
             this.label3.Text = "Codi :";
             // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(507, 199);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(117, 14);
-            this.progressBar1.TabIndex = 70;
-            this.progressBar1.Visible = false;
-            // 
             // Laboratoris
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(913, 484);
-            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.TxBFilter);
             this.Controls.Add(this.CCcodi);
@@ -249,7 +239,6 @@
             this.Controls.SetChildIndex(this.CCcodi, 0);
             this.Controls.SetChildIndex(this.TxBFilter, 0);
             this.Controls.SetChildIndex(this.label3, 0);
-            this.Controls.SetChildIndex(this.progressBar1, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -273,7 +262,6 @@
         private CustomControl.CustomTextBox CCcodi;
         private CustomControl.CustomTextBox TxBFilter;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ProgressBar progressBar1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

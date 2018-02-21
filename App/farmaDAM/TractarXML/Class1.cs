@@ -43,9 +43,8 @@ namespace TractarXML
                         xmlNode = generarXmlNode("prescription", fs);
                         break;
        
-                }
-
-               
+                } 
+                
                 Boolean repetit = false;
                 foreach (XmlNode no in xmlNode)
                 {
@@ -251,5 +250,6 @@ namespace TractarXML
             return xmlNode;
 
         }
+
     }
 }
