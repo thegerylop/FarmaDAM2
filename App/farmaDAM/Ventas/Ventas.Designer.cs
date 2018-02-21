@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.label2 = new System.Windows.Forms.Label();
-            this.CcomboBox = new CustomControl.comboBox();
-            this.customTextBox1 = new CustomControl.CustomTextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupBoxMed = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvVentas = new System.Windows.Forms.DataGridView();
@@ -41,13 +38,24 @@
             this.IVA = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Quantitat = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBoxLlista = new System.Windows.Forms.GroupBox();
+            this.btnAcceptar = new System.Windows.Forms.Button();
             this.lblTotal = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblPreu = new System.Windows.Forms.Label();
-            this.btnAcceptar = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.CClogin = new CustomControl.CustomTextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.gbClient = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.customTextBox1 = new CustomControl.CustomTextBox();
+            this.CcomboBox = new CustomControl.comboBox();
+            this.CCpassword = new CustomControl.CustomTextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBoxMed.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).BeginInit();
             this.groupBoxLlista.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.gbClient.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
@@ -60,42 +68,6 @@
             this.label2.Size = new System.Drawing.Size(68, 24);
             this.label2.TabIndex = 2;
             this.label2.Text = "Ventas";
-            // 
-            // CcomboBox
-            // 
-            this.CcomboBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CcomboBox.FormattingEnabled = true;
-            this.CcomboBox.Items.AddRange(new object[] {
-            "DNI",
-            "Targeta sanitaria"});
-            this.CcomboBox.Location = new System.Drawing.Point(201, 137);
-            this.CcomboBox.Name = "CcomboBox";
-            this.CcomboBox.Reference = null;
-            this.CcomboBox.Size = new System.Drawing.Size(107, 21);
-            this.CcomboBox.TabIndex = 3;
-            // 
-            // customTextBox1
-            // 
-            this.customTextBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.customTextBox1.Location = new System.Drawing.Point(63, 138);
-            this.customTextBox1.Name = "customTextBox1";
-            this.customTextBox1.Options = CustomControl.CustomTextBox.Items.Text;
-            this.customTextBox1.Placeholder = null;
-            this.customTextBox1.Size = new System.Drawing.Size(121, 20);
-            this.customTextBox1.TabIndex = 4;
-            this.customTextBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.customTextBox1_KeyPress);
-            this.customTextBox1.Leave += new System.EventHandler(this.customTextBox1_Leave);
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label5.Location = new System.Drawing.Point(7, 138);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 18);
-            this.label5.TabIndex = 48;
-            this.label5.Text = "Client :";
             // 
             // groupBoxMed
             // 
@@ -182,6 +154,20 @@
             this.groupBoxLlista.TabIndex = 53;
             this.groupBoxLlista.TabStop = false;
             // 
+            // btnAcceptar
+            // 
+            this.btnAcceptar.BackColor = System.Drawing.Color.DimGray;
+            this.btnAcceptar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAcceptar.Font = new System.Drawing.Font("Verdana", 9F);
+            this.btnAcceptar.ForeColor = System.Drawing.Color.White;
+            this.btnAcceptar.Location = new System.Drawing.Point(181, 436);
+            this.btnAcceptar.Name = "btnAcceptar";
+            this.btnAcceptar.Size = new System.Drawing.Size(70, 22);
+            this.btnAcceptar.TabIndex = 56;
+            this.btnAcceptar.Text = "Acceptar";
+            this.btnAcceptar.UseVisualStyleBackColor = false;
+            this.btnAcceptar.Click += new System.EventHandler(this.btnAcceptar_Click);
+            // 
             // lblTotal
             // 
             this.lblTotal.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -214,19 +200,105 @@
             this.lblPreu.TabIndex = 54;
             this.lblPreu.Text = "Total :";
             // 
-            // btnAcceptar
+            // groupBox1
             // 
-            this.btnAcceptar.BackColor = System.Drawing.Color.DimGray;
-            this.btnAcceptar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAcceptar.Font = new System.Drawing.Font("Verdana", 9F);
-            this.btnAcceptar.ForeColor = System.Drawing.Color.White;
-            this.btnAcceptar.Location = new System.Drawing.Point(181, 436);
-            this.btnAcceptar.Name = "btnAcceptar";
-            this.btnAcceptar.Size = new System.Drawing.Size(70, 22);
-            this.btnAcceptar.TabIndex = 56;
-            this.btnAcceptar.Text = "Acceptar";
-            this.btnAcceptar.UseVisualStyleBackColor = false;
-            this.btnAcceptar.Click += new System.EventHandler(this.btnAcceptar_Click);
+            this.groupBox1.Controls.Add(this.CCpassword);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.CClogin);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Location = new System.Drawing.Point(5, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(244, 94);
+            this.groupBox1.TabIndex = 53;
+            this.groupBox1.TabStop = false;
+            // 
+            // CClogin
+            // 
+            this.CClogin.Location = new System.Drawing.Point(88, 19);
+            this.CClogin.Name = "CClogin";
+            this.CClogin.Options = CustomControl.CustomTextBox.Items.Text;
+            this.CClogin.Placeholder = "Login";
+            this.CClogin.Size = new System.Drawing.Size(121, 20);
+            this.CClogin.TabIndex = 55;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label4.Location = new System.Drawing.Point(38, 20);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(44, 18);
+            this.label4.TabIndex = 54;
+            this.label4.Text = "Login";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // gbClient
+            // 
+            this.gbClient.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.gbClient.Controls.Add(this.label5);
+            this.gbClient.Controls.Add(this.customTextBox1);
+            this.gbClient.Controls.Add(this.CcomboBox);
+            this.gbClient.Location = new System.Drawing.Point(5, 121);
+            this.gbClient.Name = "gbClient";
+            this.gbClient.Size = new System.Drawing.Size(365, 69);
+            this.gbClient.TabIndex = 54;
+            this.gbClient.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label5.Location = new System.Drawing.Point(32, 26);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(53, 18);
+            this.label5.TabIndex = 51;
+            this.label5.Text = "Client :";
+            // 
+            // customTextBox1
+            // 
+            this.customTextBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.customTextBox1.Location = new System.Drawing.Point(88, 26);
+            this.customTextBox1.Name = "customTextBox1";
+            this.customTextBox1.Options = CustomControl.CustomTextBox.Items.Text;
+            this.customTextBox1.Placeholder = null;
+            this.customTextBox1.Size = new System.Drawing.Size(121, 20);
+            this.customTextBox1.TabIndex = 50;
+            // 
+            // CcomboBox
+            // 
+            this.CcomboBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CcomboBox.FormattingEnabled = true;
+            this.CcomboBox.Items.AddRange(new object[] {
+            "DNI",
+            "Targeta sanitaria"});
+            this.CcomboBox.Location = new System.Drawing.Point(226, 25);
+            this.CcomboBox.Name = "CcomboBox";
+            this.CcomboBox.Reference = null;
+            this.CcomboBox.Size = new System.Drawing.Size(107, 21);
+            this.CcomboBox.TabIndex = 49;
+            // 
+            // CCpassword
+            // 
+            this.CCpassword.Location = new System.Drawing.Point(88, 56);
+            this.CCpassword.Name = "CCpassword";
+            this.CCpassword.Options = CustomControl.CustomTextBox.Items.Password;
+            this.CCpassword.Placeholder = "Password";
+            this.CCpassword.Size = new System.Drawing.Size(121, 20);
+            this.CCpassword.TabIndex = 56;
+            this.CCpassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CCpassword_KeyPress);
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label6.Location = new System.Drawing.Point(7, 56);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(75, 18);
+            this.label6.TabIndex = 56;
+            this.label6.Text = "Password";
             // 
             // Ventas
             // 
@@ -235,11 +307,10 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(913, 602);
+            this.Controls.Add(this.gbClient);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBoxLlista);
             this.Controls.Add(this.groupBoxMed);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.customTextBox1);
-            this.Controls.Add(this.CcomboBox);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Ventas";
@@ -250,6 +321,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).EndInit();
             this.groupBoxLlista.ResumeLayout(false);
             this.groupBoxLlista.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.gbClient.ResumeLayout(false);
+            this.gbClient.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -258,9 +333,6 @@
         #endregion
 
         private System.Windows.Forms.Label label2;
-        private CustomControl.comboBox CcomboBox;
-        private CustomControl.CustomTextBox customTextBox1;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBoxMed;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvVentas;
@@ -274,5 +346,14 @@
         private System.Windows.Forms.Label lblPreu;
         private System.Windows.Forms.Label lblTotal;
         public System.Windows.Forms.Button btnAcceptar;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox gbClient;
+        private System.Windows.Forms.Label label5;
+        private CustomControl.CustomTextBox customTextBox1;
+        private CustomControl.comboBox CcomboBox;
+        private CustomControl.CustomTextBox CClogin;
+        private CustomControl.CustomTextBox CCpassword;
+        private System.Windows.Forms.Label label6;
     }
 }

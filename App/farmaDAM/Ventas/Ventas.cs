@@ -13,6 +13,7 @@ namespace Ventas
 {
     public partial class Ventas : Form
     {
+        string user;
         double total = 0;
         string table = "clients";
         string query;
@@ -26,9 +27,35 @@ namespace Ventas
             InitializeComponent();
         }
 
+        private void CCpassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\r')
+            {
+                login();
+            }
+        }
+        private void login()
+        {
+            string login = CClogin.Text;
+            string password = CCpassword.Text;
+            string select = bd.connexioLogin(login, password);
+
+            if (select != null)
+            {
+                gbClient.Visible = true;
+                user = login;
+            }
+            else
+            {
+                MessageBox.Show("El login o la contrasenya son invàlids");
+                gbClient.Visible = false;
+                groupBoxMed.Visible = false;
+                groupBoxLlista.Visible = false;
+            }
+        }
         private void Ventas_Load(object sender, EventArgs e)
         {
-
+            gbClient.Visible = false;
             groupBoxMed.Visible = false;
             groupBoxLlista.Visible = false;
             CcomboBox.SelectedIndex = 0;
@@ -126,6 +153,19 @@ namespace Ventas
         private void btnAcceptar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CCpassword_Enter(object sender, EventArgs e)
+        {
+            if (CCpassword.Text == "Password")
+            {
+                CCpassword.Text = "";
+            }
         }
     }
 }
