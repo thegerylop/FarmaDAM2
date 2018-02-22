@@ -50,6 +50,7 @@
             this.actualizacionLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btn_CarregaDades = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -202,6 +203,7 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.Gray;
+            this.panel8.Controls.Add(this.btn_CarregaDades);
             this.panel8.Controls.Add(this.Personal);
             this.panel8.Controls.Add(this.MantenimentProductes);
             this.panel8.Controls.Add(this.button5);
@@ -321,6 +323,19 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // btn_CarregaDades
+            // 
+            this.btn_CarregaDades.BackColor = System.Drawing.Color.DimGray;
+            this.btn_CarregaDades.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_CarregaDades.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_CarregaDades.ForeColor = System.Drawing.Color.White;
+            this.btn_CarregaDades.Location = new System.Drawing.Point(3, 365);
+            this.btn_CarregaDades.Name = "btn_CarregaDades";
+            this.btn_CarregaDades.Size = new System.Drawing.Size(201, 48);
+            this.btn_CarregaDades.TabIndex = 33;
+            this.btn_CarregaDades.Text = "Carrega Dades";
+            this.btn_CarregaDades.UseVisualStyleBackColor = false;
+            // 
             // TemplateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -368,5 +383,6 @@
         public System.Windows.Forms.Button Personal;
         public System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.Button tancarSessioButton;
+        public System.Windows.Forms.Button btn_CarregaDades;
     }
 }

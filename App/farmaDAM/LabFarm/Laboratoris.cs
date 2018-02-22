@@ -61,20 +61,22 @@ namespace LabFarm
 
         private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
-            //for (int i = 0; i < 100; i++)
-            //{
-            //    System.Threading.Thread.Sleep(250);
-            //    backgroundWorker1.ReportProgress(i);
-            //}
-
+            
+            
             base.btnXML_Click(sender, e);
             TractarXML.Class1 xml = new TractarXML.Class1();
             xml.ReadXML(table);
-
+            
+            //backgroundWorker1.ReportProgress(0,progres);
+            
         }
-        private void backgroundWorker1_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
+        private void backgroundWorker1_ProgressChanged(object sender,System.ComponentModel.ProgressChangedEventArgs e)
         {
-          
+            //string str = e.UserState.ToString();
+            //label1.Text = str;
+            
         }
+
+       
     }
 }

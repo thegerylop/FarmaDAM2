@@ -1,19 +1,56 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml;
 using System.IO;
-using System.Windows.Forms;
 
-namespace TractarXML
+namespace CarregarDades
 {
-    public class Class1
+    public partial class carregarDades : Form
     {
         ConexioBBDD.Conexio conn = new ConexioBBDD.Conexio();
-        public void ReadXML(string taula)
+
+        public carregarDades()
         {
+            InitializeComponent();
+        }
+
+        private void btn_FindFile_Click(object sender, EventArgs e)
+        {
+            String ruta;
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+            // Set filter options and filter index.
+            openFileDialog1.Filter = "Fichero XML (.xml)|*.xml";
+            openFileDialog1.FilterIndex = 1;
+
+            openFileDialog1.Multiselect = false;
+
+            // Call the ShowDialog method to show the dialog box.
+            openFileDialog1.ShowDialog();
+            txt_RutaFitxer.Text = openFileDialog1.FileName;
+            ruta = openFileDialog1.FileName;
+        }
+
+        private void btn_InserirDades_Click(object sender, EventArgs e)
+        {
+            String ruta = txt_RutaFitxer.Text;
+
+            if (ruta != "")
+            {
+                ReadXML(ruta);
+            }
+            else { MessageBox.Show("Escolleix un arxiu"); }
+
+        }
+
+        public void ReadXML(string ruta)
+        {
+
             XmlDocument xmlDoc = new XmlDocument();
             XmlNodeList xmlNode = null;
             String valor = null, columna = null, columnes = "", valors = "", llargada = "";
@@ -100,7 +137,7 @@ namespace TractarXML
                         inserirDades(columnes, taula, valors);
                     }
                     llargada = i + " / " + llargada;
-                    
+
                     //reinicio variables desprès d'inserir. 
                     columnes = "";
                     valors = "";
@@ -270,5 +307,9 @@ namespace TractarXML
             }
             return i;
         }
+
+
     }
+
+
 }

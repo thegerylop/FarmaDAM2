@@ -54,6 +54,10 @@
             // 
             this.tancarSessioButton.Click += new System.EventHandler(this.tancarSessioButton_Click);
             // 
+            // btn_CarregaDades
+            // 
+            this.btn_CarregaDades.Click += new System.EventHandler(this.btn_CarregaDades_Click);
+            // 
             // PagPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

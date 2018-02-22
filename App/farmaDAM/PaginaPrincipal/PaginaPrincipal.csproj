@@ -124,6 +124,10 @@
       <Project>{cf89ea7d-d834-4cb1-8888-e9c0fb24ee7f}</Project>
       <Name>BaseForm</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CarregarDades\CarregarDades.csproj">
+      <Project>{dec0fae3-0436-4eb5-a41c-a1c90f963a65}</Project>
+      <Name>CarregarDades</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ConexioBBDD\ConexioBBDD.csproj">
       <Project>{384145e7-5b9b-43cb-92b0-d8be9b92fde8}</Project>
       <Name>ConexioBBDD</Name>
@@ -152,6 +156,9 @@
       <Project>{94f175c3-5354-4929-a1aa-55d098ab91cc}</Project>
       <Name>TemplateForm</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

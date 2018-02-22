@@ -45,6 +45,7 @@
             this.TxBFilter = new CustomControl.CustomTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnAfegir
@@ -207,11 +208,21 @@
             this.label3.TabIndex = 69;
             this.label3.Text = "Codi :";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(791, 409);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 70;
+            this.label1.Text = "label1";
+            // 
             // Laboratoris
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(913, 484);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.TxBFilter);
             this.Controls.Add(this.CCcodi);
@@ -239,6 +250,7 @@
             this.Controls.SetChildIndex(this.CCcodi, 0);
             this.Controls.SetChildIndex(this.TxBFilter, 0);
             this.Controls.SetChildIndex(this.label3, 0);
+            this.Controls.SetChildIndex(this.label1, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -263,5 +275,6 @@
         private CustomControl.CustomTextBox TxBFilter;
         private System.Windows.Forms.Label label3;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        public System.Windows.Forms.Label label1;
     }
 }
