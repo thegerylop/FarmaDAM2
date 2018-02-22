@@ -30,6 +30,7 @@
         {
             this.label2 = new System.Windows.Forms.Label();
             this.groupBoxMed = new System.Windows.Forms.GroupBox();
+            this.CcQuant = new CustomControl.CustomTextBox();
             this.lblFiltrar = new System.Windows.Forms.Label();
             this.TxBFilter = new CustomControl.CustomTextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -52,13 +53,17 @@
             this.label4 = new System.Windows.Forms.Label();
             this.gbClient = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.customTextBox1 = new CustomControl.CustomTextBox();
+            this.TBClient = new CustomControl.CustomTextBox();
             this.CcomboBox = new CustomControl.comboBox();
+            this.gbRecepta = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.TBRec = new CustomControl.CustomTextBox();
             this.groupBoxMed.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).BeginInit();
             this.groupBoxLlista.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.gbClient.SuspendLayout();
+            this.gbRecepta.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
@@ -75,15 +80,28 @@
             // groupBoxMed
             // 
             this.groupBoxMed.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBoxMed.Controls.Add(this.CcQuant);
             this.groupBoxMed.Controls.Add(this.lblFiltrar);
             this.groupBoxMed.Controls.Add(this.TxBFilter);
             this.groupBoxMed.Controls.Add(this.label1);
             this.groupBoxMed.Controls.Add(this.dgvVentas);
-            this.groupBoxMed.Location = new System.Drawing.Point(5, 196);
+            this.groupBoxMed.Location = new System.Drawing.Point(5, 242);
             this.groupBoxMed.Name = "groupBoxMed";
             this.groupBoxMed.Size = new System.Drawing.Size(539, 335);
             this.groupBoxMed.TabIndex = 51;
             this.groupBoxMed.TabStop = false;
+            // 
+            // CcQuant
+            // 
+            this.CcQuant.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CcQuant.Location = new System.Drawing.Point(371, 43);
+            this.CcQuant.Name = "CcQuant";
+            this.CcQuant.Options = CustomControl.CustomTextBox.Items.Text;
+            this.CcQuant.Placeholder = null;
+            this.CcQuant.Size = new System.Drawing.Size(52, 20);
+            this.CcQuant.TabIndex = 89;
+            this.CcQuant.Tag = "";
+            this.CcQuant.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxBFilter_KeyPress);
             // 
             // lblFiltrar
             // 
@@ -103,10 +121,9 @@
             this.TxBFilter.Name = "TxBFilter";
             this.TxBFilter.Options = CustomControl.CustomTextBox.Items.Text;
             this.TxBFilter.Placeholder = null;
-            this.TxBFilter.Size = new System.Drawing.Size(221, 20);
+            this.TxBFilter.Size = new System.Drawing.Size(119, 20);
             this.TxBFilter.TabIndex = 86;
             this.TxBFilter.Tag = "";
-            this.TxBFilter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxBFilter_KeyPress);
             // 
             // label1
             // 
@@ -300,11 +317,11 @@
             // 
             this.gbClient.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gbClient.Controls.Add(this.label5);
-            this.gbClient.Controls.Add(this.customTextBox1);
+            this.gbClient.Controls.Add(this.TBClient);
             this.gbClient.Controls.Add(this.CcomboBox);
             this.gbClient.Location = new System.Drawing.Point(5, 121);
             this.gbClient.Name = "gbClient";
-            this.gbClient.Size = new System.Drawing.Size(365, 69);
+            this.gbClient.Size = new System.Drawing.Size(365, 52);
             this.gbClient.TabIndex = 54;
             this.gbClient.TabStop = false;
             // 
@@ -313,22 +330,22 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label5.Location = new System.Drawing.Point(32, 26);
+            this.label5.Location = new System.Drawing.Point(23, 19);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 18);
             this.label5.TabIndex = 51;
             this.label5.Text = "Client :";
             // 
-            // customTextBox1
+            // TBClient
             // 
-            this.customTextBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.customTextBox1.Location = new System.Drawing.Point(88, 26);
-            this.customTextBox1.Name = "customTextBox1";
-            this.customTextBox1.Options = CustomControl.CustomTextBox.Items.Text;
-            this.customTextBox1.Placeholder = null;
-            this.customTextBox1.Size = new System.Drawing.Size(121, 20);
-            this.customTextBox1.TabIndex = 3;
-            this.customTextBox1.Leave += new System.EventHandler(this.customTextBox1_Leave);
+            this.TBClient.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TBClient.Location = new System.Drawing.Point(79, 19);
+            this.TBClient.Name = "TBClient";
+            this.TBClient.Options = CustomControl.CustomTextBox.Items.Text;
+            this.TBClient.Placeholder = null;
+            this.TBClient.Size = new System.Drawing.Size(121, 20);
+            this.TBClient.TabIndex = 3;
+            this.TBClient.Leave += new System.EventHandler(this.customTextBox1_Leave);
             // 
             // CcomboBox
             // 
@@ -337,11 +354,44 @@
             this.CcomboBox.Items.AddRange(new object[] {
             "DNI",
             "Targeta sanitaria"});
-            this.CcomboBox.Location = new System.Drawing.Point(226, 25);
+            this.CcomboBox.Location = new System.Drawing.Point(220, 19);
             this.CcomboBox.Name = "CcomboBox";
             this.CcomboBox.Reference = null;
             this.CcomboBox.Size = new System.Drawing.Size(107, 21);
             this.CcomboBox.TabIndex = 4;
+            // 
+            // gbRecepta
+            // 
+            this.gbRecepta.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.gbRecepta.Controls.Add(this.label7);
+            this.gbRecepta.Controls.Add(this.TBRec);
+            this.gbRecepta.Location = new System.Drawing.Point(5, 184);
+            this.gbRecepta.Name = "gbRecepta";
+            this.gbRecepta.Size = new System.Drawing.Size(365, 52);
+            this.gbRecepta.TabIndex = 55;
+            this.gbRecepta.TabStop = false;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label7.Location = new System.Drawing.Point(6, 19);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(71, 18);
+            this.label7.TabIndex = 51;
+            this.label7.Text = "Recepta :";
+            // 
+            // TBRec
+            // 
+            this.TBRec.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TBRec.Location = new System.Drawing.Point(79, 19);
+            this.TBRec.Name = "TBRec";
+            this.TBRec.Options = CustomControl.CustomTextBox.Items.Text;
+            this.TBRec.Placeholder = null;
+            this.TBRec.Size = new System.Drawing.Size(121, 20);
+            this.TBRec.TabIndex = 3;
+            this.TBRec.Leave += new System.EventHandler(this.TBRec_Leave);
             // 
             // Ventas
             // 
@@ -350,6 +400,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(913, 602);
+            this.Controls.Add(this.gbRecepta);
             this.Controls.Add(this.gbClient);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBoxLlista);
@@ -368,6 +419,8 @@
             this.groupBox1.PerformLayout();
             this.gbClient.ResumeLayout(false);
             this.gbClient.PerformLayout();
+            this.gbRecepta.ResumeLayout(false);
+            this.gbRecepta.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -393,7 +446,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox gbClient;
         private System.Windows.Forms.Label label5;
-        private CustomControl.CustomTextBox customTextBox1;
+        private CustomControl.CustomTextBox TBClient;
         private CustomControl.comboBox CcomboBox;
         private CustomControl.CustomTextBox CClogin;
         private CustomControl.CustomTextBox CCpassword;
@@ -401,5 +454,9 @@
         public System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblFiltrar;
         private CustomControl.CustomTextBox TxBFilter;
+        private System.Windows.Forms.GroupBox gbRecepta;
+        private System.Windows.Forms.Label label7;
+        private CustomControl.CustomTextBox TBRec;
+        private CustomControl.CustomTextBox CcQuant;
     }
 }

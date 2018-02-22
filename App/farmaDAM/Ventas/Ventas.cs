@@ -56,12 +56,13 @@ namespace Ventas
         private void Ventas_Load(object sender, EventArgs e)
         {
             gbClient.Visible = false;
+            gbRecepta.Visible = false;
             groupBoxMed.Visible = false;
             groupBoxLlista.Visible = false;
             CcomboBox.SelectedIndex = 0;
             query = "Select * from " + table;
             dataSet = bd.portarPerConsulta(query, table);
-            medicaments = bd.portarPerConsulta("select v.nom_comercial as 'Producte',v.contingut, e.nom as 'Principi_Actiu',v.PVP,v.IVA,s.quantitat,v.substituible,v.generic from medicaments v , principis_actius e , stock s where v.id_PrincipiActiu = e.id_PrincipiActiu and v.id_stock = s.id_stock", "medicaments");
+            medicaments = bd.portarPerConsulta("select v.registre_nacional, v.nom_comercial as 'Producte',v.contingut, e.nom as 'Principi_Actiu',v.PVP,v.IVA,s.quantitat,v.substituible,v.generic from medicaments v , principis_actius e , stock s where v.id_PrincipiActiu = e.id_PrincipiActiu and v.id_stock = s.id_stock", "medicaments");
            
             BindingDades("medicaments");
             
@@ -72,23 +73,24 @@ namespace Ventas
             dgvVentas.AutoGenerateColumns = true;
             dgvVentas.DataSource = medicaments.Tables[table]; // dataset
             dgvVentas.Columns[7].Visible = false;
-            dgvVentas.Columns[6].Visible = false;
+            dgvVentas.Columns[8].Visible = false;
         }
 
         private void customTextBox1_Leave(object sender, EventArgs e)
         {
-            query = "Select " + CcomboBox.Text + " from clients where " + CcomboBox.Text + " = " + customTextBox1.Text;
+            query = "Select " + CcomboBox.Text + " from clients where " + CcomboBox.Text + " = " + TBClient.Text;
             dataSet = bd.portarPerConsulta(query, table);
 
             if (dataSet.Tables[0].Rows.Count == 0)
             {
                 MessageBox.Show("El client indicat no existeix");
-                customTextBox1.Text = "";
+                TBClient.Text = "";
             }
             else
             {
-                customTextBox1.Enabled = false;
+                TBClient.Enabled = false;
                 CcomboBox.Enabled = false;
+                gbRecepta.Visible = true;
                 groupBoxMed.Visible = true;
                 groupBoxLlista.Visible = true;
             }
@@ -154,7 +156,7 @@ namespace Ventas
 
         private void btnAcceptar_Click(object sender, EventArgs e)
         {
-
+            //bd.executaComanda('insert into vendes (id_personal,id_client,num_ticket) values ()');
         }
 
         private void CCpassword_Enter(object sender, EventArgs e)
@@ -174,27 +176,46 @@ namespace Ventas
 
         private void TxBFilter_KeyPress(object sender, KeyPressEventArgs e)
         {
+
             if (e.KeyChar == '\r')
             {
-                (dgvVentas.DataSource as DataTable).DefaultView.RowFilter = string.Format("Producte = '" + TxBFilter.Text +"'");
+                string medic = "select nom_comercial,PVP,IVA from medicaments where registre_nacional = '" + TxBFilter.Text +"'";
+                DataTable medicament = bd.searchTableFromQuery(medic);
+                if(medicament.Rows.Count > 0)
+                {
+                    DataRow r = medicament.Rows[0];
+                    string[] row = { r.ItemArray[0].ToString(), r.ItemArray[1].ToString(), r.ItemArray[2].ToString(), CcQuant.Text};
+                    var listViewItem = new ListViewItem(row);
+                    listViewCompra.Items.Add(listViewItem);
+                    TxBFilter.Text = "";
+                    CcQuant.Text = "";
+                    e.KeyChar = '\r';
+                }
+
+                (dgvVentas.DataSource as DataTable).DefaultView.RowFilter = string.Format("registre_nacional = '" + TxBFilter.Text +"'");
 
                 if (dgvVentas.Rows.Count > 0)
                 {
-                    int stock = Int32.Parse(dgvVentas.Rows[0].Cells[5].Value.ToString());
+                    int stock = Int32.Parse(dgvVentas.Rows[0].Cells[6].Value.ToString());
                     Boolean subs = Convert.ToBoolean(dgvVentas.Rows[0].Cells[6].Value);
                     if (subs && stock == 0)
                     {
                         string principi = dgvVentas.Rows[0].Cells[2].Value.ToString();
                         (dgvVentas.DataSource as DataTable).DefaultView.RowFilter = string.Format("Principi_Actiu LIKE '{0}'", principi);
-                        dgvVentas.Sort(dgvVentas.Columns[3], ListSortDirection.Ascending);
+                        dgvVentas.Sort(dgvVentas.Columns[4], ListSortDirection.Ascending);
                     }
                 }
                 else if(TxBFilter.Text.Length == 0)
                 {
-                    (dgvVentas.DataSource as DataTable).DefaultView.RowFilter = string.Format("Producte LIKE '{0}%'", TxBFilter.Text);
+                    (dgvVentas.DataSource as DataTable).DefaultView.RowFilter = string.Format("registre_nacional LIKE '{0}%'", TxBFilter.Text);
                     dgvVentas.Sort(dgvVentas.Columns[0], ListSortDirection.Ascending);
                 }
             }
+        }
+
+        private void TBRec_Leave(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -153,5 +153,31 @@ namespace ConexioBBDD
             }
             return dt;
         }
-    }
+        public Boolean executaComanda(string comanda)
+        {
+            try
+            {
+                connexio();
+                MySqlCommand command = new MySqlCommand(comanda, conn);
+                var result = command.ExecuteScalar();
+                if (result != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch (MySqlException eMySql)
+            {
+                MessageBox.Show(eMySql.ToString());
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
 }

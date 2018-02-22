@@ -45,7 +45,6 @@
             this.TxBFilter = new CustomControl.CustomTextBox();
             this.cbLabs = new System.Windows.Forms.ComboBox();
             this.lblFiltrar = new System.Windows.Forms.Label();
-            this.customTextBox1 = new CustomControl.CustomTextBox();
             this.SuspendLayout();
             // 
             // btnAfegir
@@ -228,23 +227,11 @@
             this.lblFiltrar.TabIndex = 51;
             this.lblFiltrar.Text = "Filtrar :";
             // 
-            // customTextBox1
-            // 
-            this.customTextBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.customTextBox1.Location = new System.Drawing.Point(399, 160);
-            this.customTextBox1.Name = "customTextBox1";
-            this.customTextBox1.Options = CustomControl.CustomTextBox.Items.Text;
-            this.customTextBox1.Placeholder = null;
-            this.customTextBox1.Size = new System.Drawing.Size(197, 20);
-            this.customTextBox1.TabIndex = 52;
-            this.customTextBox1.Tag = "direccio";
-            // 
             // Laboratoris
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(913, 484);
-            this.Controls.Add(this.customTextBox1);
             this.Controls.Add(this.lblFiltrar);
             this.Controls.Add(this.cbLabs);
             this.Controls.Add(this.TxBFilter);
@@ -273,7 +260,6 @@
             this.Controls.SetChildIndex(this.btnAfegir, 0);
             this.Controls.SetChildIndex(this.cbLabs, 0);
             this.Controls.SetChildIndex(this.lblFiltrar, 0);
-            this.Controls.SetChildIndex(this.customTextBox1, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -298,6 +284,5 @@
         private CustomControl.CustomTextBox TxBFilter;
         private System.Windows.Forms.ComboBox cbLabs;
         private System.Windows.Forms.Label lblFiltrar;
-        private CustomControl.CustomTextBox customTextBox1;
     }
 }
