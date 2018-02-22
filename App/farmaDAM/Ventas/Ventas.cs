@@ -179,17 +179,33 @@ namespace Ventas
 
             if (e.KeyChar == '\r')
             {
-                string medic = "select nom_comercial,PVP,IVA from medicaments where registre_nacional = '" + TxBFilter.Text +"'";
+                string medic = "select v.nom_comercial,v.PVP,v.IVA,s.quantitat from medicaments v , stock s where v.id_stock = s.id_stock";
                 DataTable medicament = bd.searchTableFromQuery(medic);
-                if(medicament.Rows.Count > 0)
+
+                if(medicament.Rows.Count > 0 )
                 {
                     DataRow r = medicament.Rows[0];
-                    string[] row = { r.ItemArray[0].ToString(), r.ItemArray[1].ToString(), r.ItemArray[2].ToString(), CcQuant.Text};
-                    var listViewItem = new ListViewItem(row);
-                    listViewCompra.Items.Add(listViewItem);
-                    TxBFilter.Text = "";
-                    CcQuant.Text = "";
-                    e.KeyChar = '\r';
+                    int quantity = Int32.Parse(r.ItemArray[3].ToString());
+                    if(quantity > 0)
+                    {
+                        if(quantity >= Int32.Parse(CcQuant.Text))
+                        {
+                            string[] row = { r.ItemArray[0].ToString(), r.ItemArray[1].ToString(), r.ItemArray[2].ToString(), CcQuant.Text };
+                            var listViewItem = new ListViewItem(row);
+                            listViewCompra.Items.Add(listViewItem);
+                            TxBFilter.Text = "";
+                            CcQuant.Text = "";
+                            e.KeyChar = '\r';
+                        }
+                        else
+                        {
+                            MessageBox.Show("Producte amb stock per sota del demanat");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Producte sense stock");
+                    }
                 }
 
                 (dgvVentas.DataSource as DataTable).DefaultView.RowFilter = string.Format("registre_nacional = '" + TxBFilter.Text +"'");
