@@ -21,6 +21,7 @@ namespace CarregarDades
 
         private void btn_FindFile_Click(object sender, EventArgs e)
         {
+
             String ruta;
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
@@ -34,59 +35,47 @@ namespace CarregarDades
             openFileDialog1.ShowDialog();
             txt_RutaFitxer.Text = openFileDialog1.FileName;
             ruta = openFileDialog1.FileName;
+            
         }
 
         private void btn_InserirDades_Click(object sender, EventArgs e)
         {
-            String ruta = txt_RutaFitxer.Text;
 
-            if (ruta != "")
-            {
-                ReadXML(ruta);
-            }
-            else { MessageBox.Show("Escolleix un arxiu"); }
+            backgroundWorker1.DoWork += backgroundWorker1_DoWork;
+            backgroundWorker1.RunWorkerAsync();
+
 
         }
 
         public void ReadXML(string ruta)
         {
 
-            XmlDocument xmlDoc = new XmlDocument();
-            XmlNodeList xmlNode = null;
-            String valor = null, columna = null, columnes = "", valors = "", llargada = "";
-            String strPath = Environment.GetFolderPath(System.Environment.SpecialFolder.DesktopDirectory);
 
+            String valor = null, columna = null, columnes = "", valors = "", llargada = "", taula = "" ;
+           // String strPath = Environment.GetFolderPath(System.Environment.SpecialFolder.DesktopDirectory);
 
-            FileStream fs = null;
             try
             {
-                //switch per trobar el arxiu segons la taula a modificar
-                switch (taula)
-                {
-                    case "laboratoris_farmaceutics":
-                        strPath = strPath + @"\XML\DICCIONARIO_LABORATORIOS.xml";
-                        fs = generarFileStream(strPath);
-                        xmlNode = generarXmlNode("laboratorios", fs);
-                        break;
-                    case "principis_actius":
-                        strPath = strPath + @"\XML\DICCIONARIO_PRINCIPIOS_ACTIVOS.xml";
-                        fs = generarFileStream(strPath);
-                        xmlNode = generarXmlNode("principiosactivos", fs);
-                        break;
-                    case "medicaments":
-                        strPath = strPath + @"\XML\Prescripcion.xml";
-                        fs = generarFileStream(strPath);
-                        xmlNode = generarXmlNode("prescription", fs);
-                        break;
 
-                }
+                ruta = ruta.Replace(@"\\", @"\");
+                XmlNodeList xmlNode;
+                FileStream fs = generarFileStream(ruta);
+                XmlDocument xmlDoc = new XmlDocument();
+                xmlDoc.Load(fs);
+                xmlNode = sortXMLNode(xmlDoc);
+                taula = trobarTaula(xmlDoc);
+                
+
 
                 Boolean repetit = false;
                 llargada = llargadaXML(xmlNode).ToString();
+                lbl_llargada.Invoke((MethodInvoker)delegate { lbl_llargada.Visible = true; lbl_llargada.Text = llargada; });
+                //lbl_progres.Visible = true;
+                int i = 0;
                 foreach (XmlNode no in xmlNode)
                 {
                     var dict = new Dictionary<string, string> { };
-                    int i = 0;
+                    
                     foreach (XmlNode ChildNode in no.ChildNodes)
                     {
                         i++;
@@ -94,6 +83,14 @@ namespace CarregarDades
                         valor = ChildNode.InnerText.Trim();
                         valor = valor.Replace(@"'", " ");
                         columna = traduirColumna(columna);
+                        string texte = "Registre " + i.ToString() + " / ";
+
+
+                        lbl_progres.Invoke((MethodInvoker) delegate { lbl_progres.Visible = true; lbl_progres.Text = texte ; });
+                        
+                        //  lbl_progres.Text = i + " / " + llargada;
+
+
                         if (columna == "codi_laboratori" || columna == "codi" || columna == "registre_nacional")
                         {
                             if (!validarRepetit(columna, taula, valor))
@@ -106,7 +103,8 @@ namespace CarregarDades
                         }
                         else
                         {
-                            dict.Add(columna, valor);
+                            if (columna != null) { dict.Add(columna, valor); }
+                            
                         }
                     }
                     //recorro el diccionari per ficar-ho despres a la query
@@ -143,6 +141,9 @@ namespace CarregarDades
                     valors = "";
                 }
                 MessageBox.Show("Dades inserides correctament");
+                lbl_llargada.Invoke((MethodInvoker)delegate { lbl_llargada.Visible = false; });
+                lbl_progres.Invoke((MethodInvoker)delegate { lbl_progres.Visible = false; });
+                
             }
             catch (System.IO.FileNotFoundException)
             {
@@ -231,6 +232,9 @@ namespace CarregarDades
                     columna = "codi_laboratori";
                     break;
                 case "codigoprincipioactivo":
+                    columna = "num_registreSanitari";
+                    break;
+                case "nroprincipioactivo":
                     columna = "codi";
                     break;
                 case "principioactivo":
@@ -254,9 +258,9 @@ namespace CarregarDades
                 case "url_prosp":
                     columna = "url_prospecte";
                     break;
-                case "cod_principo_activo":
-                    columna = "codi_laboratori";
-                    break;
+                //case "cod_principo_activo":
+                //    columna = "codi";
+                //    break;
                 case "cif":
                     columna = "cif";
                     break;
@@ -272,6 +276,9 @@ namespace CarregarDades
                 case "laboratorio_titular":
                     columna = "codi_laboratori";
                     break;
+                default:
+                    columna = null;
+                    break;
             }
             return columna;
         }
@@ -285,16 +292,34 @@ namespace CarregarDades
 
         }
 
-        private XmlNodeList generarXmlNode(string str, FileStream fs)
+        private XmlNodeList sortXMLNode(XmlDocument xmlDoc)
         {
-            XmlDocument xmlDoc = new XmlDocument();
-            XmlNodeList xmlNode;
-
-            xmlDoc.Load(fs);
-            xmlNode = xmlDoc.GetElementsByTagName(str);
-
-            return xmlNode;
-
+           // xmlDoc.Load(fs);
+            XmlNodeList xmlNode = null;
+            String taula = null;
+             if(xmlDoc.GetElementsByTagName("laboratorios").Count > 0)
+            {
+                xmlNode = xmlDoc.GetElementsByTagName("laboratorios");
+                taula = "laboratoris_farmaceutics";
+                return xmlNode;
+            }
+            else if (xmlDoc.GetElementsByTagName("principiosactivos").Count > 0)
+            {
+                xmlNode = xmlDoc.GetElementsByTagName("principiosactivos");
+                taula = "principis_actius";
+                return xmlNode;
+            }
+            else if (xmlDoc.GetElementsByTagName("prescription").Count > 0) {
+                xmlNode = xmlDoc.GetElementsByTagName("prescription");
+                taula = "medicaments";
+                return xmlNode;
+            }
+            else
+            {
+                MessageBox.Show("Introdueixi un XML vàlid");
+                return xmlNode;
+            }
+   
         }
 
         public int llargadaXML(XmlNodeList xmlNode)
@@ -308,7 +333,53 @@ namespace CarregarDades
             return i;
         }
 
+        private string trobarTaula(XmlDocument xmlDoc)
+        {
+            String taula;
 
+            if (xmlDoc.GetElementsByTagName("laboratorios").Count > 0)
+            {
+                taula = "laboratoris_farmaceutics";
+                return taula;
+            }
+            else if (xmlDoc.GetElementsByTagName("principiosactivos").Count > 0)
+            {
+                taula = "principis_actius";
+                return taula;
+            }
+            else if (xmlDoc.GetElementsByTagName("prescription").Count > 0)
+            {
+                taula = "medicaments";
+                return taula;
+            }
+            else
+            {
+                MessageBox.Show("Introdueixi un XML vàlid");
+                return "";
+            }
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            String ruta = txt_RutaFitxer.Text;
+            ruta = ruta.Replace(@"\\", @"\");
+
+            if (ruta != "")
+            {
+                ReadXML(ruta);
+            }
+            else { MessageBox.Show("Escolleix un arxiu"); }
+
+
+
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
+        {
+           // lbl_progres.Visible = true;
+           // lbl_progres.Text = "testc";
+
+        }
     }
 
 

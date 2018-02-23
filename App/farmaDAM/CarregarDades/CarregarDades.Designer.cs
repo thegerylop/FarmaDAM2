@@ -31,6 +31,9 @@
             this.btn_InserirDades = new System.Windows.Forms.Button();
             this.btn_FindFile = new System.Windows.Forms.Button();
             this.txt_RutaFitxer = new System.Windows.Forms.TextBox();
+            this.lbl_progres = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.lbl_llargada = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_InserirDades
@@ -61,9 +64,32 @@
             this.txt_RutaFitxer.Size = new System.Drawing.Size(252, 20);
             this.txt_RutaFitxer.TabIndex = 2;
             // 
+            // lbl_progres
+            // 
+            this.lbl_progres.AutoSize = true;
+            this.lbl_progres.Location = new System.Drawing.Point(643, 424);
+            this.lbl_progres.Name = "lbl_progres";
+            this.lbl_progres.Size = new System.Drawing.Size(0, 13);
+            this.lbl_progres.TabIndex = 3;
+            this.lbl_progres.Visible = false;
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            // 
+            // lbl_llargada
+            // 
+            this.lbl_llargada.AutoSize = true;
+            this.lbl_llargada.Location = new System.Drawing.Point(718, 424);
+            this.lbl_llargada.Name = "lbl_llargada";
+            this.lbl_llargada.Size = new System.Drawing.Size(0, 13);
+            this.lbl_llargada.TabIndex = 4;
+            // 
             // carregarDades
             // 
             this.ClientSize = new System.Drawing.Size(913, 484);
+            this.Controls.Add(this.lbl_llargada);
+            this.Controls.Add(this.lbl_progres);
             this.Controls.Add(this.txt_RutaFitxer);
             this.Controls.Add(this.btn_FindFile);
             this.Controls.Add(this.btn_InserirDades);
@@ -79,5 +105,8 @@
         private System.Windows.Forms.Button btn_InserirDades;
         private System.Windows.Forms.Button btn_FindFile;
         private System.Windows.Forms.TextBox txt_RutaFitxer;
+        private System.Windows.Forms.Label lbl_progres;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Label lbl_llargada;
     }
 }
