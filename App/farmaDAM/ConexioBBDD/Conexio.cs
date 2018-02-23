@@ -35,7 +35,8 @@ namespace ConexioBBDD
                     }
                     dataReader.Close();
                     return select;
-                } else
+                }
+                else
                 {
                     return null;
                 }
@@ -54,23 +55,30 @@ namespace ConexioBBDD
             conn.Open();
             conn.InitializeLifetimeService();
         }
-        public DataSet portarPerConsulta(String query, String table) {
+        public DataSet portarPerConsulta(String query, String table)
+        {
             MySqlDataAdapter dtaDades = new MySqlDataAdapter();
             MySqlCommandBuilder construct = new MySqlCommandBuilder();
             DataSet dtsDades = new DataSet();
 
-            try{
+            try
+            {
                 connexio();
                 dtaDades = new MySqlDataAdapter(query, conn);
                 construct = new MySqlCommandBuilder(dtaDades);
                 dtsDades = new DataSet();
                 dtaDades.Fill(dtsDades, table);
-               
-                
-            } catch (MySqlException eMySql) {
+
+
+            }
+            catch (MySqlException eMySql)
+            {
                 MessageBox.Show(eMySql.ToString());
-            } finally {
-                if (conn != null) {
+            }
+            finally
+            {
+                if (conn != null)
+                {
                     conn.Close();
                     conn.Dispose();
                 }
@@ -103,7 +111,7 @@ namespace ConexioBBDD
             }
             finally
             {
-                if(conn != null)
+                if (conn != null)
                 {
                     conn.Close();
                     conn.Dispose();
@@ -180,4 +188,5 @@ namespace ConexioBBDD
                 conn.Close();
             }
         }
+    }
 }

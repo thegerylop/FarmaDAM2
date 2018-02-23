@@ -63,7 +63,7 @@ namespace Ventas
             query = "Select * from " + table;
             dataSet = bd.portarPerConsulta(query, table);
             medicaments = bd.portarPerConsulta("select v.registre_nacional, v.nom_comercial as 'Producte',v.contingut, e.nom as 'Principi_Actiu',v.PVP,v.IVA,s.quantitat,v.substituible,v.generic from medicaments v , principis_actius e , stock s where v.id_PrincipiActiu = e.id_PrincipiActiu and v.id_stock = s.id_stock", "medicaments");
-           
+            CcQuant.SelectedIndex = 0;
             BindingDades("medicaments");
             
 
@@ -95,12 +95,6 @@ namespace Ventas
                 groupBoxLlista.Visible = true;
             }
         }
-
-        private void customTextBox1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
-        }
-
         private void dgvVentas_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             
@@ -110,7 +104,7 @@ namespace Ventas
             foreach (ListViewItem itemRow in this.listViewCompra.Items)
             {
                 medicament = itemRow.SubItems[0].Text;
-                if(medicament == dgvVentas.Rows[index].Cells[0].Value.ToString())
+                if(medicament == dgvVentas.Rows[index].Cells[1].Value.ToString())
                 {
                     add = false;
                     int quantity;
@@ -121,12 +115,12 @@ namespace Ventas
             }
             if (add)
             {
-                string[] row = { dgvVentas.Rows[index].Cells[0].Value.ToString(), dgvVentas.Rows[index].Cells[3].Value.ToString(), dgvVentas.Rows[index].Cells[4].Value.ToString(), "1" };
+                string[] row = { dgvVentas.Rows[index].Cells[1].Value.ToString(), dgvVentas.Rows[index].Cells[4].Value.ToString(), dgvVentas.Rows[index].Cells[5].Value.ToString(), "1" };
                 var listViewItem = new ListViewItem(row);
                 listViewCompra.Items.Add(listViewItem);
             }
-            double value1 = Convert.ToDouble(dgvVentas.Rows[index].Cells[3].Value.ToString());
-            double value2 = Convert.ToDouble(dgvVentas.Rows[index].Cells[4].Value.ToString());
+            double value1 = Convert.ToDouble(dgvVentas.Rows[index].Cells[4].Value.ToString());
+            double value2 = Convert.ToDouble(dgvVentas.Rows[index].Cells[5].Value.ToString());
             total += value1 + (value1 * (value2 / 100));
             lblTotal.Text = total.ToString() + " €";
         }
@@ -179,23 +173,45 @@ namespace Ventas
 
             if (e.KeyChar == '\r')
             {
-                string medic = "select v.nom_comercial,v.PVP,v.IVA,s.quantitat from medicaments v , stock s where v.id_stock = s.id_stock";
+                //Busco el medicament a la BBDD.
+                string medic = "select v.registre_nacional,v.nom_comercial,v.PVP,v.IVA,s.quantitat from medicaments v , stock s where v.id_stock = s.id_stock and v.registre_nacional = " + TxBFilter.Text;
                 DataTable medicament = bd.searchTableFromQuery(medic);
-
+                Boolean afegir = true;
+                
+                //Si existeix el medicament afaga la quantitat de stock que té.
                 if(medicament.Rows.Count > 0 )
                 {
                     DataRow r = medicament.Rows[0];
-                    int quantity = Int32.Parse(r.ItemArray[3].ToString());
+                    int quantity = Int32.Parse(r["quantitat"].ToString());
+
+                    //Si la quantitat es major que 0.
                     if(quantity > 0)
                     {
-                        if(quantity >= Int32.Parse(CcQuant.Text))
+                        //Si la quantitat es major o igual a la que jo demano.
+                        if(quantity >= Int32.Parse(CcQuant.SelectedItem.ToString()))
                         {
-                            string[] row = { r.ItemArray[0].ToString(), r.ItemArray[1].ToString(), r.ItemArray[2].ToString(), CcQuant.Text };
-                            var listViewItem = new ListViewItem(row);
-                            listViewCompra.Items.Add(listViewItem);
-                            TxBFilter.Text = "";
-                            CcQuant.Text = "";
-                            e.KeyChar = '\r';
+                            //Busca si el medicament ja esta afegit al ticket
+                            foreach (ListViewItem itemRow in this.listViewCompra.Items)
+                            {
+                                if (itemRow.SubItems[0].Text == r.ItemArray[0].ToString())
+                                {
+                                    afegir = false;
+                                    int cantidad;
+                                    cantidad = Int32.Parse(itemRow.SubItems[3].Text);
+                                    cantidad += Int32.Parse(CcQuant.SelectedItem.ToString());
+                                    itemRow.SubItems[3].Text = cantidad.ToString();
+                                }
+                            }
+                            //Si el medicament introduit no esta ja en el ticket
+                            if (afegir)
+                            {
+                                string[] row = { r.ItemArray[0].ToString(), r.ItemArray[1].ToString(), r.ItemArray[2].ToString(), CcQuant.SelectedItem.ToString()};
+                                var listViewItem = new ListViewItem(row);
+                                listViewCompra.Items.Add(listViewItem);
+                                TxBFilter.Text = "";
+                                CcQuant.SelectedIndex = 0;
+                                e.KeyChar = '\r';
+                            }
                         }
                         else
                         {
@@ -205,33 +221,19 @@ namespace Ventas
                     else
                     {
                         MessageBox.Show("Producte sense stock");
+                        //fa una busqueda a la dataGridView
+                        (dgvVentas.DataSource as DataTable).DefaultView.RowFilter = string.Format("registre_nacional = '" + TxBFilter.Text + "'");
+                        Boolean subs = Convert.ToBoolean(dgvVentas.Rows[0].Cells[6].Value);
+                        //Si no té stock i es substituible, busca altres medicaments
+                        if (subs)
+                        {
+                            string principi = dgvVentas.Rows[0].Cells[2].Value.ToString();
+                            (dgvVentas.DataSource as DataTable).DefaultView.RowFilter = string.Format("Principi_Actiu LIKE '{0}'", principi);
+                            dgvVentas.Sort(dgvVentas.Columns[4], ListSortDirection.Ascending);
+                        }
                     }
-                }
-
-                (dgvVentas.DataSource as DataTable).DefaultView.RowFilter = string.Format("registre_nacional = '" + TxBFilter.Text +"'");
-
-                if (dgvVentas.Rows.Count > 0)
-                {
-                    int stock = Int32.Parse(dgvVentas.Rows[0].Cells[6].Value.ToString());
-                    Boolean subs = Convert.ToBoolean(dgvVentas.Rows[0].Cells[6].Value);
-                    if (subs && stock == 0)
-                    {
-                        string principi = dgvVentas.Rows[0].Cells[2].Value.ToString();
-                        (dgvVentas.DataSource as DataTable).DefaultView.RowFilter = string.Format("Principi_Actiu LIKE '{0}'", principi);
-                        dgvVentas.Sort(dgvVentas.Columns[4], ListSortDirection.Ascending);
-                    }
-                }
-                else if(TxBFilter.Text.Length == 0)
-                {
-                    (dgvVentas.DataSource as DataTable).DefaultView.RowFilter = string.Format("registre_nacional LIKE '{0}%'", TxBFilter.Text);
-                    dgvVentas.Sort(dgvVentas.Columns[0], ListSortDirection.Ascending);
                 }
             }
-        }
-
-        private void TBRec_Leave(object sender, EventArgs e)
-        {
-
         }
     }
 }

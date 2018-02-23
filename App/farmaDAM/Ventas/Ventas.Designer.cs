@@ -30,7 +30,7 @@
         {
             this.label2 = new System.Windows.Forms.Label();
             this.groupBoxMed = new System.Windows.Forms.GroupBox();
-            this.CcQuant = new CustomControl.CustomTextBox();
+            this.CcQuant = new CustomControl.comboBox();
             this.lblFiltrar = new System.Windows.Forms.Label();
             this.TxBFilter = new CustomControl.CustomTextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -93,14 +93,24 @@
             // 
             // CcQuant
             // 
-            this.CcQuant.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CcQuant.Location = new System.Drawing.Point(371, 43);
+            this.CcQuant.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CcQuant.FormattingEnabled = true;
+            this.CcQuant.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.CcQuant.Location = new System.Drawing.Point(371, 42);
             this.CcQuant.Name = "CcQuant";
-            this.CcQuant.Options = CustomControl.CustomTextBox.Items.Text;
-            this.CcQuant.Placeholder = null;
-            this.CcQuant.Size = new System.Drawing.Size(52, 20);
-            this.CcQuant.TabIndex = 89;
-            this.CcQuant.Tag = "";
+            this.CcQuant.Reference = null;
+            this.CcQuant.Size = new System.Drawing.Size(41, 21);
+            this.CcQuant.TabIndex = 90;
             this.CcQuant.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxBFilter_KeyPress);
             // 
             // lblFiltrar
@@ -124,6 +134,7 @@
             this.TxBFilter.Size = new System.Drawing.Size(119, 20);
             this.TxBFilter.TabIndex = 86;
             this.TxBFilter.Tag = "";
+            this.TxBFilter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxBFilter_KeyPress);
             // 
             // label1
             // 
@@ -391,7 +402,6 @@
             this.TBRec.Placeholder = null;
             this.TBRec.Size = new System.Drawing.Size(121, 20);
             this.TBRec.TabIndex = 3;
-            this.TBRec.Leave += new System.EventHandler(this.TBRec_Leave);
             // 
             // Ventas
             // 
@@ -457,6 +467,6 @@
         private System.Windows.Forms.GroupBox gbRecepta;
         private System.Windows.Forms.Label label7;
         private CustomControl.CustomTextBox TBRec;
-        private CustomControl.CustomTextBox CcQuant;
+        private CustomControl.comboBox CcQuant;
     }
 }
