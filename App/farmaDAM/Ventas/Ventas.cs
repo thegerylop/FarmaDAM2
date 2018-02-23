@@ -193,7 +193,7 @@ namespace Ventas
                             //Busca si el medicament ja esta afegit al ticket
                             foreach (ListViewItem itemRow in this.listViewCompra.Items)
                             {
-                                if (itemRow.SubItems[0].Text == r.ItemArray[0].ToString())
+                                if (itemRow.SubItems[0].Text == r["registre_nacional"].ToString())
                                 {
                                     afegir = false;
                                     int cantidad;
@@ -205,7 +205,7 @@ namespace Ventas
                             //Si el medicament introduit no esta ja en el ticket
                             if (afegir)
                             {
-                                string[] row = { r.ItemArray[0].ToString(), r.ItemArray[1].ToString(), r.ItemArray[2].ToString(), CcQuant.SelectedItem.ToString()};
+                                string[] row = { r["nom_comercial"].ToString(), r["PVP"].ToString(), r["IVA"].ToString(), CcQuant.SelectedItem.ToString()};
                                 var listViewItem = new ListViewItem(row);
                                 listViewCompra.Items.Add(listViewItem);
                                 TxBFilter.Text = "";
