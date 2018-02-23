@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaginaPrincipal", "PaginaPrincipal\PaginaPrincipal.csproj", "{53042222-0403-4BC6-B942-FD126C1AB117}"
 EndProject
@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseForm", "BaseForm\BaseFo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomControl", "CustomControl\CustomControl.csproj", "{A7279E0E-D844-4CC7-99DA-9939EAA74818}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Manteniment_Productes", "Manteniment_Productes\Manteniment_Productes.csproj", "{4EEE1884-5464-4929-82D6-B25AF0F4F8A6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MantenimentProductes", "Manteniment_Productes\MantenimentProductes.csproj", "{4EEE1884-5464-4929-82D6-B25AF0F4F8A6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MantenimentPrincipisActius", "MantenimentPrincipisActius\MantenimentPrincipisActius.csproj", "{C27E3BDF-3314-4F3F-BBDF-3F9883848A22}"
 EndProject

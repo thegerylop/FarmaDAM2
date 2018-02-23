@@ -8,17 +8,18 @@ using System.Windows.Forms;
 
 namespace Manteniment_Productes
 {
-    public partial class Manteniment_Productes : BaseForm.BaseForm
+    public partial class MantenimentProductesX : BaseForm.BaseForm
     {
-        public Manteniment_Productes()
+        public MantenimentProductesX()
         {
             InitializeComponent();
         }
 
-        string table = "mantenimentProductes";
-
-        private void Productes_Load (object sender, EventArgs e)
+        String table = "medicaments";
+        String comboBoxQuery;
+        private void MantenimentProductesX_Load(object sender, EventArgs e)
         {
+            dgvBase.Anchor = AnchorStyles.Bottom;
             Table(table);
             //Amaguem id_medicament i id_principiActiu
             this.dgvBase.Columns[0].Visible = false;
@@ -38,27 +39,44 @@ namespace Manteniment_Productes
             this.dgvBase.Columns[13].HeaderText = "Codi Laboratori"; //codi_laboratori
             //Amaguem id_la
             this.dgvBase.Columns[14].Visible = false;
+
+            //comboBoxQuery = "Select nom_carnet from " + CcomboBox.Reference;
+            //DataTable t = bd.searchTableFromQuery(comboBoxQuery);
+            //addComboBoxData(t, CcomboBox);
+
+        }
+
+        public void addComboBoxData(DataTable t, ComboBox CcomboBox)
+        {
+            CcomboBox.Items.Add("Selecciona...");
+            CcomboBox.SelectedIndex = 0;
+            for (var i = 0; i < t.Rows.Count; i++)
+            {
+                DataRow r = t.Rows[i];
+                if (r.ItemArray[0] != null)
+                {
+                    CcomboBox.Items.Add(r.ItemArray[0].ToString());
+                }
+            }
         }
 
         private void TxBFilter_TextChanged(object sender, EventArgs e)
         {
             String columna = "";
-
-            for (int i = 1; i <= dgvBase.Columns.Count; i++)
+            if (cbProds.Text != "")
             {
-                if (dgvBase.Columns[i].HeaderText.Equals(cbProds.Text))
+                for (int i = 1; i <= dgvBase.Columns.Count; i++)
                 {
-                    columna = dgvBase.Columns[i].Name;
-                    break;
+                    if (dgvBase.Columns[i].HeaderText.Equals(cbProds.Text))
+                    {
+                        columna = dgvBase.Columns[i].Name;
+                        break;
+                    }
                 }
+                double number;
+                string rowFilter = double.TryParse(TxBFilter.Text, out number) ? string.Format(columna + " = '{0}'", TxBFilter.Text) : string.Format(columna + " like '%{0}%'", TxBFilter.Text);
+                (dgvBase.DataSource as DataTable).DefaultView.RowFilter = rowFilter;
             }
-
-            double number;
-
-            string rowFilter = double.TryParse(TxBFilter.Text, out number) ? string.Format(columna + " = '{0}'", TxBFilter.Text) : string.Format(columna + " like '%{0}%'", TxBFilter.Text);
-            (dgvBase.DataSource as DataTable).DefaultView.RowFilter = rowFilter;
         }
-
-
     }
 }
