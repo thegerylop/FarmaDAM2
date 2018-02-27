@@ -62,7 +62,7 @@ namespace Ventas
             CcomboBox.SelectedIndex = 0;
             query = "Select * from " + table;
             dataSet = bd.portarPerConsulta(query, table);
-            medicaments = bd.portarPerConsulta("select v.registre_nacional, v.nom_comercial as 'Producte',v.contingut, e.nom as 'Principi_Actiu',v.PVP,v.IVA,s.quantitat,v.substituible,v.generic from medicaments v , principis_actius e , stock s where v.id_PrincipiActiu = e.id_PrincipiActiu and v.id_stock = s.id_stock", "medicaments");
+            medicaments = bd.portarPerConsulta("select v.registre_nacional, v.nom_comercial as 'Producte',v.contingut, e.nom as 'Principi_Actiu',v.PVP,v.IVA,v.stock,v.substituible,v.generic from medicaments v , principis_actius e where v.id_PrincipiActiu = e.id_PrincipiActiu", "medicaments");
             CcQuant.SelectedIndex = 0;
             BindingDades("medicaments");
             
@@ -174,7 +174,7 @@ namespace Ventas
             if (e.KeyChar == '\r')
             {
                 //Busco el medicament a la BBDD.
-                string medic = "select v.registre_nacional,v.nom_comercial,v.PVP,v.IVA,s.quantitat from medicaments v , stock s where v.id_stock = s.id_stock and v.registre_nacional = " + TxBFilter.Text;
+                string medic = "select v.registre_nacional,v.nom_comercial,v.PVP,v.IVA,v.stock from medicaments v where v.registre_nacional = " + TxBFilter.Text;
                 DataTable medicament = bd.searchTableFromQuery(medic);
                 Boolean afegir = true;
                 
@@ -182,7 +182,7 @@ namespace Ventas
                 if(medicament.Rows.Count > 0 )
                 {
                     DataRow r = medicament.Rows[0];
-                    int quantity = Int32.Parse(r["quantitat"].ToString());
+                    int quantity = Int32.Parse(r["stock"].ToString());
 
                     //Si la quantitat es major que 0.
                     if(quantity > 0)
@@ -193,7 +193,7 @@ namespace Ventas
                             //Busca si el medicament ja esta afegit al ticket
                             foreach (ListViewItem itemRow in this.listViewCompra.Items)
                             {
-                                if (itemRow.SubItems[0].Text == r["registre_nacional"].ToString())
+                                if (itemRow.SubItems[0].Text == r["nom_comercial"].ToString())
                                 {
                                     afegir = false;
                                     int cantidad;
@@ -212,6 +212,10 @@ namespace Ventas
                                 CcQuant.SelectedIndex = 0;
                                 e.KeyChar = '\r';
                             }
+                            double value1 = Convert.ToDouble(r["PVP"].ToString());
+                            double value2 = Convert.ToDouble(r["IVA"].ToString());
+                            total += value1 + (value1 * (value2 / 100));
+                            lblTotal.Text = total.ToString() + " €";
                         }
                         else
                         {
