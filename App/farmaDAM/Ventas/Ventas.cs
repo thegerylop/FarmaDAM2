@@ -26,7 +26,28 @@ namespace Ventas
         {
             InitializeComponent();
         }
+        private void Ventas_Load(object sender, EventArgs e)
+        {
 
+            gbClient.Visible = false;
+            gbRecepta.Visible = false;
+            groupBoxMed.Visible = false;
+            groupBoxLlista.Visible = false;
+            CcomboBox.SelectedIndex = 0;
+            query = "Select * from " + table;
+            dataSet = bd.portarPerConsulta(query, table);
+            medicaments = bd.portarPerConsulta("select v.registre_nacional, v.nom_comercial as 'Producte',v.contingut, e.nom as 'Principi_Actiu',v.PVP,v.IVA,v.stock,v.substituible,v.generic from medicaments v , principis_actius e where v.id_PrincipiActiu = e.id_PrincipiActiu", "medicaments");
+            CcQuant.SelectedIndex = 0;
+            BindingDades("medicaments");
+
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Ventas form = new Ventas();
+            form.Refresh();
+        }
         private void CCpassword_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '\r')
@@ -53,80 +74,75 @@ namespace Ventas
                 groupBoxLlista.Visible = false;
             }
         }
-        private void Ventas_Load(object sender, EventArgs e)
-        {
-            gbClient.Visible = false;
-            groupBoxMed.Visible = false;
-            groupBoxLlista.Visible = false;
-            CcomboBox.SelectedIndex = 0;
-            query = "Select * from " + table;
-            dataSet = bd.portarPerConsulta(query, table);
-            medicaments = bd.portarPerConsulta("select v.nom_comercial as 'Producte',v.contingut, e.nom as 'Principi_Actiu',v.PVP,v.IVA,s.quantitat,v.substituible,v.generic from medicaments v , principis_actius e , stock s where v.id_PrincipiActiu = e.id_PrincipiActiu and v.id_stock = s.id_stock", "medicaments");
-           
-            BindingDades("medicaments");
-            
-
-        }
         private void BindingDades(string table)
         {
             dgvVentas.AutoGenerateColumns = true;
             dgvVentas.DataSource = medicaments.Tables[table]; // dataset
             dgvVentas.Columns[7].Visible = false;
-            dgvVentas.Columns[6].Visible = false;
+            dgvVentas.Columns[8].Visible = false;
         }
-
-        private void customTextBox1_Leave(object sender, EventArgs e)
+        private void TBClients_Leave(object sender, EventArgs e)
         {
-            query = "Select " + CcomboBox.Text + " from clients where " + CcomboBox.Text + " = " + customTextBox1.Text;
+            query = "Select " + CcomboBox.Text + " from clients where " + CcomboBox.Text + " = " + TBClient.Text;
             dataSet = bd.portarPerConsulta(query, table);
 
             if (dataSet.Tables[0].Rows.Count == 0)
             {
                 MessageBox.Show("El client indicat no existeix");
-                customTextBox1.Text = "";
+                TBClient.Text = "";
             }
             else
             {
-                customTextBox1.Enabled = false;
+                TBClient.Enabled = false;
                 CcomboBox.Enabled = false;
+                gbRecepta.Visible = true;
                 groupBoxMed.Visible = true;
                 groupBoxLlista.Visible = true;
             }
         }
-
-        private void customTextBox1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
-        }
-
         private void dgvVentas_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            //TEST
             Boolean add = true;
+            Boolean sumar = true;
             int index = dgvVentas.CurrentCell.RowIndex;
             string medicament;
+
+            //comprovem si el medicament ja esta a la llista
             foreach (ListViewItem itemRow in this.listViewCompra.Items)
             {
                 medicament = itemRow.SubItems[0].Text;
-                if(medicament == dgvVentas.Rows[index].Cells[0].Value.ToString())
+                if(medicament == dgvVentas.Rows[index].Cells[1].Value.ToString())
                 {
                     add = false;
                     int quantity;
                     quantity = Int32.Parse(itemRow.SubItems[3].Text);
-                    quantity += 1;
-                    itemRow.SubItems[3].Text = quantity.ToString();
+                    if(quantity < Int32.Parse(dgvVentas.Rows[index].Cells[6].Value.ToString()))
+                    {
+                        quantity += 1;
+                        itemRow.SubItems[3].Text = quantity.ToString();
+                    }
+                    else
+                    {
+                        sumar = false;
+                        MessageBox.Show("Stock per sota del demanat");
+                    }
                 }
             }
+            //si no esta a la llista l'afegim
             if (add)
             {
-                string[] row = { dgvVentas.Rows[index].Cells[0].Value.ToString(), dgvVentas.Rows[index].Cells[3].Value.ToString(), dgvVentas.Rows[index].Cells[4].Value.ToString(), "1" };
+                string[] row = { dgvVentas.Rows[index].Cells[1].Value.ToString(), dgvVentas.Rows[index].Cells[4].Value.ToString(), dgvVentas.Rows[index].Cells[5].Value.ToString(), "1" };
                 var listViewItem = new ListViewItem(row);
                 listViewCompra.Items.Add(listViewItem);
             }
-            double value1 = Convert.ToDouble(dgvVentas.Rows[index].Cells[3].Value.ToString());
-            double value2 = Convert.ToDouble(dgvVentas.Rows[index].Cells[4].Value.ToString());
-            total += value1 + (value1 * (value2 / 100));
-            lblTotal.Text = total.ToString() + " €";
+            if (sumar)
+            {
+                double value1 = Convert.ToDouble(dgvVentas.Rows[index].Cells[4].Value.ToString());
+                double value2 = Convert.ToDouble(dgvVentas.Rows[index].Cells[5].Value.ToString());
+                total += value1 + (value1 * (value2 / 100));
+                lblTotal.Text = total.ToString() + " €";
+            }
         }
 
         private void listViewCompra_ItemActivate(object sender, EventArgs e)
@@ -154,44 +170,147 @@ namespace Ventas
 
         private void btnAcceptar_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void CCpassword_Enter(object sender, EventArgs e)
-        {
-            if (CCpassword.Text == "Password")
+            int count = listViewCount();
+            if (count > 0) {
+                string queryClient = "Select id_client from clients where " + CcomboBox.Text + " = " + TBClient.Text;
+                string queryPersonal = "Select id_personal from personal where usuari = '" + user + "'";
+                DataTable client = bd.searchTableFromQuery(queryClient);
+                DataTable personal = bd.searchTableFromQuery(queryPersonal);
+                DataRow rClient = client.Rows[0];
+                DataRow rPersonal = personal.Rows[0];
+                queryClient = rClient["id_Client"].ToString();
+                queryPersonal = rPersonal["id_personal"].ToString();
+                bd.executaComanda("insert into vendes (id_personal,id_client,data) values (" + queryClient + "," + queryPersonal + ",NOW())");
+                afegirProductesBBDD();
+            }
+            else
             {
-                CCpassword.Text = "";
+                MessageBox.Show("ticket buit");
+            }
+        }
+        private void afegirProductesBBDD()
+        {
+            string queryID = "SELECT max(id_venda) FROM vendes";
+            DataTable id_venda = bd.searchTableFromQuery(queryID);
+            DataRow rid_venda = id_venda.Rows[0];
+            int Id = Int32.Parse(rid_venda["max(id_venda)"].ToString());
+            foreach (ListViewItem itemRow in this.listViewCompra.Items)
+            {
+                string producte = itemRow.SubItems[0].Text;
+                string producteID = "SELECT id_medicament FROM medicaments where nom_comercial = '" + producte +"'";
+                DataTable id_producte = bd.searchTableFromQuery(producteID);
+                DataRow rid_prodcute = id_producte.Rows[0];
+                int IdProd = Int32.Parse(rid_prodcute["id_medicament"].ToString());
+                int cantidad = Int32.Parse(itemRow.SubItems[3].Text);
+                string preu = itemRow.SubItems[1].Text;
+                preu = preu.Replace(@",",".");
+                string iva = itemRow.SubItems[2].Text;
+                iva = iva.Replace(@",", ".");
+                Boolean result = bd.executaComanda("insert into linia_venda (id_venda,id_medicament,quantitat,pvp,IVA) values (" + Id + "," + IdProd + "," + cantidad + "," + preu + "," + iva + ")");
+                if (result)
+                {
+                    MessageBox.Show("Venda finalitzada");
+                }
+                else
+                {
+                    MessageBox.Show("Ticket mal realitzat");
+                }
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Ventas form = new Ventas();
-            form.Show();
-            this.Dispose();
-        }
 
+
+        private int listViewCount()
+        {
+            int count = 0;
+            foreach (ListViewItem itemRow in this.listViewCompra.Items)
+            {
+                count++;
+            }
+            return count;
+
+        }
         private void TxBFilter_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //TEST
             if (e.KeyChar == '\r')
             {
-                (dgvVentas.DataSource as DataTable).DefaultView.RowFilter = string.Format("Producte = '" + TxBFilter.Text +"'");
+                //Busco el medicament a la BBDD.
+                string medic = "select v.registre_nacional,v.nom_comercial,v.PVP,v.IVA,v.stock from medicaments v where v.registre_nacional = " + TxBFilter.Text;
+                DataTable medicament = bd.searchTableFromQuery(medic);
+                Boolean afegir = true;
+                Boolean sumar = true;
+                
+                //Si existeix el medicament afaga la quantitat de stock que té.
+                if(medicament.Rows.Count > 0 )
+                {
+                    DataRow r = medicament.Rows[0];
+                    int quantity = Int32.Parse(r["stock"].ToString());
 
-                if (dgvVentas.Rows.Count > 0)
-                {
-                    Boolean subs = Convert.ToBoolean(dgvVentas.Rows[0].Cells[6].Value);
-                    if (subs)
+                    //Si la quantitat es major que 0.
+                    if(quantity > 0)
                     {
-                        string principi = dgvVentas.Rows[0].Cells[2].Value.ToString();
-                        (dgvVentas.DataSource as DataTable).DefaultView.RowFilter = string.Format("Principi_Actiu LIKE '{0}'", principi);
-                        dgvVentas.Sort(dgvVentas.Columns[3], ListSortDirection.Ascending);
+                        //Si la quantitat es major o igual a la que jo demano.
+                        if(quantity >= Int32.Parse(CcQuant.SelectedItem.ToString()))
+                        {
+                            //Busca si el medicament ja esta afegit al ticket
+                            foreach (ListViewItem itemRow in this.listViewCompra.Items)
+                            {
+                                if (itemRow.SubItems[0].Text == r["nom_comercial"].ToString())
+                                {
+                                    afegir = false;
+                                    int cantidad;
+                                    cantidad = Int32.Parse(itemRow.SubItems[3].Text);
+                                    // Comprova que la quantitat del ticket sigui menor que el sticl
+                                    if (cantidad < quantity)
+                                    {
+                                        cantidad += Int32.Parse(CcQuant.SelectedItem.ToString());
+                                        itemRow.SubItems[3].Text = cantidad.ToString();
+                                    }
+                                    else
+                                    {
+                                        sumar = false;
+                                        MessageBox.Show("Stock per sota del demanat");
+                                    }
+                                }
+                            }
+                            //Si el medicament introduit no esta ja en el ticket
+                            if (afegir)
+                            {
+                                string[] row = { r["nom_comercial"].ToString(), r["PVP"].ToString(), r["IVA"].ToString(), CcQuant.SelectedItem.ToString()};
+                                var listViewItem = new ListViewItem(row);
+                                listViewCompra.Items.Add(listViewItem);
+                                TxBFilter.Text = "";
+                                CcQuant.SelectedIndex = 0;
+                                e.KeyChar = '\r';
+                            }
+                            if (sumar)
+                            {
+                                double value1 = Convert.ToDouble(r["PVP"].ToString());
+                                double value2 = Convert.ToDouble(r["IVA"].ToString());
+                                total += value1 + (value1 * (value2 / 100));
+                                lblTotal.Text = total.ToString() + " €";
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Producte amb stock per sota del demanat");
+                        }
                     }
-                }
-                else if(TxBFilter.Text.Length == 0)
-                {
-                    (dgvVentas.DataSource as DataTable).DefaultView.RowFilter = string.Format("Producte LIKE '{0}%'", TxBFilter.Text);
-                    dgvVentas.Sort(dgvVentas.Columns[0], ListSortDirection.Ascending);
+                    else
+                    {
+                        MessageBox.Show("Producte sense stock");
+                        //fa una busqueda a la dataGridView
+                        (dgvVentas.DataSource as DataTable).DefaultView.RowFilter = string.Format("registre_nacional = '" + TxBFilter.Text + "'");
+                        Boolean subs = Convert.ToBoolean(dgvVentas.Rows[0].Cells[6].Value);
+                        //Si no té stock i es substituible, busca altres medicaments
+                        if (subs)
+                        {
+                            string principi = dgvVentas.Rows[0].Cells[2].Value.ToString();
+                            (dgvVentas.DataSource as DataTable).DefaultView.RowFilter = string.Format("Principi_Actiu LIKE '{0}'", principi);
+                            dgvVentas.Sort(dgvVentas.Columns[4], ListSortDirection.Ascending);
+                        }
+                    }
                 }
             }
         }
