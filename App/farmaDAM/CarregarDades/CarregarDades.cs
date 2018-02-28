@@ -64,6 +64,7 @@ namespace CarregarDades
                 xmlDoc.Load(fs);
                 xmlNode = sortXMLNode(xmlDoc);
                 taula = trobarTaula(xmlDoc);
+                String codi_PA = null;
                 
 
 
@@ -78,26 +79,58 @@ namespace CarregarDades
                     
                     foreach (XmlNode ChildNode in no.ChildNodes)
                     {
+                        //Miro si el childnode te mes fills , amb la finalitat de trobar el codi_PA del XML de medicaments 
+                        if (taula == "medicaments")
+                        {
+                            if (ChildNode.HasChildNodes)
+                        {
+                                foreach (XmlNode nieto in ChildNode.ChildNodes)
+                                {
+                                    if (nieto.Name == "composicion_pa")
+                                    {
+                                        //MessageBox.Show(nieto.Value);
+                                        foreach (XmlNode bisnieto in nieto.ChildNodes)
+                                        {
+                                            if (bisnieto.Name == "cod_principio_activo")
+                                            {
+                                                if (valor != null) { }
+                                                else
+                                                {
+                                                    valor = null;
+                                                    codi_PA = bisnieto.InnerText.Trim();
+                                                    columna = "codi";
+                                                    valor = codi_PA;
+                                                }
+                                            }
+
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            //Sino es de medicaments, segueixo normal
+                            columna = ChildNode.Name.Trim();
+                            valor = ChildNode.InnerText.Trim();
+                            valor = valor.Replace(@"'", " ");
+                            columna = traduirColumna(columna);
+
+                        }
                         i++;
-                        columna = ChildNode.Name.Trim();
-                        valor = ChildNode.InnerText.Trim();
-                        valor = valor.Replace(@"'", " ");
-                        columna = traduirColumna(columna);
                         string texte = "Registre " + i.ToString() + " / ";
-
-
                         lbl_progres.Invoke((MethodInvoker) delegate { lbl_progres.Visible = true; lbl_progres.Text = texte ; });
                         
-                        //  lbl_progres.Text = i + " / " + llargada;
-
-
+                       //Reviso que les claus uniques no es repeteixin,sino està repetit, l'afageixo al diccionari
                         if (columna == "codi_laboratori" || columna == "codi" || columna == "registre_nacional")
                         {
                             if (!validarRepetit(columna, taula, valor))
                             {
-                                dict.Add(columna, valor);
-                                repetit = false;
-
+                                if (dict.ContainsKey(columna)){ repetit = true;}
+                                else {
+                                    dict.Add(columna, valor);
+                                    repetit = false;
+                                }
                             }
                             else { repetit = true; }
                         }
@@ -155,16 +188,17 @@ namespace CarregarDades
         {
             Boolean inserit = false;
 
-            if (validarDades(columna, taula, valor))
-            {
-                var resultSet = conn.executaComanda("INSERT INTO " + taula + "( " + columna + " ) VALUES ( " + valor + " );");
-
-                if ((!resultSet.Equals(0)))
+                if (validarDades(columna, taula, valor))
                 {
-                    return inserit = true;
+                    var resultSet = conn.executaComanda("INSERT INTO " + taula + "( " + columna + " ) VALUES ( " + valor + " );");
+
+                    if (!resultSet.Equals(0))
+                    {
+                        return inserit = true;
+                    }
+                    else { return inserit = false; }
                 }
-                else { return inserit = false; }
-            }
+            
             return inserit;
         }
 
@@ -195,18 +229,21 @@ namespace CarregarDades
         public Boolean validarRepetit(string columna, string taula, string valor)
         {
             Boolean repetit = false;
-
-            if (columna == null || taula == null || valor == null)
+            if (columna != "codi")
             {
+                if (columna == null || taula == null || valor == null)
+                {
 
-                return repetit;
-            }
-            else if (conn.executaComanda("SELECT * FROM " + taula + " WHERE " + columna + " = '" + valor + "'"))
-            {
+                    return repetit;
+                }
+                else if (conn.executaComanda("SELECT * FROM " + taula + " WHERE " + columna + " = '" + valor + "'"))
+                {
 
-                return repetit = true;
+                    return repetit = true;
+                }
+                else { repetit = false; }
             }
-            else { repetit = false; }
+            else { }
 
             return repetit;
         }
@@ -258,9 +295,9 @@ namespace CarregarDades
                 case "url_prosp":
                     columna = "url_prospecte";
                     break;
-                //case "cod_principo_activo":
-                //    columna = "codi";
-                //    break;
+                case "cod_principo_activo":
+                    columna = "codi_PA";
+                    break;
                 case "cif":
                     columna = "cif";
                     break;
@@ -296,22 +333,22 @@ namespace CarregarDades
         {
            // xmlDoc.Load(fs);
             XmlNodeList xmlNode = null;
-            String taula = null;
+            //String taula = null;
              if(xmlDoc.GetElementsByTagName("laboratorios").Count > 0)
             {
                 xmlNode = xmlDoc.GetElementsByTagName("laboratorios");
-                taula = "laboratoris_farmaceutics";
+                //taula = "laboratoris_farmaceutics";
                 return xmlNode;
             }
             else if (xmlDoc.GetElementsByTagName("principiosactivos").Count > 0)
             {
                 xmlNode = xmlDoc.GetElementsByTagName("principiosactivos");
-                taula = "principis_actius";
+                //taula = "principis_actius";
                 return xmlNode;
             }
             else if (xmlDoc.GetElementsByTagName("prescription").Count > 0) {
                 xmlNode = xmlDoc.GetElementsByTagName("prescription");
-                taula = "medicaments";
+                //taula = "medicaments";
                 return xmlNode;
             }
             else
