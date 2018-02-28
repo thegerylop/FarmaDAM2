@@ -46,7 +46,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lblPreu = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Tancar = new System.Windows.Forms.Button();
             this.CCpassword = new CustomControl.CustomTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.CClogin = new CustomControl.CustomTextBox();
@@ -258,7 +258,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.Tancar);
             this.groupBox1.Controls.Add(this.CCpassword);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.CClogin);
@@ -269,19 +269,19 @@
             this.groupBox1.TabIndex = 53;
             this.groupBox1.TabStop = false;
             // 
-            // button1
+            // Tancar
             // 
-            this.button1.BackColor = System.Drawing.Color.DimGray;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Verdana", 9F);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(139, 87);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(70, 22);
-            this.button1.TabIndex = 57;
-            this.button1.Text = "Tancar";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Tancar.BackColor = System.Drawing.Color.DimGray;
+            this.Tancar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Tancar.Font = new System.Drawing.Font("Verdana", 9F);
+            this.Tancar.ForeColor = System.Drawing.Color.White;
+            this.Tancar.Location = new System.Drawing.Point(139, 87);
+            this.Tancar.Name = "Tancar";
+            this.Tancar.Size = new System.Drawing.Size(70, 22);
+            this.Tancar.TabIndex = 57;
+            this.Tancar.Text = "Tancar";
+            this.Tancar.UseVisualStyleBackColor = false;
+            this.Tancar.Click += new System.EventHandler(this.button1_Click);
             // 
             // CCpassword
             // 
@@ -356,7 +356,7 @@
             this.TBClient.Placeholder = null;
             this.TBClient.Size = new System.Drawing.Size(121, 20);
             this.TBClient.TabIndex = 3;
-            this.TBClient.Leave += new System.EventHandler(this.customTextBox1_Leave);
+            this.TBClient.Leave += new System.EventHandler(this.TBClients_Leave);
             // 
             // CcomboBox
             // 
@@ -461,7 +461,7 @@
         private CustomControl.CustomTextBox CClogin;
         private CustomControl.CustomTextBox CCpassword;
         private System.Windows.Forms.Label label6;
-        public System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Button Tancar;
         private System.Windows.Forms.Label lblFiltrar;
         private CustomControl.CustomTextBox TxBFilter;
         private System.Windows.Forms.GroupBox gbRecepta;
