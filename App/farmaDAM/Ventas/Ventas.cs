@@ -333,11 +333,11 @@ namespace Ventas
                         MessageBox.Show("Producte sense stock");
                         //fa una busqueda a la dataGridView
                         (dgvVentas.DataSource as DataTable).DefaultView.RowFilter = string.Format("registre_nacional = '" + TxBFilter.Text + "'");
-                        Boolean subs = Convert.ToBoolean(dgvVentas.Rows[0].Cells[6].Value);
+                        Boolean subs = Convert.ToBoolean(dgvVentas.Rows[0].Cells[7].Value);
                         //Si no té stock i es substituible, busca altres medicaments
                         if (subs)
                         {
-                            string principi = dgvVentas.Rows[0].Cells[2].Value.ToString();
+                            string principi = dgvVentas.Rows[0].Cells[3].Value.ToString();
                             (dgvVentas.DataSource as DataTable).DefaultView.RowFilter = string.Format("Principi_Actiu LIKE '{0}'", principi);
                             dgvVentas.Sort(dgvVentas.Columns[4], ListSortDirection.Ascending);
                         }
