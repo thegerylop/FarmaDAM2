@@ -238,6 +238,10 @@ namespace Ventas
             if (VendaCorrecte)
             {
                 MessageBox.Show("Venda Realitzada");
+                //actualitza la dataGridView
+                medicaments = bd.portarPerConsulta("select v.registre_nacional, v.nom_comercial as 'Producte',v.contingut, e.nom as 'Principi_Actiu',v.PVP,v.IVA,v.stock,v.substituible,v.generic from medicaments v , principis_actius e where v.id_PrincipiActiu = e.id_PrincipiActiu", "medicaments");
+                CcQuant.SelectedIndex = 0;
+                BindingDades("medicaments");
             }
             else
             {
