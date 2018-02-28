@@ -171,6 +171,8 @@ namespace Ventas
         private void btnAcceptar_Click(object sender, EventArgs e)
         {
             int count = listViewCount();
+
+            //Comprova que el ticket no estigui buit, si es aixi crea la venda
             if (count > 0) {
                 string queryClient = "Select id_client from clients where " + CcomboBox.Text + " = " + TBClient.Text;
                 string queryPersonal = "Select id_personal from personal where usuari = '" + user + "'";
@@ -180,7 +182,9 @@ namespace Ventas
                 DataRow rPersonal = personal.Rows[0];
                 queryClient = rClient["id_Client"].ToString();
                 queryPersonal = rPersonal["id_personal"].ToString();
+
                 bd.executaComanda("insert into vendes (id_personal,id_client,data) values (" + queryClient + "," + queryPersonal + ",NOW())");
+
                 afegirProductesBBDD();
             }
             else
@@ -192,8 +196,11 @@ namespace Ventas
         {
             string queryID = "SELECT max(id_venda) FROM vendes";
             DataTable id_venda = bd.searchTableFromQuery(queryID);
+            Boolean VendaCorrecte = true;
             DataRow rid_venda = id_venda.Rows[0];
             int Id = Int32.Parse(rid_venda["max(id_venda)"].ToString());
+
+            //Per cada Producte en el ticket l'afageix a linia_venda a la bbdd
             foreach (ListViewItem itemRow in this.listViewCompra.Items)
             {
                 string producte = itemRow.SubItems[0].Text;
@@ -206,16 +213,37 @@ namespace Ventas
                 preu = preu.Replace(@",",".");
                 string iva = itemRow.SubItems[2].Text;
                 iva = iva.Replace(@",", ".");
-                Boolean result = bd.executaComanda("insert into linia_venda (id_venda,id_medicament,quantitat,pvp,IVA) values (" + Id + "," + IdProd + "," + cantidad + "," + preu + "," + iva + ")");
-                if (result)
+
+                var correcte = bd.executaComanda("insert into linia_venda (id_venda,id_medicament,quantitat,pvp,IVA) values (" + Id + "," + IdProd + "," + cantidad + "," + preu + "," + iva + ")");
+
+                //si s'ha afegit correctament baixara el stock dels medicaments comprats a la bbdd
+                if (!correcte.Equals(0))
                 {
-                    MessageBox.Show("Venda finalitzada");
+                    string stock = "SELECT stock FROM medicaments where id_medicament = " + IdProd;
+                    DataTable id_stock = bd.searchTableFromQuery(stock);
+                    DataRow r_idStock = id_stock.Rows[0];
+                    int stockNumber = Int32.Parse(r_idStock["stock"].ToString());
+                    stockNumber -= cantidad;
+                    correcte = bd.executaComanda("update medicaments set stock= " + stockNumber + " where id_medicament = " + IdProd);
+                    if (correcte.Equals(0))
+                    {
+                        VendaCorrecte = false;
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Ticket mal realitzat");
+                    VendaCorrecte = false;
                 }
             }
+            if (VendaCorrecte)
+            {
+                MessageBox.Show("Venda Realitzada");
+            }
+            else
+            {
+                MessageBox.Show("Error al realitzar la venda");
+            }
+            
         }
 
 
@@ -232,7 +260,6 @@ namespace Ventas
         }
         private void TxBFilter_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //TEST
             if (e.KeyChar == '\r')
             {
                 //Busco el medicament a la BBDD.
