@@ -213,6 +213,7 @@
             // customTextBox11
             // 
             this.customTextBox11.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.customTextBox11.Enabled = false;
             this.customTextBox11.Location = new System.Drawing.Point(567, 54);
             this.customTextBox11.Name = "customTextBox11";
             this.customTextBox11.Options = CustomControl.CustomTextBox.Items.Text;
@@ -224,6 +225,7 @@
             // customTextBox12
             // 
             this.customTextBox12.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.customTextBox12.Enabled = false;
             this.customTextBox12.Location = new System.Drawing.Point(567, 26);
             this.customTextBox12.Name = "customTextBox12";
             this.customTextBox12.Options = CustomControl.CustomTextBox.Items.Text;
@@ -323,6 +325,7 @@
             // customTextBox4
             // 
             this.customTextBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.customTextBox4.Enabled = false;
             this.customTextBox4.Location = new System.Drawing.Point(567, 80);
             this.customTextBox4.Name = "customTextBox4";
             this.customTextBox4.Options = CustomControl.CustomTextBox.Items.Text;

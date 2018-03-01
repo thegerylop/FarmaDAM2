@@ -46,7 +46,7 @@ namespace Manteniment_Productes
             DataTable t = bd.searchTableFromQuery(comboBoxQuery);
             addComboBoxData(t, MComboBox);
 
-            //CCcodi.Visible = false;
+            CCcodi.Visible = false;
         }
 
         public void addComboBoxData(DataTable t, ComboBox comboBox)
