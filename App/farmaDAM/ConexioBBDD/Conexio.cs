@@ -188,5 +188,33 @@ namespace ConexioBBDD
                 conn.Close();
             }
         }
+
+        public String resultatComanda(string comanda) {
+            try
+            {
+                connexio();
+                MySqlCommand command = new MySqlCommand(comanda, conn);
+
+                using (MySqlDataReader dr = command.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        string resultat = dr[0].ToString();
+                        return resultat;
+                    }
+                }
+                return "";
+            }
+            catch (MySqlException eMySql)
+            {
+                MessageBox.Show(eMySql.ToString());
+                return "";
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+        }
     }
 }
