@@ -87,7 +87,7 @@ namespace BaseForm
             dgvBase.DataSource = dataSet.Tables[table]; // dataset
         }
 
-        private void validarText(object sender, EventArgs e)
+        public void validarText(object sender, EventArgs e)
         {
             Control test = (Control)sender;
             test.DataBindings[0].BindingManagerBase.EndCurrentEdit();

@@ -14,9 +14,12 @@ namespace Manteniment_Productes
         {
             InitializeComponent();
         }
+        BaseForm.BaseForm baseForm = new BaseForm.BaseForm();
 
         String table = "medicaments";
         String comboBoxQuery;
+        ConexioBBDD.Conexio bd = new ConexioBBDD.Conexio();
+
         private void MantenimentProductesX_Load(object sender, EventArgs e)
         {
             dgvBase.Anchor = AnchorStyles.Bottom;
@@ -24,38 +27,38 @@ namespace Manteniment_Productes
             //Amaguem id_medicament i id_principiActiu
             this.dgvBase.Columns[0].Visible = false;
             this.dgvBase.Columns[1].Visible = false;
+            this.dgvBase.Columns[2].Visible = false;
+
             //Alies pels altres camps
-            this.dgvBase.Columns[2].HeaderText = "Nom comercial"; //nom_comercial
             this.dgvBase.Columns[3].HeaderText = "Nº registre nacional"; //registre_nacional
-            this.dgvBase.Columns[4].HeaderText = "Quantitat"; //contingut
-            this.dgvBase.Columns[5].HeaderText = "Substituïble"; //substituible
-            this.dgvBase.Columns[6].HeaderText = "Genèric"; //generic
-            this.dgvBase.Columns[7].HeaderText = "PVP"; //PVP
-            this.dgvBase.Columns[8].HeaderText = "% d'IVA"; //IVA
-            this.dgvBase.Columns[9].HeaderText = "Recepta"; //recepta
-            this.dgvBase.Columns[10].HeaderText = "Fitxa tècncica"; //url_fitxa_tecnica
-            this.dgvBase.Columns[11].HeaderText = "Prospecte"; //url_prospecte
-            this.dgvBase.Columns[12].HeaderText = "Stock"; //id_stock
-            this.dgvBase.Columns[13].HeaderText = "Codi Laboratori"; //codi_laboratori
-            //Amaguem id_la
-            this.dgvBase.Columns[14].Visible = false;
+            this.dgvBase.Columns[4].HeaderText = "Nom"; //nom_comercial
+            this.dgvBase.Columns[5].HeaderText = "Contingut"; //substituible
+            this.dgvBase.Columns[6].HeaderText = "% d'IVA"; //IVA
+            this.dgvBase.Columns[7].HeaderText = "Substituïble"; //substituible
+            this.dgvBase.Columns[8].HeaderText = "Genèric"; //generic
+            this.dgvBase.Columns[9].HeaderText = "PVP"; //PVP
+            this.dgvBase.Columns[10].HeaderText = "Recepta"; //recepta
+            this.dgvBase.Columns[11].HeaderText = "Fitxa tècncica"; //url_fitxa_tecnica
+            this.dgvBase.Columns[12].HeaderText = "Prospecte"; //url_prospecte
+            this.dgvBase.Columns[13].HeaderText = "Stock"; //stock
 
-            //comboBoxQuery = "Select nom_carnet from " + CcomboBox.Reference;
-            //DataTable t = bd.searchTableFromQuery(comboBoxQuery);
-            //addComboBoxData(t, CcomboBox);
+            comboBoxQuery = "Select rao_social from " + MComboBox.Reference;
+            DataTable t = bd.searchTableFromQuery(comboBoxQuery);
+            addComboBoxData(t, MComboBox);
 
+            //CCcodi.Visible = false;
         }
 
-        public void addComboBoxData(DataTable t, ComboBox CcomboBox)
+        public void addComboBoxData(DataTable t, ComboBox comboBox)
         {
-            CcomboBox.Items.Add("Selecciona...");
-            CcomboBox.SelectedIndex = 0;
+            comboBox.Items.Add("Selecciona...");
+            comboBox.SelectedIndex = 0;
             for (var i = 0; i < t.Rows.Count; i++)
             {
                 DataRow r = t.Rows[i];
                 if (r.ItemArray[0] != null)
                 {
-                    CcomboBox.Items.Add(r.ItemArray[0].ToString());
+                    comboBox.Items.Add(r.ItemArray[0].ToString());
                 }
             }
         }
@@ -77,6 +80,16 @@ namespace Manteniment_Productes
                 string rowFilter = double.TryParse(TxBFilter.Text, out number) ? string.Format(columna + " = '{0}'", TxBFilter.Text) : string.Format(columna + " like '%{0}%'", TxBFilter.Text);
                 (dgvBase.DataSource as DataTable).DefaultView.RowFilter = rowFilter;
             }
+        }
+        private void CCcodi_TextChanged(object sender, EventArgs e)
+        {
+            MComboBox.SelectedIndex = Convert.ToInt32(CCcodi.Text);
+            CCcodi.TextChanged += new System.EventHandler(baseForm.validarText);
+        }
+        private void McomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CCcodi.Text = MComboBox.SelectedIndex.ToString();
+            CCcodi.TextChanged += new System.EventHandler(baseForm.validarText);
         }
     }
 }
