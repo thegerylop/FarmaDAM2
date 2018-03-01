@@ -281,8 +281,9 @@ namespace Ventas
                     //Si la quantitat es major que 0.
                     if(quantity > 0)
                     {
+                        int cantidad = Int32.Parse(CcQuant.SelectedItem.ToString());
                         //Si la quantitat es major o igual a la que jo demano.
-                        if(quantity >= Int32.Parse(CcQuant.SelectedItem.ToString()))
+                        if (quantity >= cantidad)
                         {
                             //Busca si el medicament ja esta afegit al ticket
                             foreach (ListViewItem itemRow in this.listViewCompra.Items)
@@ -290,12 +291,10 @@ namespace Ventas
                                 if (itemRow.SubItems[0].Text == r["nom_comercial"].ToString())
                                 {
                                     afegir = false;
-                                    int cantidad;
-                                    cantidad = Int32.Parse(itemRow.SubItems[3].Text);
-                                    // Comprova que la quantitat del ticket sigui menor que el sticl
-                                    if (cantidad < quantity)
+                                    cantidad += Int32.Parse(itemRow.SubItems[3].Text);
+                                    // Comprova que la quantitat del ticket sigui menor que el stock
+                                    if (cantidad  <= quantity)
                                     {
-                                        cantidad += Int32.Parse(CcQuant.SelectedItem.ToString());
                                         itemRow.SubItems[3].Text = cantidad.ToString();
                                     }
                                     else
@@ -312,16 +311,17 @@ namespace Ventas
                                 var listViewItem = new ListViewItem(row);
                                 listViewCompra.Items.Add(listViewItem);
                                 TxBFilter.Text = "";
-                                CcQuant.SelectedIndex = 0;
                                 e.KeyChar = '\r';
                             }
                             if (sumar)
                             {
                                 double value1 = Convert.ToDouble(r["PVP"].ToString());
                                 double value2 = Convert.ToDouble(r["IVA"].ToString());
-                                total += value1 + (value1 * (value2 / 100));
+                                int cuant = Int32.Parse(CcQuant.SelectedItem.ToString());
+                                total += (value1 + (value1 * (value2 / 100))) * cuant;
                                 lblTotal.Text = total.ToString() + " €";
                             }
+                            CcQuant.SelectedIndex = 0;
                         }
                         else
                         {
