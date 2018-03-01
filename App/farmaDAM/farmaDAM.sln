@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2002
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaginaPrincipal", "PaginaPrincipal\PaginaPrincipal.csproj", "{53042222-0403-4BC6-B942-FD126C1AB117}"
 EndProject
@@ -24,6 +24,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clients", "Clients\Clients.csproj", "{4EE18824-2E1E-4AB9-8692-18FDEEF27E4C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ventas", "Ventas\Ventas.csproj", "{83D6B0EA-94C7-421B-9E54-ECCD7F945818}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarregarDades", "CarregarDades\CarregarDades.csproj", "{DEC0FAE3-0436-4EB5-A41C-A1C90F963A65}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -213,6 +215,22 @@ Global
 		{83D6B0EA-94C7-421B-9E54-ECCD7F945818}.Release|x64.Build.0 = Release|Any CPU
 		{83D6B0EA-94C7-421B-9E54-ECCD7F945818}.Release|x86.ActiveCfg = Release|Any CPU
 		{83D6B0EA-94C7-421B-9E54-ECCD7F945818}.Release|x86.Build.0 = Release|Any CPU
+		{DEC0FAE3-0436-4EB5-A41C-A1C90F963A65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEC0FAE3-0436-4EB5-A41C-A1C90F963A65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEC0FAE3-0436-4EB5-A41C-A1C90F963A65}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{DEC0FAE3-0436-4EB5-A41C-A1C90F963A65}.Debug|ARM.Build.0 = Debug|Any CPU
+		{DEC0FAE3-0436-4EB5-A41C-A1C90F963A65}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DEC0FAE3-0436-4EB5-A41C-A1C90F963A65}.Debug|x64.Build.0 = Debug|Any CPU
+		{DEC0FAE3-0436-4EB5-A41C-A1C90F963A65}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DEC0FAE3-0436-4EB5-A41C-A1C90F963A65}.Debug|x86.Build.0 = Debug|Any CPU
+		{DEC0FAE3-0436-4EB5-A41C-A1C90F963A65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEC0FAE3-0436-4EB5-A41C-A1C90F963A65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEC0FAE3-0436-4EB5-A41C-A1C90F963A65}.Release|ARM.ActiveCfg = Release|Any CPU
+		{DEC0FAE3-0436-4EB5-A41C-A1C90F963A65}.Release|ARM.Build.0 = Release|Any CPU
+		{DEC0FAE3-0436-4EB5-A41C-A1C90F963A65}.Release|x64.ActiveCfg = Release|Any CPU
+		{DEC0FAE3-0436-4EB5-A41C-A1C90F963A65}.Release|x64.Build.0 = Release|Any CPU
+		{DEC0FAE3-0436-4EB5-A41C-A1C90F963A65}.Release|x86.ActiveCfg = Release|Any CPU
+		{DEC0FAE3-0436-4EB5-A41C-A1C90F963A65}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

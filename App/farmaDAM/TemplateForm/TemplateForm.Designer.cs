@@ -48,6 +48,7 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnCarregarXML = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             this.panel8.SuspendLayout();
             this.SuspendLayout();
@@ -166,7 +167,6 @@
             this.Clients.TabIndex = 26;
             this.Clients.Text = "Clients";
             this.Clients.UseVisualStyleBackColor = false;
-            this.Clients.Click += new System.EventHandler(this.clientsButton_Click);
             // 
             // tancarSessioButton
             // 
@@ -185,6 +185,7 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.Gray;
+            this.panel8.Controls.Add(this.btnCarregarXML);
             this.panel8.Controls.Add(this.Personal);
             this.panel8.Controls.Add(this.MantenimentProductes);
             this.panel8.Controls.Add(this.button5);
@@ -290,6 +291,19 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // btnCarregarXML
+            // 
+            this.btnCarregarXML.BackColor = System.Drawing.Color.DimGray;
+            this.btnCarregarXML.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCarregarXML.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCarregarXML.ForeColor = System.Drawing.Color.White;
+            this.btnCarregarXML.Location = new System.Drawing.Point(3, 365);
+            this.btnCarregarXML.Name = "btnCarregarXML";
+            this.btnCarregarXML.Size = new System.Drawing.Size(201, 51);
+            this.btnCarregarXML.TabIndex = 33;
+            this.btnCarregarXML.Text = "Carregar XML";
+            this.btnCarregarXML.UseVisualStyleBackColor = false;
+            // 
             // TemplateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -333,5 +347,6 @@
         public System.Windows.Forms.Button Personal;
         public System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.Button tancarSessioButton;
+        public System.Windows.Forms.Button btnCarregarXML;
     }
 }
