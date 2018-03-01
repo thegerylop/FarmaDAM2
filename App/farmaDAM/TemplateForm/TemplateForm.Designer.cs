@@ -40,6 +40,7 @@
             this.Clients = new System.Windows.Forms.Button();
             this.tancarSessioButton = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.btnCarregarXML = new System.Windows.Forms.Button();
             this.Personal = new System.Windows.Forms.Button();
             this.MantenimentProductes = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -48,7 +49,6 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btnCarregarXML = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             this.panel8.SuspendLayout();
             this.SuspendLayout();
@@ -200,6 +200,19 @@
             this.panel8.Size = new System.Drawing.Size(207, 488);
             this.panel8.TabIndex = 8;
             // 
+            // btnCarregarXML
+            // 
+            this.btnCarregarXML.BackColor = System.Drawing.Color.DimGray;
+            this.btnCarregarXML.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCarregarXML.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCarregarXML.ForeColor = System.Drawing.Color.White;
+            this.btnCarregarXML.Location = new System.Drawing.Point(3, 365);
+            this.btnCarregarXML.Name = "btnCarregarXML";
+            this.btnCarregarXML.Size = new System.Drawing.Size(201, 51);
+            this.btnCarregarXML.TabIndex = 33;
+            this.btnCarregarXML.Text = "Carregar XML";
+            this.btnCarregarXML.UseVisualStyleBackColor = false;
+            // 
             // Personal
             // 
             this.Personal.BackColor = System.Drawing.Color.DimGray;
@@ -290,19 +303,6 @@
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // btnCarregarXML
-            // 
-            this.btnCarregarXML.BackColor = System.Drawing.Color.DimGray;
-            this.btnCarregarXML.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCarregarXML.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCarregarXML.ForeColor = System.Drawing.Color.White;
-            this.btnCarregarXML.Location = new System.Drawing.Point(3, 365);
-            this.btnCarregarXML.Name = "btnCarregarXML";
-            this.btnCarregarXML.Size = new System.Drawing.Size(201, 51);
-            this.btnCarregarXML.TabIndex = 33;
-            this.btnCarregarXML.Text = "Carregar XML";
-            this.btnCarregarXML.UseVisualStyleBackColor = false;
             // 
             // TemplateForm
             // 
