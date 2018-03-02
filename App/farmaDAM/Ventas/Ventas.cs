@@ -28,7 +28,6 @@ namespace Ventas
         }
         private void Ventas_Load(object sender, EventArgs e)
         {
-
             gbClient.Visible = false;
             gbRecepta.Visible = false;
             groupBoxMed.Visible = false;
@@ -39,8 +38,6 @@ namespace Ventas
             medicaments = bd.portarPerConsulta("select v.registre_nacional, v.nom_comercial as 'Producte',v.contingut, e.nom as 'Principi_Actiu',v.PVP,v.IVA,v.stock,v.substituible,v.generic from medicaments v , principis_actius e where v.id_PrincipiActiu = e.id_PrincipiActiu", "medicaments");
             CcQuant.SelectedIndex = 0;
             BindingDades("medicaments");
-
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -102,7 +99,6 @@ namespace Ventas
         }
         private void dgvVentas_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            //TEST
             Boolean add = true;
             Boolean sumar = true;
             int index = dgvVentas.CurrentCell.RowIndex;
@@ -174,16 +170,10 @@ namespace Ventas
 
             //Comprova que el ticket no estigui buit, si es aixi crea la venda
             if (count > 0) {
-                string queryClient = "Select id_client from clients where " + CcomboBox.Text + " = " + TBClient.Text;
-                string queryPersonal = "Select id_personal from personal where usuari = '" + user + "'";
-                DataTable client = bd.searchTableFromQuery(queryClient);
-                DataTable personal = bd.searchTableFromQuery(queryPersonal);
-                DataRow rClient = client.Rows[0];
-                DataRow rPersonal = personal.Rows[0];
-                queryClient = rClient["id_Client"].ToString();
-                queryPersonal = rPersonal["id_personal"].ToString();
+                string client = bd.resultatComanda("Select id_client from clients where " + CcomboBox.Text + " = " + TBClient.Text);
+                string personal = bd.resultatComanda("Select id_personal from personal where usuari = '" + user + "'");
 
-                bd.executaComanda("insert into vendes (id_personal,id_client,data) values (" + queryClient + "," + queryPersonal + ",NOW())");
+                bd.executaComanda("insert into vendes (id_personal,id_client,data) values (" + client + "," + personal + ",NOW())");
 
                 afegirProductesBBDD();
             }
@@ -194,20 +184,16 @@ namespace Ventas
         }
         private void afegirProductesBBDD()
         {
-            string queryID = "SELECT max(id_venda) FROM vendes";
-            DataTable id_venda = bd.searchTableFromQuery(queryID);
+            string id_venda = bd.resultatComanda("SELECT max(id_venda) FROM vendes");
             Boolean VendaCorrecte = true;
-            DataRow rid_venda = id_venda.Rows[0];
-            int Id = Int32.Parse(rid_venda["max(id_venda)"].ToString());
+            int Id = Int32.Parse(id_venda);
 
             //Per cada Producte en el ticket l'afageix a linia_venda a la bbdd
             foreach (ListViewItem itemRow in this.listViewCompra.Items)
             {
                 string producte = itemRow.SubItems[0].Text;
-                string producteID = "SELECT id_medicament FROM medicaments where nom_comercial = '" + producte +"'";
-                DataTable id_producte = bd.searchTableFromQuery(producteID);
-                DataRow rid_prodcute = id_producte.Rows[0];
-                int IdProd = Int32.Parse(rid_prodcute["id_medicament"].ToString());
+                string producteID = bd.resultatComanda("SELECT id_medicament FROM medicaments where nom_comercial = '" + producte +"'");
+                int IdProd = Int32.Parse(producteID);
                 int cantidad = Int32.Parse(itemRow.SubItems[3].Text);
                 string preu = itemRow.SubItems[1].Text;
                 preu = preu.Replace(@",",".");
@@ -219,10 +205,8 @@ namespace Ventas
                 //si s'ha afegit correctament baixara el stock dels medicaments comprats a la bbdd
                 if (!correcte.Equals(0))
                 {
-                    string stock = "SELECT stock FROM medicaments where id_medicament = " + IdProd;
-                    DataTable id_stock = bd.searchTableFromQuery(stock);
-                    DataRow r_idStock = id_stock.Rows[0];
-                    int stockNumber = Int32.Parse(r_idStock["stock"].ToString());
+                    string id_stock = bd.resultatComanda("SELECT stock FROM medicaments where id_medicament = " + IdProd);
+                    int stockNumber = Int32.Parse(id_stock);
                     stockNumber -= cantidad;
                     correcte = bd.executaComanda("update medicaments set stock= " + stockNumber + " where id_medicament = " + IdProd);
                     if (correcte.Equals(0))
@@ -249,9 +233,6 @@ namespace Ventas
             }
             
         }
-
-
-
         private int listViewCount()
         {
             int count = 0;
