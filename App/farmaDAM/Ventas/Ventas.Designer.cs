@@ -58,6 +58,7 @@
             this.gbRecepta = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.TBRec = new CustomControl.CustomTextBox();
+            this.UserName = new System.Windows.Forms.Label();
             this.groupBoxMed.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).BeginInit();
             this.groupBoxLlista.SuspendLayout();
@@ -85,7 +86,7 @@
             this.groupBoxMed.Controls.Add(this.TxBFilter);
             this.groupBoxMed.Controls.Add(this.label1);
             this.groupBoxMed.Controls.Add(this.dgvVentas);
-            this.groupBoxMed.Location = new System.Drawing.Point(5, 242);
+            this.groupBoxMed.Location = new System.Drawing.Point(-116, 242);
             this.groupBoxMed.Name = "groupBoxMed";
             this.groupBoxMed.Size = new System.Drawing.Size(539, 335);
             this.groupBoxMed.TabIndex = 51;
@@ -330,7 +331,7 @@
             this.gbClient.Controls.Add(this.label5);
             this.gbClient.Controls.Add(this.TBClient);
             this.gbClient.Controls.Add(this.CcomboBox);
-            this.gbClient.Location = new System.Drawing.Point(5, 121);
+            this.gbClient.Location = new System.Drawing.Point(-116, 121);
             this.gbClient.Name = "gbClient";
             this.gbClient.Size = new System.Drawing.Size(365, 52);
             this.gbClient.TabIndex = 54;
@@ -376,7 +377,7 @@
             this.gbRecepta.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gbRecepta.Controls.Add(this.label7);
             this.gbRecepta.Controls.Add(this.TBRec);
-            this.gbRecepta.Location = new System.Drawing.Point(5, 184);
+            this.gbRecepta.Location = new System.Drawing.Point(-116, 184);
             this.gbRecepta.Name = "gbRecepta";
             this.gbRecepta.Size = new System.Drawing.Size(365, 52);
             this.gbRecepta.TabIndex = 55;
@@ -403,6 +404,16 @@
             this.TBRec.Size = new System.Drawing.Size(121, 20);
             this.TBRec.TabIndex = 3;
             // 
+            // UserName
+            // 
+            this.UserName.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.UserName.AutoSize = true;
+            this.UserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserName.Location = new System.Drawing.Point(264, 143);
+            this.UserName.Name = "UserName";
+            this.UserName.Size = new System.Drawing.Size(0, 18);
+            this.UserName.TabIndex = 91;
+            // 
             // Ventas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -410,6 +421,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(913, 602);
+            this.Controls.Add(this.UserName);
             this.Controls.Add(this.gbRecepta);
             this.Controls.Add(this.gbClient);
             this.Controls.Add(this.groupBox1);
@@ -468,5 +480,6 @@
         private System.Windows.Forms.Label label7;
         private CustomControl.CustomTextBox TBRec;
         private CustomControl.comboBox CcQuant;
+        private System.Windows.Forms.Label UserName;
     }
 }

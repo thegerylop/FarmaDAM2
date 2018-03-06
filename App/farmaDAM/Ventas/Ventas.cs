@@ -28,16 +28,19 @@ namespace Ventas
         }
         private void Ventas_Load(object sender, EventArgs e)
         {
+
+            UserName.Visible = false;
             gbClient.Visible = false;
             gbRecepta.Visible = false;
             groupBoxMed.Visible = false;
             groupBoxLlista.Visible = false;
             CcomboBox.SelectedIndex = 0;
-            query = "Select * from " + table;
-            dataSet = bd.portarPerConsulta(query, table);
-            medicaments = bd.portarPerConsulta("select v.registre_nacional, v.nom_comercial as 'Producte',v.contingut, e.nom as 'Principi_Actiu',v.PVP,v.IVA,v.stock,v.substituible,v.generic from medicaments v , principis_actius e where v.id_PrincipiActiu = e.id_PrincipiActiu", "medicaments");
+            //query = "Select * from " + table;
+            //dataSet = bd.portarPerConsulta(query, table);
+            //medicaments = bd.portarPerConsulta("select v.registre_nacional, v.nom_comercial as 'Producte',v.contingut, e.nom as 'Principi_Actiu',v.PVP,v.IVA,v.stock,v.substituible,v.generic from medicaments v , principis_actius e where v.id_PrincipiActiu = e.id_PrincipiActiu", "medicaments");
+            //BindingDades("medicaments");
             CcQuant.SelectedIndex = 0;
-            BindingDades("medicaments");
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -80,16 +83,19 @@ namespace Ventas
         }
         private void TBClients_Leave(object sender, EventArgs e)
         {
-            query = "Select " + CcomboBox.Text + " from clients where " + CcomboBox.Text + " = " + TBClient.Text;
-            dataSet = bd.portarPerConsulta(query, table);
+            String userName = null;
+            userName = bd.resultatComanda("Select nom from clients where " + CcomboBox.Text + " = " + TBClient.Text);
+            userName += " "+ bd.resultatComanda("Select cognom1 from clients where " + CcomboBox.Text + " = " + TBClient.Text);
 
-            if (dataSet.Tables[0].Rows.Count == 0)
+            if (userName == null || userName == "" || userName == " ")
             {
                 MessageBox.Show("El client indicat no existeix");
                 TBClient.Text = "";
             }
             else
             {
+                UserName.Text = userName;
+                UserName.Visible = true;
                 TBClient.Enabled = false;
                 CcomboBox.Enabled = false;
                 gbRecepta.Visible = true;
@@ -247,8 +253,9 @@ namespace Ventas
         {
             if (e.KeyChar == '\r')
             {
+                dgvVentas.Refresh();
                 //Busco el medicament a la BBDD.
-                string medic = "select v.registre_nacional,v.nom_comercial,v.PVP,v.IVA,v.stock from medicaments v where v.registre_nacional = " + TxBFilter.Text;
+                string medic = "select v.registre_nacional,v.nom_comercial,v.id_PrincipiActiu,v.PVP,v.IVA,v.stock, v.substituible from medicaments v where v.registre_nacional = " + TxBFilter.Text;
                 DataTable medicament = bd.searchTableFromQuery(medic);
                 Boolean afegir = true;
                 Boolean sumar = true;
@@ -260,7 +267,7 @@ namespace Ventas
                     int quantity = Int32.Parse(r["stock"].ToString());
 
                     //Si la quantitat es major que 0.
-                    if(quantity > 0)
+                    if (quantity > 0)
                     {
                         int cantidad = Int32.Parse(CcQuant.SelectedItem.ToString());
                         //Si la quantitat es major o igual a la que jo demano.
@@ -307,23 +314,30 @@ namespace Ventas
                         else
                         {
                             MessageBox.Show("Producte amb stock per sota del demanat");
+                            CercarProductes(r);
                         }
                     }
+                    //Si no hi ha stock
                     else
                     {
                         MessageBox.Show("Producte sense stock");
-                        //fa una busqueda a la dataGridView
-                        (dgvVentas.DataSource as DataTable).DefaultView.RowFilter = string.Format("registre_nacional = '" + TxBFilter.Text + "'");
-                        Boolean subs = Convert.ToBoolean(dgvVentas.Rows[0].Cells[7].Value);
-                        //Si no té stock i es substituible, busca altres medicaments
-                        if (subs)
-                        {
-                            string principi = dgvVentas.Rows[0].Cells[3].Value.ToString();
-                            (dgvVentas.DataSource as DataTable).DefaultView.RowFilter = string.Format("Principi_Actiu LIKE '{0}'", principi);
-                            dgvVentas.Sort(dgvVentas.Columns[4], ListSortDirection.Ascending);
-                        }
+                        CercarProductes(r);
                     }
                 }
+            }
+        }
+        public void CercarProductes(DataRow r)
+        {
+            //fa una busqueda a la dataGridView
+            medicaments = bd.portarPerConsulta("select v.registre_nacional, v.nom_comercial as 'Producte',v.contingut, e.nom as 'Principi_Actiu',v.PVP,v.IVA,v.stock,v.substituible,v.generic from medicaments v , principis_actius e where v.id_PrincipiActiu = e.id_PrincipiActiu and v.id_PrincipiActiu = " + r[2].ToString(), "medicaments");
+            Boolean subs = Convert.ToBoolean(r[6].ToString());
+            if(subs)
+            {
+                BindingDades("medicaments");
+            }
+            else
+            {
+                MessageBox.Show("Producte no substituible");
             }
         }
     }
