@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using ConexioBBDD;
+using CrystalDecisions.CrystalReports.Engine;
+
 namespace Ventas
 {
     public partial class Ventas : Form
@@ -176,10 +178,16 @@ namespace Ventas
                 bd.executaComanda("insert into vendes (id_personal,id_client,data) values (" + client + "," + personal + ",NOW())");
 
                 afegirProductesBBDD();
+
+                //Crea la factura
+                ReportDocument factura = new ReportDocument();
+                /*factura.Load();
+                crystalReportViewer1.ReportSource = factura;
+                crystalReportViewer1.Refresh();*/
             }
             else
             {
-                MessageBox.Show("ticket buit");
+                MessageBox.Show("Ticket buit");
             }
         }
         private void afegirProductesBBDD()
