@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using ConexioBBDD;
 using CrystalDecisions.CrystalReports.Engine;
+using System.Drawing.Printing;
 
 namespace Ventas
 {
@@ -180,10 +181,7 @@ namespace Ventas
                 afegirProductesBBDD();
 
                 //Crea la factura
-                ReportDocument factura = new ReportDocument();
-                /*factura.Load();
-                crystalReportViewer1.ReportSource = factura;
-                crystalReportViewer1.Refresh();*/
+                
             }
             else
             {
@@ -333,6 +331,25 @@ namespace Ventas
                     }
                 }
             }
+        }
+
+     
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+
+            String pkInstalledPrinters;
+            //for (int i = 0; i < PrinterSettings.InstalledPrinters.Count; i++)
+            //{
+                pkInstalledPrinters = PrinterSettings.InstalledPrinters[1];
+                MessageBox.Show(pkInstalledPrinters);
+            //}
+            ReportDocument factura = new ReportDocument();
+
+            factura.Load("Ticket.rpt");
+            factura.RecordSelectionFormula = "{vendes1.id_venda} = " + txtticket.Text;
+            factura.PrintOptions.PrinterName = pkInstalledPrinters;
+            factura.PrintToPrinter(1, true, 0, 0);
         }
     }
 }
