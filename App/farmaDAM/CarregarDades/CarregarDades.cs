@@ -77,39 +77,44 @@ namespace CarregarDades
                             //Miro si el childnode te mes fills , amb la finalitat de trobar el codi_PA del XML de medicaments 
                             if (taula == "medicaments")
                             {
-                                if (ChildNode.HasChildNodes)
+                                foreach (XmlNode nieto in ChildNode.ChildNodes)
                                 {
-                                    foreach (XmlNode nieto in ChildNode.ChildNodes)
+                                    if (nieto.Name == "composicion_pa")
                                     {
-                                        if (nieto.Name == "composicion_pa")
+                                        //MessageBox.Show(nieto.Value);
+                                        foreach (XmlNode bisnieto in nieto.ChildNodes)
                                         {
-                                            //MessageBox.Show(nieto.Value);
-                                            foreach (XmlNode bisnieto in nieto.ChildNodes)
+                                            if (bisnieto.Name == "cod_principio_activo")
                                             {
-                                                if (bisnieto.Name == "cod_principio_activo")
-                                                {
-                                                    if (valor != null) { }
-                                                    else
-                                                    {
-                                                        valor = null;
-                                                        codi_PA = bisnieto.InnerText.Trim();
-                                                        columna = "codi";
-                                                        valor = codi_PA;
-                                                    }
-                                                }
+                                                if (valor == null) {
+                                                    codi_PA = bisnieto.InnerText.Trim();
+                                                    columna = "codi";
+                                                    valor = codi_PA;
+                                                }  
                                             }
                                         }
+                                        //trobo si la columna es codi i la tradueixo a id.
+                                        if (columna == "codi")
+                                        {
+                                            String cmd = "SELECT id_PrincipiActiu from principis_actius where codi = " + valor;
+                                            valor = conn.resultatComanda(cmd);
+                                            //MessageBox.Show(conn.resultatComanda(cmd));
+                                            columna = "id_PrincipiActiu";
+
+                                        }
+                                        if (valor != null) { if (!dict.ContainsValue(valor)){ dict.Add(columna, valor); } }
                                     }
                                 }
                             }
-                            else
-                            {
-                                //Sino es de medicaments, segueixo normal
-                                columna = ChildNode.Name.Trim();
-                                valor = ChildNode.InnerText.Trim();
-                                valor = valor.Replace(@"'", " ");
-                                columna = traduirColumna(columna);
-                            }
+                            //else
+                            //{
+                               
+                            //}
+                            //Sino es de medicaments, segueixo normal
+                            columna = ChildNode.Name.Trim();
+                            valor = ChildNode.InnerText.Trim();
+                            valor = valor.Replace(@"'", " ");
+                            columna = traduirColumna(columna);
                             i++;
                             string texte = "Registre " + i.ToString() + " / ";
                             lbl_progres.Invoke((MethodInvoker)delegate { lbl_progres.Visible = true; lbl_progres.Text = texte; });
@@ -117,17 +122,19 @@ namespace CarregarDades
                             //Reviso que les claus uniques no es repeteixin,sino està repetit, l'afageixo al diccionari
                             if (columna == "codi_laboratori" || columna == "codi" || columna == "registre_nacional")
                             {
-                                if (!validarRepetit(columna, taula, valor))
-                                {
-
-                                    //trobo si la columna es codi i la tradueixo a id.
-                                    if (columna == "codi") {
-                                        String cmd = "SELECT id_PrincipiActiu from principis_actius where codi = " + valor;
+                                if (columna =="codi_laboratori" && taula == "medicaments")
+                                    {
+                                        String cmd = "SELECT id_laboratori from laboratoris_farmaceutics where codi_laboratori = " + valor;
+                                        valor = conn.resultatComanda(cmd);
                                         //MessageBox.Show(conn.resultatComanda(cmd));
-                                        columna = "id_PrincipiActiu";
+                                        columna = "id_laboratori";
+                                    //insereixo al diccionari el stock i preu
+                                   // MessageBox.Show(random_double().ToString());
 
-                                    } else { }
-
+                                    }
+                                if (!validarRepetit(columna, taula, valor))
+                                {                                   
+                                    
                                     if (dict.ContainsKey(columna)) { repetit = true; }
                                     else {
                                         dict.Add(columna, valor);
@@ -140,8 +147,8 @@ namespace CarregarDades
                             {
                                 if (columna != null) { dict.Add(columna, valor); }
                             }
-                            valor = null;
-                            columna = null;
+                            //valor = null;
+                            //columna = null;
                         }
                         //recorro el diccionari per ficar-ho despres a la query
                         //afegeixo els valors en un string, si es el primer no afegeixo coma
@@ -153,7 +160,9 @@ namespace CarregarDades
                                 if (entry.Key != null || entry.Key != "")
                                 {
                                     if (columnes == "") { columnes = @entry.Key; }
-                                    else { columnes += "," + entry.Key; }
+                                    else {
+                                        //traduiexo de codi a id_principiactiu
+                                        columnes += "," + entry.Key; }
 
                                     if (valors == "")
                                     { valors = "'" + entry.Value + "'"; }
@@ -395,6 +404,21 @@ namespace CarregarDades
         {
             // backgroundWorker1.CancelAsync();
             // lbl_progres.Visible = false;
+        }
+
+        private double random_double()
+        {
+            Random random = new Random();
+            double rdm  = random.NextDouble() * (25 - 1.99) + 1.99;
+            return rdm;
+        }
+
+        private int random_int()
+        {
+            Random random = new Random();
+            int rdm = random.Next() * (50 - 1) + 1;
+            return rdm;
+
         }
     }
 }
