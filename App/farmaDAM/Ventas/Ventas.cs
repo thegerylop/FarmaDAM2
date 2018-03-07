@@ -35,10 +35,8 @@ namespace Ventas
             groupBoxMed.Visible = false;
             groupBoxLlista.Visible = false;
             CcomboBox.SelectedIndex = 0;
-            //query = "Select * from " + table;
-            //dataSet = bd.portarPerConsulta(query, table);
-            //medicaments = bd.portarPerConsulta("select v.registre_nacional, v.nom_comercial as 'Producte',v.contingut, e.nom as 'Principi_Actiu',v.PVP,v.IVA,v.stock,v.substituible,v.generic from medicaments v , principis_actius e where v.id_PrincipiActiu = e.id_PrincipiActiu", "medicaments");
-            //BindingDades("medicaments");
+            int ticket = Int32.Parse(bd.resultatComanda("SELECT MAX(id_venda) FROM vendes")) + 1;
+            lblTicket.Text = lblTicket.Text + ticket.ToString();
             CcQuant.SelectedIndex = 0;
             
         }
@@ -134,15 +132,25 @@ namespace Ventas
             //si no esta a la llista l'afegim
             if (add)
             {
-                string[] row = { dgvVentas.Rows[index].Cells[1].Value.ToString(), dgvVentas.Rows[index].Cells[4].Value.ToString(), dgvVentas.Rows[index].Cells[5].Value.ToString(), "1" };
-                var listViewItem = new ListViewItem(row);
-                listViewCompra.Items.Add(listViewItem);
+                if(Int32.Parse(dgvVentas.Rows[index].Cells[6].Value.ToString()) > 0)
+                {
+                    string[] row = { dgvVentas.Rows[index].Cells[1].Value.ToString(), dgvVentas.Rows[index].Cells[4].Value.ToString(), dgvVentas.Rows[index].Cells[5].Value.ToString(), "1" };
+                    var listViewItem = new ListViewItem(row);
+                    listViewCompra.Items.Add(listViewItem);
+                }
+                else
+                {
+                    MessageBox.Show("Producte sense Stock");
+                    sumar = false;
+                }
+                
             }
             if (sumar)
             {
                 double value1 = Convert.ToDouble(dgvVentas.Rows[index].Cells[4].Value.ToString());
                 double value2 = Convert.ToDouble(dgvVentas.Rows[index].Cells[5].Value.ToString());
                 total += value1 + (value1 * (value2 / 100));
+                total = Math.Round(total, 2, MidpointRounding.AwayFromZero);
                 lblTotal.Text = total.ToString() + " €";
             }
         }
@@ -165,9 +173,10 @@ namespace Ventas
             double iva = Convert.ToDouble(valor.SubItems[2].Text);
             int quantitat = Int32.Parse(valor.SubItems[3].Text);
             double resultat = ((preu + (preu * (iva / 100))) * quantitat);
-            total -= resultat;
+            double test = Math.Round(resultat, 2, MidpointRounding.AwayFromZero);
+            total = Math.Round(total, 2, MidpointRounding.AwayFromZero);
+            total -= test;
             lblTotal.Text = total.ToString();
-
         }
 
         private void btnAcceptar_Click(object sender, EventArgs e)
@@ -258,7 +267,7 @@ namespace Ventas
                 string medic = "select v.registre_nacional,v.nom_comercial,v.id_PrincipiActiu,v.PVP,v.IVA,v.stock, v.substituible from medicaments v where v.registre_nacional = " + TxBFilter.Text;
                 DataTable medicament = bd.searchTableFromQuery(medic);
                 Boolean afegir = true;
-                Boolean sumar = true;
+                Boolean fix = false;
                 
                 //Si existeix el medicament afaga la quantitat de stock que té.
                 if(medicament.Rows.Count > 0 )
@@ -273,48 +282,57 @@ namespace Ventas
                         //Si la quantitat es major o igual a la que jo demano.
                         if (quantity >= cantidad)
                         {
-                            //Busca si el medicament ja esta afegit al ticket
-                            foreach (ListViewItem itemRow in this.listViewCompra.Items)
-                            {
-                                if (itemRow.SubItems[0].Text == r["nom_comercial"].ToString())
-                                {
-                                    afegir = false;
-                                    cantidad += Int32.Parse(itemRow.SubItems[3].Text);
-                                    // Comprova que la quantitat del ticket sigui menor que el stock
-                                    if (cantidad  <= quantity)
-                                    {
-                                        itemRow.SubItems[3].Text = cantidad.ToString();
-                                    }
-                                    else
-                                    {
-                                        sumar = false;
-                                        MessageBox.Show("Stock per sota del demanat");
-                                    }
-                                }
-                            }
-                            //Si el medicament introduit no esta ja en el ticket
-                            if (afegir)
-                            {
-                                string[] row = { r["nom_comercial"].ToString(), r["PVP"].ToString(), r["IVA"].ToString(), CcQuant.SelectedItem.ToString()};
-                                var listViewItem = new ListViewItem(row);
-                                listViewCompra.Items.Add(listViewItem);
-                                TxBFilter.Text = "";
-                                e.KeyChar = '\r';
-                            }
-                            if (sumar)
-                            {
-                                double value1 = Convert.ToDouble(r["PVP"].ToString());
-                                double value2 = Convert.ToDouble(r["IVA"].ToString());
-                                int cuant = Int32.Parse(CcQuant.SelectedItem.ToString());
-                                total += (value1 + (value1 * (value2 / 100))) * cuant;
-                                lblTotal.Text = total.ToString() + " €";
-                            }
-                            CcQuant.SelectedIndex = 0;
+                            fix = false;
                         }
                         else
                         {
-                            MessageBox.Show("Producte amb stock per sota del demanat");
-                            CercarProductes(r);
+                            fix = true;
+                        }
+                        //Busca si el medicament ja esta afegit al ticket
+                        foreach (ListViewItem itemRow in this.listViewCompra.Items)
+                        {
+                            if (itemRow.SubItems[0].Text == r["nom_comercial"].ToString())
+                            {
+                                afegir = false;
+                                if (!fix)
+                                {
+                                    cantidad += Int32.Parse(itemRow.SubItems[3].Text);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Stock per sota del demanat, buscant altres medicaments");
+                                    cantidad = quantity;
+                                    CercarProductes(r);
+                                }
+                                    
+                                // Comprova que la quantitat del ticket sigui menor que el stock
+                                if (cantidad  <= quantity)
+                                {
+                                    itemRow.SubItems[3].Text = cantidad.ToString();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Stock per sota del demanat");
+                                }
+                            }
+                        }
+                        //Si el medicament introduit no esta ja en el ticket
+                        if (afegir)
+                        {
+                            var listViewItem = new ListViewItem();
+                            if (fix)
+                            {
+                                string[] row = { r["nom_comercial"].ToString(), r["PVP"].ToString(), r["IVA"].ToString(), quantity.ToString() };
+                                listViewItem = new ListViewItem(row);
+                            }
+                            else
+                            {
+                                string[] row = { r["nom_comercial"].ToString(), r["PVP"].ToString(), r["IVA"].ToString(), CcQuant.SelectedItem.ToString() };
+                                listViewItem = new ListViewItem(row);
+                            }
+                            listViewCompra.Items.Add(listViewItem);
+                            TxBFilter.Text = "";
+                            e.KeyChar = '\r';
                         }
                     }
                     //Si no hi ha stock
@@ -342,3 +360,21 @@ namespace Ventas
         }
     }
 }
+//if (sumar)
+//                        {
+//                            int cuant;
+//                            if (fix)
+//                            {
+//                                cuant = quantity;
+//                            }
+//                            else
+//                            {
+//                                cuant = Int32.Parse(CcQuant.SelectedItem.ToString());
+//                            }
+//                            double value1 = Convert.ToDouble(r["PVP"].ToString());
+//double value2 = Convert.ToDouble(r["IVA"].ToString());
+//total += (value1 + (value1* (value2 / 100))) * cuant;
+//total = Math.Round(total, 2, MidpointRounding.AwayFromZero);
+//                            lblTotal.Text = total.ToString() + " €";
+//                        }
+//                        CcQuant.SelectedIndex = 0;
