@@ -26,7 +26,7 @@ namespace Ventas
         {
             InitializeComponent();
         }
-        private void Ventas_Load(object sender, EventArgs e)
+        public void Ventas_Load(object sender, EventArgs e)
         {
             amagarItems();
             iniciarTicket();
@@ -63,8 +63,10 @@ namespace Ventas
 
         public void recarregarForm()
         {
-            Ventas form = new Ventas();
-            form.Refresh();
+            this.Controls.Clear();
+            InitializeComponent();
+            amagarItems();
+            iniciarTicket();
         }
         private void login()
         {
