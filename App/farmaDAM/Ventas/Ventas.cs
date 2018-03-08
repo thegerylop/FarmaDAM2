@@ -186,7 +186,7 @@ namespace Ventas
                 MessageBox.Show(pkInstalledPrinters);
                 ReportDocument factura = new ReportDocument();
 
-                factura.Load("Ticket.rpt");
+                factura.Load("../Ventas/Ticket.rpt");
                 String numTicket = bd.resultatComanda("Select id_venda from vendes order by id_venda desc limit 1");
                 factura.RecordSelectionFormula = "{vendes1.id_venda} = " + numTicket;
                 factura.PrintOptions.PrinterName = pkInstalledPrinters;
