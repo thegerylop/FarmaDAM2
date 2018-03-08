@@ -30,9 +30,7 @@
         {
             this.label2 = new System.Windows.Forms.Label();
             this.groupBoxMed = new System.Windows.Forms.GroupBox();
-            this.CcQuant = new CustomControl.comboBox();
             this.lblFiltrar = new System.Windows.Forms.Label();
-            this.TxBFilter = new CustomControl.CustomTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvVentas = new System.Windows.Forms.DataGridView();
             this.listViewCompra = new System.Windows.Forms.ListView();
@@ -47,19 +45,19 @@
             this.lblPreu = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Tancar = new System.Windows.Forms.Button();
-            this.CCpassword = new CustomControl.CustomTextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.CClogin = new CustomControl.CustomTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.gbClient = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.TBClient = new CustomControl.CustomTextBox();
-            this.CcomboBox = new CustomControl.comboBox();
             this.gbRecepta = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.TBRec = new CustomControl.CustomTextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.txtticket = new System.Windows.Forms.TextBox();
+            this.TBClient = new CustomControl.CustomTextBox();
+            this.CcomboBox = new CustomControl.comboBox();
+            this.CCpassword = new CustomControl.CustomTextBox();
+            this.CClogin = new CustomControl.CustomTextBox();
+            this.CcQuant = new CustomControl.comboBox();
+            this.TxBFilter = new CustomControl.CustomTextBox();
             this.groupBoxMed.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).BeginInit();
             this.groupBoxLlista.SuspendLayout();
@@ -75,9 +73,10 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(419, 45);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 24);
+            this.label2.Size = new System.Drawing.Size(76, 24);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Ventas";
+            this.label2.Text = "Vendes";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // groupBoxMed
             // 
@@ -93,28 +92,6 @@
             this.groupBoxMed.TabIndex = 51;
             this.groupBoxMed.TabStop = false;
             // 
-            // CcQuant
-            // 
-            this.CcQuant.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CcQuant.FormattingEnabled = true;
-            this.CcQuant.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10"});
-            this.CcQuant.Location = new System.Drawing.Point(371, 42);
-            this.CcQuant.Name = "CcQuant";
-            this.CcQuant.Reference = null;
-            this.CcQuant.Size = new System.Drawing.Size(41, 21);
-            this.CcQuant.TabIndex = 90;
-            this.CcQuant.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxBFilter_KeyPress);
-            // 
             // lblFiltrar
             // 
             this.lblFiltrar.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -125,18 +102,6 @@
             this.lblFiltrar.Size = new System.Drawing.Size(97, 18);
             this.lblFiltrar.TabIndex = 88;
             this.lblFiltrar.Text = "Medicament :";
-            // 
-            // TxBFilter
-            // 
-            this.TxBFilter.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TxBFilter.Location = new System.Drawing.Point(246, 43);
-            this.TxBFilter.Name = "TxBFilter";
-            this.TxBFilter.Options = CustomControl.CustomTextBox.Items.Text;
-            this.TxBFilter.Placeholder = null;
-            this.TxBFilter.Size = new System.Drawing.Size(119, 20);
-            this.TxBFilter.TabIndex = 86;
-            this.TxBFilter.Tag = "";
-            this.TxBFilter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxBFilter_KeyPress);
             // 
             // label1
             // 
@@ -285,16 +250,6 @@
             this.Tancar.UseVisualStyleBackColor = false;
             this.Tancar.Click += new System.EventHandler(this.button1_Click);
             // 
-            // CCpassword
-            // 
-            this.CCpassword.Location = new System.Drawing.Point(88, 56);
-            this.CCpassword.Name = "CCpassword";
-            this.CCpassword.Options = CustomControl.CustomTextBox.Items.Password;
-            this.CCpassword.Placeholder = "Password";
-            this.CCpassword.Size = new System.Drawing.Size(121, 20);
-            this.CCpassword.TabIndex = 2;
-            this.CCpassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CCpassword_KeyPress);
-            // 
             // label6
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -305,15 +260,6 @@
             this.label6.Size = new System.Drawing.Size(75, 18);
             this.label6.TabIndex = 56;
             this.label6.Text = "Password";
-            // 
-            // CClogin
-            // 
-            this.CClogin.Location = new System.Drawing.Point(88, 19);
-            this.CClogin.Name = "CClogin";
-            this.CClogin.Options = CustomControl.CustomTextBox.Items.Text;
-            this.CClogin.Placeholder = "Login";
-            this.CClogin.Size = new System.Drawing.Size(121, 20);
-            this.CClogin.TabIndex = 1;
             // 
             // label4
             // 
@@ -349,30 +295,6 @@
             this.label5.TabIndex = 51;
             this.label5.Text = "Client :";
             // 
-            // TBClient
-            // 
-            this.TBClient.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TBClient.Location = new System.Drawing.Point(79, 19);
-            this.TBClient.Name = "TBClient";
-            this.TBClient.Options = CustomControl.CustomTextBox.Items.Text;
-            this.TBClient.Placeholder = null;
-            this.TBClient.Size = new System.Drawing.Size(121, 20);
-            this.TBClient.TabIndex = 3;
-            this.TBClient.Leave += new System.EventHandler(this.TBClients_Leave);
-            // 
-            // CcomboBox
-            // 
-            this.CcomboBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CcomboBox.FormattingEnabled = true;
-            this.CcomboBox.Items.AddRange(new object[] {
-            "DNI",
-            "Targeta sanitaria"});
-            this.CcomboBox.Location = new System.Drawing.Point(220, 19);
-            this.CcomboBox.Name = "CcomboBox";
-            this.CcomboBox.Reference = null;
-            this.CcomboBox.Size = new System.Drawing.Size(107, 21);
-            this.CcomboBox.TabIndex = 4;
-            // 
             // gbRecepta
             // 
             this.gbRecepta.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -405,26 +327,82 @@
             this.TBRec.Size = new System.Drawing.Size(121, 20);
             this.TBRec.TabIndex = 3;
             // 
-            // button1
+            // TBClient
             // 
-            this.button1.BackColor = System.Drawing.Color.DimGray;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Verdana", 9F);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(262, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(70, 22);
-            this.button1.TabIndex = 58;
-            this.button1.Text = "Report";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_2);
+            this.TBClient.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TBClient.Location = new System.Drawing.Point(79, 19);
+            this.TBClient.Name = "TBClient";
+            this.TBClient.Options = CustomControl.CustomTextBox.Items.Text;
+            this.TBClient.Placeholder = null;
+            this.TBClient.Size = new System.Drawing.Size(121, 20);
+            this.TBClient.TabIndex = 3;
+            this.TBClient.Leave += new System.EventHandler(this.TBClients_Leave);
             // 
-            // txtticket
+            // CcomboBox
             // 
-            this.txtticket.Location = new System.Drawing.Point(376, 13);
-            this.txtticket.Name = "txtticket";
-            this.txtticket.Size = new System.Drawing.Size(100, 20);
-            this.txtticket.TabIndex = 59;
+            this.CcomboBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CcomboBox.FormattingEnabled = true;
+            this.CcomboBox.Items.AddRange(new object[] {
+            "DNI",
+            "Targeta sanitaria"});
+            this.CcomboBox.Location = new System.Drawing.Point(220, 19);
+            this.CcomboBox.Name = "CcomboBox";
+            this.CcomboBox.Reference = null;
+            this.CcomboBox.Size = new System.Drawing.Size(107, 21);
+            this.CcomboBox.TabIndex = 4;
+            // 
+            // CCpassword
+            // 
+            this.CCpassword.Location = new System.Drawing.Point(88, 56);
+            this.CCpassword.Name = "CCpassword";
+            this.CCpassword.Options = CustomControl.CustomTextBox.Items.Password;
+            this.CCpassword.Placeholder = "Password";
+            this.CCpassword.Size = new System.Drawing.Size(121, 20);
+            this.CCpassword.TabIndex = 2;
+            this.CCpassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CCpassword_KeyPress);
+            // 
+            // CClogin
+            // 
+            this.CClogin.Location = new System.Drawing.Point(88, 19);
+            this.CClogin.Name = "CClogin";
+            this.CClogin.Options = CustomControl.CustomTextBox.Items.Text;
+            this.CClogin.Placeholder = "Login";
+            this.CClogin.Size = new System.Drawing.Size(121, 20);
+            this.CClogin.TabIndex = 1;
+            // 
+            // CcQuant
+            // 
+            this.CcQuant.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CcQuant.FormattingEnabled = true;
+            this.CcQuant.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.CcQuant.Location = new System.Drawing.Point(371, 42);
+            this.CcQuant.Name = "CcQuant";
+            this.CcQuant.Reference = null;
+            this.CcQuant.Size = new System.Drawing.Size(41, 21);
+            this.CcQuant.TabIndex = 90;
+            this.CcQuant.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxBFilter_KeyPress);
+            // 
+            // TxBFilter
+            // 
+            this.TxBFilter.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TxBFilter.Location = new System.Drawing.Point(246, 43);
+            this.TxBFilter.Name = "TxBFilter";
+            this.TxBFilter.Options = CustomControl.CustomTextBox.Items.Text;
+            this.TxBFilter.Placeholder = null;
+            this.TxBFilter.Size = new System.Drawing.Size(119, 20);
+            this.TxBFilter.TabIndex = 86;
+            this.TxBFilter.Tag = "";
+            this.TxBFilter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxBFilter_KeyPress);
             // 
             // Ventas
             // 
@@ -433,8 +411,6 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(913, 602);
-            this.Controls.Add(this.txtticket);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.gbRecepta);
             this.Controls.Add(this.gbClient);
             this.Controls.Add(this.groupBox1);
@@ -493,7 +469,5 @@
         private System.Windows.Forms.Label label7;
         private CustomControl.CustomTextBox TBRec;
         private CustomControl.comboBox CcQuant;
-        public System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox txtticket;
     }
 }

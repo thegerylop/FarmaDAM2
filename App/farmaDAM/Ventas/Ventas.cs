@@ -180,8 +180,17 @@ namespace Ventas
 
                 afegirProductesBBDD();
 
-                //Crea la factura
-                
+                //Crea la factura i s'envia a imprimir (guardar)
+                String pkInstalledPrinters;
+                pkInstalledPrinters = PrinterSettings.InstalledPrinters[1];
+                MessageBox.Show(pkInstalledPrinters);
+                ReportDocument factura = new ReportDocument();
+
+                factura.Load("Ticket.rpt");
+                String numTicket = bd.resultatComanda("Select id_venda from vendes order by id_venda desc limit 1");
+                factura.RecordSelectionFormula = "{vendes1.id_venda} = " + numTicket;
+                factura.PrintOptions.PrinterName = pkInstalledPrinters;
+                factura.PrintToPrinter(1, true, 0, 0);
             }
             else
             {
@@ -331,25 +340,6 @@ namespace Ventas
                     }
                 }
             }
-        }
-
-     
-
-        private void button1_Click_2(object sender, EventArgs e)
-        {
-
-            String pkInstalledPrinters;
-            //for (int i = 0; i < PrinterSettings.InstalledPrinters.Count; i++)
-            //{
-                pkInstalledPrinters = PrinterSettings.InstalledPrinters[1];
-                MessageBox.Show(pkInstalledPrinters);
-            //}
-            ReportDocument factura = new ReportDocument();
-
-            factura.Load("Ticket.rpt");
-            factura.RecordSelectionFormula = "{vendes1.id_venda} = " + txtticket.Text;
-            factura.PrintOptions.PrinterName = pkInstalledPrinters;
-            factura.PrintToPrinter(1, true, 0, 0);
         }
     }
 }
