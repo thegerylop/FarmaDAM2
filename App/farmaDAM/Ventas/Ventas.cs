@@ -30,7 +30,8 @@ namespace Ventas
         {
             amagarItems();
             iniciarTicket();
-            
+
+
         }
 
         public void iniciarTicket()
@@ -65,6 +66,12 @@ namespace Ventas
         {
             this.Controls.Clear();
             InitializeComponent();
+            lblVentas.Location = new Point(419, 45);
+            gbClient.Location = new Point(124, 246);
+            UserName.Location = new Point(504, 268);
+            gbRecepta.Location = new Point(124, 309);
+            groupBoxMed.Location = new Point(124, 367);
+            groupBoxLlista.Location =  new Point(884, 216);
             amagarItems();
             iniciarTicket();
         }
@@ -102,6 +109,7 @@ namespace Ventas
             {
                 MessageBox.Show("El client indicat no existeix");
                 TBClient.Text = "";
+                TBClient.Focus();
             }
             else
             {
@@ -203,6 +211,7 @@ namespace Ventas
                 string personal = bd.resultatComanda("Select id_personal from personal where usuari = '" + user + "'");
                 bd.executaComanda("insert into vendes (id_personal,id_client,data) values (" + client + "," + personal + ",NOW())");
                 afegirProductesBBDD();
+
                 recarregarForm();
             }
             else
@@ -355,6 +364,10 @@ namespace Ventas
                         MessageBox.Show("Producte sense stock");
                         CercarProductes(r);
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Medicament no existent");
                 }
                 sumarTicket();
             }

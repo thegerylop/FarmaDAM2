@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblVentas = new System.Windows.Forms.Label();
             this.groupBoxMed = new System.Windows.Forms.GroupBox();
             this.CcQuant = new CustomControl.comboBox();
             this.lblFiltrar = new System.Windows.Forms.Label();
@@ -66,16 +66,17 @@
             this.gbRecepta.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label2
+            // lblVentas
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(419, 45);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 24);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Ventas";
+            this.lblVentas.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblVentas.AutoSize = true;
+            this.lblVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.lblVentas.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblVentas.Location = new System.Drawing.Point(419, 45);
+            this.lblVentas.Name = "lblVentas";
+            this.lblVentas.Size = new System.Drawing.Size(68, 24);
+            this.lblVentas.TabIndex = 2;
+            this.lblVentas.Text = "Ventas";
             // 
             // groupBoxMed
             // 
@@ -116,7 +117,8 @@
             // 
             this.lblFiltrar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblFiltrar.AutoSize = true;
-            this.lblFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.lblFiltrar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblFiltrar.Location = new System.Drawing.Point(6, 16);
             this.lblFiltrar.Name = "lblFiltrar";
             this.lblFiltrar.Size = new System.Drawing.Size(97, 18);
@@ -204,6 +206,7 @@
             this.btnAcceptar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAcceptar.Font = new System.Drawing.Font("Verdana", 9F);
             this.btnAcceptar.ForeColor = System.Drawing.Color.White;
+            this.btnAcceptar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnAcceptar.Location = new System.Drawing.Point(181, 436);
             this.btnAcceptar.Name = "btnAcceptar";
             this.btnAcceptar.Size = new System.Drawing.Size(70, 22);
@@ -217,6 +220,7 @@
             this.lblTotal.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblTotal.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblTotal.Location = new System.Drawing.Point(67, 436);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(0, 18);
@@ -227,6 +231,7 @@
             this.lblTicket.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTicket.AutoSize = true;
             this.lblTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblTicket.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblTicket.Location = new System.Drawing.Point(9, 12);
             this.lblTicket.Name = "lblTicket";
             this.lblTicket.Size = new System.Drawing.Size(69, 18);
@@ -238,6 +243,7 @@
             this.lblPreu.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblPreu.AutoSize = true;
             this.lblPreu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblPreu.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblPreu.Location = new System.Drawing.Point(12, 436);
             this.lblPreu.Name = "lblPreu";
             this.lblPreu.Size = new System.Drawing.Size(49, 18);
@@ -263,6 +269,7 @@
             this.Tancar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Tancar.Font = new System.Drawing.Font("Verdana", 9F);
             this.Tancar.ForeColor = System.Drawing.Color.White;
+            this.Tancar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Tancar.Location = new System.Drawing.Point(139, 87);
             this.Tancar.Name = "Tancar";
             this.Tancar.Size = new System.Drawing.Size(70, 22);
@@ -286,6 +293,7 @@
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label6.Location = new System.Drawing.Point(7, 58);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(75, 18);
@@ -306,6 +314,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label4.Location = new System.Drawing.Point(38, 19);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(44, 18);
@@ -329,6 +338,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label5.Location = new System.Drawing.Point(23, 19);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 18);
@@ -349,6 +359,7 @@
             // CcomboBox
             // 
             this.CcomboBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CcomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CcomboBox.FormattingEnabled = true;
             this.CcomboBox.Items.AddRange(new object[] {
             "DNI",
@@ -375,6 +386,7 @@
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label7.Location = new System.Drawing.Point(6, 19);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(71, 18);
@@ -395,7 +407,8 @@
             // 
             this.UserName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.UserName.AutoSize = true;
-            this.UserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.UserName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.UserName.Location = new System.Drawing.Point(264, 143);
             this.UserName.Name = "UserName";
             this.UserName.Size = new System.Drawing.Size(0, 18);
@@ -414,8 +427,9 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBoxLlista);
             this.Controls.Add(this.groupBoxMed);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblVentas);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Name = "Ventas";
             this.Text = "Ventas";
             this.Load += new System.EventHandler(this.Ventas_Load);
@@ -437,7 +451,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblVentas;
         private System.Windows.Forms.GroupBox groupBoxMed;
         private System.Windows.Forms.DataGridView dgvVentas;
         private System.Windows.Forms.ListView listViewCompra;
