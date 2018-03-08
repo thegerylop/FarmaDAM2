@@ -28,23 +28,30 @@ namespace Ventas
         }
         private void Ventas_Load(object sender, EventArgs e)
         {
+            amagarItems();
+            iniciarTicket();
+            
+        }
 
+        public void iniciarTicket()
+        {
+            CcomboBox.SelectedIndex = 0;
+            int ticket = Int32.Parse(bd.resultatComanda("SELECT MAX(id_venda) FROM vendes")) + 1;
+            lblTicket.Text = lblTicket.Text + ticket.ToString();
+            CcQuant.SelectedIndex = 0;
+        }
+        public void amagarItems()
+        {
             UserName.Visible = false;
             gbClient.Visible = false;
             gbRecepta.Visible = false;
             groupBoxMed.Visible = false;
             groupBoxLlista.Visible = false;
-            CcomboBox.SelectedIndex = 0;
-            int ticket = Int32.Parse(bd.resultatComanda("SELECT MAX(id_venda) FROM vendes")) + 1;
-            lblTicket.Text = lblTicket.Text + ticket.ToString();
-            CcQuant.SelectedIndex = 0;
-            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Ventas form = new Ventas();
-            form.Refresh();
+            recarregarForm();
         }
         private void CCpassword_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -52,6 +59,12 @@ namespace Ventas
             {
                 login();
             }
+        }
+
+        public void recarregarForm()
+        {
+            Ventas form = new Ventas();
+            form.Refresh();
         }
         private void login()
         {
@@ -67,9 +80,7 @@ namespace Ventas
             else
             {
                 MessageBox.Show("El login o la contrasenya son invàlids");
-                gbClient.Visible = false;
-                groupBoxMed.Visible = false;
-                groupBoxLlista.Visible = false;
+
             }
         }
         private void BindingDades(string table)
@@ -92,14 +103,19 @@ namespace Ventas
             }
             else
             {
-                UserName.Text = userName;
-                UserName.Visible = true;
-                TBClient.Enabled = false;
-                CcomboBox.Enabled = false;
-                gbRecepta.Visible = true;
-                groupBoxMed.Visible = true;
-                groupBoxLlista.Visible = true;
+                mostrarTicket(userName);
+
             }
+        }
+        public void mostrarTicket(string userName)
+        {
+            UserName.Text = userName;
+            UserName.Visible = true;
+            TBClient.Enabled = false;
+            CcomboBox.Enabled = false;
+            gbRecepta.Visible = true;
+            groupBoxMed.Visible = true;
+            groupBoxLlista.Visible = true;
         }
         private void dgvVentas_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -147,11 +163,7 @@ namespace Ventas
             }
             if (sumar)
             {
-                double value1 = Convert.ToDouble(dgvVentas.Rows[index].Cells[4].Value.ToString());
-                double value2 = Convert.ToDouble(dgvVentas.Rows[index].Cells[5].Value.ToString());
-                total += value1 + (value1 * (value2 / 100));
-                total = Math.Round(total, 2, MidpointRounding.AwayFromZero);
-                lblTotal.Text = total.ToString() + " €";
+                sumarTicket();
             }
         }
 
@@ -176,7 +188,7 @@ namespace Ventas
             double test = Math.Round(resultat, 2, MidpointRounding.AwayFromZero);
             total = Math.Round(total, 2, MidpointRounding.AwayFromZero);
             total -= test;
-            lblTotal.Text = total.ToString();
+            lblTotal.Text = total.ToString() + " €";
         }
 
         private void btnAcceptar_Click(object sender, EventArgs e)
@@ -187,17 +199,16 @@ namespace Ventas
             if (count > 0) {
                 string client = bd.resultatComanda("Select id_client from clients where " + CcomboBox.Text + " = " + TBClient.Text);
                 string personal = bd.resultatComanda("Select id_personal from personal where usuari = '" + user + "'");
-
                 bd.executaComanda("insert into vendes (id_personal,id_client,data) values (" + client + "," + personal + ",NOW())");
-
                 afegirProductesBBDD();
+                recarregarForm();
             }
             else
             {
                 MessageBox.Show("ticket buit");
             }
         }
-        private void afegirProductesBBDD()
+        private void afegirProductesBBDD() 
         {
             string id_venda = bd.resultatComanda("SELECT max(id_venda) FROM vendes");
             Boolean VendaCorrecte = true;
@@ -313,6 +324,7 @@ namespace Ventas
                                 else
                                 {
                                     MessageBox.Show("Stock per sota del demanat");
+                                    CercarProductes(r);
                                 }
                             }
                         }
@@ -342,6 +354,7 @@ namespace Ventas
                         CercarProductes(r);
                     }
                 }
+                sumarTicket();
             }
         }
         public void CercarProductes(DataRow r)
@@ -358,8 +371,31 @@ namespace Ventas
                 MessageBox.Show("Producte no substituible");
             }
         }
+        
+        public void sumarTicket()
+        {
+            total = 0;
+            foreach (ListViewItem itemRow in this.listViewCompra.Items)
+            {
+                double pvp = Convert.ToDouble(itemRow.SubItems[1].Text);
+                double iva = Convert.ToDouble(itemRow.SubItems[2].Text);
+                int cantidad = Int32.Parse(itemRow.SubItems[3].Text);
+                total += (pvp + (pvp * (iva / 100))) * cantidad;
+                total = Math.Round(total, 2, MidpointRounding.AwayFromZero);
+                lblTotal.Text = total.ToString() + " €";
+            }
+        }
     }
 }
+
+
+
+
+
+
+
+
+
 //if (sumar)
 //                        {
 //                            int cuant;
