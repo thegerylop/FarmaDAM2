@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using ConexioBBDD;
+using CrystalDecisions.CrystalReports.Engine;
+using System.Drawing.Printing;
+
 namespace Ventas
 {
     public partial class Ventas : Form
@@ -211,6 +214,9 @@ namespace Ventas
                 string personal = bd.resultatComanda("Select id_personal from personal where usuari = '" + user + "'");
                 bd.executaComanda("insert into vendes (id_personal,id_client,data) values (" + client + "," + personal + ",NOW())");
                 afegirProductesBBDD();
+
+                ticketCrystalReports();
+
                 recarregarForm();
             }
             else
@@ -218,6 +224,22 @@ namespace Ventas
                 MessageBox.Show("ticket buit");
             }
         }
+
+        private void ticketCrystalReports()
+        {
+            //Crea la factura i s'envia a imprimir (guardar)
+            String pkInstalledPrinters;
+            pkInstalledPrinters = PrinterSettings.InstalledPrinters[1];
+            MessageBox.Show(pkInstalledPrinters);
+            ReportDocument factura = new ReportDocument();
+
+            factura.Load("../Ventas/Ticket.rpt");
+            String numTicket = bd.resultatComanda("Select id_venda from vendes order by id_venda desc limit 1");
+            factura.RecordSelectionFormula = "{vendes1.id_venda} = " + numTicket;
+            factura.PrintOptions.PrinterName = pkInstalledPrinters;
+            factura.PrintToPrinter(1, true, 0, 0);
+        }
+
         private void afegirProductesBBDD() 
         {
             string id_venda = bd.resultatComanda("SELECT max(id_venda) FROM vendes");
