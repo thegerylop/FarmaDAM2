@@ -32,7 +32,6 @@
             this.lblFiltrar = new System.Windows.Forms.Label();
             this.TxBFilter = new CustomControl.CustomTextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.customTextBox7 = new CustomControl.CustomTextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -51,7 +50,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.customTextBox4 = new CustomControl.CustomTextBox();
-            this.customTextBox3 = new CustomControl.CustomTextBox();
             this.customTextBox6 = new CustomControl.CustomTextBox();
             this.customTextBox5 = new CustomControl.CustomTextBox();
             this.customTextBox2 = new CustomControl.CustomTextBox();
@@ -59,6 +57,10 @@
             this.CCcodi = new CustomControl.CustomTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.MComboBox = new CustomControl.comboBox();
+            this.cboxGeneric = new CustomControl.comboBox();
+            this.txtSubs = new CustomControl.CustomTextBox();
+            this.txtGen = new CustomControl.CustomTextBox();
+            this.cboxSubs = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnAfegir
@@ -121,17 +123,6 @@
             this.label9.Size = new System.Drawing.Size(86, 16);
             this.label9.TabIndex = 143;
             this.label9.Text = "Principi actiu:";
-            // 
-            // customTextBox7
-            // 
-            this.customTextBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.customTextBox7.Location = new System.Drawing.Point(184, 113);
-            this.customTextBox7.Name = "customTextBox7";
-            this.customTextBox7.Options = CustomControl.CustomTextBox.Items.Text;
-            this.customTextBox7.Placeholder = null;
-            this.customTextBox7.Size = new System.Drawing.Size(197, 20);
-            this.customTextBox7.TabIndex = 142;
-            this.customTextBox7.Tag = "generic";
             // 
             // label11
             // 
@@ -334,17 +325,6 @@
             this.customTextBox4.TabIndex = 122;
             this.customTextBox4.Tag = "recepta";
             // 
-            // customTextBox3
-            // 
-            this.customTextBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.customTextBox3.Location = new System.Drawing.Point(184, 87);
-            this.customTextBox3.Name = "customTextBox3";
-            this.customTextBox3.Options = CustomControl.CustomTextBox.Items.Text;
-            this.customTextBox3.Placeholder = null;
-            this.customTextBox3.Size = new System.Drawing.Size(197, 20);
-            this.customTextBox3.TabIndex = 121;
-            this.customTextBox3.Tag = "substituible";
-            // 
             // customTextBox6
             // 
             this.customTextBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -421,18 +401,72 @@
             this.MComboBox.Reference = "laboratoris_farmaceutics";
             this.MComboBox.Size = new System.Drawing.Size(197, 21);
             this.MComboBox.TabIndex = 147;
-            this.MComboBox.SelectedIndexChanged += new System.EventHandler(this.McomboBox_SelectedIndexChanged);
+            // 
+            // cboxGeneric
+            // 
+            this.cboxGeneric.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cboxGeneric.AutoCompleteCustomSource.AddRange(new string[] {
+            "Si",
+            "No"});
+            this.cboxGeneric.FormattingEnabled = true;
+            this.cboxGeneric.Items.AddRange(new object[] {
+            "Si",
+            "No"});
+            this.cboxGeneric.Location = new System.Drawing.Point(184, 113);
+            this.cboxGeneric.Name = "cboxGeneric";
+            this.cboxGeneric.Reference = null;
+            this.cboxGeneric.Size = new System.Drawing.Size(197, 21);
+            this.cboxGeneric.TabIndex = 149;
+            // 
+            // txtSubs
+            // 
+            this.txtSubs.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtSubs.Location = new System.Drawing.Point(387, 87);
+            this.txtSubs.Name = "txtSubs";
+            this.txtSubs.Options = CustomControl.CustomTextBox.Items.Text;
+            this.txtSubs.Placeholder = null;
+            this.txtSubs.Size = new System.Drawing.Size(25, 20);
+            this.txtSubs.TabIndex = 150;
+            this.txtSubs.Tag = "substituible";
+            this.txtSubs.TextChanged += new System.EventHandler(this.txtSubs_TextChanged);
+            // 
+            // txtGen
+            // 
+            this.txtGen.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtGen.Location = new System.Drawing.Point(387, 113);
+            this.txtGen.Name = "txtGen";
+            this.txtGen.Options = CustomControl.CustomTextBox.Items.Text;
+            this.txtGen.Placeholder = null;
+            this.txtGen.Size = new System.Drawing.Size(25, 20);
+            this.txtGen.TabIndex = 151;
+            this.txtGen.Tag = "generic";
+            this.txtGen.TextChanged += new System.EventHandler(this.txtGen_TextChanged);
+            // 
+            // cboxSubs
+            // 
+            this.cboxSubs.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cboxSubs.FormattingEnabled = true;
+            this.cboxSubs.Items.AddRange(new object[] {
+            "Si",
+            "No"});
+            this.cboxSubs.Location = new System.Drawing.Point(184, 87);
+            this.cboxSubs.Name = "cboxSubs";
+            this.cboxSubs.Size = new System.Drawing.Size(197, 21);
+            this.cboxSubs.TabIndex = 152;
             // 
             // MantenimentProductesX
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(913, 484);
+            this.Controls.Add(this.cboxSubs);
+            this.Controls.Add(this.txtGen);
+            this.Controls.Add(this.txtSubs);
+            this.Controls.Add(this.cboxGeneric);
             this.Controls.Add(this.MComboBox);
             this.Controls.Add(this.cbProds);
             this.Controls.Add(this.lblFiltrar);
             this.Controls.Add(this.TxBFilter);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.customTextBox7);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label13);
@@ -451,7 +485,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.customTextBox4);
-            this.Controls.Add(this.customTextBox3);
             this.Controls.Add(this.customTextBox6);
             this.Controls.Add(this.customTextBox5);
             this.Controls.Add(this.customTextBox2);
@@ -466,7 +499,6 @@
             this.Controls.SetChildIndex(this.customTextBox2, 0);
             this.Controls.SetChildIndex(this.customTextBox5, 0);
             this.Controls.SetChildIndex(this.customTextBox6, 0);
-            this.Controls.SetChildIndex(this.customTextBox3, 0);
             this.Controls.SetChildIndex(this.customTextBox4, 0);
             this.Controls.SetChildIndex(this.label5, 0);
             this.Controls.SetChildIndex(this.label1, 0);
@@ -485,14 +517,17 @@
             this.Controls.SetChildIndex(this.label13, 0);
             this.Controls.SetChildIndex(this.label12, 0);
             this.Controls.SetChildIndex(this.label11, 0);
-            this.Controls.SetChildIndex(this.customTextBox7, 0);
             this.Controls.SetChildIndex(this.label9, 0);
             this.Controls.SetChildIndex(this.TxBFilter, 0);
             this.Controls.SetChildIndex(this.lblFiltrar, 0);
             this.Controls.SetChildIndex(this.cbProds, 0);
+            this.Controls.SetChildIndex(this.MComboBox, 0);
+            this.Controls.SetChildIndex(this.cboxGeneric, 0);
+            this.Controls.SetChildIndex(this.txtSubs, 0);
+            this.Controls.SetChildIndex(this.txtGen, 0);
             this.Controls.SetChildIndex(this.btnActualitzar, 0);
             this.Controls.SetChildIndex(this.btnAfegir, 0);
-            this.Controls.SetChildIndex(this.MComboBox, 0);
+            this.Controls.SetChildIndex(this.cboxSubs, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -504,7 +539,6 @@
         private System.Windows.Forms.Label lblFiltrar;
         private CustomControl.CustomTextBox TxBFilter;
         private System.Windows.Forms.Label label9;
-        private CustomControl.CustomTextBox customTextBox7;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
@@ -523,7 +557,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
         private CustomControl.CustomTextBox customTextBox4;
-        private CustomControl.CustomTextBox customTextBox3;
         private CustomControl.CustomTextBox customTextBox6;
         private CustomControl.CustomTextBox customTextBox5;
         private CustomControl.CustomTextBox customTextBox2;
@@ -531,5 +564,9 @@
         private CustomControl.CustomTextBox CCcodi;
         private System.Windows.Forms.Label label2;
         private CustomControl.comboBox MComboBox;
+        private CustomControl.comboBox cboxGeneric;
+        private CustomControl.CustomTextBox txtSubs;
+        private CustomControl.CustomTextBox txtGen;
+        private System.Windows.Forms.ComboBox cboxSubs;
     }
 }

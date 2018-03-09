@@ -143,7 +143,7 @@ namespace Clients
             {
                 if (txt.GetType() == typeof(CustomControl.CustomTextBox))
                 {
-                    if (txt.Text == "" && txt.Tag != "")
+                    if (txt.Text == "" && (String) txt.Tag != "")
                     {
                         return false;
                     }
@@ -178,8 +178,12 @@ namespace Clients
                     break;
                 }
             }
-
-        (clientsDataGridView.DataSource as DataTable).DefaultView.RowFilter = string.Format(columna + " LIKE '{0}%'", TxBFilter.Text);
+            try {
+                (clientsDataGridView.DataSource as DataTable).DefaultView.RowFilter = string.Format(columna + " LIKE '{0}%'", TxBFilter.Text);
+            } catch (System.Data.EvaluateException) {
+                MessageBox.Show("Error: Caràcters introduits no vàlids");
+            }
+    
         }
     }
 }

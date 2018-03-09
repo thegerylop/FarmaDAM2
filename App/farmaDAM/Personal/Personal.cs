@@ -20,7 +20,11 @@ namespace Personal
 
         private void TxBFilter_TextChanged(object sender, EventArgs e)
         {
-            (dgvBase.DataSource as DataTable).DefaultView.RowFilter = string.Format("usuari LIKE '{0}%'", TxBFilter.Text);
+            try {
+                (dgvBase.DataSource as DataTable).DefaultView.RowFilter = string.Format("usuari LIKE '{0}%'", TxBFilter.Text);
+            } catch (System.Data.EvaluateException errorDatos) {
+                MessageBox.Show("Error: Caràcters introduits no vàlids");
+            }            
         }
 
         private void Personal_Load(object sender, EventArgs e)
@@ -30,7 +34,7 @@ namespace Personal
             this.dgvBase.Columns[0].Visible = false;
             //Alias para las columnas
             this.dgvBase.Columns[1].HeaderText = "Usuari"; //usuari
-            this.dgvBase.Columns[2].HeaderText = "Contrasenya"; //contrasenya
+            this.dgvBase.Columns[2].Visible = false;
         }
     }
 }

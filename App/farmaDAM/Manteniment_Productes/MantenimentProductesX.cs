@@ -19,6 +19,7 @@ namespace Manteniment_Productes
         String table = "medicaments";
         String comboBoxQuery;
         ConexioBBDD.Conexio bd = new ConexioBBDD.Conexio();
+        Boolean flag;
 
         private void MantenimentProductesX_Load(object sender, EventArgs e)
         {
@@ -42,25 +43,33 @@ namespace Manteniment_Productes
             this.dgvBase.Columns[12].HeaderText = "Prospecte"; //url_prospecte
             this.dgvBase.Columns[13].HeaderText = "Stock"; //stock
 
-            comboBoxQuery = "Select rao_social from " + MComboBox.Reference;
+            comboBoxQuery = "Select id_laboratori, rao_social from " + MComboBox.Reference;
             DataTable t = bd.searchTableFromQuery(comboBoxQuery);
             addComboBoxData(t, MComboBox);
 
-            CCcodi.Visible = false;
+            CCcodi.Visible = true;
+            txtGen.Visible = true;
+            txtSubs.Visible = true;
+        }
+
+        public void switchComboBoxIndex(ComboBox comboBox)
+        {
+            MComboBox.SelectedValue = CCcodi.Text;
+        }
+
+        public void switchComboBoxIndex(TextBox txt, ComboBox comboBox)
+        {
+            if (txt.Equals("False"))
+                comboBox.SelectedValue = "2";
+            else
+                comboBox.SelectedValue = "1";
         }
 
         public void addComboBoxData(DataTable t, ComboBox comboBox)
         {
-            comboBox.Items.Add("Selecciona...");
-            comboBox.SelectedIndex = 0;
-            for (var i = 0; i < t.Rows.Count; i++)
-            {
-                DataRow r = t.Rows[i];
-                if (r.ItemArray[0] != null)
-                {
-                    comboBox.Items.Add(r.ItemArray[0].ToString());
-                }
-            }
+            comboBox.DataSource = t;
+            comboBox.DisplayMember = "rao_social";
+            comboBox.ValueMember = "id_laboratori";
         }
 
         private void TxBFilter_TextChanged(object sender, EventArgs e)
@@ -77,19 +86,29 @@ namespace Manteniment_Productes
                     }
                 }
                 double number;
-                string rowFilter = double.TryParse(TxBFilter.Text, out number) ? string.Format(columna + " = '{0}'", TxBFilter.Text) : string.Format(columna + " like '%{0}%'", TxBFilter.Text);
-                (dgvBase.DataSource as DataTable).DefaultView.RowFilter = rowFilter;
+                try { 
+                    string rowFilter = double.TryParse(TxBFilter.Text, out number) ? string.Format(columna + " = '{0}'", TxBFilter.Text) : string.Format(columna + " like '%{0}%'", TxBFilter.Text);(dgvBase.DataSource as DataTable).DefaultView.RowFilter = rowFilter;
+                    (dgvBase.DataSource as DataTable).DefaultView.RowFilter = rowFilter;
+                } catch (System.Data.EvaluateException) {
+                    MessageBox.Show("Error: Caràcters introduits no vàlids");
+                }
+                
             }
         }
+
         private void CCcodi_TextChanged(object sender, EventArgs e)
         {
-            MComboBox.SelectedIndex = Convert.ToInt32(CCcodi.Text);
-            CCcodi.TextChanged += new System.EventHandler(baseForm.validarText);
+            switchComboBoxIndex(MComboBox);
         }
-        private void McomboBox_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void txtSubs_TextChanged(object sender, EventArgs e)
         {
-            CCcodi.Text = MComboBox.SelectedIndex.ToString();
-            CCcodi.TextChanged += new System.EventHandler(baseForm.validarText);
+            switchComboBoxIndex(txtSubs, cboxSubs);
+        }
+
+        private void txtGen_TextChanged(object sender, EventArgs e)
+        {
+            switchComboBoxIndex(txtGen, cboxGeneric);
         }
     }
 }

@@ -46,9 +46,13 @@ namespace MantenimentPrincipisActius
                     }
                 }
                 double number;
-                string rowFilter = double.TryParse(TxBFilter.Text, out number) ? string.Format(columna + " = '{0}'", TxBFilter.Text) : string.Format(columna + " like '%{0}%'", TxBFilter.Text);
-                (dgvBase.DataSource as DataTable).DefaultView.RowFilter = rowFilter;
-            }
+                try { 
+                    string rowFilter = double.TryParse(TxBFilter.Text, out number) ? string.Format(columna + " = '{0}'", TxBFilter.Text) : string.Format(columna + " like '%{0}%'", TxBFilter.Text);
+                    (dgvBase.DataSource as DataTable).DefaultView.RowFilter = rowFilter;
+                } catch (System.Data.EvaluateException){
+                    MessageBox.Show("Error: Caràcters introduits no vàlids");
+                }
+        }
         }
     }
 }
