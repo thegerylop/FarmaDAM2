@@ -28,19 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dataComanda = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
-            // dateTimePicker1
+            // dataComanda
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(92, 52);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 0;
+            this.dataComanda.Location = new System.Drawing.Point(92, 52);
+            this.dataComanda.Name = "dataComanda";
+            this.dataComanda.Size = new System.Drawing.Size(200, 20);
+            this.dataComanda.TabIndex = 0;
+            this.dataComanda.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // label1
             // 
@@ -87,7 +88,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dataComanda);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "gestioDeComandes";
             this.Text = "gestioDeComandes";
@@ -98,7 +99,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dataComanda;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
