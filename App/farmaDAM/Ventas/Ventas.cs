@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using ConexioBBDD;
 using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
 using System.Drawing.Printing;
 
 namespace Ventas
@@ -185,8 +186,28 @@ namespace Ventas
                 pkInstalledPrinters = PrinterSettings.InstalledPrinters[1];
                 MessageBox.Show(pkInstalledPrinters);
                 ReportDocument factura = new ReportDocument();
-
+                TableLogOnInfos crtableLogoninfos = new TableLogOnInfos();
+                TableLogOnInfo crtableLogoninfo = new TableLogOnInfo();
+                ConnectionInfo crConnectionInfo = new ConnectionInfo();
+                Tables CrTables;
+                
                 factura.Load("../Ventas/Ticket.rpt");
+
+                crConnectionInfo.ServerName = "51.255.58.1";
+                crConnectionInfo.DatabaseName = "g2s2am_FarmaDAM";
+                crConnectionInfo.UserID = "g2s2am";
+                crConnectionInfo.Password = "diopters12345";
+
+                CrTables = factura.Database.Tables;
+                foreach (CrystalDecisions.CrystalReports.Engine.Table CrTable in CrTables)
+                {
+                    crtableLogoninfo = CrTable.LogOnInfo;
+                    crtableLogoninfo.ConnectionInfo = crConnectionInfo;
+                    CrTable.ApplyLogOnInfo(crtableLogoninfo);
+                }
+
+
+
                 String numTicket = bd.resultatComanda("Select id_venda from vendes order by id_venda desc limit 1");
                 factura.RecordSelectionFormula = "{vendes1.id_venda} = " + numTicket;
                 factura.PrintOptions.PrinterName = pkInstalledPrinters;
