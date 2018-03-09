@@ -198,10 +198,21 @@ namespace CarregarDades
 
                 if (validarDades(columna, taula, valor))
                 {
-                    var resultSet = conn.executaComanda("INSERT INTO " + taula + "( " + columna + " ) VALUES ( " + valor + " );");
-                    if (!resultSet.Equals(0)){return inserit = true;}
-                    else { return inserit = false; }
+                try
+                {
+                    if (taula == "medicaments" && !columna.Contains("id_PrincipiActiu")){
+
+                    }
+                    else
+                    {
+                        var resultSet = conn.executaComanda("INSERT INTO " + taula + "( " + columna + " ) VALUES ( " + valor + " );");
+                        if (!resultSet.Equals(0)) { return inserit = true; }
+                        else { return inserit = false; }
+
+                    }
+                }catch(MySqlException eMySql) { }
                 }
+
             return inserit;
         }
 

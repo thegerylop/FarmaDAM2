@@ -82,7 +82,7 @@
             // lbl_llargada
             // 
             this.lbl_llargada.AutoSize = true;
-            this.lbl_llargada.Location = new System.Drawing.Point(718, 424);
+            this.lbl_llargada.Location = new System.Drawing.Point(726, 424);
             this.lbl_llargada.Name = "lbl_llargada";
             this.lbl_llargada.Size = new System.Drawing.Size(0, 13);
             this.lbl_llargada.TabIndex = 4;
