@@ -1,6 +1,6 @@
 ﻿namespace gestioComandes
 {
-    partial class gestioComandes
+    partial class gestioDeComandes
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // gestioDeComandes
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "gestioComandes";
+            this.ClientSize = new System.Drawing.Size(897, 563);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "gestioDeComandes";
+            this.Text = "gestioDeComandes";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

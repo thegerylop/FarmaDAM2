@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace gestioComandes
 {
-    public partial class gestioComandes : Form
+    public partial class gestioDeComandes : Form
     {
-        public gestioComandes()
+        public gestioDeComandes()
         {
             InitializeComponent();
         }
