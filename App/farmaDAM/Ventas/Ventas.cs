@@ -193,7 +193,7 @@ namespace Ventas
                 
                 factura.Load("../Ventas/Ticket.rpt");
 
-                crConnectionInfo.ServerName = "51.255.58.1";
+                crConnectionInfo.ServerName = "farmaDAM";
                 crConnectionInfo.DatabaseName = "g2s2am_FarmaDAM";
                 crConnectionInfo.UserID = "g2s2am";
                 crConnectionInfo.Password = "diopters12345";

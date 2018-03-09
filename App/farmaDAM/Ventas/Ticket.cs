@@ -14,13 +14,11 @@ namespace Ventas {
     using CrystalDecisions.Shared;
     using CrystalDecisions.ReportSource;
     using CrystalDecisions.CrystalReports.Engine;
-    using MySql.Data.MySqlClient;
-
-
+    
+    
     public class Ticket : ReportClass {
         
         public Ticket() {
-            
         }
         
         public override string ResourceName {
@@ -151,6 +149,8 @@ namespace Ventas {
             //     this.ShareDBLogonInfo );
             return key;
         }
+
+
+
     }
-        
 }
