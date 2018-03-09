@@ -38,6 +38,8 @@
             // dataComanda
             // 
             this.dataComanda.Location = new System.Drawing.Point(92, 52);
+            this.dataComanda.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
+            this.dataComanda.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.dataComanda.Name = "dataComanda";
             this.dataComanda.Size = new System.Drawing.Size(200, 20);
             this.dataComanda.TabIndex = 0;
