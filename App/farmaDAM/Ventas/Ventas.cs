@@ -211,7 +211,6 @@ namespace Ventas
                 string personal = bd.resultatComanda("Select id_personal from personal where usuari = '" + user + "'");
                 bd.executaComanda("insert into vendes (id_personal,id_client,data) values (" + client + "," + personal + ",NOW())");
                 afegirProductesBBDD();
-
                 recarregarForm();
             }
             else
@@ -402,30 +401,3 @@ namespace Ventas
         }
     }
 }
-
-
-
-
-
-
-
-
-
-//if (sumar)
-//                        {
-//                            int cuant;
-//                            if (fix)
-//                            {
-//                                cuant = quantity;
-//                            }
-//                            else
-//                            {
-//                                cuant = Int32.Parse(CcQuant.SelectedItem.ToString());
-//                            }
-//                            double value1 = Convert.ToDouble(r["PVP"].ToString());
-//double value2 = Convert.ToDouble(r["IVA"].ToString());
-//total += (value1 + (value1* (value2 / 100))) * cuant;
-//total = Math.Round(total, 2, MidpointRounding.AwayFromZero);
-//                            lblTotal.Text = total.ToString() + " €";
-//                        }
-//                        CcQuant.SelectedIndex = 0;
