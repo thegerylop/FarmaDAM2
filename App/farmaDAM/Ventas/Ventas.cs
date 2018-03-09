@@ -67,9 +67,10 @@ namespace Ventas
 
         public void recarregarForm()
         {
+            MessageBox.Show(lblVentas.Location.ToString());
             this.Controls.Clear();
             InitializeComponent();
-            lblVentas.Location = new Point(419, 45);
+            lblVentas.Location = new Point(659, 170);
             gbClient.Location = new Point(124, 246);
             UserName.Location = new Point(504, 268);
             gbRecepta.Location = new Point(124, 309);
