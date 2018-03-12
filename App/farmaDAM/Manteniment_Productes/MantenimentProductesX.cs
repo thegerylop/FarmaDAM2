@@ -20,9 +20,11 @@ namespace Manteniment_Productes
         String comboBoxQuery;
         ConexioBBDD.Conexio bd = new ConexioBBDD.Conexio();
         Boolean flag;
+        Boolean firstLaunch = true;
 
         private void MantenimentProductesX_Load(object sender, EventArgs e)
         {
+            
             dgvBase.Anchor = AnchorStyles.Bottom;
             Table(table);
             //Amaguem id_medicament i id_principiActiu
@@ -54,15 +56,21 @@ namespace Manteniment_Productes
 
         public void switchComboBoxIndex(ComboBox comboBox)
         {
-            MComboBox.SelectedValue = CCcodi.Text;
+            if(CCcodi.Text != "")
+            {
+                MComboBox.SelectedValue = CCcodi.Text;
+            }
         }
 
         public void switchComboBoxIndex(TextBox txt, ComboBox comboBox)
         {
-            if (txt.Equals("False"))
-                comboBox.SelectedValue = "2";
-            else
-                comboBox.SelectedValue = "1";
+            if(txt.Text != "")
+            {
+                if(txt.Text.Equals("False"))
+                    comboBox.SelectedIndex = 1;
+                else
+                    comboBox.SelectedIndex = 0;
+            }
         }
 
         public void addComboBoxData(DataTable t, ComboBox comboBox)
@@ -70,6 +78,8 @@ namespace Manteniment_Productes
             comboBox.DataSource = t;
             comboBox.DisplayMember = "rao_social";
             comboBox.ValueMember = "id_laboratori";
+
+            firstLaunch = false;
         }
 
         private void TxBFilter_TextChanged(object sender, EventArgs e)
@@ -109,6 +119,35 @@ namespace Manteniment_Productes
         private void txtGen_TextChanged(object sender, EventArgs e)
         {
             switchComboBoxIndex(txtGen, cboxGeneric);
+        }
+
+        private void MComboBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if(!firstLaunch)
+            {
+                CCcodi.Text = MComboBox.SelectedValue.ToString();
+            }
+        }
+
+        private void cboxSubs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            changeTextBoxText(cboxSubs, txtSubs);
+        }
+
+        private void cboxGeneric_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            changeTextBoxText(cboxGeneric, txtGen);
+        }
+        public void changeTextBoxText(ComboBox comboBox, TextBox txt)
+        {
+            if(comboBox.SelectedIndex == 1)
+            {
+                txt.Text = "False";
+            }
+            else
+            {
+                txt.Text = "True";
+            }
         }
     }
 }

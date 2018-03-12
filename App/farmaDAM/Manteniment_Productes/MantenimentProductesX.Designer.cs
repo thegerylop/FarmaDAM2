@@ -401,6 +401,7 @@
             this.MComboBox.Reference = "laboratoris_farmaceutics";
             this.MComboBox.Size = new System.Drawing.Size(197, 21);
             this.MComboBox.TabIndex = 147;
+            this.MComboBox.SelectedValueChanged += new System.EventHandler(this.MComboBox_SelectedValueChanged);
             // 
             // cboxGeneric
             // 
@@ -417,6 +418,7 @@
             this.cboxGeneric.Reference = null;
             this.cboxGeneric.Size = new System.Drawing.Size(197, 21);
             this.cboxGeneric.TabIndex = 149;
+            this.cboxGeneric.SelectedIndexChanged += new System.EventHandler(this.cboxGeneric_SelectedIndexChanged);
             // 
             // txtSubs
             // 
@@ -453,6 +455,7 @@
             this.cboxSubs.Name = "cboxSubs";
             this.cboxSubs.Size = new System.Drawing.Size(197, 21);
             this.cboxSubs.TabIndex = 152;
+            this.cboxSubs.SelectedIndexChanged += new System.EventHandler(this.cboxSubs_SelectedIndexChanged);
             // 
             // MantenimentProductesX
             // 

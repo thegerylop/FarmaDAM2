@@ -15,6 +15,7 @@ namespace Clients
     {
         string table = "clients";
         string query;
+        Boolean firstLaunch = true;
         string comboBoxQuery;
         DataSet dataSet = new DataSet();
         string connString = "SERVER= 51.255.58.1;PORT=3306;DATABASE=g2s2am_FarmaDAM;UID=g2s2am;PASSWORD=diopters12345;";
@@ -31,7 +32,7 @@ namespace Clients
             query = "Select * from " + table;
             dataSet = bd.portarPerConsulta(query, table);
             //ComboBox table options
-            comboBoxQuery = "Select nom_carnet from " + CcomboBox.Reference;
+            comboBoxQuery = "Select  id_carnet, nom_carnet from " + CcomboBox.Reference;
             DataTable t = bd.searchTableFromQuery(comboBoxQuery);
             addComboBoxData(t ,CcomboBox);
 
@@ -59,7 +60,7 @@ namespace Clients
                 }
             }
 
-            dataBindingComboBox(dataSet);
+            //dataBindingComboBox(dataSet);
             clientsDataGridView.AutoGenerateColumns = true;
             clientsDataGridView.DataSource = dataSet.Tables[table]; // dataset
         }
@@ -71,16 +72,11 @@ namespace Clients
         
         public void addComboBoxData(DataTable t, ComboBox CcomboBox)
         {
-            CcomboBox.Items.Add("Selecciona...");
-            CcomboBox.SelectedIndex = 0;
-            for (var i = 0; i < t.Rows.Count; i++)
-            {
-                DataRow r = t.Rows[i];
-                if (r.ItemArray[0] != null)
-                {
-                    CcomboBox.Items.Add(r.ItemArray[0].ToString());
-                }
-            }
+            CcomboBox.DataSource = t;
+            CcomboBox.DisplayMember = "nom_carnet";
+            CcomboBox.ValueMember = "id_carnet";
+
+            firstLaunch = false;
         }
         private void dataBindingComboBox(DataSet dts)
         {
@@ -96,14 +92,11 @@ namespace Clients
         //canviar entre tipus_client
         private void customTextBox1_TextChanged(object sender, EventArgs e)
         {
-            CcomboBox.SelectedIndex = Convert.ToInt32(customTextBox1.Text);
-            customTextBox1.TextChanged += new System.EventHandler(this.validarText);
-        }
-
-        private void CcomboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            customTextBox1.Text = CcomboBox.SelectedIndex.ToString();
-            customTextBox1.TextChanged += new System.EventHandler(this.validarText);
+            if(customTextBox1.Text != "")
+            {
+                CcomboBox.SelectedValue = customTextBox1.Text;
+                customTextBox1.TextChanged += new System.EventHandler(this.validarText);
+            }
         }
 
         //actualitzar base de dades
@@ -145,6 +138,7 @@ namespace Clients
                 {
                     if (txt.Text == "" && (String) txt.Tag != "")
                     {
+                        MessageBox.Show(txt.Name);
                         return false;
                     }
                 }
@@ -184,6 +178,15 @@ namespace Clients
                 MessageBox.Show("Error: Caràcters introduits no vàlids");
             }
     
+        }
+
+        private void CcomboBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if(!firstLaunch)
+            {
+                customTextBox1.Text = CcomboBox.SelectedValue.ToString();
+                customTextBox1.TextChanged += new System.EventHandler(this.validarText);
+            }
         }
     }
 }
