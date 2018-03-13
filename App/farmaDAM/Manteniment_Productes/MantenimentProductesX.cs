@@ -27,10 +27,8 @@ namespace Manteniment_Productes
             
             dgvBase.Anchor = AnchorStyles.Bottom;
             Table(table);
+            amagarCamps();
             //Amaguem id_medicament i id_principiActiu
-            this.dgvBase.Columns[0].Visible = false;
-            this.dgvBase.Columns[1].Visible = false;
-            this.dgvBase.Columns[2].Visible = false;
 
             //Alies pels altres camps
             this.dgvBase.Columns[3].HeaderText = "Nº registre nacional"; //registre_nacional
@@ -48,12 +46,17 @@ namespace Manteniment_Productes
             comboBoxQuery = "Select id_laboratori, rao_social from " + MComboBox.Reference;
             DataTable t = bd.searchTableFromQuery(comboBoxQuery);
             addComboBoxData(t, MComboBox);
-
-            CCcodi.Visible = true;
-            txtGen.Visible = true;
-            txtSubs.Visible = true;
         }
 
+        public void amagarCamps()
+        {
+            this.dgvBase.Columns[0].Visible = false;
+            this.dgvBase.Columns[1].Visible = false;
+            this.dgvBase.Columns[2].Visible = false;
+            CCcodi.Visible = false;
+            txtGen.Visible = false;
+            txtSubs.Visible = false;
+        }
         public void switchComboBoxIndex(ComboBox comboBox)
         {
             if(CCcodi.Text != "")
