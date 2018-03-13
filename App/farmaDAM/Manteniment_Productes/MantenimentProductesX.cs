@@ -186,7 +186,16 @@ namespace Manteniment_Productes
 
         private void browserURL(string url)
         {
-            Browser.Navigate(url);
+
+            if (url.Contains("www.aemps.gob.es/"))
+            {
+                http://www.aemps.gob.es/
+                Browser.Navigate(url);
+            }
+            else
+            {
+                MessageBox.Show("Url no valida");
+            }
         }
 
         
