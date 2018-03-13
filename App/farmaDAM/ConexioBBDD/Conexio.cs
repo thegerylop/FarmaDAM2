@@ -85,6 +85,35 @@ namespace ConexioBBDD
             }
             return dtsDades;
         }
+        public String resultatComanda(string comanda)
+        {
+            try
+            {
+                connexio();
+                MySqlCommand command = new MySqlCommand(comanda, conn);
+
+                using (MySqlDataReader dr = command.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        string resultat = dr[0].ToString();
+                        return resultat;
+                    }
+                }
+                return "";
+            }
+            catch (MySqlException eMySql)
+            {
+                MessageBox.Show(eMySql.ToString());
+                return "";
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+        }
+
         public bool Actualitzar(String query, String taula, DataSet dtsAct)
         {
             bool correcte = true;
@@ -180,41 +209,13 @@ namespace ConexioBBDD
             }
             catch (MySqlException eMySql)
             {
-                MessageBox.Show(eMySql.ToString());
+                //MessageBox.Show(eMySql.ToString());
                 return false;
             }
             finally
             {
                 conn.Close();
             }
-        }
-
-        public String resultatComanda(string comanda) {
-            try
-            {
-                connexio();
-                MySqlCommand command = new MySqlCommand(comanda, conn);
-
-                using (MySqlDataReader dr = command.ExecuteReader())
-                {
-                    while (dr.Read())
-                    {
-                        string resultat = dr[0].ToString();
-                        return resultat;
-                    }
-                }
-                return "";
-            }
-            catch (MySqlException eMySql)
-            {
-                MessageBox.Show(eMySql.ToString());
-                return "";
-            }
-            finally
-            {
-                conn.Close();
-            }
-
         }
     }
 }

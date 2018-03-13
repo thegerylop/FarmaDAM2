@@ -87,7 +87,7 @@ namespace BaseForm
             dgvBase.DataSource = dataSet.Tables[table]; // dataset
         }
 
-        private void validarText(object sender, EventArgs e)
+        public void validarText(object sender, EventArgs e)
         {
             Control test = (Control)sender;
             test.DataBindings[0].BindingManagerBase.EndCurrentEdit();
@@ -113,10 +113,28 @@ namespace BaseForm
         }
         public void AfegirCamp(string table)
         {
+            int numIndex = 1;
+            Boolean rowIndex = false;
             row = dataSet.Tables[table].NewRow();
             dataSet.Tables[table].Rows.Add(row);
-            dgvBase.Rows[dgvBase.Rows.Count - 2].Selected = true;
-            dgvBase.CurrentCell = dgvBase.Rows[dgvBase.Rows.Count - 2].Cells[1];
+            int num = Int32.Parse(dgvBase.Rows.Count.ToString());
+            num -= 2;
+            dgvBase.Rows[num].Selected = true;
+            while(!rowIndex)
+            {
+                try
+                {
+                    dgvBase.CurrentCell = dgvBase.Rows[num].Cells[numIndex];
+                    
+                    rowIndex = true;
+                }
+                catch(System.InvalidOperationException)
+                {
+                    numIndex += 1;
+                }
+
+            }
+            
         }
        
 

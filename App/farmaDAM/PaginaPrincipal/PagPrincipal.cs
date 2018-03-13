@@ -91,5 +91,15 @@ namespace PaginaPrincipal
             frm.Dock = DockStyle.Fill;
             frm.Show();
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            gestioComandes.gestioDeComandes frm = new gestioComandes.gestioDeComandes();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
     }
 }

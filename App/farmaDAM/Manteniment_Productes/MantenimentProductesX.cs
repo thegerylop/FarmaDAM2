@@ -14,50 +14,80 @@ namespace Manteniment_Productes
         {
             InitializeComponent();
         }
+        BaseForm.BaseForm baseForm = new BaseForm.BaseForm();
 
         String table = "medicaments";
         String comboBoxQuery;
+        ConexioBBDD.Conexio bd = new ConexioBBDD.Conexio();
+        Boolean flag;
+        Boolean firstLaunch = true;
+
         private void MantenimentProductesX_Load(object sender, EventArgs e)
         {
+            
+            dgvBase.Location = new Point(-180, 50); 
             dgvBase.Anchor = AnchorStyles.Bottom;
             Table(table);
+            amagarCamps();
             //Amaguem id_medicament i id_principiActiu
-            this.dgvBase.Columns[0].Visible = false;
-            this.dgvBase.Columns[1].Visible = false;
+
             //Alies pels altres camps
-            this.dgvBase.Columns[2].HeaderText = "Nom comercial"; //nom_comercial
             this.dgvBase.Columns[3].HeaderText = "Nº registre nacional"; //registre_nacional
-            this.dgvBase.Columns[4].HeaderText = "Quantitat"; //contingut
-            this.dgvBase.Columns[5].HeaderText = "Substituïble"; //substituible
-            this.dgvBase.Columns[6].HeaderText = "Genèric"; //generic
-            this.dgvBase.Columns[7].HeaderText = "PVP"; //PVP
-            this.dgvBase.Columns[8].HeaderText = "% d'IVA"; //IVA
-            this.dgvBase.Columns[9].HeaderText = "Recepta"; //recepta
-            this.dgvBase.Columns[10].HeaderText = "Fitxa tècncica"; //url_fitxa_tecnica
-            this.dgvBase.Columns[11].HeaderText = "Prospecte"; //url_prospecte
-            this.dgvBase.Columns[12].HeaderText = "Stock"; //id_stock
-            this.dgvBase.Columns[13].HeaderText = "Codi Laboratori"; //codi_laboratori
-            //Amaguem id_la
-            this.dgvBase.Columns[14].Visible = false;
+            this.dgvBase.Columns[4].HeaderText = "Nom"; //nom_comercial
+            this.dgvBase.Columns[5].HeaderText = "Contingut"; //substituible
+            this.dgvBase.Columns[6].HeaderText = "% d'IVA"; //IVA
+            this.dgvBase.Columns[7].HeaderText = "Substituïble"; //substituible
+            this.dgvBase.Columns[8].HeaderText = "Genèric"; //generic
+            this.dgvBase.Columns[9].HeaderText = "PVP"; //PVP
+            this.dgvBase.Columns[10].HeaderText = "Recepta"; //recepta
+            this.dgvBase.Columns[11].HeaderText = "Fitxa tècncica"; //url_fitxa_tecnica
+            this.dgvBase.Columns[12].HeaderText = "Prospecte"; //url_prospecte
+            this.dgvBase.Columns[13].HeaderText = "Stock"; //stock
 
-            //comboBoxQuery = "Select nom_carnet from " + CcomboBox.Reference;
-            //DataTable t = bd.searchTableFromQuery(comboBoxQuery);
-            //addComboBoxData(t, CcomboBox);
-
+            comboBoxQuery = "Select id_laboratori, rao_social from " + MComboBox.Reference;
+            DataTable t = bd.searchTableFromQuery(comboBoxQuery);
+            addComboBoxData(t, MComboBox);
         }
 
-        public void addComboBoxData(DataTable t, ComboBox CcomboBox)
+        public void amagarCamps()
         {
-            CcomboBox.Items.Add("Selecciona...");
-            CcomboBox.SelectedIndex = 0;
-            for (var i = 0; i < t.Rows.Count; i++)
+            this.dgvBase.Columns[0].Visible = false;
+            this.dgvBase.Columns[1].Visible = false;
+            this.dgvBase.Columns[2].Visible = false;
+            this.dgvBase.Columns[7].Visible = false;
+            this.dgvBase.Columns[8].Visible = false;
+            this.dgvBase.Columns[10].Visible = false;
+            CCcodi.Visible = false;
+            txtGen.Visible = false;
+            txtSubs.Visible = false;
+            CCRec.Visible = false;
+        }
+        public void switchComboBoxIndex(ComboBox comboBox)
+        {
+            if(CCcodi.Text != "")
             {
-                DataRow r = t.Rows[i];
-                if (r.ItemArray[0] != null)
-                {
-                    CcomboBox.Items.Add(r.ItemArray[0].ToString());
-                }
+                MComboBox.SelectedValue = CCcodi.Text;
             }
+        }
+
+        public void switchComboBoxIndex(TextBox txt, ComboBox comboBox)
+        {
+            if(txt.Text != "")
+            {
+                if(txt.Text.Equals("False"))
+                    comboBox.SelectedIndex = 1;
+                else
+                    comboBox.SelectedIndex = 0;
+            }
+        }
+
+        public void addComboBoxData(DataTable t, ComboBox comboBox)
+        {
+            comboBox.DataSource = t;
+            comboBox.DisplayMember = "rao_social";
+            comboBox.ValueMember = "id_laboratori";
+
+            firstLaunch = false;
         }
 
         private void TxBFilter_TextChanged(object sender, EventArgs e)
@@ -74,9 +104,100 @@ namespace Manteniment_Productes
                     }
                 }
                 double number;
-                string rowFilter = double.TryParse(TxBFilter.Text, out number) ? string.Format(columna + " = '{0}'", TxBFilter.Text) : string.Format(columna + " like '%{0}%'", TxBFilter.Text);
-                (dgvBase.DataSource as DataTable).DefaultView.RowFilter = rowFilter;
+                try { 
+                    string rowFilter = double.TryParse(TxBFilter.Text, out number) ? string.Format(columna + " = '{0}'", TxBFilter.Text) : string.Format(columna + " like '%{0}%'", TxBFilter.Text);(dgvBase.DataSource as DataTable).DefaultView.RowFilter = rowFilter;
+                    (dgvBase.DataSource as DataTable).DefaultView.RowFilter = rowFilter;
+                } catch (System.Data.EvaluateException) {
+                    MessageBox.Show("Error: Caràcters introduits no vàlids");
+                }
+                
             }
         }
+
+        private void CCcodi_TextChanged(object sender, EventArgs e)
+        {
+            switchComboBoxIndex(MComboBox);
+        }
+
+        private void txtSubs_TextChanged(object sender, EventArgs e)
+        {
+            switchComboBoxIndex(txtSubs, cboxSubs);
+        }
+
+        private void txtGen_TextChanged(object sender, EventArgs e)
+        {
+            switchComboBoxIndex(txtGen, cboxGeneric);
+        }
+
+        private void MComboBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if(!firstLaunch)
+            {
+                CCcodi.Text = MComboBox.SelectedValue.ToString();
+            }
+        }
+
+        private void cboxSubs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            changeTextBoxText(cboxSubs, txtSubs);
+        }
+
+        private void cboxGeneric_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            changeTextBoxText(cboxGeneric, txtGen);
+        }
+        public void changeTextBoxText(ComboBox comboBox, TextBox txt)
+        {
+            if(comboBox.SelectedIndex == 1)
+            {
+                txt.Text = "False";
+            }
+            else
+            {
+                txt.Text = "True";
+            }
+        }
+
+        private void customTextBox4_TextChanged(object sender, EventArgs e)
+        {
+            switchComboBoxIndex(CCRec, ComboRec);
+        }
+
+        private void ComboRec_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            changeTextBoxText(ComboRec, CCRec);
+        }
+
+        private void CCFitxa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\r')
+            {
+                browserURL(CCFitxa.Text);
+            }
+        }
+
+        private void CCPros_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\r')
+            {
+                browserURL(CCFitxa.Text);
+            }
+        }
+
+        private void browserURL(string url)
+        {
+
+            if (url.Contains("www.aemps.gob.es/"))
+            {
+                http://www.aemps.gob.es/
+                Browser.Navigate(url);
+            }
+            else
+            {
+                MessageBox.Show("Url no valida");
+            }
+        }
+
+        
     }
 }

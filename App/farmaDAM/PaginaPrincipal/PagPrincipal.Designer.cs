@@ -47,6 +47,10 @@
             // 
             this.MantenimentProductes.Click += new System.EventHandler(this.MantenimentProductes_Click);
             // 
+            // button6
+            // 
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // PrincipisActius
             // 
             this.PrincipisActius.Click += new System.EventHandler(this.PrincipisActius_Click);
