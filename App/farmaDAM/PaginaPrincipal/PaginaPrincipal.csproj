@@ -140,6 +140,10 @@
       <Project>{a7279e0e-d844-4cc7-99da-9939eaa74818}</Project>
       <Name>CustomControl</Name>
     </ProjectReference>
+    <ProjectReference Include="..\gestioComandes\gestioComandes.csproj">
+      <Project>{1d643b7b-c737-42af-a778-0e9f783e00b3}</Project>
+      <Name>gestioComandes</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LabFarm\LabFarm.csproj">
       <Project>{1f89a881-ec94-46d3-a799-69a37ce4f4e5}</Project>
       <Name>LabFarm</Name>

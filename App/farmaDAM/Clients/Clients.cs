@@ -37,8 +37,7 @@ namespace Clients
             addComboBoxData(t ,CcomboBox);
 
             BindingDades(table);
-
-
+            
             clientsDataGridView.Columns[0].Visible = false;
             clientsDataGridView.Columns[7].Visible = false;
         }
