@@ -35,19 +35,23 @@ namespace MantenimentPrincipisActius
         private void TxBFilter_TextChanged_1(object sender, EventArgs e)
         {
             String columna = "";
-            if (cbActius.Text != "")
+            if(cbActius.Text != "")
             {
-                for (int i = 1; i <= dgvBase.Columns.Count; i++)
+                for(int i = 1; i <= dgvBase.Columns.Count; i++)
                 {
-                    if (dgvBase.Columns[i].HeaderText.Equals(cbActius.Text))
+                    if(dgvBase.Columns[i].HeaderText.Equals(cbActius.Text))
                     {
                         columna = dgvBase.Columns[i].Name;
                         break;
                     }
                 }
                 double number;
+                try
+                {
                 string rowFilter = double.TryParse(TxBFilter.Text, out number) ? string.Format(columna + " = '{0}'", TxBFilter.Text) : string.Format(columna + " like '%{0}%'", TxBFilter.Text);
                 (dgvBase.DataSource as DataTable).DefaultView.RowFilter = rowFilter;
+                }
+                catch(System.Data.EvaluateException) { MessageBox.Show("Cadena no valida"); }
             }
         }
     }

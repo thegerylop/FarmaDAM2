@@ -18,7 +18,6 @@ namespace LabFarm
         
         private void Laboratoris_Load(object sender, EventArgs e)
         {
-            cbLabs.SelectedIndex = 0;
             Table(table);
             //Esconder el primer campo que es la primary Key
             this.dgvBase.Columns[0].Visible = false;
@@ -27,8 +26,19 @@ namespace LabFarm
             this.dgvBase.Columns[2].HeaderText = "Raó Social"; //rao_social
             this.dgvBase.Columns[3].HeaderText = "CIF"; //cif
             this.dgvBase.Columns[4].HeaderText = "Denominació"; //denominacio
+
+            cbLabs.SelectedIndex = 1;
         }
         private void TxBFilter_TextChanged(object sender, EventArgs e)
+        {
+            filtrarTaula();
+        }
+        private void cbLabs_SelectedValueChanged(object sender, EventArgs e)
+        {
+            filtrarTaula();
+        }
+
+        private void filtrarTaula()
         {
             String columna = "";
 
@@ -42,9 +52,15 @@ namespace LabFarm
             }
 
             double number;
-
-            string rowFilter = double.TryParse(TxBFilter.Text, out number) ? string.Format(columna + " = '{0}'", TxBFilter.Text) : string.Format(columna + " like '%{0}%'", TxBFilter.Text);
-            (dgvBase.DataSource as DataTable).DefaultView.RowFilter = rowFilter;
+            try
+            {
+                string rowFilter = double.TryParse(TxBFilter.Text, out number) ? string.Format(columna + " = '{0}'", TxBFilter.Text) : string.Format(columna + " like '%{0}%'", TxBFilter.Text);
+                (dgvBase.DataSource as DataTable).DefaultView.RowFilter = rowFilter;
+            }
+            catch
+            {
+                MessageBox.Show("La cadena no pot esta buida");
+            }
         }
     }
 }

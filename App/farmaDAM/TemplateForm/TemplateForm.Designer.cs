@@ -40,6 +40,7 @@
             this.Clients = new System.Windows.Forms.Button();
             this.tancarSessioButton = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.btnCarregarXML = new System.Windows.Forms.Button();
             this.Personal = new System.Windows.Forms.Button();
             this.MantenimentProductes = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -166,7 +167,6 @@
             this.Clients.TabIndex = 26;
             this.Clients.Text = "Clients";
             this.Clients.UseVisualStyleBackColor = false;
-            this.Clients.Click += new System.EventHandler(this.clientsButton_Click);
             // 
             // tancarSessioButton
             // 
@@ -185,6 +185,7 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.Gray;
+            this.panel8.Controls.Add(this.btnCarregarXML);
             this.panel8.Controls.Add(this.Personal);
             this.panel8.Controls.Add(this.MantenimentProductes);
             this.panel8.Controls.Add(this.button5);
@@ -198,6 +199,19 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(207, 488);
             this.panel8.TabIndex = 8;
+            // 
+            // btnCarregarXML
+            // 
+            this.btnCarregarXML.BackColor = System.Drawing.Color.DimGray;
+            this.btnCarregarXML.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCarregarXML.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCarregarXML.ForeColor = System.Drawing.Color.White;
+            this.btnCarregarXML.Location = new System.Drawing.Point(3, 365);
+            this.btnCarregarXML.Name = "btnCarregarXML";
+            this.btnCarregarXML.Size = new System.Drawing.Size(201, 51);
+            this.btnCarregarXML.TabIndex = 33;
+            this.btnCarregarXML.Text = "Carregar XML";
+            this.btnCarregarXML.UseVisualStyleBackColor = false;
             // 
             // Personal
             // 
@@ -333,5 +347,6 @@
         public System.Windows.Forms.Button Personal;
         public System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.Button tancarSessioButton;
+        public System.Windows.Forms.Button btnCarregarXML;
     }
 }

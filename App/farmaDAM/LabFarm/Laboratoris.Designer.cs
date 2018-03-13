@@ -215,6 +215,7 @@
             this.cbLabs.Name = "cbLabs";
             this.cbLabs.Size = new System.Drawing.Size(121, 21);
             this.cbLabs.TabIndex = 50;
+            this.cbLabs.SelectedValueChanged += new System.EventHandler(this.cbLabs_SelectedValueChanged);
             // 
             // lblFiltrar
             // 

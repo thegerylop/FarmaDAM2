@@ -58,7 +58,7 @@ namespace PaginaPrincipal
         private void MantenimentProductes_Click(object sender, EventArgs e)
         {
             panel1.Controls.Clear();
-            Manteniment_Productes.Manteniment_Productes frm = new Manteniment_Productes.Manteniment_Productes();
+            Manteniment_Productes.MantenimentProductesX frm = new Manteniment_Productes.MantenimentProductesX();
             frm.TopLevel = false;
             panel1.Controls.Add(frm);
             frm.Dock = DockStyle.Fill;
@@ -76,6 +76,16 @@ namespace PaginaPrincipal
         {
             panel1.Controls.Clear();
             Clients.Clients frm = new Clients.Clients();
+            frm.TopLevel = false;
+            panel1.Controls.Add(frm);
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
+        private void btnCarregarXML_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            CarregarDades.carregarDades frm = new CarregarDades.carregarDades();
             frm.TopLevel = false;
             panel1.Controls.Add(frm);
             frm.Dock = DockStyle.Fill;

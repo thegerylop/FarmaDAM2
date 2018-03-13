@@ -124,6 +124,10 @@
       <Project>{cf89ea7d-d834-4cb1-8888-e9c0fb24ee7f}</Project>
       <Name>BaseForm</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CarregarDades\CarregarDades.csproj">
+      <Project>{dec0fae3-0436-4eb5-a41c-a1c90f963a65}</Project>
+      <Name>CarregarDades</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Clients\Clients.csproj">
       <Project>{4ee18824-2e1e-4ab9-8692-18fdeef27e4c}</Project>
       <Name>Clients</Name>
