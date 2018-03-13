@@ -25,6 +25,7 @@ namespace Manteniment_Productes
         private void MantenimentProductesX_Load(object sender, EventArgs e)
         {
             
+            dgvBase.Location = new Point(-180, 50); 
             dgvBase.Anchor = AnchorStyles.Bottom;
             Table(table);
             amagarCamps();
@@ -53,9 +54,13 @@ namespace Manteniment_Productes
             this.dgvBase.Columns[0].Visible = false;
             this.dgvBase.Columns[1].Visible = false;
             this.dgvBase.Columns[2].Visible = false;
+            this.dgvBase.Columns[7].Visible = false;
+            this.dgvBase.Columns[8].Visible = false;
+            this.dgvBase.Columns[10].Visible = false;
             CCcodi.Visible = false;
             txtGen.Visible = false;
             txtSubs.Visible = false;
+            CCRec.Visible = false;
         }
         public void switchComboBoxIndex(ComboBox comboBox)
         {
@@ -152,5 +157,38 @@ namespace Manteniment_Productes
                 txt.Text = "True";
             }
         }
+
+        private void customTextBox4_TextChanged(object sender, EventArgs e)
+        {
+            switchComboBoxIndex(CCRec, ComboRec);
+        }
+
+        private void ComboRec_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            changeTextBoxText(ComboRec, CCRec);
+        }
+
+        private void CCFitxa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\r')
+            {
+                browserURL(CCFitxa.Text);
+            }
+        }
+
+        private void CCPros_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\r')
+            {
+                browserURL(CCFitxa.Text);
+            }
+        }
+
+        private void browserURL(string url)
+        {
+            Browser.Navigate(url);
+        }
+
+        
     }
 }
