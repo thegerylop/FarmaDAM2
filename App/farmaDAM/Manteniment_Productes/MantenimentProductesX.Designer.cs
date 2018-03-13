@@ -218,6 +218,7 @@
             // CCFitxa
             // 
             this.CCFitxa.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CCFitxa.Enabled = false;
             this.CCFitxa.Location = new System.Drawing.Point(389, 26);
             this.CCFitxa.Name = "CCFitxa";
             this.CCFitxa.Options = CustomControl.CustomTextBox.Items.Text;
@@ -225,6 +226,7 @@
             this.CCFitxa.Size = new System.Drawing.Size(197, 20);
             this.CCFitxa.TabIndex = 133;
             this.CCFitxa.Tag = "url_fitxa_tecnica";
+            this.CCFitxa.TextChanged += new System.EventHandler(this.CCFitxa_TextChanged);
             this.CCFitxa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CCFitxa_KeyPress);
             // 
             // customTextBox13

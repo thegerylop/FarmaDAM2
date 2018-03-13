@@ -178,10 +178,10 @@ namespace Manteniment_Productes
 
         private void CCPros_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == '\r')
-            {
-                browserURL(CCFitxa.Text);
-            }
+            //if (e.KeyChar == '\r')
+            //{
+            //    browserURL(CCFitxa.Text);
+            //}
         }
 
         private void browserURL(string url)
@@ -198,6 +198,9 @@ namespace Manteniment_Productes
             }
         }
 
-        
+        private void CCFitxa_TextChanged(object sender, EventArgs e)
+        {
+            browserURL(CCFitxa.Text);
+        }
     }
 }
