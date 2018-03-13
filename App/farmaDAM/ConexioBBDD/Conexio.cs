@@ -209,7 +209,7 @@ namespace ConexioBBDD
             }
             catch (MySqlException eMySql)
             {
-                MessageBox.Show(eMySql.ToString());
+                //MessageBox.Show(eMySql.ToString());
                 return false;
             }
             finally
