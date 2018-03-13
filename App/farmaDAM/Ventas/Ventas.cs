@@ -134,24 +134,6 @@ namespace Ventas
             }
 
         }
-        //private void TBClients_Leave(object sender, EventArgs e)
-        //{
-        //    String userName = null;
-        //    userName = bd.resultatComanda("Select nom from clients where " + CcomboBox.Text + " = " + TBClient.Text);
-        //    userName += " "+ bd.resultatComanda("Select cognom1 from clients where " + CcomboBox.Text + " = " + TBClient.Text);
-
-        //    if (userName == null || userName == "" || userName == " ")
-        //    {
-        //        MessageBox.Show("El client indicat no existeix");
-        //        TBClient.Text = "";
-        //        TBClient.Focus();
-        //    }
-        //    else
-        //    {
-        //        mostrarTicket(userName);
-
-        //    }
-        //}
         public void mostrarTicket(string userName)
         {
             UserName.Text = userName;
@@ -420,6 +402,8 @@ namespace Ventas
                             {
                                 string[] row = { r["nom_comercial"].ToString(), r["PVP"].ToString(), r["IVA"].ToString(), quantity.ToString() };
                                 listViewItem = new ListViewItem(row);
+                                MessageBox.Show("Stock per sota del demanat, buscant altres medicaments");
+                                CercarProductes(r);
                             }
                             else
                             {
