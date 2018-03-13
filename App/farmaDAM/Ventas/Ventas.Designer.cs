@@ -45,12 +45,14 @@
             this.lblTicket = new System.Windows.Forms.Label();
             this.lblPreu = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_login = new System.Windows.Forms.Button();
             this.Tancar = new System.Windows.Forms.Button();
             this.CCpassword = new CustomControl.CustomTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.CClogin = new CustomControl.CustomTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.gbClient = new System.Windows.Forms.GroupBox();
+            this.btn_buscar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.TBClient = new CustomControl.CustomTextBox();
             this.CcomboBox = new CustomControl.comboBox();
@@ -119,7 +121,7 @@
             this.lblFiltrar.AutoSize = true;
             this.lblFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.lblFiltrar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblFiltrar.Location = new System.Drawing.Point(6, 16);
+            this.lblFiltrar.Location = new System.Drawing.Point(3, 16);
             this.lblFiltrar.Name = "lblFiltrar";
             this.lblFiltrar.Size = new System.Drawing.Size(97, 18);
             this.lblFiltrar.TabIndex = 88;
@@ -128,7 +130,7 @@
             // TxBFilter
             // 
             this.TxBFilter.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TxBFilter.Location = new System.Drawing.Point(128, 16);
+            this.TxBFilter.Location = new System.Drawing.Point(115, 16);
             this.TxBFilter.Name = "TxBFilter";
             this.TxBFilter.Options = CustomControl.CustomTextBox.Items.Text;
             this.TxBFilter.Placeholder = null;
@@ -252,6 +254,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btn_login);
             this.groupBox1.Controls.Add(this.Tancar);
             this.groupBox1.Controls.Add(this.CCpassword);
             this.groupBox1.Controls.Add(this.label6);
@@ -262,6 +265,21 @@
             this.groupBox1.Size = new System.Drawing.Size(244, 117);
             this.groupBox1.TabIndex = 53;
             this.groupBox1.TabStop = false;
+            // 
+            // btn_login
+            // 
+            this.btn_login.BackColor = System.Drawing.Color.DimGray;
+            this.btn_login.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_login.Font = new System.Drawing.Font("Verdana", 9F);
+            this.btn_login.ForeColor = System.Drawing.Color.White;
+            this.btn_login.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btn_login.Location = new System.Drawing.Point(139, 87);
+            this.btn_login.Name = "btn_login";
+            this.btn_login.Size = new System.Drawing.Size(70, 22);
+            this.btn_login.TabIndex = 58;
+            this.btn_login.Text = "Entrar";
+            this.btn_login.UseVisualStyleBackColor = false;
+            this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
             // 
             // Tancar
             // 
@@ -276,6 +294,7 @@
             this.Tancar.TabIndex = 57;
             this.Tancar.Text = "Tancar";
             this.Tancar.UseVisualStyleBackColor = false;
+            this.Tancar.Visible = false;
             this.Tancar.Click += new System.EventHandler(this.button1_Click);
             // 
             // CCpassword
@@ -324,14 +343,30 @@
             // gbClient
             // 
             this.gbClient.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.gbClient.Controls.Add(this.btn_buscar);
             this.gbClient.Controls.Add(this.label5);
             this.gbClient.Controls.Add(this.TBClient);
             this.gbClient.Controls.Add(this.CcomboBox);
             this.gbClient.Location = new System.Drawing.Point(-116, 121);
             this.gbClient.Name = "gbClient";
-            this.gbClient.Size = new System.Drawing.Size(365, 52);
+            this.gbClient.Size = new System.Drawing.Size(460, 52);
             this.gbClient.TabIndex = 54;
             this.gbClient.TabStop = false;
+            // 
+            // btn_buscar
+            // 
+            this.btn_buscar.BackColor = System.Drawing.Color.DimGray;
+            this.btn_buscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_buscar.Font = new System.Drawing.Font("Verdana", 9F);
+            this.btn_buscar.ForeColor = System.Drawing.Color.White;
+            this.btn_buscar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btn_buscar.Location = new System.Drawing.Point(327, 19);
+            this.btn_buscar.Name = "btn_buscar";
+            this.btn_buscar.Size = new System.Drawing.Size(107, 22);
+            this.btn_buscar.TabIndex = 59;
+            this.btn_buscar.Text = "Buscar client";
+            this.btn_buscar.UseVisualStyleBackColor = false;
+            this.btn_buscar.Click += new System.EventHandler(this.btn_buscar_Click);
             // 
             // label5
             // 
@@ -339,7 +374,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label5.Location = new System.Drawing.Point(23, 19);
+            this.label5.Location = new System.Drawing.Point(4, 20);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 18);
             this.label5.TabIndex = 51;
@@ -348,13 +383,13 @@
             // TBClient
             // 
             this.TBClient.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TBClient.Location = new System.Drawing.Point(79, 19);
+            this.TBClient.Location = new System.Drawing.Point(63, 20);
             this.TBClient.Name = "TBClient";
             this.TBClient.Options = CustomControl.CustomTextBox.Items.Text;
             this.TBClient.Placeholder = null;
             this.TBClient.Size = new System.Drawing.Size(121, 20);
             this.TBClient.TabIndex = 3;
-            this.TBClient.Leave += new System.EventHandler(this.TBClients_Leave);
+            this.TBClient.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBClient_KeyPress);
             // 
             // CcomboBox
             // 
@@ -364,7 +399,7 @@
             this.CcomboBox.Items.AddRange(new object[] {
             "DNI",
             "Targeta sanitaria"});
-            this.CcomboBox.Location = new System.Drawing.Point(220, 19);
+            this.CcomboBox.Location = new System.Drawing.Point(199, 20);
             this.CcomboBox.Name = "CcomboBox";
             this.CcomboBox.Reference = null;
             this.CcomboBox.Size = new System.Drawing.Size(107, 21);
@@ -377,7 +412,7 @@
             this.gbRecepta.Controls.Add(this.TBRec);
             this.gbRecepta.Location = new System.Drawing.Point(-116, 184);
             this.gbRecepta.Name = "gbRecepta";
-            this.gbRecepta.Size = new System.Drawing.Size(365, 52);
+            this.gbRecepta.Size = new System.Drawing.Size(460, 52);
             this.gbRecepta.TabIndex = 55;
             this.gbRecepta.TabStop = false;
             // 
@@ -387,7 +422,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.label7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label7.Location = new System.Drawing.Point(6, 19);
+            this.label7.Location = new System.Drawing.Point(4, 21);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(71, 18);
             this.label7.TabIndex = 51;
@@ -396,7 +431,7 @@
             // TBRec
             // 
             this.TBRec.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TBRec.Location = new System.Drawing.Point(79, 19);
+            this.TBRec.Location = new System.Drawing.Point(81, 21);
             this.TBRec.Name = "TBRec";
             this.TBRec.Options = CustomControl.CustomTextBox.Items.Text;
             this.TBRec.Placeholder = null;
@@ -409,7 +444,7 @@
             this.UserName.AutoSize = true;
             this.UserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.UserName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.UserName.Location = new System.Drawing.Point(264, 143);
+            this.UserName.Location = new System.Drawing.Point(-111, 102);
             this.UserName.Name = "UserName";
             this.UserName.Size = new System.Drawing.Size(0, 18);
             this.UserName.TabIndex = 91;
@@ -429,7 +464,6 @@
             this.Controls.Add(this.groupBoxMed);
             this.Controls.Add(this.lblVentas);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Name = "Ventas";
             this.Text = "Ventas";
             this.Load += new System.EventHandler(this.Ventas_Load);
@@ -481,5 +515,7 @@
         private CustomControl.CustomTextBox TBRec;
         private CustomControl.comboBox CcQuant;
         private System.Windows.Forms.Label UserName;
+        public System.Windows.Forms.Button btn_login;
+        public System.Windows.Forms.Button btn_buscar;
     }
 }
