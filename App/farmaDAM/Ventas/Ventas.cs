@@ -68,12 +68,11 @@ namespace Ventas
 
         public void recarregarForm()
         {
-            MessageBox.Show(lblVentas.Location.ToString());
             this.Controls.Clear();
             InitializeComponent();
             lblVentas.Location = new Point(659, 170);
             gbClient.Location = new Point(124, 246);
-            UserName.Location = new Point(504, 268);
+            UserName.Location = new Point(129, 227);
             gbRecepta.Location = new Point(124, 309);
             groupBoxMed.Location = new Point(124, 367);
             groupBoxLlista.Location =  new Point(884, 216);
@@ -85,6 +84,10 @@ namespace Ventas
             string login = CClogin.Text;
             string password = CCpassword.Text;
             string select = bd.connexioLogin(login, password);
+            Tancar.Visible = true;
+            btn_login.Visible = false;
+            CClogin.Enabled = false;
+            CCpassword.Enabled = false;
 
             if (select != null)
             {
@@ -104,11 +107,19 @@ namespace Ventas
             dgvVentas.Columns[7].Visible = false;
             dgvVentas.Columns[8].Visible = false;
         }
-        private void TBClients_Leave(object sender, EventArgs e)
+
+        private void TBClient_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\r')
+            {
+                buscar_client();
+            }
+        }
+        private void buscar_client()
         {
             String userName = null;
             userName = bd.resultatComanda("Select nom from clients where " + CcomboBox.Text + " = " + TBClient.Text);
-            userName += " "+ bd.resultatComanda("Select cognom1 from clients where " + CcomboBox.Text + " = " + TBClient.Text);
+            userName += " " + bd.resultatComanda("Select cognom1 from clients where " + CcomboBox.Text + " = " + TBClient.Text);
 
             if (userName == null || userName == "" || userName == " ")
             {
@@ -121,7 +132,26 @@ namespace Ventas
                 mostrarTicket(userName);
 
             }
+
         }
+        //private void TBClients_Leave(object sender, EventArgs e)
+        //{
+        //    String userName = null;
+        //    userName = bd.resultatComanda("Select nom from clients where " + CcomboBox.Text + " = " + TBClient.Text);
+        //    userName += " "+ bd.resultatComanda("Select cognom1 from clients where " + CcomboBox.Text + " = " + TBClient.Text);
+
+        //    if (userName == null || userName == "" || userName == " ")
+        //    {
+        //        MessageBox.Show("El client indicat no existeix");
+        //        TBClient.Text = "";
+        //        TBClient.Focus();
+        //    }
+        //    else
+        //    {
+        //        mostrarTicket(userName);
+
+        //    }
+        //}
         public void mostrarTicket(string userName)
         {
             UserName.Text = userName;
@@ -442,6 +472,17 @@ namespace Ventas
                 total = Math.Round(total, 2, MidpointRounding.AwayFromZero);
                 lblTotal.Text = total.ToString() + " €";
             }
+        }
+
+        private void btn_login_Click(object sender, EventArgs e)
+        {
+            login();
+            
+        }
+
+        private void btn_buscar_Click(object sender, EventArgs e)
+        {
+            buscar_client();
         }
     }
 }
