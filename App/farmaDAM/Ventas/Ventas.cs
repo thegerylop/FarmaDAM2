@@ -254,8 +254,6 @@ namespace Ventas
                 CrTable.ApplyLogOnInfo(crtableLogoninfo);
             }
 
-
-
             String numTicket = bd.resultatComanda("Select id_venda from vendes order by id_venda desc limit 1");
             factura.RecordSelectionFormula = "{vendes1.id_venda} = " + numTicket;
             factura.PrintOptions.PrinterName = pkInstalledPrinters;
