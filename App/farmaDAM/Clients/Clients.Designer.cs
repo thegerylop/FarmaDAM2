@@ -225,7 +225,7 @@
             this.CcomboBox.Size = new System.Drawing.Size(197, 21);
             this.CcomboBox.TabIndex = 89;
             this.CcomboBox.Tag = "";
-            this.CcomboBox.SelectedIndexChanged += new System.EventHandler(this.CcomboBox_SelectedIndexChanged);
+            this.CcomboBox.SelectedValueChanged += new System.EventHandler(this.CcomboBox_SelectedValueChanged);
             // 
             // TxBFilter
             // 
