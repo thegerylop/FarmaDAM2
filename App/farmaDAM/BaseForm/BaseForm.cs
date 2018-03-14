@@ -137,7 +137,6 @@ namespace BaseForm
             
         }
        
-
         private void dgvBase_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             e.ThrowException = false;
