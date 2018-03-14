@@ -35,6 +35,7 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.lbl_llargada = new System.Windows.Forms.Label();
             this.btn_cancelar = new System.Windows.Forms.Button();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // btn_InserirDades
@@ -68,7 +69,7 @@
             // lbl_progres
             // 
             this.lbl_progres.AutoSize = true;
-            this.lbl_progres.Location = new System.Drawing.Point(643, 424);
+            this.lbl_progres.Location = new System.Drawing.Point(622, 183);
             this.lbl_progres.Name = "lbl_progres";
             this.lbl_progres.Size = new System.Drawing.Size(0, 13);
             this.lbl_progres.TabIndex = 3;
@@ -76,6 +77,7 @@
             // 
             // backgroundWorker1
             // 
+            this.backgroundWorker1.WorkerReportsProgress = true;
             this.backgroundWorker1.WorkerSupportsCancellation = true;
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             // 
@@ -98,9 +100,19 @@
             this.btn_cancelar.Visible = false;
             this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.progressBar1.Location = new System.Drawing.Point(0, 474);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(913, 10);
+            this.progressBar1.TabIndex = 6;
+            this.progressBar1.Visible = false;
+            // 
             // carregarDades
             // 
             this.ClientSize = new System.Drawing.Size(913, 484);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.lbl_llargada);
             this.Controls.Add(this.lbl_progres);
@@ -123,5 +135,6 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label lbl_llargada;
         private System.Windows.Forms.Button btn_cancelar;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }

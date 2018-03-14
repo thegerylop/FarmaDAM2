@@ -40,9 +40,11 @@ namespace CarregarDades
         {
 
             backgroundWorker1.DoWork += backgroundWorker1_DoWork;
+            backgroundWorker1.ProgressChanged += new ProgressChangedEventHandler(backgroundWorker_ProgressChanged);
             backgroundWorker1.RunWorkerAsync();
             btn_InserirDades.Visible = false;
             btn_cancelar.Visible = true;
+            progressBar1.Visible = true;
         }
 
         public void ReadXML(string ruta)
@@ -73,7 +75,8 @@ namespace CarregarDades
                         //Reviso si no hi ha una tasca pendent per cancel·lar el background worker
                         if (backgroundWorker1.CancellationPending == true)
                         {
-                            lbl_llargada.Invoke((MethodInvoker)delegate { lbl_llargada.Visible = false; });
+
+                            finalitzar_proces();
                             break;
                         }
                         else
@@ -118,7 +121,8 @@ namespace CarregarDades
                             double test = (double)i / llargada;
                             progres = test * 100;
                             percentatge = Convert.ToInt32(progres);
-                            lbl_progres.Invoke((MethodInvoker)delegate { lbl_progres.Visible = true; lbl_progres.Text = percentatge.ToString() + " %"; });
+                            backgroundWorker1.ReportProgress(percentatge);
+                            lbl_progres.Invoke((MethodInvoker)delegate { lbl_progres.Visible = true;  lbl_progres.Text = "Inserint dades... " + percentatge.ToString() + " %"; });
 
                             //Reviso que les claus uniques no es repeteixin,sino està repetit, l'afageixo al diccionari
                             if (columna == "codi_laboratori" || columna == "codi" || columna == "registre_nacional")
@@ -175,15 +179,8 @@ namespace CarregarDades
                     }
                 }
 
-                //Torno a intercambiar els botons i habilito el de Inserir dades, tambe deixo de mostrar les labels de progres. 
-                btn_cancelar.Invoke((MethodInvoker)delegate { btn_cancelar.Visible = false; });
-                btn_InserirDades.Invoke((MethodInvoker)delegate { btn_InserirDades.Visible = true; });
-                btn_InserirDades.Invoke((MethodInvoker)delegate { btn_InserirDades.Enabled = true; });
-                lbl_llargada.Invoke((MethodInvoker)delegate { lbl_llargada.Visible = false; });
-                lbl_progres.Invoke((MethodInvoker)delegate { lbl_progres.Visible = false; });
-
                 //Reviso si he arribat al final 
-                if (llargada == i) { MessageBox.Show("Dades inserides correctament"); backgroundWorker1.CancelAsync(); }
+                if (llargada == i) { MessageBox.Show("Dades inserides correctament"); finalitzar_proces();  }
             }
             catch (System.IO.FileNotFoundException)
             {
@@ -403,7 +400,26 @@ namespace CarregarDades
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
             backgroundWorker1.CancelAsync();
+            progressBar1.Visible = false;
             MessageBox.Show("Tasca cancel·lada correctament");
+        }
+
+        private void backgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            progressBar1.Value = e.ProgressPercentage;
+        }
+
+        private void finalitzar_proces()
+        {
+            backgroundWorker1.CancelAsync();
+
+            //Torno a intercambiar els botons i habilito el de Inserir dades, tambe deixo de mostrar les labels de progres. 
+            btn_cancelar.Invoke((MethodInvoker)delegate { btn_cancelar.Visible = false; });
+            progressBar1.Invoke((MethodInvoker)delegate { progressBar1.Visible = false; });
+            btn_InserirDades.Invoke((MethodInvoker)delegate { btn_InserirDades.Visible = true; });
+            btn_InserirDades.Invoke((MethodInvoker)delegate { btn_InserirDades.Enabled = true; });
+            lbl_llargada.Invoke((MethodInvoker)delegate { lbl_llargada.Visible = false; });
+            lbl_progres.Invoke((MethodInvoker)delegate { lbl_progres.Visible = false; });
         }
     }
 }
