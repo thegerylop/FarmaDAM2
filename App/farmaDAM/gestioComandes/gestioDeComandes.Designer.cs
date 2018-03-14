@@ -30,9 +30,9 @@
         {
             this.dataComanda = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.btnDTD = new System.Windows.Forms.Button();
+            this.btnEnviar = new System.Windows.Forms.Button();
+            this.richXML = new System.Windows.Forms.RichTextBox();
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -57,31 +57,33 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Data :";
             // 
-            // button1
+            // btnDTD
             // 
-            this.button1.Location = new System.Drawing.Point(841, 53);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Validar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnDTD.Location = new System.Drawing.Point(841, 53);
+            this.btnDTD.Name = "btnDTD";
+            this.btnDTD.Size = new System.Drawing.Size(75, 23);
+            this.btnDTD.TabIndex = 2;
+            this.btnDTD.Text = "Validar";
+            this.btnDTD.UseVisualStyleBackColor = true;
+            this.btnDTD.Click += new System.EventHandler(this.btnDTD_Click);
             // 
-            // button2
+            // btnEnviar
             // 
-            this.button2.Location = new System.Drawing.Point(841, 612);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Enviar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnEnviar.Location = new System.Drawing.Point(841, 612);
+            this.btnEnviar.Name = "btnEnviar";
+            this.btnEnviar.Size = new System.Drawing.Size(75, 23);
+            this.btnEnviar.TabIndex = 3;
+            this.btnEnviar.Text = "Enviar";
+            this.btnEnviar.UseVisualStyleBackColor = true;
+            this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
             // 
-            // richTextBox1
+            // richXML
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(532, 89);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(384, 517);
-            this.richTextBox1.TabIndex = 4;
-            this.richTextBox1.Text = "";
+            this.richXML.Location = new System.Drawing.Point(532, 89);
+            this.richXML.Name = "richXML";
+            this.richXML.Size = new System.Drawing.Size(384, 517);
+            this.richXML.TabIndex = 4;
+            this.richXML.Text = "";
             // 
             // crystalReportViewer1
             // 
@@ -112,9 +114,9 @@
             this.ClientSize = new System.Drawing.Size(973, 664);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.crystalReportViewer1);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.richXML);
+            this.Controls.Add(this.btnEnviar);
+            this.Controls.Add(this.btnDTD);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataComanda);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -129,9 +131,9 @@
 
         private System.Windows.Forms.DateTimePicker dataComanda;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Button btnDTD;
+        private System.Windows.Forms.Button btnEnviar;
+        private System.Windows.Forms.RichTextBox richXML;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
         private System.Windows.Forms.Button button3;
     }

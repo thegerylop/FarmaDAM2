@@ -432,7 +432,23 @@ namespace CarregarDades
         }
         public void saveXML(string xmlData, string date)
         {
-            File.WriteAllText(@"C:\xml\Comandes_" + date + ".xml", xmlData);
+
+            //// Get the object used to communicate with the server.
+            //FtpWebRequest request = (FtpWebRequest)WebRequest.Create("ftp://172.17.6.0/Grupo_2/2/testfile"+date+".txt");
+            //request.Method = WebRequestMethods.Ftp.UploadFile;
+            //// This example assumes the FTP site uses anonymous logon.
+            //request.Credentials = new NetworkCredential("grupo6", "12345aA");
+            //// Copy the contents of the file to the request stream.
+            //StreamReader sourceStream = new StreamReader("testfile.txt");
+            //byte[] fileContents = Encoding.UTF8.GetBytes(sourceStream.ReadToEnd());
+            //sourceStream.Close();
+            //request.ContentLength = fileContents.Length;
+            //Stream requestStream = request.GetRequestStream();
+            //requestStream.Write(fileContents, 0, fileContents.Length);
+            //requestStream.Close();
+            //FtpWebResponse response = (FtpWebResponse)request.GetResponse();
+            //Console.WriteLine("Upload File Complete, status {0}", response.StatusDescription);
+            //response.Close();
         }
     }
 }

@@ -5,6 +5,8 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.IO;
+using System.Net;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CrystalDecisions.CrystalReports.Engine;
@@ -14,12 +16,19 @@ namespace gestioComandes
 {
     public partial class gestioDeComandes : Form
     {
-
+        CarregarDades.carregarDades Carregar = new CarregarDades.carregarDades();
+        ConexioBBDD.Conexio conn = new ConexioBBDD.Conexio();
         String data;
+        String xml;
 
         public gestioDeComandes()
         {
             InitializeComponent();
+        }
+
+        private void crystalReportViewer1_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
@@ -30,6 +39,11 @@ namespace gestioComandes
         private void button3_Click(object sender, EventArgs e)
         {
             comandaCrystalReports();
+            DataSet xmlData = new DataSet();
+            string query = "select distinct nom_comercial, quantitat, vendes.data from medicaments, linia_venda, vendes where vendes.id_venda = linia_venda.id_venda and medicaments.id_medicament = linia_venda.id_medicament and date(vendes.data) = '2018-03-08' group by nom_comercial";
+            xmlData = conn.portarPerConsulta(query , "comanda");
+            xml = Carregar.writeXML(xmlData);
+            richXML.Text = xml;
         }
 
         private void comandaCrystalReports()
@@ -63,7 +77,12 @@ namespace gestioComandes
             crystalReportViewer1.Refresh();
         }
 
-        private void crystalReportViewer1_Load(object sender, EventArgs e)
+        private void btnEnviar_Click(object sender, EventArgs e)
+        {
+            //Carregar.saveXML(xml,data);
+        }
+
+        private void btnDTD_Click(object sender, EventArgs e)
         {
 
         }
