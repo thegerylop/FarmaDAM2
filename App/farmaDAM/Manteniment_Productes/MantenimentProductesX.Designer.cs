@@ -227,7 +227,6 @@
             this.CCFitxa.TabIndex = 133;
             this.CCFitxa.Tag = "url_fitxa_tecnica";
             this.CCFitxa.TextChanged += new System.EventHandler(this.CCFitxa_TextChanged);
-            this.CCFitxa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CCFitxa_KeyPress);
             // 
             // customTextBox13
             // 

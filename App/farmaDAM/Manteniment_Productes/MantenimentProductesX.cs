@@ -168,20 +168,12 @@ namespace Manteniment_Productes
             changeTextBoxText(ComboRec, CCRec);
         }
 
-        private void CCFitxa_KeyPress(object sender, KeyPressEventArgs e)
+        private void CCPros_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '\r')
             {
-                browserURL(CCFitxa.Text);
+                browserURL(CCPros.Text);
             }
-        }
-
-        private void CCPros_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            //if (e.KeyChar == '\r')
-            //{
-            //    browserURL(CCFitxa.Text);
-            //}
         }
 
         private void browserURL(string url)
@@ -189,7 +181,6 @@ namespace Manteniment_Productes
 
             if (url.Contains("www.aemps.gob.es/"))
             {
-                http://www.aemps.gob.es/
                 Browser.Navigate(url);
             }
             else
