@@ -27,7 +27,7 @@ namespace LabFarm
             this.dgvBase.Columns[3].HeaderText = "CIF"; //cif
             this.dgvBase.Columns[4].HeaderText = "Denominació"; //denominacio
 
-            cbLabs.SelectedIndex = 1;
+            //cbLabs.SelectedIndex = 1;
         }
         private void TxBFilter_TextChanged(object sender, EventArgs e)
         {
