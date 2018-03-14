@@ -137,7 +137,6 @@ namespace Clients
                 {
                     if (txt.Text == "" && (String) txt.Tag != "")
                     {
-                        MessageBox.Show(txt.Name);
                         return false;
                     }
                 }
