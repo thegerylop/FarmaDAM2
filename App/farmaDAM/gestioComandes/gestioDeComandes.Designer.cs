@@ -39,11 +39,12 @@
             // 
             // dataComanda
             // 
+            this.dataComanda.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dataComanda.Location = new System.Drawing.Point(92, 52);
             this.dataComanda.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
             this.dataComanda.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.dataComanda.Name = "dataComanda";
-            this.dataComanda.Size = new System.Drawing.Size(200, 20);
+            this.dataComanda.Size = new System.Drawing.Size(127, 20);
             this.dataComanda.TabIndex = 0;
             this.dataComanda.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
@@ -58,7 +59,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(749, 55);
+            this.button1.Location = new System.Drawing.Point(841, 53);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -67,7 +68,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(749, 535);
+            this.button2.Location = new System.Drawing.Point(841, 612);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 3;
@@ -76,9 +77,9 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(440, 98);
+            this.richTextBox1.Location = new System.Drawing.Point(532, 89);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(384, 431);
+            this.richTextBox1.Size = new System.Drawing.Size(384, 517);
             this.richTextBox1.TabIndex = 4;
             this.richTextBox1.Text = "";
             // 
@@ -87,14 +88,15 @@
             this.crystalReportViewer1.ActiveViewIndex = -1;
             this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crystalReportViewer1.Location = new System.Drawing.Point(54, 98);
+            this.crystalReportViewer1.Location = new System.Drawing.Point(54, 89);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.Size = new System.Drawing.Size(355, 431);
+            this.crystalReportViewer1.Size = new System.Drawing.Size(452, 546);
             this.crystalReportViewer1.TabIndex = 5;
+            this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(298, 50);
+            this.button3.Location = new System.Drawing.Point(225, 50);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(111, 23);
             this.button3.TabIndex = 6;
@@ -107,7 +109,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(897, 614);
+            this.ClientSize = new System.Drawing.Size(973, 664);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.crystalReportViewer1);
             this.Controls.Add(this.richTextBox1);
