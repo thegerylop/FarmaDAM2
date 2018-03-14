@@ -421,5 +421,18 @@ namespace CarregarDades
             lbl_llargada.Invoke((MethodInvoker)delegate { lbl_llargada.Visible = false; });
             lbl_progres.Invoke((MethodInvoker)delegate { lbl_progres.Visible = false; });
         }
+        public string writeXML(DataSet dataset)
+        {
+            dataset.DataSetName = "Comanda";
+            StringWriter strWriter = new StringWriter();
+            XmlDocument document = new XmlDocument();
+            dataset.WriteXml(strWriter);
+            string xmlData = strWriter.ToString();
+            return xmlData;
+        }
+        public void saveXML(string xmlData, string date)
+        {
+            File.WriteAllText(@"C:\xml\Comandes_" + date + ".xml", xmlData);
+        }
     }
 }
