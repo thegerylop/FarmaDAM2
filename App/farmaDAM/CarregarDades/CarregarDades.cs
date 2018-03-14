@@ -33,7 +33,7 @@ namespace CarregarDades
             // Crido el method per mostrarlo a la dialog box.
             openFileDialog1.ShowDialog();
             txt_RutaFitxer.Text = openFileDialog1.FileName;
-            ruta = openFileDialog1.FileName;     
+            ruta = openFileDialog1.FileName;
         }
 
         private void btn_InserirDades_Click(object sender, EventArgs e)
@@ -41,37 +41,42 @@ namespace CarregarDades
 
             backgroundWorker1.DoWork += backgroundWorker1_DoWork;
             backgroundWorker1.RunWorkerAsync();
+            btn_InserirDades.Visible = false;
+            btn_cancelar.Visible = true;
         }
 
         public void ReadXML(string ruta)
         {
-           if (backgroundWorker1.CancellationPending == true){lbl_llargada.Invoke((MethodInvoker)delegate { lbl_llargada.Visible = false; });}
-                else {
-                String valor = null, columna = null, columnes = "", valors = "", llargada = "", taula = "";
-                // String strPath = Environment.GetFolderPath(System.Environment.SpecialFolder.DesktopDirectory);
+            try
+            {
+                String valor = null, columna = null, columnes = "", valors = "", taula = "";
+                btn_InserirDades.Invoke((MethodInvoker)delegate { btn_InserirDades.Enabled = false; });
+                ruta = ruta.Replace(@"\\", @"\");
+                XmlNodeList xmlNode;
+                FileStream fs = generarFileStream(ruta);
+                XmlDocument xmlDoc = new XmlDocument();
+                xmlDoc.Load(fs);
+                xmlNode = sortXMLNode(xmlDoc);
+                taula = trobarTaula(xmlDoc);
+                String codi_PA = null;
+                int llargada;
+                int i = 0,percentatge = 0;
+                double progres = 0;
+                Boolean repetit = false;
+                llargada = llargadaXML(xmlNode);
 
-                try
+                foreach (XmlNode no in xmlNode)
                 {
-                    btn_InserirDades.Invoke((MethodInvoker)delegate { btn_InserirDades.Enabled = false; });
-                    ruta = ruta.Replace(@"\\", @"\");
-                    XmlNodeList xmlNode;
-                    FileStream fs = generarFileStream(ruta);
-                    XmlDocument xmlDoc = new XmlDocument();
-                    xmlDoc.Load(fs);
-                    xmlNode = sortXMLNode(xmlDoc);
-                    taula = trobarTaula(xmlDoc);
-                    String codi_PA = null;
-
-                    Boolean repetit = false;
-                    llargada = llargadaXML(xmlNode).ToString();
-                    lbl_llargada.Invoke((MethodInvoker)delegate { lbl_llargada.Visible = true; lbl_llargada.Text = llargada; });
-                    //lbl_progres.Visible = true;
-                    int i = 0;
-
-                    foreach (XmlNode no in xmlNode)
+                    var dict = new Dictionary<string, string> { };
+                    foreach (XmlNode ChildNode in no.ChildNodes)
                     {
-                        var dict = new Dictionary<string, string> { };
-                        foreach (XmlNode ChildNode in no.ChildNodes)
+                        //Reviso si no hi ha una tasca pendent per cancel·lar el background worker
+                        if (backgroundWorker1.CancellationPending == true)
+                        {
+                            lbl_llargada.Invoke((MethodInvoker)delegate { lbl_llargada.Visible = false; });
+                            break;
+                        }
+                        else
                         {
                             valor = null;
                             //Miro si el childnode te mes fills , amb la finalitat de trobar el codi_PA del XML de medicaments 
@@ -81,16 +86,16 @@ namespace CarregarDades
                                 {
                                     if (nieto.Name == "composicion_pa")
                                     {
-                                        //MessageBox.Show(nieto.Value);
                                         foreach (XmlNode bisnieto in nieto.ChildNodes)
                                         {
                                             if (bisnieto.Name == "cod_principio_activo")
                                             {
-                                                if (valor == null) {
+                                                if (valor == null)
+                                                {
                                                     codi_PA = bisnieto.InnerText.Trim();
                                                     columna = "codi";
                                                     valor = codi_PA;
-                                                }  
+                                                }
                                             }
                                         }
                                         //trobo si la columna es codi i la tradueixo a id.
@@ -98,45 +103,37 @@ namespace CarregarDades
                                         {
                                             String cmd = "SELECT id_PrincipiActiu from principis_actius where codi = " + valor;
                                             valor = conn.resultatComanda(cmd);
-                                            //MessageBox.Show(conn.resultatComanda(cmd));
                                             columna = "id_PrincipiActiu";
-
                                         }
-                                        if (valor != null) { if (!dict.ContainsValue(valor)){ dict.Add(columna, valor); } }
+                                        if (valor != null) { if (!dict.ContainsValue(valor)) { dict.Add(columna, valor); } }
                                     }
                                 }
                             }
-                            //else
-                            //{
-                               
-                            //}
                             //Sino es de medicaments, segueixo normal
                             columna = ChildNode.Name.Trim();
                             valor = ChildNode.InnerText.Trim();
                             valor = valor.Replace(@"'", " ");
                             columna = traduirColumna(columna);
                             i++;
-                            string texte = "Registre " + i.ToString() + " / ";
-                            lbl_progres.Invoke((MethodInvoker)delegate { lbl_progres.Visible = true; lbl_progres.Text = texte; });
+                            double test = (double)i / llargada;
+                            progres = test * 100;
+                            percentatge = Convert.ToInt32(progres);
+                            lbl_progres.Invoke((MethodInvoker)delegate { lbl_progres.Visible = true; lbl_progres.Text = percentatge.ToString() + " %"; });
 
                             //Reviso que les claus uniques no es repeteixin,sino està repetit, l'afageixo al diccionari
                             if (columna == "codi_laboratori" || columna == "codi" || columna == "registre_nacional")
                             {
-                                if (columna =="codi_laboratori" && taula == "medicaments")
-                                    {
-                                        String cmd = "SELECT id_laboratori from laboratoris_farmaceutics where codi_laboratori = " + valor;
-                                        valor = conn.resultatComanda(cmd);
-                                        //MessageBox.Show(conn.resultatComanda(cmd));
-                                        columna = "id_laboratori";
-                                    //insereixo al diccionari el stock i preu
-                                   // MessageBox.Show(random_double().ToString());
-
-                                    }
+                                if (columna == "codi_laboratori" && taula == "medicaments")
+                                {
+                                    String cmd = "SELECT id_laboratori from laboratoris_farmaceutics where codi_laboratori = " + valor;
+                                    valor = conn.resultatComanda(cmd);
+                                    columna = "id_laboratori";
+                                }
                                 if (!validarRepetit(columna, taula, valor))
-                                {                                   
-                                    
+                                {
                                     if (dict.ContainsKey(columna)) { repetit = true; }
-                                    else {
+                                    else
+                                    {
                                         dict.Add(columna, valor);
                                         repetit = false;
                                     }
@@ -147,8 +144,6 @@ namespace CarregarDades
                             {
                                 if (columna != null) { dict.Add(columna, valor); }
                             }
-                            //valor = null;
-                            //columna = null;
                         }
                         //recorro el diccionari per ficar-ho despres a la query
                         //afegeixo els valors en un string, si es el primer no afegeixo coma
@@ -160,59 +155,60 @@ namespace CarregarDades
                                 if (entry.Key != null || entry.Key != "")
                                 {
                                     if (columnes == "") { columnes = @entry.Key; }
-                                    else {
+                                    else
+                                    {
                                         //traduiexo de codi a id_principiactiu
-                                        columnes += "," + entry.Key; }
+                                        columnes += "," + entry.Key;
+                                    }
 
                                     if (valors == "")
                                     { valors = "'" + entry.Value + "'"; }
                                     else { valors += "," + "'" + entry.Value + "'"; }
                                 }
                             }
-                           // MessageBox.Show(dict.Count.ToString());
-                            if(dict.Count > 1) { inserirDades(columnes, taula, valors);  }
-                            
-                        }
-                        llargada = i + " / " + llargada;
+                            if (dict.Count > 1) { inserirDades(columnes, taula, valors); }
 
+                        }
                         //reinicio variables desprès d'inserir. 
                         columnes = "";
                         valors = "";
                     }
-                    btn_InserirDades.Invoke((MethodInvoker)delegate { btn_InserirDades.Enabled = true; });
-                    MessageBox.Show("Dades inserides correctament");
-                    lbl_llargada.Invoke((MethodInvoker)delegate { lbl_llargada.Visible = false; });
-                    lbl_progres.Invoke((MethodInvoker)delegate { lbl_progres.Visible = false; });
-
                 }
+
+                //Torno a intercambiar els botons i habilito el de Inserir dades, tambe deixo de mostrar les labels de progres. 
+                btn_cancelar.Invoke((MethodInvoker)delegate { btn_cancelar.Visible = false; });
+                btn_InserirDades.Invoke((MethodInvoker)delegate { btn_InserirDades.Visible = true; });
+                btn_InserirDades.Invoke((MethodInvoker)delegate { btn_InserirDades.Enabled = true; });
+                lbl_llargada.Invoke((MethodInvoker)delegate { lbl_llargada.Visible = false; });
+                lbl_progres.Invoke((MethodInvoker)delegate { lbl_progres.Visible = false; });
+
+                //Reviso si he arribat al final 
+                if (llargada == i) { MessageBox.Show("Dades inserides correctament"); backgroundWorker1.CancelAsync(); }
+            }
             catch (System.IO.FileNotFoundException)
             {
                 MessageBox.Show("No s'ha trobat el fitxer XML");
             }
-        }
         }
 
         public Boolean inserirDades(string columna, string taula, string valor)
         {
             Boolean inserit = false;
 
-                if (validarDades(columna, taula, valor))
-                {
+            if (validarDades(columna, taula, valor))
+            {
                 try
                 {
-                    if (taula == "medicaments" && !columna.Contains("id_PrincipiActiu")){
-
-                    }
+                    if (taula == "medicaments" && !columna.Contains("id_PrincipiActiu")){}
                     else
                     {
                         var resultSet = conn.executaComanda("INSERT INTO " + taula + "( " + columna + " ) VALUES ( " + valor + " );");
                         if (!resultSet.Equals(0)) { return inserit = true; }
                         else { return inserit = false; }
-
                     }
-                }catch(MySqlException eMySql) { }
                 }
-
+                catch (MySqlException eMySql) { }
+            }
             return inserit;
         }
 
@@ -232,7 +228,7 @@ namespace CarregarDades
             {
                 MessageBox.Show("La columna no existeix - contacti amb els desenvolupadors");
             }
-            else{correcte = true;}
+            else { correcte = true; }
             return correcte;
         }
 
@@ -242,8 +238,8 @@ namespace CarregarDades
             if (columna != "codi")
             {
                 if (columna == null || taula == null || valor == null)
-                { return repetit;}
-                else if (conn.executaComanda("SELECT * FROM " + taula + " WHERE " + columna + " = '" + valor + "'")){return repetit = true;}
+                { return repetit; }
+                else if (conn.executaComanda("SELECT * FROM " + taula + " WHERE " + columna + " = '" + valor + "'")) { return repetit = true; }
                 else { repetit = false; }
             }
             else { }
@@ -330,10 +326,8 @@ namespace CarregarDades
 
         private XmlNodeList sortXMLNode(XmlDocument xmlDoc)
         {
-           // xmlDoc.Load(fs);
             XmlNodeList xmlNode = null;
-            //String taula = null;
-             if(xmlDoc.GetElementsByTagName("laboratorios").Count > 0)
+            if (xmlDoc.GetElementsByTagName("laboratorios").Count > 0)
             {
                 xmlNode = xmlDoc.GetElementsByTagName("laboratorios");
                 //taula = "laboratoris_farmaceutics";
@@ -345,7 +339,8 @@ namespace CarregarDades
                 //taula = "principis_actius";
                 return xmlNode;
             }
-            else if (xmlDoc.GetElementsByTagName("prescription").Count > 0) {
+            else if (xmlDoc.GetElementsByTagName("prescription").Count > 0)
+            {
                 xmlNode = xmlDoc.GetElementsByTagName("prescription");
                 //taula = "medicaments";
                 return xmlNode;
@@ -361,7 +356,7 @@ namespace CarregarDades
         {
             int i = 0;
             foreach (XmlNode no in xmlNode)
-            { 
+            {
                 foreach (XmlNode ChildNode in no.ChildNodes) { i++; }
             }
             return i;
@@ -405,31 +400,10 @@ namespace CarregarDades
             else { MessageBox.Show("Escolleix un arxiu"); }
         }
 
-        private void backgroundWorker1_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
-        {
-           // lbl_progres.Visible = true;
-           // lbl_progres.Text = "testc";
-        }
-
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
-            // backgroundWorker1.CancelAsync();
-            // lbl_progres.Visible = false;
-        }
-
-        private double random_double()
-        {
-            Random random = new Random();
-            double rdm  = random.NextDouble() * (25 - 1.99) + 1.99;
-            return rdm;
-        }
-
-        private int random_int()
-        {
-            Random random = new Random();
-            int rdm = random.Next() * (50 - 1) + 1;
-            return rdm;
-
+            backgroundWorker1.CancelAsync();
+            MessageBox.Show("Tasca cancel·lada correctament");
         }
     }
 }

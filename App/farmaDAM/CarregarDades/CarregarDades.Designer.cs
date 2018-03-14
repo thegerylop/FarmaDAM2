@@ -89,12 +89,13 @@
             // 
             // btn_cancelar
             // 
-            this.btn_cancelar.Location = new System.Drawing.Point(329, 283);
+            this.btn_cancelar.Location = new System.Drawing.Point(152, 283);
             this.btn_cancelar.Name = "btn_cancelar";
             this.btn_cancelar.Size = new System.Drawing.Size(121, 23);
             this.btn_cancelar.TabIndex = 5;
             this.btn_cancelar.Text = "Cancel·lar";
             this.btn_cancelar.UseVisualStyleBackColor = true;
+            this.btn_cancelar.Visible = false;
             this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
             // carregarDades
