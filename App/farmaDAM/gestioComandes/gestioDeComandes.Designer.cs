@@ -123,6 +123,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "gestioDeComandes";
             this.Text = "gestioDeComandes";
+            this.Load += new System.EventHandler(this.gestioDeComandes_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

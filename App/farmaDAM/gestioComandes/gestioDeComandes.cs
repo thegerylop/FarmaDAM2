@@ -95,5 +95,10 @@ namespace gestioComandes
         {
             correcte = Carregar.dtd(xml, data);
         }
+
+        private void gestioDeComandes_Load(object sender, EventArgs e)
+        {
+            data = dataComanda.Value.ToString("yyyy-MM-dd");
+        }
     }
 }
