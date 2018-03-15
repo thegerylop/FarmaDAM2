@@ -1,0 +1,21 @@
+<?xml encoding="UTF-8"?>
+
+<!ELEMENT Comandes (comanda)+>
+<!ATTLIST Comandes
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT comanda (nom_comercial,quantitat,data)>
+<!ATTLIST comanda
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT nom_comercial (#PCDATA)>
+<!ATTLIST nom_comercial
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT quantitat (#PCDATA)>
+<!ATTLIST quantitat
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT data (#PCDATA)>
+<!ATTLIST data
+  xmlns CDATA #FIXED ''>

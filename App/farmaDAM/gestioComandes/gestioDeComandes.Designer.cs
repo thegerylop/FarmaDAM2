@@ -39,7 +39,8 @@
             // 
             // dataComanda
             // 
-            this.dataComanda.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dataComanda.CustomFormat = "yyyy\\MM\\dd";
+            this.dataComanda.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dataComanda.Location = new System.Drawing.Point(92, 52);
             this.dataComanda.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
             this.dataComanda.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);

@@ -3,17 +3,23 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Net;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml;
+using System.Xml.Schema;
+using System.Xml.Linq;
 using System.IO;
 using MySql.Data.MySqlClient;
+
 
 namespace CarregarDades
 {
     public partial class carregarDades : Form
     {
         ConexioBBDD.Conexio conn = new ConexioBBDD.Conexio();
+        Boolean correcte = true;
+
 
         public carregarDades()
         {
@@ -62,7 +68,7 @@ namespace CarregarDades
                 taula = trobarTaula(xmlDoc);
                 String codi_PA = null;
                 int llargada;
-                int i = 0,percentatge = 0;
+                int i = 0, percentatge = 0;
                 double progres = 0;
                 Boolean repetit = false;
                 llargada = llargadaXML(xmlNode);
@@ -122,7 +128,7 @@ namespace CarregarDades
                             progres = test * 100;
                             percentatge = Convert.ToInt32(progres);
                             backgroundWorker1.ReportProgress(percentatge);
-                            lbl_progres.Invoke((MethodInvoker)delegate { lbl_progres.Visible = true;  lbl_progres.Text = "Inserint dades... " + percentatge.ToString() + " %"; });
+                            lbl_progres.Invoke((MethodInvoker)delegate { lbl_progres.Visible = true; lbl_progres.Text = "Inserint dades... " + percentatge.ToString() + " %"; });
 
                             //Reviso que les claus uniques no es repeteixin,sino està repetit, l'afageixo al diccionari
                             if (columna == "codi_laboratori" || columna == "codi" || columna == "registre_nacional")
@@ -180,7 +186,7 @@ namespace CarregarDades
                 }
 
                 //Reviso si he arribat al final 
-                if (llargada == i) { MessageBox.Show("Dades inserides correctament"); finalitzar_proces();  }
+                if (llargada == i) { MessageBox.Show("Dades inserides correctament"); finalitzar_proces(); }
             }
             catch (System.IO.FileNotFoundException)
             {
@@ -196,7 +202,7 @@ namespace CarregarDades
             {
                 try
                 {
-                    if (taula == "medicaments" && !columna.Contains("id_PrincipiActiu")){}
+                    if (taula == "medicaments" && !columna.Contains("id_PrincipiActiu")) { }
                     else
                     {
                         var resultSet = conn.executaComanda("INSERT INTO " + taula + "( " + columna + " ) VALUES ( " + valor + " );");
@@ -423,32 +429,67 @@ namespace CarregarDades
         }
         public string writeXML(DataSet dataset)
         {
-            dataset.DataSetName = "Comanda";
+            dataset.DataSetName = "Comandes";
             StringWriter strWriter = new StringWriter();
             XmlDocument document = new XmlDocument();
             dataset.WriteXml(strWriter);
             string xmlData = strWriter.ToString();
-            return xmlData;
+            string doctype = "<!DOCTYPE Comandes \r\n [<!ELEMENT Comandes (comanda)+> \r\n <!ELEMENT comanda (nom_comercial,quantitat,data)> \r\n <!ELEMENT nom_comercial (#PCDATA)> \r\n <!ELEMENT quantitat (#PCDATA)> \r\n <!ELEMENT data (#PCDATA)>]> \r\n";
+            return xmlData = doctype + xmlData; 
         }
         public void saveXML(string xmlData, string date)
         {
+            string nom = @"C:\xml\Comandes_" + date + ".xml";
+            // Get the object used to communicate with the server.
+            FtpWebRequest request = (FtpWebRequest)WebRequest.Create("ftp://172.17.6.0/Grupo_2/2/Comanda_" + date + ".xml");
+            request.Method = WebRequestMethods.Ftp.UploadFile;
+            // This example assumes the FTP site uses anonymous logon.
+            request.Credentials = new NetworkCredential("grupo2", "12345aA");
+            // Copy the contents of the file to the request stream.
+            StreamReader sourceStream = new StreamReader(nom);
+            byte[] fileContents = Encoding.UTF8.GetBytes(sourceStream.ReadToEnd());
+            sourceStream.Close();
+            request.ContentLength = fileContents.Length;
+            Stream requestStream = request.GetRequestStream();
+            requestStream.Write(fileContents, 0, fileContents.Length);
+            requestStream.Close();
+            FtpWebResponse response = (FtpWebResponse)request.GetResponse();
+            MessageBox.Show("Enviat Correctament");
+            response.Close();
+        }
+        public Boolean dtd(string xmlData, string date)
+        {
+            string nom = @"C:\xml\Comandes_" + date + ".xml";
+            File.WriteAllText(nom, xmlData);
+            //File.WriteAllText(@"C:\xml\Comandes_" + date + ".xml", xmlData);
+            XmlReaderSettings settings = new XmlReaderSettings();
+            settings.ProhibitDtd = false;
+            settings.DtdProcessing = DtdProcessing.Parse;
+            settings.ValidationType = ValidationType.DTD;
+            settings.ValidationEventHandler += new ValidationEventHandler (validar);
+            XmlReader reader1 = XmlReader.Create(nom, settings);
+            try
+            {
+                while (reader1.Read())
+                {
+                    
+                }
+                MessageBox.Show("Xml validat correctament");
+                reader1.Close();
+            }
+            catch(System.Xml.XmlException e)
+            {
+                reader1.Close();
+                MessageBox.Show("Xml mal format");
+                File.Delete(nom);
+                return false;
+            }
 
-            //// Get the object used to communicate with the server.
-            //FtpWebRequest request = (FtpWebRequest)WebRequest.Create("ftp://172.17.6.0/Grupo_2/2/testfile"+date+".txt");
-            //request.Method = WebRequestMethods.Ftp.UploadFile;
-            //// This example assumes the FTP site uses anonymous logon.
-            //request.Credentials = new NetworkCredential("grupo6", "12345aA");
-            //// Copy the contents of the file to the request stream.
-            //StreamReader sourceStream = new StreamReader("testfile.txt");
-            //byte[] fileContents = Encoding.UTF8.GetBytes(sourceStream.ReadToEnd());
-            //sourceStream.Close();
-            //request.ContentLength = fileContents.Length;
-            //Stream requestStream = request.GetRequestStream();
-            //requestStream.Write(fileContents, 0, fileContents.Length);
-            //requestStream.Close();
-            //FtpWebResponse response = (FtpWebResponse)request.GetResponse();
-            //Console.WriteLine("Upload File Complete, status {0}", response.StatusDescription);
-            //response.Close();
+            return true;
+        }
+        public static void validar(object sender, ValidationEventArgs e)
+        {
+            
         }
     }
 }

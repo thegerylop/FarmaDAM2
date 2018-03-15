@@ -1,0 +1,7 @@
+<!ELEMENT Comandes (comanda+)>
+<!ELEMENT comanda (nom_comercial,quantitat,data)>
+<!ELEMENT nom_comercial (#PCDATA)>
+<!ELEMENT quantitat (#PCDATA)>
+<!ELEMENT data (#PCDATA)>
+
+

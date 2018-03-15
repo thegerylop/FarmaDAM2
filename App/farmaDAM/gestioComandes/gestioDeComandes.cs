@@ -20,6 +20,7 @@ namespace gestioComandes
         ConexioBBDD.Conexio conn = new ConexioBBDD.Conexio();
         String data;
         String xml;
+        Boolean correcte = true;
 
         public gestioDeComandes()
         {
@@ -33,14 +34,14 @@ namespace gestioComandes
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            data = dataComanda.Value.ToString();
+            data = dataComanda.Value.ToString("yyyy-MM-dd");
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             comandaCrystalReports();
             DataSet xmlData = new DataSet();
-            string query = "select distinct nom_comercial, quantitat, vendes.data from medicaments, linia_venda, vendes where vendes.id_venda = linia_venda.id_venda and medicaments.id_medicament = linia_venda.id_medicament and date(vendes.data) = '2018-03-08' group by nom_comercial";
+            string query = "select distinct nom_comercial, sum(quantitat) AS quantitat, vendes.data from medicaments, linia_venda, vendes where vendes.id_venda = linia_venda.id_venda and medicaments.id_medicament = linia_venda.id_medicament and date(vendes.data) = '"+ data + "' group by nom_comercial";
             xmlData = conn.portarPerConsulta(query , "comanda");
             xml = Carregar.writeXML(xmlData);
             richXML.Text = xml;
@@ -79,12 +80,20 @@ namespace gestioComandes
 
         private void btnEnviar_Click(object sender, EventArgs e)
         {
-            //Carregar.saveXML(xml,data);
+            if (correcte)
+            {
+                Carregar.saveXML(xml, data);
+            }
+            else
+            {
+                MessageBox.Show("Xml mal validat");
+            }
+            
         }
 
         private void btnDTD_Click(object sender, EventArgs e)
         {
-
+            correcte = Carregar.dtd(xml, data);
         }
     }
 }
