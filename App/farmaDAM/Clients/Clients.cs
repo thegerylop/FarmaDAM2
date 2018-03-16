@@ -150,6 +150,7 @@ namespace Clients
 
         public void AfegirCamp(string table)
         {
+            customTextBox1.Text = CcomboBox.SelectedValue.ToString();
             DataRow row = dataSet.Tables[table].NewRow();
             dataSet.Tables[table].Rows.Add(row);
             clientsDataGridView.Rows[clientsDataGridView.Rows.Count - 2].Selected = true;
@@ -193,7 +194,7 @@ namespace Clients
                 }
                 catch (System.Data.EvaluateException)
                 {
-                    MessageBox.Show("Error: Caràcters introduits no vàlids");
+                    MessageBox.Show("Caràcters introduits incorrectes");
                 }
             }
             else

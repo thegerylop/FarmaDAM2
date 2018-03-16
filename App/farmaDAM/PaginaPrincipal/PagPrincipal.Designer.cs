@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PagPrincipal));
+            this.lblAcerca = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button5
@@ -67,6 +68,11 @@
             // 
             this.btnCarregarXML.Click += new System.EventHandler(this.btnCarregarXML_Click);
             // 
+            // lblAcercaDe
+            // 
+            this.lblAcercaDe.Click += new System.EventHandler(this.lblAcercaDe_Click);
+            // 
+            // 
             // PagPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -79,5 +85,7 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Label lblAcerca;
     }
 }

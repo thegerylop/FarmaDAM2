@@ -58,12 +58,12 @@ namespace LabFarm
                 }
                 catch
                 {
-                    MessageBox.Show("Error: Caràcters introduits no vàlids");
+                    MessageBox.Show("Caràcters introduits incorrectes");
                 }
             }
             else
             {
-                MessageBox.Show("Error: Seleciona un camp");
+                MessageBox.Show("Seleciona un camp");
             }
         }
     }

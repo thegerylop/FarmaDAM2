@@ -16,5 +16,9 @@ namespace PaginaPrincipal
         {
             InitializeComponent();
         }
+
+        private void AcercaDe_Leave(object sender, EventArgs e)
+        {
+        }
     }
 }

@@ -86,7 +86,7 @@ namespace gestioComandes
             }
             else
             {
-                MessageBox.Show("Xml mal validat");
+                MessageBox.Show("Xml incorrecte");
             }
             
         }

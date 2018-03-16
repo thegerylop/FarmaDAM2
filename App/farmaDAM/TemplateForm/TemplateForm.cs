@@ -51,12 +51,6 @@ namespace TemplateForm
 
         }
 
-        public void button10_Click(object sender, EventArgs e)
-        {
-            
-            
-        }
-
         private void TemplateForm_Load(object sender, EventArgs e)
         {
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -76,17 +70,6 @@ namespace TemplateForm
         private void timer1_Tick(object sender, EventArgs e)
         {
             date.Text = DateTime.Now.ToString();
-        }
-
-        private void clientsButton_Click(object sender, EventArgs e)
-        {
-            //panel1.Controls.Clear();
-            ////lblTitle.Text = "Clients";
-            //Form frm = new Clients.Clients();
-            //frm.TopLevel = false;
-            //panel1.Controls.Add(frm);
-            //frm.Dock = DockStyle.Fill;
-            //frm.Show();
         }
     }
 }

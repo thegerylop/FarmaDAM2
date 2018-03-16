@@ -68,6 +68,7 @@
             // btnAfegir
             // 
             this.btnAfegir.Location = new System.Drawing.Point(361, 177);
+            this.btnAfegir.Click += new System.EventHandler(this.btnAfegir_Click_1);
             // 
             // btnActualitzar
             // 

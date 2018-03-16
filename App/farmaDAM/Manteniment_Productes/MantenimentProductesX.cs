@@ -211,5 +211,13 @@ namespace Manteniment_Productes
                 MessageBox.Show("Error: Seleciona un camp");
             }
         }
+
+        private void btnAfegir_Click_1(object sender, EventArgs e)
+        {
+            changeTextBoxText(ComboRec, CCRec);
+            changeTextBoxText(cboxGeneric, txtGen);
+            changeTextBoxText(cboxSubs, txtSubs);
+            changeTextBoxText(MComboBox, CCcodi);
+        }
     }
 }

@@ -47,10 +47,12 @@
             this.button6 = new System.Windows.Forms.Button();
             this.PrincipisActius = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.lblAcercaDe = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel4.SuspendLayout();
             this.panel8.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel4
@@ -282,11 +284,24 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.Gray;
+            this.panel7.Controls.Add(this.lblAcercaDe);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.panel7.Location = new System.Drawing.Point(207, 501);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(913, 17);
             this.panel7.TabIndex = 9;
+            // 
+            // lblAcercaDe
+            // 
+            this.lblAcercaDe.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblAcercaDe.AutoSize = true;
+            this.lblAcercaDe.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblAcercaDe.Location = new System.Drawing.Point(850, 0);
+            this.lblAcercaDe.Name = "lblAcercaDe";
+            this.lblAcercaDe.Size = new System.Drawing.Size(63, 15);
+            this.lblAcercaDe.TabIndex = 1;
+            this.lblAcercaDe.Text = "Acerca De";
             // 
             // panel1
             // 
@@ -321,6 +336,8 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel8.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -348,5 +365,6 @@
         public System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.Button tancarSessioButton;
         public System.Windows.Forms.Button btnCarregarXML;
+        public System.Windows.Forms.Label lblAcercaDe;
     }
 }

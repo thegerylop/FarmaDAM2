@@ -101,5 +101,17 @@ namespace PaginaPrincipal
             frm.Dock = DockStyle.Fill;
             frm.Show();
         }
+
+        private void lblAcerca_Click(object sender, EventArgs e)
+        {
+            AcercaDe frm = new AcercaDe();
+            frm.Show();
+        }
+
+        private void lblAcercaDe_Click(object sender, EventArgs e)
+        {
+            AcercaDe frm = new AcercaDe();
+            frm.Show();
+        }
     }
 }

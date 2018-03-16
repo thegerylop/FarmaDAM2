@@ -98,8 +98,9 @@
             this.Controls.Add(this.versionLbl);
             this.Controls.Add(this.descripcionLbl);
             this.Controls.Add(this.farmacioImg);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AcercaDe";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AcercaDe";
             ((System.ComponentModel.ISupportInitialize)(this.farmacioImg)).EndInit();
             this.ResumeLayout(false);

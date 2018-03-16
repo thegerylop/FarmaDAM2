@@ -96,7 +96,7 @@ namespace Ventas
             }
             else
             {
-                MessageBox.Show("El login o la contrasenya son invàlids");
+                MessageBox.Show("Dades d'usuari incorrectes");
             }
         }
         private void BindingDades(string table)
@@ -122,7 +122,7 @@ namespace Ventas
 
             if (userName == null || userName == "" || userName == " ")
             {
-                MessageBox.Show("El client indicat no existeix");
+                MessageBox.Show("Client incorrecte");
                 TBClient.Text = "";
                 TBClient.Focus();
             }
@@ -167,7 +167,7 @@ namespace Ventas
                     else
                     {
                         sumar = false;
-                        MessageBox.Show("Stock per sota del demanat");
+                        MessageBox.Show("Stock insuficient");
                     }
                 }
             }
@@ -234,7 +234,7 @@ namespace Ventas
             }
             else
             {
-                MessageBox.Show("ticket buit");
+                MessageBox.Show("Ticket buit");
             }
         }
 
@@ -243,7 +243,6 @@ namespace Ventas
             //Crea la factura i s'envia a imprimir (guardar)
             String pkInstalledPrinters;
             pkInstalledPrinters = PrinterSettings.InstalledPrinters[1];
-            MessageBox.Show(pkInstalledPrinters);
             ReportDocument factura = new ReportDocument();
             TableLogOnInfos crtableLogoninfos = new TableLogOnInfos();
             TableLogOnInfo crtableLogoninfo = new TableLogOnInfo();
@@ -310,7 +309,7 @@ namespace Ventas
             }
             if (VendaCorrecte)
             {
-                MessageBox.Show("Venda Realitzada");
+                MessageBox.Show("Venda Tramitada");
                 //actualitza la dataGridView
                 medicaments = bd.portarPerConsulta("select v.registre_nacional, v.nom_comercial as 'Producte',v.contingut, e.nom as 'Principi_Actiu',v.PVP,v.IVA,v.stock,v.substituible,v.generic from medicaments v , principis_actius e where v.id_PrincipiActiu = e.id_PrincipiActiu", "medicaments");
                 CcQuant.SelectedIndex = 0;
@@ -318,7 +317,7 @@ namespace Ventas
             }
             else
             {
-                MessageBox.Show("Error al realitzar la venda");
+                MessageBox.Show("Error al tramitar la venda");
             }
             
         }
@@ -378,7 +377,7 @@ namespace Ventas
                                     }
                                     else
                                     {
-                                        MessageBox.Show("Stock per sota del demanat, buscant altres medicaments");
+                                        MessageBox.Show("Stock insuficient, cercant altres medicaments");
                                         cantidad = quantity;
                                         CercarProductes(r);
                                     }
@@ -390,7 +389,7 @@ namespace Ventas
                                     }
                                     else
                                     {
-                                        MessageBox.Show("Stock per sota del demanat");
+                                        MessageBox.Show("Stock insuficient");
                                         CercarProductes(r);
                                     }
                                 }
@@ -403,7 +402,7 @@ namespace Ventas
                                 {
                                     string[] row = { r["nom_comercial"].ToString(), r["PVP"].ToString(), r["IVA"].ToString(), quantity.ToString() };
                                     listViewItem = new ListViewItem(row);
-                                    MessageBox.Show("Stock per sota del demanat, buscant altres medicaments");
+                                    MessageBox.Show("Stock insuficient, cercant altres medicaments");
                                     CercarProductes(r);
                                 }
                                 else
@@ -425,13 +424,13 @@ namespace Ventas
                     }
                     else
                     {
-                        MessageBox.Show("Medicament no existent");
+                        MessageBox.Show("Medicament inexistent");
                     }
                     sumarTicket();
                 }
                 else
                 {
-                    MessageBox.Show("Introdueix un medicament");
+                    MessageBox.Show("Medicament necessari");
                 }
             }
         }
@@ -446,7 +445,7 @@ namespace Ventas
             }
             else
             {
-                MessageBox.Show("Producte no substituible");
+                MessageBox.Show("Medicament insustituible");
             }
         }
         
@@ -467,7 +466,6 @@ namespace Ventas
         private void btn_login_Click(object sender, EventArgs e)
         {
             login();
-            
         }
 
         private void btn_buscar_Click(object sender, EventArgs e)
