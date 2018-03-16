@@ -327,6 +327,7 @@
             this.CClogin.Placeholder = "Login";
             this.CClogin.Size = new System.Drawing.Size(121, 20);
             this.CClogin.TabIndex = 1;
+            this.CClogin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CClogin_KeyPress);
             // 
             // label4
             // 
