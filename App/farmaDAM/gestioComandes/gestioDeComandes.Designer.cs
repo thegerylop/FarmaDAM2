@@ -80,9 +80,9 @@
             // 
             // richXML
             // 
-            this.richXML.Enabled = false;
             this.richXML.Location = new System.Drawing.Point(635, 89);
             this.richXML.Name = "richXML";
+            this.richXML.ReadOnly = true;
             this.richXML.Size = new System.Drawing.Size(390, 588);
             this.richXML.TabIndex = 4;
             this.richXML.Text = "";

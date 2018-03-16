@@ -438,7 +438,7 @@ namespace CarregarDades
         }
         public void saveXML(string xmlData, string date)
         {
-            string nom = @"C:\xml\Comandes_" + date + ".xml";
+            string nom = @"..\xml\Comandes_" + date + ".xml";
             // Get the object used to communicate with the server.
             FtpWebRequest request = (FtpWebRequest)WebRequest.Create("ftp://172.17.6.0/Grupo_2/2/Comanda_" + date + ".xml");
             request.Method = WebRequestMethods.Ftp.UploadFile;
@@ -458,7 +458,7 @@ namespace CarregarDades
         }
         public Boolean dtd(string xmlData, string date)
         {
-            string nom = @"C:\xml\Comandes_" + date + ".xml";
+            string nom = @"..\xml\Comandes_" + date + ".xml";
             File.WriteAllText(nom, xmlData);
 
             XmlReaderSettings settings = new XmlReaderSettings();
