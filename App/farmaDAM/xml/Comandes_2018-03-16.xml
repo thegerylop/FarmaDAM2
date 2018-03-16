@@ -1,0 +1,18 @@
+<!DOCTYPE Comandes 
+ [<!ELEMENT Comandes (comanda)+> 
+ <!ELEMENT comanda (nom_comercial,quantitat,data)> 
+ <!ELEMENT nom_comercial (#PCDATA)> 
+ <!ELEMENT quantitat (#PCDATA)> 
+ <!ELEMENT data (#PCDATA)>]> 
+<Comandes>
+  <comanda>
+    <nom_comercial>Codeína</nom_comercial>
+    <quantitat>4</quantitat>
+    <data>2018-03-16T00:00:00+01:00</data>
+  </comanda>
+  <comanda>
+    <nom_comercial>Paracetamol</nom_comercial>
+    <quantitat>3</quantitat>
+    <data>2018-03-16T00:00:00+01:00</data>
+  </comanda>
+</Comandes>
