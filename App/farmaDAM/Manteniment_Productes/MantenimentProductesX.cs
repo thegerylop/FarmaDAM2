@@ -19,7 +19,6 @@ namespace Manteniment_Productes
         String table = "medicaments";
         String comboBoxQuery;
         ConexioBBDD.Conexio bd = new ConexioBBDD.Conexio();
-        Boolean flag;
         Boolean firstLaunch = true;
 
         private void MantenimentProductesX_Load(object sender, EventArgs e)

@@ -18,7 +18,6 @@ namespace Clients
         Boolean firstLaunch = true;
         string comboBoxQuery;
         DataSet dataSet = new DataSet();
-        string connString = "SERVER= 51.255.58.1;PORT=3306;DATABASE=g2s2am_FarmaDAM;UID=g2s2am;PASSWORD=diopters12345;";
         MySqlConnection conn = new MySqlConnection();
         ConexioBBDD.Conexio bd = new ConexioBBDD.Conexio();
         public Clients()

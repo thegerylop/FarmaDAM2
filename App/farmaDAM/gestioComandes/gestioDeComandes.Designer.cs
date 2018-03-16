@@ -60,7 +60,7 @@
             // 
             // btnDTD
             // 
-            this.btnDTD.Location = new System.Drawing.Point(841, 53);
+            this.btnDTD.Location = new System.Drawing.Point(950, 52);
             this.btnDTD.Name = "btnDTD";
             this.btnDTD.Size = new System.Drawing.Size(75, 23);
             this.btnDTD.TabIndex = 2;
@@ -70,7 +70,7 @@
             // 
             // btnEnviar
             // 
-            this.btnEnviar.Location = new System.Drawing.Point(841, 612);
+            this.btnEnviar.Location = new System.Drawing.Point(950, 683);
             this.btnEnviar.Name = "btnEnviar";
             this.btnEnviar.Size = new System.Drawing.Size(75, 23);
             this.btnEnviar.TabIndex = 3;
@@ -80,9 +80,9 @@
             // 
             // richXML
             // 
-            this.richXML.Location = new System.Drawing.Point(532, 89);
+            this.richXML.Location = new System.Drawing.Point(635, 89);
             this.richXML.Name = "richXML";
-            this.richXML.Size = new System.Drawing.Size(384, 517);
+            this.richXML.Size = new System.Drawing.Size(390, 588);
             this.richXML.TabIndex = 4;
             this.richXML.Text = "";
             // 
@@ -93,7 +93,7 @@
             this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
             this.crystalReportViewer1.Location = new System.Drawing.Point(54, 89);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.Size = new System.Drawing.Size(452, 546);
+            this.crystalReportViewer1.Size = new System.Drawing.Size(548, 617);
             this.crystalReportViewer1.TabIndex = 5;
             this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 

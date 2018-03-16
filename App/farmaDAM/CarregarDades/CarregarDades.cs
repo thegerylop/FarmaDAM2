@@ -18,7 +18,6 @@ namespace CarregarDades
     public partial class carregarDades : Form
     {
         ConexioBBDD.Conexio conn = new ConexioBBDD.Conexio();
-        Boolean correcte = true;
 
 
         public carregarDades()
@@ -210,7 +209,7 @@ namespace CarregarDades
                         else { return inserit = false; }
                     }
                 }
-                catch (MySqlException eMySql) { }
+                catch (MySqlException) { }
             }
             return inserit;
         }
@@ -461,12 +460,13 @@ namespace CarregarDades
         {
             string nom = @"C:\xml\Comandes_" + date + ".xml";
             File.WriteAllText(nom, xmlData);
-            //File.WriteAllText(@"C:\xml\Comandes_" + date + ".xml", xmlData);
+
             XmlReaderSettings settings = new XmlReaderSettings();
             settings.ProhibitDtd = false;
             settings.DtdProcessing = DtdProcessing.Parse;
             settings.ValidationType = ValidationType.DTD;
             settings.ValidationEventHandler += new ValidationEventHandler (validar);
+
             XmlReader reader1 = XmlReader.Create(nom, settings);
             try
             {
@@ -475,11 +475,11 @@ namespace CarregarDades
                     
                 }
                 MessageBox.Show("Xml validat correctament");
-                reader1.Close();
+                reader1.Dispose();
             }
-            catch(System.Xml.XmlException e)
+            catch(System.Xml.XmlException)
             {
-                reader1.Close();
+                reader1.Dispose();
                 MessageBox.Show("Xml mal format");
                 File.Delete(nom);
                 return false;

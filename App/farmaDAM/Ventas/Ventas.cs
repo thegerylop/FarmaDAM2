@@ -19,8 +19,6 @@ namespace Ventas
     {
         string user;
         double total = 0;
-        string table = "clients";
-        string query;
         DataSet dataSet = new DataSet();
         DataSet medicaments = new DataSet();
         MySqlConnection conn = new MySqlConnection();

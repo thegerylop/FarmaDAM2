@@ -33,7 +33,7 @@ namespace ConexioBBDD
                     {
                         select = dataReader[0].ToString() + " - " + dataReader[1].ToString();
                     }
-                    dataReader.Close();
+                    dataReader.Dispose();
                     return select;
                 }
                 else
@@ -46,7 +46,7 @@ namespace ConexioBBDD
                 MessageBox.Show(ex.Message);
                 return null;
             }
-            finally { conn.Close(); }
+            finally { conn.Dispose(); }
         }
 
         public void connexio()
@@ -79,7 +79,6 @@ namespace ConexioBBDD
             {
                 if (conn != null)
                 {
-                    conn.Close();
                     conn.Dispose();
                 }
             }
@@ -109,7 +108,7 @@ namespace ConexioBBDD
             }
             finally
             {
-                conn.Close();
+                conn.Dispose();
             }
 
         }
@@ -142,7 +141,6 @@ namespace ConexioBBDD
             {
                 if (conn != null)
                 {
-                    conn.Close();
                     conn.Dispose();
                 }
             }
@@ -184,7 +182,6 @@ namespace ConexioBBDD
             {
                 if (conn != null)
                 {
-                    conn.Close();
                     conn.Dispose();
                 }
             }
@@ -207,14 +204,13 @@ namespace ConexioBBDD
                 }
 
             }
-            catch (MySqlException eMySql)
+            catch (MySqlException)
             {
-                //MessageBox.Show(eMySql.ToString());
                 return false;
             }
             finally
             {
-                conn.Close();
+                conn.Dispose();
             }
         }
     }

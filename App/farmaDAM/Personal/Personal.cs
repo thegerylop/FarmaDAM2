@@ -22,7 +22,7 @@ namespace Personal
         {
             try {
                 (dgvBase.DataSource as DataTable).DefaultView.RowFilter = string.Format("usuari LIKE '{0}%'", TxBFilter.Text);
-            } catch (System.Data.EvaluateException errorDatos) {
+            } catch (System.Data.EvaluateException) {
                 MessageBox.Show("Error: Caràcters introduits no vàlids");
             }            
         }
