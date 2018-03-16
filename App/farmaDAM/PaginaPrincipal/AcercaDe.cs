@@ -19,6 +19,7 @@ namespace PaginaPrincipal
 
         private void AcercaDe_Leave(object sender, EventArgs e)
         {
+            this.Close();
         }
     }
 }

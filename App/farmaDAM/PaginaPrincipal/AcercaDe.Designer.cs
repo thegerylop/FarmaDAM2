@@ -102,6 +102,8 @@
             this.Name = "AcercaDe";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AcercaDe";
+            this.Deactivate += new System.EventHandler(this.AcercaDe_Leave);
+            this.Leave += new System.EventHandler(this.AcercaDe_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.farmacioImg)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
