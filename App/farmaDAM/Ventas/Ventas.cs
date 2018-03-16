@@ -334,100 +334,105 @@ namespace Ventas
         }
         private void TxBFilter_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == '\r' && TxBFilter.Text.Length > 0)
+            if (e.KeyChar == '\r')
             {
-                dgvVentas.Refresh();
-                //Busco el medicament a la BBDD.
-                string medic = "select v.registre_nacional,v.nom_comercial,v.id_PrincipiActiu,v.PVP,v.IVA,v.stock, v.substituible from medicaments v where v.registre_nacional = " + TxBFilter.Text;
-                DataTable medicament = bd.searchTableFromQuery(medic);
-                Boolean afegir = true;
-                Boolean fix = false;
-                
-                //Si existeix el medicament afaga la quantitat de stock que té.
-                if(medicament.Rows.Count > 0 )
+                if (TxBFilter.Text.Length > 0)
                 {
-                    DataRow r = medicament.Rows[0];
-                    int quantity = Int32.Parse(r["stock"].ToString());
 
-                    //Si la quantitat es major que 0.
-                    if (quantity > 0)
+
+                    dgvVentas.Refresh();
+                    //Busco el medicament a la BBDD.
+                    string medic = "select v.registre_nacional,v.nom_comercial,v.id_PrincipiActiu,v.PVP,v.IVA,v.stock, v.substituible from medicaments v where v.registre_nacional = " + TxBFilter.Text;
+                    DataTable medicament = bd.searchTableFromQuery(medic);
+                    Boolean afegir = true;
+                    Boolean fix = false;
+
+                    //Si existeix el medicament afaga la quantitat de stock que té.
+                    if (medicament.Rows.Count > 0)
                     {
-                        int cantidad = Int32.Parse(CcQuant.SelectedItem.ToString());
-                        //Si la quantitat es major o igual a la que jo demano.
-                        if (quantity >= cantidad)
+                        DataRow r = medicament.Rows[0];
+                        int quantity = Int32.Parse(r["stock"].ToString());
+
+                        //Si la quantitat es major que 0.
+                        if (quantity > 0)
                         {
-                            fix = false;
-                        }
-                        else
-                        {
-                            fix = true;
-                        }
-                        //Busca si el medicament ja esta afegit al ticket
-                        foreach (ListViewItem itemRow in this.listViewCompra.Items)
-                        {
-                            if (itemRow.SubItems[0].Text == r["nom_comercial"].ToString())
+                            int cantidad = Int32.Parse(CcQuant.SelectedItem.ToString());
+                            //Si la quantitat es major o igual a la que jo demano.
+                            if (quantity >= cantidad)
                             {
-                                afegir = false;
-                                if (!fix)
-                                {
-                                    cantidad += Int32.Parse(itemRow.SubItems[3].Text);
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Stock per sota del demanat, buscant altres medicaments");
-                                    cantidad = quantity;
-                                    CercarProductes(r);
-                                }
-                                    
-                                // Comprova que la quantitat del ticket sigui menor que el stock
-                                if (cantidad  <= quantity)
-                                {
-                                    itemRow.SubItems[3].Text = cantidad.ToString();
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Stock per sota del demanat");
-                                    CercarProductes(r);
-                                }
-                            }
-                        }
-                        //Si el medicament introduit no esta ja en el ticket
-                        if (afegir)
-                        {
-                            var listViewItem = new ListViewItem();
-                            if (fix)
-                            {
-                                string[] row = { r["nom_comercial"].ToString(), r["PVP"].ToString(), r["IVA"].ToString(), quantity.ToString() };
-                                listViewItem = new ListViewItem(row);
-                                MessageBox.Show("Stock per sota del demanat, buscant altres medicaments");
-                                CercarProductes(r);
+                                fix = false;
                             }
                             else
                             {
-                                string[] row = { r["nom_comercial"].ToString(), r["PVP"].ToString(), r["IVA"].ToString(), CcQuant.SelectedItem.ToString() };
-                                listViewItem = new ListViewItem(row);
+                                fix = true;
                             }
-                            listViewCompra.Items.Add(listViewItem);
-                            TxBFilter.Text = "";
-                            e.KeyChar = '\r';
+                            //Busca si el medicament ja esta afegit al ticket
+                            foreach (ListViewItem itemRow in this.listViewCompra.Items)
+                            {
+                                if (itemRow.SubItems[0].Text == r["nom_comercial"].ToString())
+                                {
+                                    afegir = false;
+                                    if (!fix)
+                                    {
+                                        cantidad += Int32.Parse(itemRow.SubItems[3].Text);
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Stock per sota del demanat, buscant altres medicaments");
+                                        cantidad = quantity;
+                                        CercarProductes(r);
+                                    }
+
+                                    // Comprova que la quantitat del ticket sigui menor que el stock
+                                    if (cantidad <= quantity)
+                                    {
+                                        itemRow.SubItems[3].Text = cantidad.ToString();
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Stock per sota del demanat");
+                                        CercarProductes(r);
+                                    }
+                                }
+                            }
+                            //Si el medicament introduit no esta ja en el ticket
+                            if (afegir)
+                            {
+                                var listViewItem = new ListViewItem();
+                                if (fix)
+                                {
+                                    string[] row = { r["nom_comercial"].ToString(), r["PVP"].ToString(), r["IVA"].ToString(), quantity.ToString() };
+                                    listViewItem = new ListViewItem(row);
+                                    MessageBox.Show("Stock per sota del demanat, buscant altres medicaments");
+                                    CercarProductes(r);
+                                }
+                                else
+                                {
+                                    string[] row = { r["nom_comercial"].ToString(), r["PVP"].ToString(), r["IVA"].ToString(), CcQuant.SelectedItem.ToString() };
+                                    listViewItem = new ListViewItem(row);
+                                }
+                                listViewCompra.Items.Add(listViewItem);
+                                TxBFilter.Text = "";
+                                e.KeyChar = '\r';
+                            }
+                        }
+                        //Si no hi ha stock
+                        else
+                        {
+                            MessageBox.Show("Producte sense stock");
+                            CercarProductes(r);
                         }
                     }
-                    //Si no hi ha stock
                     else
                     {
-                        MessageBox.Show("Producte sense stock");
-                        CercarProductes(r);
+                        MessageBox.Show("Medicament no existent");
                     }
+                    sumarTicket();
                 }
                 else
                 {
-                    MessageBox.Show("Medicament no existent");
+                    MessageBox.Show("Introdueix un medicament");
                 }
-                sumarTicket();
-            }
-            else
-            {
-                MessageBox.Show("Introdueix un medicament");
             }
         }
         public void CercarProductes(DataRow r)
