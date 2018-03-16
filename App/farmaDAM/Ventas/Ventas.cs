@@ -274,16 +274,14 @@ namespace Ventas
 
         private void afegirProductesBBDD() 
         {
-            string id_venda = bd.resultatComanda("SELECT max(id_venda) FROM vendes");
+            int Id = Int32.Parse(bd.resultatComanda("SELECT max(id_venda) FROM vendes"));
             Boolean VendaCorrecte = true;
-            int Id = Int32.Parse(id_venda);
 
             //Per cada Producte en el ticket l'afageix a linia_venda a la bbdd
             foreach (ListViewItem itemRow in this.listViewCompra.Items)
             {
                 string producte = itemRow.SubItems[0].Text;
-                string producteID = bd.resultatComanda("SELECT id_medicament FROM medicaments where nom_comercial = '" + producte +"'");
-                int IdProd = Int32.Parse(producteID);
+                int IdProd = Int32.Parse(bd.resultatComanda("SELECT id_medicament FROM medicaments where nom_comercial = '" + producte +"'"));
                 int cantidad = Int32.Parse(itemRow.SubItems[3].Text);
                 string preu = itemRow.SubItems[1].Text;
                 preu = preu.Replace(@",",".");
@@ -295,8 +293,8 @@ namespace Ventas
                 //si s'ha afegit correctament baixara el stock dels medicaments comprats a la bbdd
                 if (!correcte.Equals(0))
                 {
-                    string id_stock = bd.resultatComanda("SELECT stock FROM medicaments where id_medicament = " + IdProd);
-                    int stockNumber = Int32.Parse(id_stock);
+                    int stockNumber = Int32.Parse(bd.resultatComanda("SELECT stock FROM medicaments where id_medicament = " + IdProd));
+
                     stockNumber -= cantidad;
                     correcte = bd.executaComanda("update medicaments set stock= " + stockNumber + " where id_medicament = " + IdProd);
                     if (correcte.Equals(0))
@@ -335,7 +333,7 @@ namespace Ventas
         }
         private void TxBFilter_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == '\r')
+            if (e.KeyChar == '\r' && TxBFilter.Text.Length > 0)
             {
                 dgvVentas.Refresh();
                 //Busco el medicament a la BBDD.
@@ -425,6 +423,10 @@ namespace Ventas
                     MessageBox.Show("Medicament no existent");
                 }
                 sumarTicket();
+            }
+            else
+            {
+                MessageBox.Show("Introdueix un medicament");
             }
         }
         public void CercarProductes(DataRow r)
