@@ -92,6 +92,7 @@
             this.cbProds.Name = "cbProds";
             this.cbProds.Size = new System.Drawing.Size(121, 21);
             this.cbProds.TabIndex = 145;
+            this.cbProds.SelectedValueChanged += new System.EventHandler(this.cbProds_SelectedValueChanged);
             // 
             // lblFiltrar
             // 
@@ -114,6 +115,7 @@
             this.TxBFilter.Size = new System.Drawing.Size(221, 20);
             this.TxBFilter.TabIndex = 144;
             this.TxBFilter.Tag = "";
+            this.TxBFilter.TextChanged += new System.EventHandler(this.TxBFilter_TextChanged_1);
             // 
             // label9
             // 

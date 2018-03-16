@@ -89,30 +89,6 @@ namespace Manteniment_Productes
             firstLaunch = false;
         }
 
-        private void TxBFilter_TextChanged(object sender, EventArgs e)
-        {
-            String columna = "";
-            if (cbProds.Text != "")
-            {
-                for (int i = 1; i <= dgvBase.Columns.Count; i++)
-                {
-                    if (dgvBase.Columns[i].HeaderText.Equals(cbProds.Text))
-                    {
-                        columna = dgvBase.Columns[i].Name;
-                        break;
-                    }
-                }
-                double number;
-                try { 
-                    string rowFilter = double.TryParse(TxBFilter.Text, out number) ? string.Format(columna + " = '{0}'", TxBFilter.Text) : string.Format(columna + " like '%{0}%'", TxBFilter.Text);(dgvBase.DataSource as DataTable).DefaultView.RowFilter = rowFilter;
-                    (dgvBase.DataSource as DataTable).DefaultView.RowFilter = rowFilter;
-                } catch (System.Data.EvaluateException) {
-                    MessageBox.Show("Error: Caràcters introduits no vàlids");
-                }
-                
-            }
-        }
-
         private void CCcodi_TextChanged(object sender, EventArgs e)
         {
             switchComboBoxIndex(MComboBox);
@@ -191,6 +167,49 @@ namespace Manteniment_Productes
         private void CCFitxa_TextChanged(object sender, EventArgs e)
         {
             browserURL(CCFitxa.Text);
+        }
+
+        private void cbProds_SelectedValueChanged(object sender, EventArgs e)
+        {
+            filtrarTaula();
+        }
+
+        private void TxBFilter_TextChanged_1(object sender, EventArgs e)
+        {
+            filtrarTaula();
+        }
+
+        private void filtrarTaula()
+        {
+            String columna = "";
+            if (cbProds.SelectedIndex >= 0)
+            {
+                if (cbProds.Text != "")
+                {
+                    for (int i = 1; i <= dgvBase.Columns.Count; i++)
+                    {
+                        if (dgvBase.Columns[i].HeaderText.Equals(cbProds.Text))
+                        {
+                            columna = dgvBase.Columns[i].Name;
+                            break;
+                        }
+                    }
+                    double number;
+                    try
+                    {
+                        string rowFilter = double.TryParse(TxBFilter.Text, out number) ? string.Format(columna + " = '{0}'", TxBFilter.Text) : string.Format(columna + " like '%{0}%'", TxBFilter.Text);
+                        (dgvBase.DataSource as DataTable).DefaultView.RowFilter = rowFilter;
+                    }
+                    catch (System.Data.EvaluateException)
+                    {
+                        MessageBox.Show("Error: Caràcters introduits no vàlids");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Error: Seleciona un camp");
+            }
         }
     }
 }

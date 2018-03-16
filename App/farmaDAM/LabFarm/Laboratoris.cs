@@ -26,8 +26,6 @@ namespace LabFarm
             this.dgvBase.Columns[2].HeaderText = "Raó Social"; //rao_social
             this.dgvBase.Columns[3].HeaderText = "CIF"; //cif
             this.dgvBase.Columns[4].HeaderText = "Denominació"; //denominacio
-
-            //cbLabs.SelectedIndex = 1;
         }
         private void TxBFilter_TextChanged(object sender, EventArgs e)
         {
@@ -41,25 +39,31 @@ namespace LabFarm
         private void filtrarTaula()
         {
             String columna = "";
-
-            for (int i = 0; i <= dgvBase.Columns.Count; i++)
+            if (cbLabs.SelectedIndex >= 0)
             {
-                if (dgvBase.Columns[i].HeaderText.Equals(cbLabs.Text))
+                for (int i = 0; i <= dgvBase.Columns.Count; i++)
                 {
-                    columna = dgvBase.Columns[i].Name;
-                    break;
+                    if (dgvBase.Columns[i].HeaderText.Equals(cbLabs.Text))
+                    {
+                        columna = dgvBase.Columns[i].Name;
+                        break;
+                    }
+                }
+
+                double number;
+                try
+                {
+                    string rowFilter = double.TryParse(TxBFilter.Text, out number) ? string.Format(columna + " = '{0}'", TxBFilter.Text) : string.Format(columna + " like '%{0}%'", TxBFilter.Text);
+                    (dgvBase.DataSource as DataTable).DefaultView.RowFilter = rowFilter;
+                }
+                catch
+                {
+                    MessageBox.Show("Error: Caràcters introduits no vàlids");
                 }
             }
-
-            double number;
-            try
+            else
             {
-                string rowFilter = double.TryParse(TxBFilter.Text, out number) ? string.Format(columna + " = '{0}'", TxBFilter.Text) : string.Format(columna + " like '%{0}%'", TxBFilter.Text);
-                (dgvBase.DataSource as DataTable).DefaultView.RowFilter = rowFilter;
-            }
-            catch
-            {
-                MessageBox.Show("La cadena no pot esta buida");
+                MessageBox.Show("Error: Seleciona un camp");
             }
         }
     }

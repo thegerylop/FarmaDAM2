@@ -154,6 +154,7 @@
             this.cbActius.Name = "cbActius";
             this.cbActius.Size = new System.Drawing.Size(121, 21);
             this.cbActius.TabIndex = 54;
+            this.cbActius.SelectedValueChanged += new System.EventHandler(this.cbActius_SelectedValueChanged);
             // 
             // TxBFilter
             // 
