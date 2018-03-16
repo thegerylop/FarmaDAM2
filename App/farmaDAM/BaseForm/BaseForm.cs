@@ -89,8 +89,8 @@ namespace BaseForm
 
         public void validarText(object sender, EventArgs e)
         {
-            Control test = (Control)sender;
-            test.DataBindings[0].BindingManagerBase.EndCurrentEdit();
+            Control validar = (Control)sender;
+            validar.DataBindings[0].BindingManagerBase.EndCurrentEdit();
         }
         public virtual void btnAfegir_Click(object sender, EventArgs e)
         {
