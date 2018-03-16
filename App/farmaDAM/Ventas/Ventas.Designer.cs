@@ -399,7 +399,7 @@
             this.CcomboBox.FormattingEnabled = true;
             this.CcomboBox.Items.AddRange(new object[] {
             "DNI",
-            "Targeta sanitaria"});
+            "t_sanitaria"});
             this.CcomboBox.Location = new System.Drawing.Point(199, 20);
             this.CcomboBox.Name = "CcomboBox";
             this.CcomboBox.Reference = null;
