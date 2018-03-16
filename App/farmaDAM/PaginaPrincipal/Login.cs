@@ -90,5 +90,13 @@ namespace PaginaPrincipal
                 CCpassword.Text = "";
             }
         }
+
+        private void CClogin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\r')
+            {
+                iniciarBtn.PerformClick();
+            }
+        }
     }
 }

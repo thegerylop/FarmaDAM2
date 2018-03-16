@@ -82,20 +82,21 @@ namespace Ventas
             string login = CClogin.Text;
             string password = CCpassword.Text;
             string select = bd.connexioLogin(login, password);
-            Tancar.Visible = true;
-            btn_login.Visible = false;
-            CClogin.Enabled = false;
-            CCpassword.Enabled = false;
+            
 
             if (select != null)
-            {
-                gbClient.Visible = true;
+            { 
                 user = login;
+
+                gbClient.Visible = true;
+                Tancar.Visible = true;
+                btn_login.Visible = false;
+                CClogin.Enabled = false;
+                CCpassword.Enabled = false;
             }
             else
             {
                 MessageBox.Show("El login o la contrasenya son invàlids");
-
             }
         }
         private void BindingDades(string table)
@@ -467,6 +468,14 @@ namespace Ventas
         private void btn_buscar_Click(object sender, EventArgs e)
         {
             buscar_client();
+        }
+
+        private void CClogin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\r')
+            {
+                login();
+            }
         }
     }
 }
