@@ -82,6 +82,7 @@
             this.cbClients.Name = "cbClients";
             this.cbClients.Size = new System.Drawing.Size(121, 21);
             this.cbClients.TabIndex = 84;
+            this.cbClients.SelectedValueChanged += new System.EventHandler(this.cbClients_SelectedValueChanged);
             // 
             // label3
             // 

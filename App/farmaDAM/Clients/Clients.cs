@@ -27,7 +27,6 @@ namespace Clients
 
         private void Clients_Load(object sender, EventArgs e)
         {
-            cbClients.SelectedIndex = 0;
             query = "Select * from " + table;
             dataSet = bd.portarPerConsulta(query, table);
             //ComboBox table options
@@ -159,22 +158,7 @@ namespace Clients
 
         private void TxBFilter_TextChanged(object sender, EventArgs e)
         {
-            String columna = "";
-
-            for (int i = 0; i <= clientsDataGridView.Columns.Count; i++)
-            {
-                if (clientsDataGridView.Columns[i].HeaderText.Equals(cbClients.Text))
-                {
-                    columna = clientsDataGridView.Columns[i].Name;
-                    break;
-                }
-            }
-            try {
-                (clientsDataGridView.DataSource as DataTable).DefaultView.RowFilter = string.Format(columna + " LIKE '{0}%'", TxBFilter.Text);
-            } catch (System.Data.EvaluateException) {
-                MessageBox.Show("Error: Caràcters introduits no vàlids");
-            }
-    
+            filtrarTaules();
         }
 
         private void CcomboBox_SelectedValueChanged(object sender, EventArgs e)
@@ -184,6 +168,39 @@ namespace Clients
                 customTextBox1.Text = CcomboBox.SelectedValue.ToString();
                 customTextBox1.TextChanged += new System.EventHandler(this.validarText);
             }
+        }
+
+        private void cbClients_SelectedValueChanged(object sender, EventArgs e)
+        {
+            filtrarTaules();
+        }
+        private void filtrarTaules()
+        {
+            String columna = "";
+            if (cbClients.SelectedIndex >= 0)
+            {
+                for (int i = 0; i <= clientsDataGridView.Columns.Count; i++)
+                {
+                    if (clientsDataGridView.Columns[i].HeaderText.Equals(cbClients.Text))
+                    {
+                        columna = clientsDataGridView.Columns[i].Name;
+                        break;
+                    }
+                }
+                try
+                {
+                    (clientsDataGridView.DataSource as DataTable).DefaultView.RowFilter = string.Format(columna + " LIKE '{0}%'", TxBFilter.Text);
+                }
+                catch (System.Data.EvaluateException)
+                {
+                    MessageBox.Show("Error: Caràcters introduits no vàlids");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Error: Seleciona un camp");
+            }
+            
         }
     }
 }
