@@ -40,10 +40,12 @@
             // btnAfegir
             // 
             this.btnAfegir.TabIndex = 5;
+            this.btnAfegir.Click += new System.EventHandler(this.btnAfegir_Click_1);
             // 
             // btnActualitzar
             // 
             this.btnActualitzar.TabIndex = 6;
+            this.btnActualitzar.Click += new System.EventHandler(this.btnActualitzar_Click);
             // 
             // CCcodi
             // 
@@ -135,6 +137,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Name = "Personal";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.Personal_Load);
             this.Controls.SetChildIndex(this.btnActualitzar, 0);
             this.Controls.SetChildIndex(this.btnAfegir, 0);

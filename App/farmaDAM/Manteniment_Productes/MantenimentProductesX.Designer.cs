@@ -53,7 +53,6 @@
             this.customTextBox6 = new CustomControl.CustomTextBox();
             this.customTextBox5 = new CustomControl.CustomTextBox();
             this.customTextBox2 = new CustomControl.CustomTextBox();
-            this.customTextBox1 = new CustomControl.CustomTextBox();
             this.CCcodi = new CustomControl.CustomTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.MComboBox = new CustomControl.comboBox();
@@ -63,6 +62,8 @@
             this.cboxSubs = new System.Windows.Forms.ComboBox();
             this.ComboRec = new System.Windows.Forms.ComboBox();
             this.Browser = new System.Windows.Forms.WebBrowser();
+            this.PComboBox = new CustomControl.comboBox();
+            this.CCPrin = new CustomControl.CustomTextBox();
             this.SuspendLayout();
             // 
             // btnAfegir
@@ -221,7 +222,6 @@
             // CCFitxa
             // 
             this.CCFitxa.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CCFitxa.Enabled = false;
             this.CCFitxa.Location = new System.Drawing.Point(389, 26);
             this.CCFitxa.Name = "CCFitxa";
             this.CCFitxa.Options = CustomControl.CustomTextBox.Items.Text;
@@ -365,17 +365,6 @@
             this.customTextBox2.TabIndex = 120;
             this.customTextBox2.Tag = "contingut";
             // 
-            // customTextBox1
-            // 
-            this.customTextBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.customTextBox1.Location = new System.Drawing.Point(6, 33);
-            this.customTextBox1.Name = "customTextBox1";
-            this.customTextBox1.Options = CustomControl.CustomTextBox.Items.Text;
-            this.customTextBox1.Placeholder = null;
-            this.customTextBox1.Size = new System.Drawing.Size(197, 20);
-            this.customTextBox1.TabIndex = 119;
-            this.customTextBox1.Tag = "id_PrincipiActiu";
-            // 
             // CCcodi
             // 
             this.CCcodi.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -487,10 +476,35 @@
             this.Browser.TabIndex = 154;
             this.Browser.Url = new System.Uri("https://www.aemps.gob.es/home.htm", System.UriKind.Absolute);
             // 
+            // PComboBox
+            // 
+            this.PComboBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PComboBox.FormattingEnabled = true;
+            this.PComboBox.Location = new System.Drawing.Point(6, 34);
+            this.PComboBox.Name = "PComboBox";
+            this.PComboBox.Reference = "principis_actius";
+            this.PComboBox.Size = new System.Drawing.Size(197, 21);
+            this.PComboBox.TabIndex = 155;
+            this.PComboBox.SelectedValueChanged += new System.EventHandler(this.PComboBox_SelectedValueChanged);
+            // 
+            // CCPrin
+            // 
+            this.CCPrin.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CCPrin.Location = new System.Drawing.Point(211, 34);
+            this.CCPrin.Name = "CCPrin";
+            this.CCPrin.Options = CustomControl.CustomTextBox.Items.Text;
+            this.CCPrin.Placeholder = null;
+            this.CCPrin.Size = new System.Drawing.Size(25, 20);
+            this.CCPrin.TabIndex = 156;
+            this.CCPrin.Tag = "id_PrincipiActiu";
+            this.CCPrin.TextChanged += new System.EventHandler(this.CCPrin_TextChanged);
+            // 
             // MantenimentProductesX
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(913, 484);
+            this.Controls.Add(this.CCPrin);
+            this.Controls.Add(this.PComboBox);
             this.Controls.Add(this.Browser);
             this.Controls.Add(this.ComboRec);
             this.Controls.Add(this.cboxSubs);
@@ -523,14 +537,12 @@
             this.Controls.Add(this.customTextBox6);
             this.Controls.Add(this.customTextBox5);
             this.Controls.Add(this.customTextBox2);
-            this.Controls.Add(this.customTextBox1);
             this.Controls.Add(this.CCcodi);
             this.Controls.Add(this.label2);
             this.Name = "MantenimentProductesX";
             this.Load += new System.EventHandler(this.MantenimentProductesX_Load);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.CCcodi, 0);
-            this.Controls.SetChildIndex(this.customTextBox1, 0);
             this.Controls.SetChildIndex(this.customTextBox2, 0);
             this.Controls.SetChildIndex(this.customTextBox5, 0);
             this.Controls.SetChildIndex(this.customTextBox6, 0);
@@ -565,6 +577,8 @@
             this.Controls.SetChildIndex(this.cboxSubs, 0);
             this.Controls.SetChildIndex(this.ComboRec, 0);
             this.Controls.SetChildIndex(this.Browser, 0);
+            this.Controls.SetChildIndex(this.PComboBox, 0);
+            this.Controls.SetChildIndex(this.CCPrin, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -597,7 +611,6 @@
         private CustomControl.CustomTextBox customTextBox6;
         private CustomControl.CustomTextBox customTextBox5;
         private CustomControl.CustomTextBox customTextBox2;
-        private CustomControl.CustomTextBox customTextBox1;
         private CustomControl.CustomTextBox CCcodi;
         private System.Windows.Forms.Label label2;
         private CustomControl.comboBox MComboBox;
@@ -607,5 +620,7 @@
         private System.Windows.Forms.ComboBox cboxSubs;
         private System.Windows.Forms.ComboBox ComboRec;
         private System.Windows.Forms.WebBrowser Browser;
+        private CustomControl.comboBox PComboBox;
+        private CustomControl.CustomTextBox CCPrin;
     }
 }

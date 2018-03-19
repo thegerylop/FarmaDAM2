@@ -46,6 +46,9 @@ namespace Manteniment_Productes
             comboBoxQuery = "Select id_laboratori, rao_social from " + MComboBox.Reference;
             DataTable t = bd.searchTableFromQuery(comboBoxQuery);
             addComboBoxData(t, MComboBox);
+            comboBoxQuery = "Select id_PrincipiActiu, nom from " + PComboBox.Reference;
+            DataTable c = bd.searchTableFromQuery(comboBoxQuery);
+            addComboBoxDataPrin(c, PComboBox);
         }
 
         public void amagarCamps()
@@ -60,12 +63,21 @@ namespace Manteniment_Productes
             txtGen.Visible = false;
             txtSubs.Visible = false;
             CCRec.Visible = false;
+            CCPrin.Visible = false;
         }
         public void switchComboBoxIndex(ComboBox comboBox)
         {
-            if(CCcodi.Text != "")
+            if(CCcodi.Text != "" && CCcodi.Text != "True" && CCcodi.Text != "False")
             {
                 MComboBox.SelectedValue = CCcodi.Text;
+            }
+        }
+
+        public void switchComboBoxIndexPrin(ComboBox comboBox)
+        {
+            if (CCPrin.Text != "" && CCPrin.Text != "True" && CCPrin.Text != "False" && CCPrin.Text != "System.Data.DataRowView")
+            {
+                PComboBox.SelectedValue = CCPrin.Text;
             }
         }
 
@@ -85,6 +97,15 @@ namespace Manteniment_Productes
             comboBox.DataSource = t;
             comboBox.DisplayMember = "rao_social";
             comboBox.ValueMember = "id_laboratori";
+
+            firstLaunch = false;
+        }
+
+        public void addComboBoxDataPrin(DataTable t, ComboBox comboBox)
+        {
+            comboBox.DataSource = t;
+            comboBox.DisplayMember = "nom";
+            comboBox.ValueMember = "id_PrincipiActiu";
 
             firstLaunch = false;
         }
@@ -123,14 +144,22 @@ namespace Manteniment_Productes
         }
         public void changeTextBoxText(ComboBox comboBox, TextBox txt)
         {
-            if(comboBox.SelectedIndex == 1)
+            if (txt.Name.Equals(CCcodi))
             {
-                txt.Text = "False";
+                txt.Text = comboBox.SelectedValue.ToString();
             }
             else
             {
-                txt.Text = "True";
+                if (comboBox.SelectedIndex == 1)
+                {
+                    txt.Text = "False";
+                }
+                else
+                {
+                    txt.Text = "True";
+                }
             }
+
         }
 
         private void customTextBox4_TextChanged(object sender, EventArgs e)
@@ -218,6 +247,20 @@ namespace Manteniment_Productes
             changeTextBoxText(cboxGeneric, txtGen);
             changeTextBoxText(cboxSubs, txtSubs);
             changeTextBoxText(MComboBox, CCcodi);
+            changeTextBoxText(PComboBox, CCPrin);
+        }
+
+        private void CCPrin_TextChanged(object sender, EventArgs e)
+        {
+            switchComboBoxIndexPrin(PComboBox);
+        }
+
+        private void PComboBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (!firstLaunch)
+            {
+                CCPrin.Text = PComboBox.SelectedValue.ToString();
+            }
         }
     }
 }

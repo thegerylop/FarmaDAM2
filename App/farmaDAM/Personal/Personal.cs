@@ -7,9 +7,11 @@ using System.Text;
 using System.Windows.Forms;
 
 namespace Personal
-{
+{   
     public partial class Personal : BaseForm.BaseForm
     {
+        ConexioBBDD.Conexio conn = new ConexioBBDD.Conexio();
+        Boolean nouUsuari = false;
         public Personal()
         {
             InitializeComponent();
@@ -35,6 +37,22 @@ namespace Personal
             //Alias para las columnas
             this.dgvBase.Columns[1].HeaderText = "Usuari"; //usuari
             this.dgvBase.Columns[2].Visible = false;
+        }
+
+        private void btnActualitzar_Click(object sender, EventArgs e)
+        {
+            if (nouUsuari)
+            {
+                string contrasenya = CCrao.Text;
+                string query = "update personal set contrasenya =  PASSWORD('" + contrasenya + "') where contrasenya = '" + contrasenya + "' and usuari = '" + CCcodi.Text + "'";
+                conn.executaComanda(query);
+            }
+           
+        }
+
+        private void btnAfegir_Click_1(object sender, EventArgs e)
+        {
+            nouUsuari = true;
         }
     }
 }
