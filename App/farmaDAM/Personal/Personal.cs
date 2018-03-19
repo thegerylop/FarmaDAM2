@@ -46,6 +46,8 @@ namespace Personal
                 string contrasenya = CCrao.Text;
                 string query = "update personal set contrasenya =  PASSWORD('" + contrasenya + "') where contrasenya = '" + contrasenya + "' and usuari = '" + CCcodi.Text + "'";
                 conn.executaComanda(query);
+
+                nouUsuari = false;
             }
            
         }
