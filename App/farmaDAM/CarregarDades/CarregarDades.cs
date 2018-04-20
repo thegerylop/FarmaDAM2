@@ -117,6 +117,7 @@ namespace CarregarDades
                                     }
                                 }
                             }
+
                             //Sino es de medicaments, segueixo normal
                             columna = ChildNode.Name.Trim();
                             valor = ChildNode.InnerText.Trim();
@@ -130,20 +131,24 @@ namespace CarregarDades
                             lbl_progres.Invoke((MethodInvoker)delegate { lbl_progres.Visible = true; lbl_progres.Text = "Inserint dades... " + percentatge.ToString() + " %"; });
 
                             //Reviso que les claus uniques no es repeteixin,sino està repetit, l'afageixo al diccionari
-                            if (columna == "codi_laboratori" || columna == "codi" || columna == "registre_nacional")
+                            if (columna == "codi_laboratori" || columna == "id_PrincipiActiu" || columna == "registre_nacional")
                             {
-                                if (columna == "codi_laboratori" && taula == "medicaments")
-                                {
-                                    String cmd = "SELECT id_laboratori from laboratoris_farmaceutics where codi_laboratori = " + valor;
-                                    valor = conn.resultatComanda(cmd);
-                                    columna = "id_laboratori";
-                                }
                                 if (!validarRepetit(columna, taula, valor))
                                 {
                                     if (dict.ContainsKey(columna)) { repetit = true; }
                                     else
                                     {
-                                        dict.Add(columna, valor);
+                                        //Tradueixo de codi laboratori a id_laboratori abans de inserir-lo al diccionari
+                                        //traduiexo de codi a id_principiactiu
+                                        if(columna == "codi_laboratori")
+                                        {
+                                            String cmd = "SELECT id_laboratori from laboratoris_farmaceutics where codi_laboratori = " + valor;
+                                            valor = conn.resultatComanda(cmd);
+                                            columna = "id_laboratori";
+                                            dict.Add(columna, valor);
+
+                                        } else if (columna != "codi_laboratori"){ dict.Add(columna, valor); }
+
                                         repetit = false;
                                     }
                                 }
@@ -166,8 +171,7 @@ namespace CarregarDades
                                     if (columnes == "") { columnes = @entry.Key; }
                                     else
                                     {
-                                        //traduiexo de codi a id_principiactiu
-                                        columnes += "," + entry.Key;
+                                            columnes += "," + entry.Key;
                                     }
 
                                     if (valors == "")
@@ -201,7 +205,7 @@ namespace CarregarDades
             {
                 try
                 {
-                    if (taula == "medicaments" && !columna.Contains("id_PrincipiActiu")) { }
+                    if (taula == "medicaments" && !columna.Contains("id_PrincipiActiu") || !columna.Contains("registre_nacional")) { }
                     else
                     {
                         var resultSet = conn.executaComanda("INSERT INTO " + taula + "( " + columna + " ) VALUES ( " + valor + " );");
